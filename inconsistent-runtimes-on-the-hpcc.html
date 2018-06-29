@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - Archives</title>
+    <title>Dirk's Home Page - Inconsistent Runtimes on the HPCC</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,79 +57,44 @@
     <div class="row">
 
         <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Inconsistent Runtimes on the HPCC</h1>
+Fri 29 June 2018
 
-<h1>Archives</h1>
-
-<table class="table">
-    <tbody>
-        <tr>
-        <td>29 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/inconsistent-runtimes-on-the-hpcc.html'>Inconsistent Runtimes on the HPCC</a></td>
-        </tr>
-        <tr>
-        <td>28 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/getting-dlvrit-to-work-with-pelican-generated-website.html'>Getting dlvr.it to work with Pelican generated website</a></td>
-        </tr>
-        <tr>
-        <td>27 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/ensure-talk-an-engineers-autobiography.html'>Ensure Talk - An Engineers Autobiography</a></td>
-        </tr>
-        <tr>
-        <td>26 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/commit-early-and-often.html'>Commit Early and Often</a></td>
-        </tr>
-        <tr>
-        <td>10 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/planning-a-new-course.html'>Planning a new Course</a></td>
-        </tr>
-        <tr>
-        <td>06 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/spark-mail.html'>Spark mail</a></td>
-        </tr>
-        <tr>
-        <td>04 Jun 2018</td>
-        <td><a href='//colbrydi.github.io/inverse-problems-seminar.html'>Inverse Problems Seminar</a></td>
-        </tr>
-        <tr>
-        <td>27 May 2018</td>
-        <td><a href='//colbrydi.github.io/farmbot.html'>FarmBot</a></td>
-        </tr>
-        <tr>
-        <td>23 May 2018</td>
-        <td><a href='//colbrydi.github.io/white-noise-and-teaching.html'>White Noise and Teaching</a></td>
-        </tr>
-        <tr>
-        <td>19 May 2018</td>
-        <td><a href='//colbrydi.github.io/jjrobotics.html'>JJRobotics</a></td>
-        </tr>
-        <tr>
-        <td>19 May 2018</td>
-        <td><a href='//colbrydi.github.io/remember-the-milk.html'>Remember the Milk</a></td>
-        </tr>
-        <tr>
-        <td>18 May 2018</td>
-        <td><a href='//colbrydi.github.io/back-to-blogging.html'>Back to Blogging</a></td>
-        </tr>
-        <tr>
-        <td>18 May 2018</td>
-        <td><a href='//colbrydi.github.io/cnc-mill-picking.html'>CNC Mill Picking</a></td>
-        </tr>
-        <tr>
-        <td>18 May 2018</td>
-        <td><a href='//colbrydi.github.io/picking-blog-software.html'>Picking Blog Software</a></td>
-        </tr>
-        <tr>
-        <td>17 May 2018</td>
-        <td><a href='//colbrydi.github.io/jupyter-accessability-project.html'>Jupyter Accessability Project</a></td>
-        </tr>
-        <tr>
-        <td>02 Aug 2017</td>
-        <td><a href='//colbrydi.github.io/aci-ref-talk.html'>ACI-REF Talk</a></td>
-        </tr>
-    </tbody>
-</table>
+by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
 
 
+        </div>
+	
+        <div><p>One of our postdocs stopped by my office today to talk about a problem he is having on our <a href="//icer.msu.edu">HPCC</a>.  This user is running a lot of jobs with 512 cores (current cpu limit is 520).  The problem is that it is really difficult for the user to estimate the walltimes. There is a 2x difference in walltimes on the HPCC.  The code has been tested on other large scale systems with much less variation. The user would prefer more consistent runtimes and did not mind waiting in the queue (although less queue time is better).  </p>
+<p>The problem is that there are many things that can impact the runtime of a job. The HPCC runs at over 95% utilization most of the time so many of the resources are in contention.  Without additional information, my best guess is that the bottleneck is MPI communication over the high speed network. If this is the case, I hypothesize that moving more processes to the same nodes (instead of spread across the cluster) will help reduce network competition with other users and result in more consistent walltimes. Here are some things I suggested the user try:</p>
+<ul>
+<li>Open a ticket with iCER and see if you can set up a consulting appointment. They may be able to get much better idea about what resources are in contention and causing the bottleneck: https://contact.icer.msu.edu/contact</li>
+<li>Add “qstat -f ${PBS_JOBID}” to the end of the jobscript.  This will provide some stats that may help us understand differences between jobs that run fast and slow.   </li>
+<li>Try different core and node ratios (ex. nodes=128:ppn=4, nodes=64:ppn=8, nodes=32:ppn=8 etc.). Although increasing the ppn will likely make queue times longer, i believe the overall runtime will be more consistent.</li>
+<li>Start the process to get DOE and XSEDE allocations.  Create XSEDE Portal account here: https://portal.xsede.org/ and send me your login name when you get it so we can add you to the MSU campus champion account.</li>
+</ul>
+<p>Anyone else have a similar problem?  Other suggestions that I may have missed?</p>
+<p><strong> Dirk </strong></p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Inconsistent Runtimes on the HPCC';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
