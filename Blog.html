@@ -64,8 +64,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="//colbrydi.github.io/managing-inconsistent-runtimes-on-the-hpcc.html"><h1>Managing Inconsistent Runtimes on the HPCC</h1></a>
-Fri 29 June 2018
+            <a href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html"><h1>Installing RStudio on the MSU HPCC</h1></a>
+Fri 06 July 2018
 
 by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -74,19 +74,56 @@ by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. 
  
         </div>
         
-        <div><p>One of our postdocs stopped by my office today to talk about a problem with inconsistant runtimes on our <a href="//icer.msu.edu">HPCC</a>.  This user is running a lot of jobs with 512 cores (current cpu limit is 520).  The problem is that it is really difficult for the user to estimate the walltimes. There is a 2x difference in walltimes on the HPCC.  The code has been tested on other large scale systems with much less variation. The user would prefer more consistent runtimes and did not mind waiting in the queue (although less queue time is better).  </p>
-<p>The problem is that there are many things that can impact the runtime of a job. The HPCC runs at over 95% utilization most of the time so many of the resources are in contention.  Without additional information, my best guess is that the bottleneck is MPI communication over the high speed network. If this is the case, I hypothesize that moving more processes to the same nodes (instead of spread across the cluster) will help reduce network competition with other users and result in more consistent walltimes. Here are some things I suggested the user try:</p>
+        <div><p>These instructions are for installing RStudio on the HPCC. RStudio provides a variety of installers on their website (https://www.rstudio.com/products/rstudio/download2/). However, the HPCC uses an older version of Linux and the precompiled binaries are not compatible.  Trying to install RStudio from the source code is an option but is also difficult due to the large numbers of libraries and compile dependancies.  I basically gave up trying to install RStudio on until I realized that a version is included as an option in Anaconda.  The following instructions show how to install RStudio using Anaconda.</p>
+<h2><strong>Step 0:</strong> Connect to the HPC.</h2>
+<p>Use ssh to connect to the HPCC and make sure you have a working X11 server (ex. MobaXterm on windows or XQuarts on Mac).  More information about X11 can be found here:</p>
 <ul>
-<li>Open a ticket with iCER and see if you can set up a consulting appointment. They may be able to get much better idea about what resources are in contention and causing the bottleneck: <a href="https://contact.icer.msu.edu/contact">https://contact.icer.msu.edu/contact</a></li>
-<li>Add “qstat -f ${PBS_JOBID}” to the end of the jobscript.  This will provide some stats that may help us understand differences between jobs that run fast and slow.   </li>
-<li>Try different core and node ratios (ex. nodes=128:ppn=4, nodes=64:ppn=8, nodes=32:ppn=8 etc.). Although increasing the ppn will likely make queue times longer, i believe the overall runtime will be more consistent.</li>
-<li>Start the process to get DOE and XSEDE allocations.  Create XSEDE Portal account here: <a href="https://portal.xsede.org/">https://portal.xsede.org/</a> and send me your login name when you get it so we can add you to the MSU campus champion account.</li>
+<li><a href="//wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server+on+Windows">Old HPCC Windows instructions</a></li>
+<li><a href="https://wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server++for+Macs">Old HPCC Mac Instructions</a></li>
 </ul>
-<p>Anyone else have a similar problem?  Other suggestions that I may have missed?</p>
-<p><strong> Dirk </strong></p></div>
+<h2><strong>Step 1:</strong> Download the Linux Anaconda installers</h2>
+<p>Find the latest Linux installer on the <a href="//www.anaconda.com/download/#linux">Anaconda website</a>. Right click on the download button for version 3.x and select "Copy Link". Use the <code>wget</code> command on the hpcc to download the script file by typing wget and then pasting the url. For Example:</p>
+<div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+</pre></div>
+
+
+<h2><strong>Step 2:</strong> Install anaconda using the defaults</h2>
+<p>Run the downloaded script in bash using the following command:</p>
+<div class="highlight"><pre><span></span>./bash Anaconda3-5.2.0-Linux-x86_64.sh
+</pre></div>
+
+
+<p>The last question will ask you to add the anaconda folder to your bashrc file. Say yes...</p>
+<h2><strong>Step 3:</strong> Install RStudio</h2>
+<p>Use the conda install command to install RStudio.  Note you may need to run <code>source ~/.bashrc</code> first to update your path:</p>
+<div class="highlight"><pre><span></span>conda install rstudio
+</pre></div>
+
+
+<p>That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:</p>
+<div class="highlight"><pre><span></span>rstudio
+</pre></div></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="//colbrydi.github.io/managing-inconsistent-runtimes-on-the-hpcc.html"><h2>Managing Inconsistent Runtimes on the HPCC</h2></a>
+        <div class= "well small"> Fri 29 June 2018
+
+by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>One of our postdocs stopped by my office today to talk about a problem with inconsistant runtimes on our <a href="//icer.msu.edu">HPCC</a>.  This user is running a lot of jobs with 512 cores (current cpu limit is 520).  The problem is that it is really difficult for the user to estimate the …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/managing-inconsistent-runtimes-on-the-hpcc.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -237,25 +274,6 @@ by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. 
  </div>
         <div class="summary"><p>It can be difficult to be the first student to talk in a quite classroom.  I have been experimenting with the use of white noise to raise the overall din in the room and encourage taking more quickly.</p>
 <p>When I teach I try to encourage peer and group discussions.  Activities …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/white-noise-and-teaching.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="//colbrydi.github.io/jjrobotics.html"><h2>JJRobotics</h2></a>
-        <div class= "well small"> Sat 19 May 2018
-
-by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p>A great purchase for anyone with a 3D printer and looking for projects With the kids.</p>
-<p>About a year ago I stubbled across <a href="//www.jjrobots.com/">JJRobots</a> and I just love the idea of this company.  They sell a kit of electronic parts to maker hobbyists with access to 3D printers.   The idea …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/jjrobotics.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

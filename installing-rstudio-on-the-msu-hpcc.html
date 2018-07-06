@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - Authors</title>
+    <title>Dirk's Home Page - Installing RStudio on the MSU HPCC</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,10 +57,63 @@
     <div class="row">
 
         <div class="span9">
-    <h1>Authors on Dirk's Home Page</h1>
+    <div class='article'>
+        <div class="content-title">
+            <h1>Installing RStudio on the MSU HPCC</h1>
+Fri 06 July 2018
 
-    <ul>        <li><a href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a> (17)</li>
-    </ul>
+by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>These instructions are for installing RStudio on the HPCC. RStudio provides a variety of installers on their website (https://www.rstudio.com/products/rstudio/download2/). However, the HPCC uses an older version of Linux and the precompiled binaries are not compatible.  Trying to install RStudio from the source code is an option but is also difficult due to the large numbers of libraries and compile dependancies.  I basically gave up trying to install RStudio on until I realized that a version is included as an option in Anaconda.  The following instructions show how to install RStudio using Anaconda.</p>
+<h2><strong>Step 0:</strong> Connect to the HPC.</h2>
+<p>Use ssh to connect to the HPCC and make sure you have a working X11 server (ex. MobaXterm on windows or XQuarts on Mac).  More information about X11 can be found here:</p>
+<ul>
+<li><a href="//wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server+on+Windows">Old HPCC Windows instructions</a></li>
+<li><a href="https://wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server++for+Macs">Old HPCC Mac Instructions</a></li>
+</ul>
+<h2><strong>Step 1:</strong> Download the Linux Anaconda installers</h2>
+<p>Find the latest Linux installer on the <a href="//www.anaconda.com/download/#linux">Anaconda website</a>. Right click on the download button for version 3.x and select "Copy Link". Use the <code>wget</code> command on the hpcc to download the script file by typing wget and then pasting the url. For Example:</p>
+<div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+</pre></div>
+
+
+<h2><strong>Step 2:</strong> Install anaconda using the defaults</h2>
+<p>Run the downloaded script in bash using the following command:</p>
+<div class="highlight"><pre><span></span>./bash Anaconda3-5.2.0-Linux-x86_64.sh
+</pre></div>
+
+
+<p>The last question will ask you to add the anaconda folder to your bashrc file. Say yes...</p>
+<h2><strong>Step 3:</strong> Install RStudio</h2>
+<p>Use the conda install command to install RStudio.  Note you may need to run <code>source ~/.bashrc</code> first to update your path:</p>
+<div class="highlight"><pre><span></span>conda install rstudio
+</pre></div>
+
+
+<p>That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:</p>
+<div class="highlight"><pre><span></span>rstudio
+</pre></div></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Installing RStudio on the MSU HPCC';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
