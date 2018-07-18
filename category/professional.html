@@ -64,8 +64,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html"><h1>Installing RStudio on the MSU HPCC</h1></a>
-Fri 06 July 2018
+            <a href="//colbrydi.github.io/pelican-githubio-tutorial.html"><h1>Pelican Github.io Tutorial</h1></a>
+Tue 17 July 2018
 
 by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -74,39 +74,40 @@ by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. 
  
         </div>
         
-        <div><p><img alt="Rstudio" src="//www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-250.png"></p>
-<p>These instructions are for installing RStudio on the HPCC. RStudio provides a variety of installers on their website <a href="https://www.rstudio.com/products/rstudio/download2/">https://www.rstudio.com/products/rstudio/download2/</a>. However, the HPCC uses an older version of Linux and the precompiled binaries are not compatible.  Trying to install RStudio from the source code is an option but is also difficult due to the large numbers of libraries and compile dependancies.  I basically gave up trying to install RStudio on until I realized that a version is included as an option in Anaconda.  The following instructions show how to install RStudio using Anaconda.</p>
-<h2><strong>Step 0:</strong> Connect to the HPC.</h2>
-<p>Use ssh to connect to the HPCC and make sure you have a working X11 server (ex. MobaXterm on windows or XQuarts on Mac).  More information about X11 can be found here:</p>
+        <div><p><img align="right," alt="Pelican Github.io  Logo" hspace="10" src="//docs.google.com/a/msu.edu/drawings/d/slwvmwORPg9obcema4qeYEg/image?parent=e/2PACX-1vRGU8icBbrWq1sHjWR3oDeCjeVVY_xgl2-aq1T3iTFxFMYiBdrv73kwax9A-P4pXXV_Wy6RwVtcG1Cz&amp;rev=6&amp;h=200&amp;w=182&amp;ac=1" width="20%,"></p>
+<p>My student's and I figured out how to use <a href="https://blog.getpelican.com/">Pelican</a> with <a href="https://pages.github.com/">Github.io</a> pages to create some websites for work.  We tried to type up the instructions as a tutorial and build a pelican template.  Here is a link to the tutorial:</p>
+<p><a href="//colbrydi.github.io/msupelican">Pelican / Github.io Tutorial</a></p>
+<p>Some of our websites currently using this method of publishing include:</p>
 <ul>
-<li><a href="//wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server+on+Windows">Old HPCC Windows instructions</a></li>
-<li><a href="https://wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server++for+Macs">Old HPCC Mac Instructions</a></li>
+<li><a href="//colbrydi.github.io">http://colbrydi.github.io</a></li>
+<li><a href="//nolanfeeny.github.io/">http://nolanfeeny.github.io/</a></li>
+<li><a href="//colbrydi.github.io/msupelican">http://colbrydi.github.io/msupelican</a></li>
+<li><a href="//colbrydi.github.io/cyberambassadors">http://colbrydi.github.io/cyberambassadors</a></li>
 </ul>
-<h2><strong>Step 1:</strong> Download the Linux Anaconda installers</h2>
-<p>Find the latest Linux installer on the <a href="//www.anaconda.com/download/#linux">Anaconda website</a>. Right click on the download button for version 3.x and select "Copy Link". Use the <code>wget</code> command on the hpcc to download the script file by typing wget and then pasting the url. For Example:</p>
-<div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
-</pre></div>
-
-
-<h2><strong>Step 2:</strong> Install anaconda using the defaults</h2>
-<p>Run the downloaded script in bash using the following command:</p>
-<div class="highlight"><pre><span></span>bash ./Anaconda3-5.2.0-Linux-x86_64.sh
-</pre></div>
-
-
-<p>The last question will ask you to add the anaconda folder to your bashrc file. Say yes...</p>
-<h2><strong>Step 3:</strong> Install RStudio</h2>
-<p>Use the conda install command to install RStudio.  Note you may need to run <code>source ~/.bashrc</code> first to update your path:</p>
-<div class="highlight"><pre><span></span>conda install rstudio
-</pre></div>
-
-
-<p>That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:</p>
-<div class="highlight"><pre><span></span>rstudio
-</pre></div></div>
+<p>Feel free to comment below (or email me) if you have any questions.</p>
+<p><strong> Dirk </strong></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html"><h2>Installing RStudio on the MSU HPCC</h2></a>
+        <div class= "well small"> Fri 06 July 2018
+
+by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Rstudio" src="//www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-250.png"></p>
+<p>These instructions are for installing RStudio on the HPCC. RStudio provides a variety of installers on their website <a href="https://www.rstudio.com/products/rstudio/download2/">https://www.rstudio.com/products/rstudio/download2/</a>. However, the HPCC uses an older version of Linux and the precompiled binaries are not compatible.  Trying to install RStudio from the source code is …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -216,7 +217,7 @@ by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. 
 
 
  </div>
-        <div class="summary"><p><img align="right" alt="Spark Logo" src="//sparkmailapp.com/img/spark2/common/spark.svg" width="20%,">
+        <div class="summary"><p><img align="right," alt="Spark Logo" hspace="10" src="//sparkmailapp.com/img/spark2/common/spark.svg" width="20%,">
 I am weird that I like email.  It is my preferred form of communication on projects (maybe I am just getting old).  I trust that I will get to my email and that I will not loose things.  I realize that this trust is often not true but it is …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/spark-mail.html">read more</a></div>
     </div>	
 				
@@ -257,24 +258,6 @@ by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. 
  </div>
         <div class="summary"><p>It can be difficult to be the first student to talk in a quite classroom.  I have been experimenting with the use of white noise to raise the overall din in the room and encourage taking more quickly.</p>
 <p>When I teach I try to encourage peer and group discussions.  Activities …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/white-noise-and-teaching.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="//colbrydi.github.io/remember-the-milk.html"><h2>Remember the Milk</h2></a>
-        <div class= "well small"> Sat 19 May 2018
-
-by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p>I have been a paid subscriber and dedicated customer to Remember the Milk (RTM) for many years (I have lost count). RTM is a todo list application. It is in the same category of something like Wonderlist and ToDoist (There are many others). RTM fits my personality and needs quite …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/remember-the-milk.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
