@@ -64,8 +64,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html"><h1>Installing RStudio on the MSU HPCC</h1></a>
-Fri 06 July 2018
+            <a href="//colbrydi.github.io/deciding-which-technologies-to-adopt-and-when.html"><h1>Deciding Which Technologies to Adopt, and When</h1></a>
+Wed 08 August 2018
 
 by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -74,39 +74,34 @@ by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. 
  
         </div>
         
-        <div><p><img alt="Rstudio" src="//www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-250.png"></p>
-<p>These instructions are for installing RStudio on the HPCC. RStudio provides a variety of installers on their website <a href="https://www.rstudio.com/products/rstudio/download2/">https://www.rstudio.com/products/rstudio/download2/</a>. However, the HPCC uses an older version of Linux and the precompiled binaries are not compatible.  Trying to install RStudio from the source code is an option but is also difficult due to the large numbers of libraries and compile dependancies.  I basically gave up trying to install RStudio on until I realized that a version is included as an option in Anaconda.  The following instructions show how to install RStudio using Anaconda.</p>
-<h2><strong>Step 0:</strong> Connect to the HPC.</h2>
-<p>Use ssh to connect to the HPCC and make sure you have a working X11 server (ex. MobaXterm on windows or XQuarts on Mac).  More information about X11 can be found here:</p>
-<ul>
-<li><a href="//wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server+on+Windows">Old HPCC Windows instructions</a></li>
-<li><a href="https://wiki.hpcc.msu.edu/display/hpccdocs/Installing+an+X-server++for+Macs">Old HPCC Mac Instructions</a></li>
-</ul>
-<h2><strong>Step 1:</strong> Download the Linux Anaconda installers</h2>
-<p>Find the latest Linux installer on the <a href="//www.anaconda.com/download/#linux">Anaconda website</a>. Right click on the download button for version 3.x and select "Copy Link". Use the <code>wget</code> command on the hpcc to download the script file by typing wget and then pasting the url. For Example:</p>
-<div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
-</pre></div>
-
-
-<h2><strong>Step 2:</strong> Install anaconda using the defaults</h2>
-<p>Run the downloaded script in bash using the following command:</p>
-<div class="highlight"><pre><span></span>bash ./Anaconda3-5.2.0-Linux-x86_64.sh
-</pre></div>
-
-
-<p>The last question will ask you to add the anaconda folder to your bashrc file. Say yes...</p>
-<h2><strong>Step 3:</strong> Install RStudio</h2>
-<p>Use the conda install command to install RStudio.  Note you may need to run <code>source ~/.bashrc</code> first to update your path:</p>
-<div class="highlight"><pre><span></span>conda install rstudio
-</pre></div>
-
-
-<p>That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:</p>
-<div class="highlight"><pre><span></span>rstudio
-</pre></div></div>
+        <div><p><img align="right," alt="Image used in presentation representing the technology adoption wave" hspace="10" src="images/Wave.jpg" width="30%,"></p>
+<p>I had fun leading a discussion on <strong>Deciding Which Technologies to Adopt, and When</strong> at the <a href="http://www.oscer.ou.edu/acirefvirtres2018.php">2018 ACI-REF Virtual residency</a> event in Norman Oklahoma. Since many of the participants were virtual I experimented with doing a Brainstorming exercise over zoom. We had local volunteers on typing in comments from our local participants and remote participants typing their comments directly into the zoom group chat.  I tried my best to use typical brainstorming techniques and repeat all of the comments so everyone could hear them. This was especially important since remote participates could not hear the local participants.</p>
+<p>See a video of the discussion here:</p>
+<p><a href="">Coming soon</a></p>
+<p>If you are interested, you can find a copy of my slides can be found here:</p>
+<p><a href="//www.oscer.ou.edu/acirefvirtres2018_talk_techadoption_colbry_20180808.pdf">PDF of Slides</a></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html"><h2>Installing RStudio on the MSU HPCC</h2></a>
+        <div class= "well small"> Fri 06 July 2018
+
+by <a class="url fn" href="//colbrydi.github.io/author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Rstudio" src="//www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-250.png"></p>
+<p>These instructions are for installing RStudio on the HPCC. RStudio provides a variety of installers on their website <a href="https://www.rstudio.com/products/rstudio/download2/">https://www.rstudio.com/products/rstudio/download2/</a>. However, the HPCC uses an older version of Linux and the precompiled binaries are not compatible.  Trying to install RStudio from the source code is …</p> <a class="btn btn-info xsmall" href="//colbrydi.github.io/installing-rstudio-on-the-msu-hpcc.html">read more</a></div>
+    </div>	
+				
 
  
         
