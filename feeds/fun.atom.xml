@@ -26,4 +26,632 @@
 &lt;a href="//carbide3d.com/shapeoko/"&gt;Shapeoko&lt;/a&gt;
 &lt;a href="//www.inventables.com/technologies/x-carve/"&gt;X-Carve&lt;/a&gt;
 &lt;a href="//openbuilds.com/?category=cartesian-style-cnc&amp;amp;id=287"&gt;Openbuild community&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I just stumbled across the &lt;a href="//www.maslowcnc.com/"&gt;Maslow&lt;/a&gt; and got really excited. The large format capabilities (4'x8') with the really low price ($350) would leave more than enough in my budget to buy two machines.  In fact, I may be able to buy a Maslow and then use it to make the parts I would need another project like the DiyLilcnc (Although I just realized the kickstart for that is relly old 2011).  There are probably other projects.&lt;/p&gt;</content><category term="Maker"></category><category term="CNC"></category></entry></feed>
+&lt;p&gt;I just stumbled across the &lt;a href="//www.maslowcnc.com/"&gt;Maslow&lt;/a&gt; and got really excited. The large format capabilities (4'x8') with the really low price ($350) would leave more than enough in my budget to buy two machines.  In fact, I may be able to buy a Maslow and then use it to make the parts I would need another project like the DiyLilcnc (Although I just realized the kickstart for that is relly old 2011).  There are probably other projects.&lt;/p&gt;</content><category term="Maker"></category><category term="CNC"></category></entry><entry><title>Intrducing a 3D printer to my daughter's Kindergarten class</title><link href="//colbrydi.github.io/intrducing-a-3d-printer-to-my-daughters-kindergarten-class.html" rel="alternate"></link><published>2015-05-09T00:00:00-04:00</published><updated>2015-05-09T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2015-05-09:/intrducing-a-3d-printer-to-my-daughters-kindergarten-class.html</id><summary type="html">&lt;p&gt;We had fun showing off my 3D printer to the Kindergarten class.  Although the
+printer is fun to watch, kids tend to get board with it in just a few minutes.
+I like to come up with classroom projects that let the kids use things that
+are printed with the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;We had fun showing off my 3D printer to the Kindergarten class.  Although the
+printer is fun to watch, kids tend to get board with it in just a few minutes.
+I like to come up with classroom projects that let the kids use things that
+are printed with the printer. Since it is so cheep it is also fun to print
+something ahead of time that they can take home.  &lt;/p&gt;
+&lt;p&gt;For the kindergarten class we printed some flowers that the kids could use to
+put together a cut spring  time flower pots just in time for mother's day:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/Photo%2BMay%2B09%2C%2B3%2B04%2B38%2BPM.jpg"&gt;&lt;img alt="" src="./images/Photo%2BMay%2B09%2C%2B3%2B04%2B38%2BPM.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It even lights up:&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/Photo%2BMay%2B09%2C%2B3%2B04%2B45%2BPM.jpg"&gt;&lt;img alt="" src="./images/Photo%2BMay%2B09%2C%2B3%2B04%2B45%2BPM.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The kids had a great time. Here are some pictures  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/Photo%2BMay%2B06%2C%2B1%2B52%2B01%2BPM.jpg"&gt;&lt;img alt="" src="./images/Photo%2BMay%2B06%2C%2B1%2B52%2B01%2BPM.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/Photo%2BMay%2B06%2C%2B1%2B52%2B16%2BPM.jpg"&gt;&lt;img alt="" src="./images/Photo%2BMay%2B06%2C%2B1%2B52%2B16%2BPM.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/Photo%2BMay%2B06%2C%2B1%2B52%2B39%2BPM.jpg"&gt;&lt;img alt="" src="./images/Photo%2BMay%2B06%2C%2B1%2B52%2B39%2BPM.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/Photo%2BMay%2B06%2C%2B1%2B03%2B20%2BPM.jpg"&gt;&lt;img alt="" src="./images/Photo%2BMay%2B06%2C%2B1%2B03%2B20%2BPM.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Turned out to be a lot of fun.  If you are interested in makeing your own here
+is a list of instructions on Instructables:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.instructables.com/id/Spring-kindergarten-Class-Project-with-3D-Printer/"&gt;http://www.instructables.com/id/Spring-kindergarten-Class-Project-with-3D-Printer/&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;And the 3D files on YouMagine:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youmagine.com/designs/light-up-flower"&gt;https://www.youmagine.com/designs/light-up-flower&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2015/05/showing-off-3d-printer-to-daughters.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Electric box extender</title><link href="//colbrydi.github.io/electric-box-extender.html" rel="alternate"></link><published>2015-05-02T00:00:00-04:00</published><updated>2015-05-02T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2015-05-02:/electric-box-extender.html</id><summary type="html">&lt;p&gt;I have been having trouble with my 3D printer over the last couple of months.
+It turns out that the fans got disconnected. Once I fixed the problem my
+printer is working better than ever. I was itching for something to print so I
+came up with this simple spacer …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have been having trouble with my 3D printer over the last couple of months.
+It turns out that the fans got disconnected. Once I fixed the problem my
+printer is working better than ever. I was itching for something to print so I
+came up with this simple spacer.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--470762115.jpg"&gt;&lt;img alt="" src="./images/blogger-image--470762115.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I installed a motion sensor in my basement because the light switch is in an
+inconvenient place and most of the time we go in this part of the basement my
+hands seem to be full. The motion sensor fixes this problem and even found a
+outlet plate on thingiverse that fit perfectly.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:457658"&gt;http://www.thingiverse.com/thing:457658&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The only problem is that the installed switch box is too small for the new
+sensor and my printed play sticks out a good 15 mm from the box.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/blogger-image-2136501427.jpg"&gt;&lt;img alt="" src="./images/blogger-image-2136501427.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A few minutes with OpenScad and a two hour print later I have a nice looking
+solution.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--906009313.jpg"&gt;&lt;img alt="" src="./images/blogger-image--906009313.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is a link to the OpenSCAD file if you are interested in printing your
+own:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youmagine.com/designs/wall-switch-spacer"&gt;https://www.youmagine.com/designs/wall-switch-spacer&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Easy and fun! Nice to have my printer back!&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2015/05/electric-box-extender.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Ultimaker 2, cleaning a clogged nozzle</title><link href="//colbrydi.github.io/ultimaker-2-cleaning-a-clogged-nozzle.html" rel="alternate"></link><published>2015-05-02T00:00:00-04:00</published><updated>2015-05-02T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2015-05-02:/ultimaker-2-cleaning-a-clogged-nozzle.html</id><summary type="html">&lt;p&gt;So my Ultimaker2 extruding head got clogged, really bad.  Something got jammed
+while printing and I could not get the filament to feed.  This had happened
+once in the past when I tried using some really cheap filament but I am not
+sure the real root of the problem this …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So my Ultimaker2 extruding head got clogged, really bad.  Something got jammed
+while printing and I could not get the filament to feed.  This had happened
+once in the past when I tried using some really cheap filament but I am not
+sure the real root of the problem this time.  In any case, I found using the
+"atomic" method for getting a clean nozzle. This method is named after
+MostlyAtomicBob who described the method for the first time in the following
+post:&lt;/p&gt;
+&lt;p&gt;http://umforum.ultimaker.com/index.php?/topic/3561-ultimaker-2-extruder-
+nozzle-blocked/#entry28940&lt;/p&gt;
+&lt;p&gt;Here is a summary of the steps that I used:&lt;/p&gt;
+&lt;p&gt;1) Remove the boden tube from the printer head&lt;/p&gt;
+&lt;p&gt;2) Heat up the head to full temperature (around 210 degrees)&lt;/p&gt;
+&lt;p&gt;3) Push in a piece of spare filament until I can no longer push or it starts
+coming out the end.&lt;/p&gt;
+&lt;p&gt;4) Reduce temperature to around 90 degrees. Filament should solidify but stay
+a little soft.&lt;/p&gt;
+&lt;p&gt;5) Pull the filament out of the print head.&lt;/p&gt;
+&lt;p&gt;6) Repeat steps 2-5 until I get completely clean filament&lt;/p&gt;
+&lt;p&gt;You can see the result of my cleaning in the picture below. The pieces are a
+little backward and ordered from right to left.  Note the really dark char
+slowly going away and the pieces getting longer as they nest better and better
+in the print head.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/IMG_2048.jpg"&gt;&lt;img alt="" src="./images/IMG_2048.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is the same procedure when it clogged a second time. This time I
+remembered to order them from left to right.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-193838586.jpg"&gt;&lt;img alt="" src="./images/blogger-image-193838586.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/12/ultimaker-2-cleaning-clogged-nozzle.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>April 1st Brownies</title><link href="//colbrydi.github.io/april-1st-brownies.html" rel="alternate"></link><published>2015-04-03T00:00:00-04:00</published><updated>2015-04-03T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2015-04-03:/april-1st-brownies.html</id><summary type="html">&lt;p&gt;An oldie but a goodie with a modern twist. This year I printed out the letter
+E on my 3D printer using Brown PLA plastic.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--2074689448.jpg"&gt;&lt;img alt="" src="./images/blogger-image--2074689448.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then I put the Brown E's in a baking pan:&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--458341699.jpg"&gt;&lt;img alt="" src="./images/blogger-image--458341699.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Cover with aluminum foil and tell the kids I made brownies for them.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1911830558.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1911830558.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The were …&lt;/p&gt;</summary><content type="html">&lt;p&gt;An oldie but a goodie with a modern twist. This year I printed out the letter
+E on my 3D printer using Brown PLA plastic.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--2074689448.jpg"&gt;&lt;img alt="" src="./images/blogger-image--2074689448.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then I put the Brown E's in a baking pan:&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--458341699.jpg"&gt;&lt;img alt="" src="./images/blogger-image--458341699.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Cover with aluminum foil and tell the kids I made brownies for them.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1911830558.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1911830558.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The were a little disappointed but then quickly got into the spirit of the day
+and played the same joke on their mom and nanny.  I even took some "sugar
+free" brownies into the dentist with me and gave some to my brother and his
+house mates.  &lt;/p&gt;
+&lt;p&gt;Happy April fools day.&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2015/04/april-1st-brownies.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>3D Cookie Cutter app comparison</title><link href="//colbrydi.github.io/3d-cookie-cutter-app-comparison.html" rel="alternate"></link><published>2014-12-25T00:00:00-05:00</published><updated>2014-12-25T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-12-25:/3d-cookie-cutter-app-comparison.html</id><summary type="html">&lt;p&gt;My oldest daughter is in her second year of Brownies.  My wife and I
+volunteered to lead a couple of their meetings with a maker theme.  I thought
+the 3D printer is always a hit and what better project for girl scouts than
+cookies (yes I realize this is cliche …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My oldest daughter is in her second year of Brownies.  My wife and I
+volunteered to lead a couple of their meetings with a maker theme.  I thought
+the 3D printer is always a hit and what better project for girl scouts than
+cookies (yes I realize this is cliche but it is still fun).  I did some
+searching on the internet and came up with a variety of ways the girl scouts
+could design cookie cutters.  However, I had a checklist of desires and none
+of them quite made the "cut" (I will stop now).  Here is what I was looking
+for:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An option to upload and trace a picture. This is necessary because I do not have enough computers for the group. I saw a similar activity at the Detroit Maker Faire and I thought hand drawn images would be more natural.&lt;/li&gt;
+&lt;li&gt;Ability to add both internal and external features on the cookies. What I would really like is two layers so the cutters could imprint on the cookie as well as cut through the cookie. &lt;/li&gt;
+&lt;li&gt;Ideally an online app so I do not have to download anything.  &lt;/li&gt;
+&lt;li&gt;Obviously an easy way to output stl files I could use with my printer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;CookieCaster:&lt;/strong&gt;&lt;a href="http://www.cookiecaster.com/#editor"&gt;http://www.cookiecaster.com/#editor&lt;/a&gt;&lt;br&gt;
+Online app for drawing outline of cookie cutters.  This makes for a fun group
+project because you can scan and upload hand drawings into the editor and
+trace them.  The downside is that this editor only does a cookie outline and
+not the insides. Here is an example we did:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/CookieCaster_screen.tiff"&gt;&lt;img alt="" src="./images/CookieCaster_screen.tiff"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cookie Cutter Editor:&lt;/strong&gt; &lt;a href="http://www.local-guru.net/blog/pages/cookiecutter-editor"&gt;http://www.local-guru.net/blog/pages/cookiecutter-editor&lt;/a&gt;&lt;br&gt;
+Downloadable cookie cutter editor. Uses a programming language called
+processing (written in java).  I could not get the MacOS stand alone version
+to work so I tried to download processing and run the source directly.  Still
+was missing some libraries so I gave up on it.  Looking at the examples I do
+not think it would work much better than CookieCaster and could not get any of
+the internal details I wanted anyway.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thingiverse:&lt;/strong&gt;&lt;a href="http://www.thingiverse.com/apps/customizer/run?thing_id=116042&amp;amp;code=2633da7762519236fd52412f6c8bf143"&gt;http://www.thingiverse.com/apps/customizer/run?thing_id=116042&amp;amp;code=2633da7762519236fd52412f6c8bf143&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Thingiverse has one of their customizable apps.  This one was really nice
+because it could do some internal details. Seems to only have one height but
+having details is better than the other two.  However, this app also only had
+an option for online editing and no way to upload a picture.  It was also a
+difficult interface to master.  For example, it does not handle overlapping
+editing very well and was particularly hard to get right with my laptop's
+touchpad.  Here is an examples we made:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/apps/customizer/run?thing_id=116042"&gt;http://www.thingiverse.com/apps/customizer/run?thing_id=116042&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Although none of the apps seem like they would work, none of them really fit
+all of my criteria.  I am going to have the girl scouts use Cookie Caster
+since it is the one that works with pictures. Please stay tuned for future
+blog posts with details highlights from the girl scout projects.  &lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/12/3d-cookie-cutter-app-comparison.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Fairy House</title><link href="//colbrydi.github.io/fairy-house.html" rel="alternate"></link><published>2014-11-28T00:00:00-05:00</published><updated>2014-11-28T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-11-28:/fairy-house.html</id><summary type="html">&lt;p&gt;Over the summer we spent some time up at our Aunt and Uncle's cottage.  Kids
+were picking up a lot of nature detritus to "keep" and my wife got the idea to
+make a Fairy House.  Turned out to be a really fun project.  I particularly
+like the paper lantern …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Over the summer we spent some time up at our Aunt and Uncle's cottage.  Kids
+were picking up a lot of nature detritus to "keep" and my wife got the idea to
+make a Fairy House.  Turned out to be a really fun project.  I particularly
+like the paper lantern made from an old hornet's nest and the ladder.  The
+trick seems to be start with the big stuff and keep filling in the details
+until it looked right.  &lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/DSC_6664.JPG"&gt;&lt;img alt="" src="./images/DSC_6664.JPG"&gt;&lt;/a&gt;&lt;a href="./images/DSC_6675.JPG"&gt;&lt;img alt="" src="./images/DSC_6675.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/DSC_6680.JPG"&gt;&lt;img alt="" src="./images/DSC_6680.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/DSC_6645.JPG"&gt;&lt;img alt="" src="./images/DSC_6645.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/DSC_6682.JPG"&gt;&lt;img alt="" src="./images/DSC_6682.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/11/fairy-house.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Learning to use a sewing and embroidering machine</title><link href="//colbrydi.github.io/learning-to-use-a-sewing-and-embroidering-machine.html" rel="alternate"></link><published>2014-11-28T00:00:00-05:00</published><updated>2014-11-28T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-11-28:/learning-to-use-a-sewing-and-embroidering-machine.html</id><summary type="html">&lt;p&gt;We are trying to turn our basement into a mini makerspace for the kids.  Quite
+a few years ago my wife bought a fancy sewing machine that does embroidery
+which I thought would make a fun addition.  My eldest daughter and I got
+playing with the machine and it is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;We are trying to turn our basement into a mini makerspace for the kids.  Quite
+a few years ago my wife bought a fancy sewing machine that does embroidery
+which I thought would make a fun addition.  My eldest daughter and I got
+playing with the machine and it is quite amazing.  In no time at all we were
+able to embroider a bow and make a cute little pillow.  I look forward to
+seeing what we will make next time.&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-206748741.jpg"&gt;&lt;img alt="" src="./images/blogger-image-206748741.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1769496472.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1769496472.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-967993881.jpg"&gt;&lt;img alt="" src="./images/blogger-image-967993881.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/11/learning-to-use-sewing-and-embroidering.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Lithophanes</title><link href="//colbrydi.github.io/lithophanes.html" rel="alternate"></link><published>2014-11-28T00:00:00-05:00</published><updated>2014-11-28T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-11-28:/lithophanes.html</id><summary type="html">&lt;p&gt;I saw my first 3D printer when I was visiting the University of Notre Dame.
+It was over 10 years ago, it was fairly expensive to operate and it printed in
+a kind of expensive wax.  &lt;/p&gt;
+&lt;p&gt;Anyway, this was the first time I saw a lithophane.  It was a picture …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I saw my first 3D printer when I was visiting the University of Notre Dame.
+It was over 10 years ago, it was fairly expensive to operate and it printed in
+a kind of expensive wax.  &lt;/p&gt;
+&lt;p&gt;Anyway, this was the first time I saw a lithophane.  It was a picture of
+Marilyn Monroe that just popped out if you held it so up to a light so that it
+is backlit.  It was just so cool that I really wanted to make some Lithophanes
+when I got my 3D printer.  &lt;/p&gt;
+&lt;p&gt;Once I finally found some time I did some research and there were a few
+programs on the web which would make lithophanes for me.  &lt;/p&gt;
+&lt;p&gt;http://maker.dongguk.edu/webclient/cylinder_litho_index.html&lt;br&gt;
+http://www.thingiverse.com/thing:74322  &lt;/p&gt;
+&lt;p&gt;I tried a few but nothing excited me so I just wrote one myself.   I am very
+pleased with the results:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/il_570xN.666710307_cq47.jpg"&gt;&lt;img alt="" src="./images/il_570xN.666710307_cq47.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you just want a lithophane, we added them to my wife's etsy store:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.etsy.com/shop/familyheART"&gt;https://www.etsy.com/shop/familyheART&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;If you already have a printer I am happy to send you the MATLAB code to
+generate these for yourself.  However, I must warn you that it is not very
+robust and I am reluctant to post it until I can add a bunch of error checking
+and a little better user interface.  It's also written in MATLAB, ideally I
+would like to change to something like Python but I am just quicker working
+with MATLAB.&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/11/lithophanes.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Snowflake Lithophane</title><link href="//colbrydi.github.io/snowflake-lithophane.html" rel="alternate"></link><published>2014-11-28T00:00:00-05:00</published><updated>2014-11-28T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-11-28:/snowflake-lithophane.html</id><summary type="html">&lt;p&gt;There is something magical about looking at a lithophane.  I like handing them
+to people with the light coming from the front.  Most of the time they are
+polite and say, "that's nice."  Then I have them hold the lithophane to let
+the light come in from the back and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;There is something magical about looking at a lithophane.  I like handing them
+to people with the light coming from the front.  Most of the time they are
+polite and say, "that's nice."  Then I have them hold the lithophane to let
+the light come in from the back and the image pops out.  "Wow," "cool" they
+say and the expressions on their faces are ones of awe and surprise.  &lt;/p&gt;
+&lt;p&gt;For christmas this year, my wife came up with the idea of putting a picture of
+the kids inside of a lithophane inside of a 3D printed snowflake.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/il_570xN.688476899_eapl.jpg"&gt;&lt;img alt="" src="./images/il_570xN.688476899_eapl.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Took a while to figure out but got much easier when I found an openscad
+program to generate snowflakes I found on Thingiverse:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:74322"&gt;http://www.thingiverse.com/thing:74322&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;I picked a random seed that fit well with my idea and then I tried importing
+my the stl file from my lithophane program.  I could not quite git it to work.
+So, instead I decided to make the print in two parts and glue them together. I
+did some minor modifications to the openscad file add an area for the
+lithophane, the hole for a ribbon and in latter modifications a way to add the
+year:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Snowflake.png"&gt;&lt;img alt="" src="./images/Snowflake.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can download the stl file for the frame on youmagine:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youmagine.com/designs/snowflake-ornament-frame"&gt;https://www.youmagine.com/designs/snowflake-ornament-frame&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now I just print the lithophane separate from the frame and it turns out quite
+well.  Here is a video:&lt;/p&gt;
+&lt;p&gt;I am happy to share any of the code or you can just upload a photo and order
+one of these on our etsy store:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.etsy.com/shop/familyheART"&gt;https://www.etsy.com/shop/familyheART&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;I wife has challenged me to do something similar with a heart for valentines
+day.  That should be fun.  &lt;/p&gt;
+&lt;p&gt;- Dirk  &lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/11/snowflake-lithophane.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Fish Tank Kids Coat Rack</title><link href="//colbrydi.github.io/fish-tank-kids-coat-rack.html" rel="alternate"></link><published>2014-09-01T00:00:00-04:00</published><updated>2014-09-01T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-09-01:/fish-tank-kids-coat-rack.html</id><summary type="html">&lt;p&gt;This one was a lot of fun.  We have a coat area down by the back door landing.
+I used those plastic hooks with the special double sided tape that allows you
+to remove the hooks without damaging the wall.  Unfortunate, the kids managed
+to pull the hooks off taking …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This one was a lot of fun.  We have a coat area down by the back door landing.
+I used those plastic hooks with the special double sided tape that allows you
+to remove the hooks without damaging the wall.  Unfortunate, the kids managed
+to pull the hooks off taking some paint and drywall with them.  &lt;/p&gt;
+&lt;p&gt;Anyway my plan was to print put some new hooks using my 3D printer.  I thought
+this would be the "cheap" way to  go.  I let my imagination get away with me
+and ended up with something a little more expensive but also something unique.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--608522330.jpg"&gt;&lt;img alt="" src="./images/blogger-image--608522330.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The design is quite simple and consists of two hooks I found on thingiverse; a
+fish:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:242736"&gt;http://www.thingiverse.com/thing:242736&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--674318040.jpg"&gt;&lt;img alt="" src="./images/blogger-image--674318040.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And a round hook or bubble:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:52764"&gt;http://www.thingiverse.com/thing:52764&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-627755271.jpg"&gt;&lt;img alt="" src="./images/blogger-image-627755271.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The overall affect is a fish tank with a bunch of fish skeletons swimming
+around.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1257835475.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1257835475.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The design is a little odd bit visually appealing and has a ton of places for
+the kids to hand stuff.&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/09/fish-rank-kids-coat-rack.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Vacation fort</title><link href="//colbrydi.github.io/vacation-fort.html" rel="alternate"></link><published>2014-08-04T00:00:00-04:00</published><updated>2014-08-04T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-08-04:/vacation-fort.html</id><summary type="html">&lt;p&gt;We are spending time with the kids at our aunt and uncle's cabin in northern
+Michigan.  This is an old hunting cabin but it is not exactly roughing it.
+There is air conditioning and internet.  &lt;/p&gt;
+&lt;p&gt;I am worried that the kids are spending too much time inside on the devices …&lt;/p&gt;</summary><content type="html">&lt;p&gt;We are spending time with the kids at our aunt and uncle's cabin in northern
+Michigan.  This is an old hunting cabin but it is not exactly roughing it.
+There is air conditioning and internet.  &lt;/p&gt;
+&lt;p&gt;I am worried that the kids are spending too much time inside on the devices.
+At some point yestuday I banned the devices and told my eldest to go out and
+build a fort:&lt;/p&gt;
+&lt;h2&gt;&lt;a href="../images/blogger-image-559300753.jpg"&gt;&lt;img alt="" src="./images/blogger-image-559300753.jpg"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;She found some old ladders ready for the burn pile and built from there.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1964742467.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1964742467.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The fort turned out really well.  It is surprisingly strong and all of the
+kids are proud of what they built.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--1836650834.jpg"&gt;&lt;img alt="" src="./images/blogger-image--1836650834.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-988089399.jpg"&gt;&lt;img alt="" src="./images/blogger-image-988089399.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It is also a fun place to picknick lunch out of the hot afternoon sun.  &lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/08/vacation-fort.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>BackBlog - Teleporter video</title><link href="//colbrydi.github.io/backblog-teleporter-video.html" rel="alternate"></link><published>2014-07-19T00:00:00-04:00</published><updated>2014-07-19T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-07-19:/backblog-teleporter-video.html</id><summary type="html">&lt;p&gt;We through a Star Trek themed surprise party for my wife and I thought it
+would be fun to see if I could make a transporter effect.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_0858.JPG"&gt;&lt;img alt="" src="./images/small_DSC_0858.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To start we took two pictures, one with everyone in an away team formation and
+one with just the background  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_0859.JPG"&gt;&lt;img alt="" src="./images/small_DSC_0859.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I then wrote …&lt;/p&gt;</summary><content type="html">&lt;p&gt;We through a Star Trek themed surprise party for my wife and I thought it
+would be fun to see if I could make a transporter effect.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_0858.JPG"&gt;&lt;img alt="" src="./images/small_DSC_0858.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To start we took two pictures, one with everyone in an away team formation and
+one with just the background  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_0859.JPG"&gt;&lt;img alt="" src="./images/small_DSC_0859.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I then wrote a simple program to add the two images together using a weighted
+sum.  This technique looked okay but I also wanted some noise.  I used the
+matlab imnoise function to create some sparkles. Inicially just a few, grow to
+a lot about halfway and then disparate as the people materialize.  &lt;/p&gt;
+&lt;p&gt;The trick is to get the speckles to only appear where there are people.  I
+could have tried some clever image subtraction trick to find the region that
+changed but it was just as quick for me to use GIMP to cut the people out and
+make a simple flag array using the following Matlab code.  I had to also use
+GIMP to paint over any white spots in the image. Fortunately for my image
+there was very little white. I ended up with the following (I guess I could
+also have just select the white and set everything else to black).  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_flag.JPG"&gt;&lt;img alt="" src="./images/small_flag.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now, potting All the components together and looping from 0 to 100 I was able
+to create a directory of images that I wanted and stitched the images together
+using ffmpeg.  &lt;/p&gt;
+&lt;p&gt;To top it off,  I found a transporter like sound on the net and used my copy
+of Camtacia (&lt;a href="http://www.techsmith.com/camtasia.html"&gt;http://www.techsmith.com/camtasia.html&lt;/a&gt;)  to put the audio and
+video together.&lt;br&gt;
+Here is my final product:  &lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/07/backblog-teleporter-video.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Bug bots</title><link href="//colbrydi.github.io/bug-bots.html" rel="alternate"></link><published>2014-07-19T00:00:00-04:00</published><updated>2014-07-19T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-07-19:/bug-bots.html</id><summary type="html">&lt;p&gt;I like the simple fun of bushbots; little robots, typically made with
+toothbrush heads, that use a cell phone vibrating motor to scoot around a
+table (you can buy kits here: &lt;a href="http://www.makershed.com/products/brushbots"&gt;http://www.makershed.com/products/brushbots&lt;/a&gt;).
+I decided that this would be a great project for me to do …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I like the simple fun of bushbots; little robots, typically made with
+toothbrush heads, that use a cell phone vibrating motor to scoot around a
+table (you can buy kits here: &lt;a href="http://www.makershed.com/products/brushbots"&gt;http://www.makershed.com/products/brushbots&lt;/a&gt;).
+I decided that this would be a great project for me to do with my kids.  Step
+one was to find the parts.  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Cell phone motors (pack of 50). &lt;/li&gt;
+&lt;li&gt;Batteries. Large pack ordered on amazon: &lt;a href="http://amzn.com/B0043SAFK0"&gt;http://amzn.com/B0043SAFK0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Glue&lt;/li&gt;
+&lt;li&gt;Double sided tape&lt;/li&gt;
+&lt;li&gt;Toothbrushes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Between the motors and batteries, the price per brushbot was getting
+expensive.  So Instead of buying a bunch of toothbrushes I decided to see if I
+could print the body instead.  I came across the following design on
+thingiverse that did exactly what I wanted:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:68968"&gt;http://www.thingiverse.com/thing:68968&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I ended up using only the "legs" and the body.  I also think it was also
+better to assemble the body upside down. In any case, I was able to print out
+these three parts and just let the kids assemble them using superglue:&lt;/p&gt;
+&lt;p&gt;!](../images/blogger-image--1230627461.jpg](./images/blogger-image--1230627461.jpg)](../images/blogger-image--1230627461.jpg!](../images/blogger-image--1230627461.jpg](./images/blogger-image-1497897705.jpg)](../images/blogger-image-1497897705.jpg)!](../images/blogger-image--1230627461.jpg](./images/blogger-image-1759121257.jpg)](../images/blogger-image-1759121257.jpg) and
+remove the sticker cover on the motor to stick it to the "bug".  &lt;/p&gt;
+&lt;p&gt;](../images/blogger-image--1230627461.jpg!](../images/blogger-image--1230627461.jpg](./images/blogger-image-1701867005.jpg)](../images/blogger-image-1701867005.jpg)&lt;/p&gt;
+&lt;p&gt;Add small pieces of double sided tape and lay down one of the wires on the
+tape. Then have the kids stick the battery on top of the tape and use a second
+piece of tape to secure the top wire.&lt;/p&gt;
+&lt;p&gt;!](../images/blogger-image--1230627461.jpg](./images/blogger-image-714541735.jpg)](../images/blogger-image-714541735.jpg!](../images/blogger-image--1230627461.jpg](./images/blogger-image-1543028749.jpg)&lt;/p&gt;
+&lt;p&gt;Overall this activity was easily complete in 15 minutes and the kids had
+something to take home with them.  Special thanks to
+](../images/blogger-image--1230627461.jpgekaggrat](http://www.thingiverse.com/ekaggrat/overview) at thingiverse for
+posting his 3D designs which made this project possible.  &lt;/p&gt;
+&lt;p&gt;- Dirk  &lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/07/bug-bots.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Coffee table drawer</title><link href="//colbrydi.github.io/coffee-table-drawer.html" rel="alternate"></link><published>2014-07-19T00:00:00-04:00</published><updated>2014-07-19T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-07-19:/coffee-table-drawer.html</id><summary type="html">&lt;p&gt;&lt;a href="https://lh3.googleusercontent.com/-l_ZWXvKvKq0/U8rPgSLHSwI/AAAAAAAAC3E/HCGGQf68jo4/s640/blogger-
+image-676460031.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://lh3.googleusercontent.com/-l_ZWXvKvKq0/U8rPgSLHSwI/AAAAAAAAC3E/HCGGQf68jo4/s640/blogger-
+image-676460031.jpg"&gt;&lt;/a&gt;&lt;a href="https://lh5.googleusercontent.com/-wvPyGQ8cWk0/U8rPhQtRyQI/AAAAAAAAC3M/J9N6D2fVY9s/s640/blogger-
+image-1119305401.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The kids have really done a number on our living room coffee table.  The top
+has been "distressed"  by biting, thrown toys and lots of drumming.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1898114810.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1898114810.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The drawers have also been used as steps to get up on top of the table.  Most
+of the hardware components have broken under …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://lh3.googleusercontent.com/-l_ZWXvKvKq0/U8rPgSLHSwI/AAAAAAAAC3E/HCGGQf68jo4/s640/blogger-
+image-676460031.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://lh3.googleusercontent.com/-l_ZWXvKvKq0/U8rPgSLHSwI/AAAAAAAAC3E/HCGGQf68jo4/s640/blogger-
+image-676460031.jpg"&gt;&lt;/a&gt;&lt;a href="https://lh5.googleusercontent.com/-wvPyGQ8cWk0/U8rPhQtRyQI/AAAAAAAAC3M/J9N6D2fVY9s/s640/blogger-
+image-1119305401.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The kids have really done a number on our living room coffee table.  The top
+has been "distressed"  by biting, thrown toys and lots of drumming.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1898114810.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1898114810.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The drawers have also been used as steps to get up on top of the table.  Most
+of the hardware components have broken under this level of used.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-676460031.jpg"&gt;&lt;img alt="" src="./images/blogger-image-676460031.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I decided that this would be a fun project for my 3D printer.  There are a lot
+of drawer guides in thingiverse. I downloaded a few drawer guild stl files but
+none of them really fit my dawers:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:250839"&gt;http://www.thingiverse.com/thing:250839&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:39023"&gt;http://www.thingiverse.com/thing:39023&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I ended up having to design my own using a pair of calipers and OpenScad.  I
+think they turned out great:&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Drawer_guild.png"&gt;&lt;img alt="" src="./images/Drawer_guild.png"&gt;&lt;/a&gt;&lt;a href="../images/blogger-image-543254614.jpg"&gt;&lt;img alt="" src="./images/blogger-image-543254614.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also replaced 3 of the four drawer stops using another design developed in
+OpenScad:&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/DrawerStop.png"&gt;&lt;img alt="" src="./images/DrawerStop.png"&gt;&lt;/a&gt;&lt;a href="../images/blogger-image-1595648182.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1595648182.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the flat part was printed I put it in a warm pan on the stove to soften
+the plastic a little so I could put an appropriate bend in it. Here is a link
+to my files if you are interested in working with them:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/colbrydi/3D-Drawer"&gt;https://github.com/colbrydi/3D-Drawer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also posted them on YouMagine.org&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youmagine.com/designs/coffee-table-drawer-guild-and-stopper"&gt;https://www.youmagine.com/designs/coffee-table-drawer-guild-and-stopper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Overall, I am happy with the results.  And I am comforted in knowing that I
+can replace the parts again if the kids get destructive again.&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/07/coffee-table-drawer.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Gears with logos</title><link href="//colbrydi.github.io/gears-with-logos.html" rel="alternate"></link><published>2014-06-22T00:00:00-04:00</published><updated>2014-06-22T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-06-22:/gears-with-logos.html</id><summary type="html">&lt;p&gt;The theme for the kids VBS (Vacation Bible School) this year is "Workshop of
+Wonders" by &lt;a href="http://2014.cokesburyvbs.com/"&gt;Cokesbury&lt;/a&gt;.  I participate every
+year with my kids but was extremely enthusiastic that the theme this year was
+for makers so my goal is to show off the 3D printer and make some things …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The theme for the kids VBS (Vacation Bible School) this year is "Workshop of
+Wonders" by &lt;a href="http://2014.cokesburyvbs.com/"&gt;Cokesbury&lt;/a&gt;.  I participate every
+year with my kids but was extremely enthusiastic that the theme this year was
+for makers so my goal is to show off the 3D printer and make some things for
+the 50 or so kid participants.  It's no fun watching a 3D printer without
+having something to touch and even take home.  However, I am fairly new to 3D
+print design so this was only my second endeavor to design something of my
+own.  &lt;/p&gt;
+&lt;p&gt;I was trying to think of a project where each student would get a gismo to
+take home but we could put them all together to build something as a group.
+This fit in with the theme quite nicely however most of my ideas were a little
+too complex to get off the ground.  &lt;/p&gt;
+&lt;p&gt;I finally settled on building gears with logos and holes on one end so they
+could attach them to their backpacks.  I thought I could assemble all of the
+gears together to make one big machine the kids could play with that all
+worked together.  With this plan in mind I searched though thingiverse and
+youmagin for some designs I could use as a starting point.  I was really
+excited when I found this one by &lt;a href="http://www.thingiverse.com/thing:40410"&gt;http://www.thingiverse.com/thing:40410&lt;/a&gt; that
+can be used to make gears that fit into Lego technics. I have a ton of lego
+technics and I really liked the idea that the motivated students to integrate
+their gear with their own legos.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--1703746521.jpg"&gt;&lt;img alt="" src="./images/blogger-image--1703746521.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After some iteration, I ultimately ended up doing is importing the images into
+Inkscape and converting them to a dfx file which is a vector map using
+instructions I found on a couple of website. Here is an example image I loaded
+into Inkscape  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/icer.png"&gt;&lt;img alt="" src="./images/icer.png"&gt;&lt;/a&gt;
+&lt;a href="../images/example-dfx-gear.png"&gt;&lt;img alt="" src="./images/example-dfx-gear.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Using this technique I was able to make a variety of gears and they worked
+well with lego. Here is a video of one of the gears working with my old first
+generation mindstorm:  &lt;/p&gt;
+&lt;p&gt;This turned out to be a really flexible design and I was also able to someone
+elses openscad files to make other gears with different projects I found on
+thingiverse. For example here is one with a robot in a openscad file from
+thingiverse &lt;a href="http://www.thingiverse.com/thing:53285"&gt;http://www.thingiverse.com/thing:53285&lt;/a&gt;:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/example-scad-include-gear.png"&gt;&lt;img alt="" src="./images/example-scad-include-gear.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is another one from an stl file I found on youmagin that originally was a
+keychain modification for the ultimaker
+(&lt;a href="https://www.youmagine.com/designs/ultimaker-key-fob-flat"&gt;https://www.youmagine.com/designs/ultimaker-key-fob-flat&lt;/a&gt;):  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/example-stl-import-gear.png"&gt;&lt;img alt="" src="./images/example-stl-import-gear.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I really like this design because it is easy for me to swap out different
+logos based on the event.  I uploaded my source files and these examples to
+github:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/colbrydi/gear-givaways"&gt;https://github.com/colbrydi/gear-givaways&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;And posted a few on Youmagine.org  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youmagine.com/designs/gear-givaways"&gt;https://www.youmagine.com/designs/gear-givaways&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Please let me know if you find this helpful and email me links to gears that
+you have made.&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/06/gears-with-logos.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Milk Jug Bird Feeder</title><link href="//colbrydi.github.io/milk-jug-bird-feeder.html" rel="alternate"></link><published>2014-06-22T00:00:00-04:00</published><updated>2014-06-22T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-06-22:/milk-jug-bird-feeder.html</id><summary type="html">&lt;p&gt;My eldest daughter wanted to make a birdhouse/feeder.  It was the middle of
+winter and I think she was thinking of building it out of wood. However, I
+realized what she really wanted to do was decorate it using some extra
+stickers she had.  So, we compromised and I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My eldest daughter wanted to make a birdhouse/feeder.  It was the middle of
+winter and I think she was thinking of building it out of wood. However, I
+realized what she really wanted to do was decorate it using some extra
+stickers she had.  So, we compromised and I cut out a hole in a washed out
+milkjug.  &lt;/p&gt;
+&lt;p&gt;She spent the afternoon decorating and had a lot of fun.&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Evernote+Snapshot+20140309+160605.jpg"&gt;&lt;img alt="" src="./images/Evernote+Snapshot+20140309+160605.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Evernote+Snapshot+20140309+160639.jpg"&gt;&lt;img alt="" src="./images/Evernote+Snapshot+20140309+160639.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Add a little birdseed and the project was complete.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Evernote+Snapshot+20140309+162615.jpg"&gt;&lt;img alt="" src="./images/Evernote+Snapshot+20140309+162615.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Evernote+Snapshot+20140309+162652.jpg"&gt;&lt;img alt="" src="./images/Evernote+Snapshot+20140309+162652.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Easy way to entertain a fidgety girl on a beautiful but cold afternoon.  The
+seeds ended up on the ground although I don't ever think I saw a bird.  &lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/06/milk-jug-bird-feeder.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Diet Coke and Mentos</title><link href="//colbrydi.github.io/diet-coke-and-mentos.html" rel="alternate"></link><published>2014-06-16T00:00:00-04:00</published><updated>2014-06-16T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-06-16:/diet-coke-and-mentos.html</id><summary type="html">&lt;p&gt;As any true geek dad, I have always wanted to do the Diet Coke and mentos
+experiment.  However it is messy and the logistics of getting the mentos in
+the coke without getting crazy sticky is challenging.  I did a quick search of
+thingiverse and found a couple of wonderful …&lt;/p&gt;</summary><content type="html">&lt;p&gt;As any true geek dad, I have always wanted to do the Diet Coke and mentos
+experiment.  However it is messy and the logistics of getting the mentos in
+the coke without getting crazy sticky is challenging.  I did a quick search of
+thingiverse and found a couple of wonderful solutions:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:100563"&gt;http://www.thingiverse.com/thing:100563&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://www.thingiverse.com/thing:36187"&gt;https://www.thingiverse.com/thing:36187&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;A short 3D print of the second one and all we needed was Diet Coke, Mentos,
+string, paperclip and space:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1819023175.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1819023175.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-1583448446.jpg"&gt;&lt;img alt="" src="./images/blogger-image-1583448446.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So much fun :)&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/06/diet-coke-and-mentos.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Tripod Quick release mount</title><link href="//colbrydi.github.io/tripod-quick-release-mount.html" rel="alternate"></link><published>2014-06-13T00:00:00-04:00</published><updated>2014-06-13T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-06-13:/tripod-quick-release-mount.html</id><summary type="html">&lt;p&gt;I got a tripod for my birthday this year.  It is a really nice one, but I lost
+the quick release mount.  Here is a picture with a quick release mount from
+another tripod. Obviously, it doesn't fit:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Tripod.jpg"&gt;&lt;img alt="" src="./images/Tripod.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After some shopping online this one looks fairly good, but possibly not …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I got a tripod for my birthday this year.  It is a really nice one, but I lost
+the quick release mount.  Here is a picture with a quick release mount from
+another tripod. Obviously, it doesn't fit:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/Tripod.jpg"&gt;&lt;img alt="" src="./images/Tripod.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After some shopping online this one looks fairly good, but possibly not the
+right size.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.tripodquickrelease.com/Acme_Lite_Quick_Releases.htm"&gt;http://www.tripodquickrelease.com/Acme_Lite_Quick_Releases.htm&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;So, I took some measurements and came up with this drawing  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/quickreleasemount.jpg"&gt;&lt;img alt="" src="./images/quickreleasemount.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My goal is to see if I can print this out using a 3D printer. When I started
+this project I was planning to use the one in the engineering department where
+I work, but now I have an Ultimaker 2.  I know I need an stl file but I was
+not sure the best way to generate one. After some quick internet searching I
+found openscad.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.openscad.org/"&gt;http://www.openscad.org/&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;I downloaded the software and found the wiki quick start page.  It did not
+take long to figure out the simple language.  I started by making a cube and
+then creating the top.  Then I made objects to cut out the inside and the
+bevels.  Here is the resulting model.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/QuickRelease.png"&gt;&lt;img alt="" src="./images/QuickRelease.png"&gt;&lt;/a&gt;&lt;a href="./images/QuickRelease2.png"&gt;&lt;img alt="" src="./images/QuickRelease2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The hardest part was to get the surface normals for the wedge shape object to
+face in the right direction.  However, once I drew out my points and used the
+right hand rule things settled in nicely.  Openscad outputs stl files so all I
+did was import it into the cura program to generate the gcode for my printer
+and save it to the SD card to print.  The first print was a little too close
+to my tolerances and I could not get it to fit inside the tripod.  However,
+with some simple modifications to the openscad file I was able to generate a
+quick release mount that I think looks quite nice and works well:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-138421032.jpg"&gt;&lt;img alt="" src="./images/blogger-image-138421032.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A future design would fix the bottom to the mount somehow. I posted the STL
+and OpenScad files on YouMagin.org if you are interested in makeing your own:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youmagine.com/designs/tripod-quick-release-mount"&gt;https://www.youmagine.com/designs/tripod-quick-release-mount&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;- Dirk  &lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/06/tripod-quick.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Party Pinata</title><link href="//colbrydi.github.io/party-pinata.html" rel="alternate"></link><published>2014-06-12T00:00:00-04:00</published><updated>2014-06-12T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-06-12:/party-pinata.html</id><summary type="html">&lt;p&gt;I like to watch Curious George with my Kids.  That little monkey is a bit of a
+maker. I really like the episodes where he tries to build things.  In most
+cases he doesn't get his design right and has to debug and iterate on the
+design until he has …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I like to watch Curious George with my Kids.  That little monkey is a bit of a
+maker. I really like the episodes where he tries to build things.  In most
+cases he doesn't get his design right and has to debug and iterate on the
+design until he has what he wants. It is a very good lesson for our young
+makers.  &lt;/p&gt;
+&lt;p&gt;In one episode George decides to make a pinata.  My youngest daughter LOVEs
+this episode and has been asking my wife and I to make a pinata for weeks.  A
+few weeks ago my wife relented and found a really nice youtube tutorial on-
+line:  &lt;/p&gt;
+&lt;p&gt;We got the supplies suggested by the video and my wife and kids started paper
+machine a star shaped balloon and party hats.  The family ended up making two
+since the overall costs were about the same.  &lt;/p&gt;
+&lt;p&gt;We filled them with candy and put one of them to the test this weekend at a
+family party:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--2094275764.jpg"&gt;&lt;img alt="" src="./images/blogger-image--2094275764.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The only problem we had was keeping the pinata attached to the string.
+Ultimately, I had to tie the string around the whole thing to get it to stay.
+I probably need to follow George's example by iterating and engineering a
+better process for the second one.  &lt;/p&gt;
+&lt;p&gt;- Dirk  &lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/06/party-pinata.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Ann Arbor Mini Maker Faire</title><link href="//colbrydi.github.io/ann-arbor-mini-maker-faire.html" rel="alternate"></link><published>2014-05-24T00:00:00-04:00</published><updated>2014-05-24T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-05-24:/ann-arbor-mini-maker-faire.html</id><summary type="html">&lt;p&gt;A few weeks ago we caravaned a group of family and friends down to the Ann
+Arbor Mini Maker Faire.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="./images/aammf2014v1_rfs.jpg"&gt;](../images/aammf2014v1_rfs.jpg). It was everything I had
+hoped: there were plenty of robots, 3d manufacturing devices and other things
+to touch and play with.  My oldest daughter (with help …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A few weeks ago we caravaned a group of family and friends down to the Ann
+Arbor Mini Maker Faire.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="./images/aammf2014v1_rfs.jpg"&gt;](../images/aammf2014v1_rfs.jpg). It was everything I had
+hoped: there were plenty of robots, 3d manufacturing devices and other things
+to touch and play with.  My oldest daughter (with help from her papa) even got
+to do her first soldering using one of the "learn to solder badges" from the
+maker shed
+(&lt;a href="http://www.makershed.com/Learn_to_Solder_Skill_Badge_Kit_p/mkls01.htm"&gt;http://www.makershed.com/Learn_to_Solder_Skill_Badge_Kit_p/mkls01.htm&lt;/a&gt;). I
+heard a lot about this kit and it was better than I thought it would be:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_6122.JPG"&gt;&lt;img alt="" src="./images/small_DSC_6122.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I really like the size and the enthusiasm at the event and am looking forward
+to the Detroit Maker Faire.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_6128.JPG"&gt;&lt;img alt="" src="./images/small_DSC_6128.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_DSC_6131.JPG"&gt;&lt;img alt="" src="./images/small_DSC_6131.JPG"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Can't wait until the next one.  &lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/05/ann-arbor-mini-maker-faire.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Garden Fortress</title><link href="//colbrydi.github.io/garden-fortress.html" rel="alternate"></link><published>2014-05-24T00:00:00-04:00</published><updated>2014-05-24T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-05-24:/garden-fortress.html</id><summary type="html">&lt;p&gt;I love the idea of gardening. Specifically vegetable gardens where we can
+grow, harvest and eat some of our food.  I've had a few gardens before, but in
+our current house it is difficult to have one because our beautiful four
+legged neighbors (deer) like to snack in our yard …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I love the idea of gardening. Specifically vegetable gardens where we can
+grow, harvest and eat some of our food.  I've had a few gardens before, but in
+our current house it is difficult to have one because our beautiful four
+legged neighbors (deer) like to snack in our yard.  &lt;/p&gt;
+&lt;p&gt;I got this idea from a community garden just down the road.  They used an old
+glass door as a small green house.  I am using the same idea but as a
+screened-in space for a little garden.  &lt;/p&gt;
+&lt;p&gt;I got the door from our local Habitat resale store and it works great.  &lt;/p&gt;
+&lt;p&gt;Here is a picture of the final product. Note, that the door opens for easy top
+access and the back can be easily removed also by lifting it off the screws I
+use as hooks.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image--276711787.jpg"&gt;&lt;img alt="" src="./images/blogger-image--276711787.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here are a few pictures of my kids and me making the garden.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_garden1.jpeg"&gt;&lt;img alt="" src="./images/small_garden1.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_garden2.jpeg"&gt;&lt;img alt="" src="./images/small_garden2.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_garden3.jpeg"&gt;&lt;img alt="" src="./images/small_garden3.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_garden5.jpeg"&gt;&lt;img alt="" src="./images/small_garden5.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F--MoNagQvTCc%2FU3ALYRusS-I%2FAAAAAAAACo0%2FyocajN1d3ug%2Fs1600%2Fsmall_garden6.jpeg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*"&gt;&lt;img alt="" src="./images/proxy?url=http%3A%2F%2F1.bp.blogspot.com%2F--MoNagQvTCc%2FU3ALYRusS-I%2FAAAAAAAACo0%2FyocajN1d3ug%2Fs1600%2Fsmall_garden6.jpeg&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also recently posted this as my first project on instructables:  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.instructables.com/id/Garden-Fortress-to-stop-deer-and-other-vegetable-p"&gt;http://www.instructables.com/id/Garden-Fortress-to-stop-deer-and-other-vegetable-p&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Send me pics if you make your own.&lt;/p&gt;
+&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/05/garden-fortress.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Scavaging Parts</title><link href="//colbrydi.github.io/scavaging-parts.html" rel="alternate"></link><published>2014-05-24T00:00:00-04:00</published><updated>2014-05-24T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-05-24:/scavaging-parts.html</id><summary type="html">&lt;p&gt;I found this printer at a garage sale for $2.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/blogger-image-881123768.jpg"&gt;&lt;img alt="" src="./images/blogger-image-881123768.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I like to find old mechanical/electrical devices and take them apart with my
+kids.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-272658734.jpg"&gt;&lt;img alt="" src="./images/blogger-image-272658734.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In addition to just having fun and learning how things work, we were able to
+salvage the stepper motors.  I want to try hooking them …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I found this printer at a garage sale for $2.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/blogger-image-881123768.jpg"&gt;&lt;img alt="" src="./images/blogger-image-881123768.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I like to find old mechanical/electrical devices and take them apart with my
+kids.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="../images/blogger-image-272658734.jpg"&gt;&lt;img alt="" src="./images/blogger-image-272658734.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In addition to just having fun and learning how things work, we were able to
+salvage the stepper motors.  I want to try hooking them up to the Arduino
+(&lt;a href="http://www.arduino.cc/"&gt;http://www.arduino.cc/&lt;/a&gt;) that my brother gave me for Christmas.  If it
+works, we are going to try and make a reprap (&lt;a href="http://reprap.org/"&gt;http://reprap.org/&lt;/a&gt;) using
+parts printed from my Ultimaker 2 (&lt;a href="https://www.ultimaker.com/"&gt;https://www.ultimaker.com/&lt;/a&gt;).  &lt;/p&gt;
+&lt;p&gt;- Dirk  &lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/05/scavaging-parts.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Ultimaker 2</title><link href="//colbrydi.github.io/ultimaker-2.html" rel="alternate"></link><published>2014-05-24T00:00:00-04:00</published><updated>2014-05-24T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-05-24:/ultimaker-2.html</id><summary type="html">&lt;p&gt;](../images/blogger-image-593926156.jpg](https://lh4.googleusercontent.com/-E6ZhA6DOVJI/U4ET812XygI/AAAAAAAACqc/GqCL8uFsM04/s640/blogger-
+image-1908784406.jpg)&lt;/p&gt;
+&lt;p&gt;](../images/blogger-image-593926156.jpg](https://lh4.googleusercontent.com/-E6ZhA6DOVJI/U4ET812XygI/AAAAAAAACqc/GqCL8uFsM04/s640/blogger-
+image-1908784406.jpg)](../images/blogger-image-593926156.jpg](./images/blogger-image-593926156.jpg)&lt;/p&gt;
+&lt;p&gt;For years my wife has listened to me think about buying or building a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;](../images/blogger-image-593926156.jpg](https://lh4.googleusercontent.com/-E6ZhA6DOVJI/U4ET812XygI/AAAAAAAACqc/GqCL8uFsM04/s640/blogger-
+image-1908784406.jpg)&lt;/p&gt;
+&lt;p&gt;](../images/blogger-image-593926156.jpg](https://lh4.googleusercontent.com/-E6ZhA6DOVJI/U4ET812XygI/AAAAAAAACqc/GqCL8uFsM04/s640/blogger-
+image-1908784406.jpg)](../images/blogger-image-593926156.jpg](./images/blogger-image-593926156.jpg)&lt;/p&gt;
+&lt;p&gt;For years my wife has listened to me think about buying or building a 3D
+printer.  At heart I am a cheapskate and can not justify spending a lot of
+money on a toy.  I even had a &lt;a href="http://www.thingiverse.com/"&gt;http://www.thingiverse.com/&lt;/a&gt; account and would
+spend time "liking" things I would print if I only had the
+printer...](../images/blogger-image-593926156.jpg](./images/blogger-image-593926156.jpg)&lt;/p&gt;
+&lt;p&gt;Well, I think my wife got sick of me talking about getting a printer. She not
+only purchased it for me, but she got what I consider to be one of the top of
+the line hobby printers: the Ultimaker 2 (&lt;a href="https://www.ultimaker.com/"&gt;https://www.ultimaker.com/&lt;/a&gt;).  I
+think one of the things that finally convinced her is when she started
+checking out thingiverse and found stuff she wanted me to print.  &lt;/p&gt;
+&lt;p&gt;](../images/blogger-image-593926156.jpg!](../images/blogger-image-593926156.jpg](./images/blogger-image--958006160.jpg)](../images/blogger-image--958006160.jpg)&lt;/p&gt;
+&lt;p&gt;](../images/blogger-image-593926156.jpg!](../images/blogger-image-593926156.jpg](./images/blogger-image--505839745.jpg)](../images/blogger-image--505839745.jpg)&lt;/p&gt;
+&lt;p&gt;I have only had it for about three days, but I can truly say that the
+Ultimaker 2 is a joy to work with. Although expensive, it came fully assembled
+and I had it out of the box and making my first print in less than an hour.
+It has been printing almost non-stop since then.  I have made over 24 prints
+and the thing keeps running: puddle jumper, toy daleks, keychains, hooks, 3d
+puzzles, all kinds of stuff. Here are a few pictures:  &lt;/p&gt;
+&lt;p&gt;!](../images/blogger-image-593926156.jpg](./images/blogger-image-593926156.jpg)](../images/blogger-image-593926156.jpg!](../images/blogger-image-593926156.jpg](./images/blogger-image-156927542.jpg)](./images/blogger-image-156927542.jpg)&lt;/p&gt;
+&lt;p&gt;](../images/blogger-image-593926156.jpg!](../images/blogger-image-593926156.jpg](./images/blogger-image-885900155.jpg)](../images/blogger-image-885900155.jpg)&lt;/p&gt;
+&lt;p&gt;!](../images/blogger-image-593926156.jpg](./images/blogger-image-1908784406.jpg)](../images/blogger-image-1908784406.jpgBlogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/05/ultimaker-2.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry><entry><title>Reverse Making</title><link href="//colbrydi.github.io/reverse-making.html" rel="alternate"></link><published>2014-05-11T00:00:00-04:00</published><updated>2014-05-11T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-05-11:/reverse-making.html</id><summary type="html">&lt;p&gt;I paid a visit to our university's surplus store. This is a wonderful place
+where the university can recycle and reuse some of its vast equipment and
+supplies. It turns out to be a big junk store. My goal was to find something
+useful that I could take apart with …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I paid a visit to our university's surplus store. This is a wonderful place
+where the university can recycle and reuse some of its vast equipment and
+supplies. It turns out to be a big junk store. My goal was to find something
+useful that I could take apart with my kids; I came across this $3 drill that
+someone had already modified. You can tell by the after market trigger switch.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_Drill1.jpeg"&gt;&lt;img alt="" src="./images/small_Drill1.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My daughters and I took this drill apart to see how it works. The girls loved
+the activity.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_Drill2.jpeg"&gt;&lt;img alt="" src="./images/small_Drill2.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_Drill3.jpeg"&gt;&lt;img alt="" src="./images/small_Drill3.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We had some trouble getting the chuck off, but overall it was a great way to
+spend an hour on Saturday. I was just going to throw away the drill, but I
+think the motor and gearbox may come in handy for a future project.  &lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_Drill4.jpeg"&gt;&lt;img alt="" src="./images/small_Drill4.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./images/small_Drill5.jpeg"&gt;&lt;img alt="" src="./images/small_Drill5.jpeg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I like the idea of reverse making. This is an activity well-suited for younger
+kids. I plan to hit the garage sales this summer looking for things we can
+take apart and recycle or reuse for parts. Maybe we will build a robot!&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/05/i-paid-visit-to-our-universities.html"&gt;Blogger&lt;/a&gt; using costom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category><category term="3DPrinting"></category></entry></feed>
