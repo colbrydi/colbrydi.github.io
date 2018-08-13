@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Getting dlvr.it to work with Pelican generated website</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/Blog.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Getting dlvr.it to work with Pelican generated website</h1>
+Thu 28 June 2018
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Back when I worked for <a href="//icer.msu.edi">iCER</a> I had my blog set up to automatically Tweet when I posted something new using a service called Twitter Feed. Unfortunately, Twitter Feed is no longer around and their website recommended <a href="//dlvr.it">dlvr.it</a> as an alternative.  </p>
+<p>So far it was fairly strait forward to set up an account and I followed the menus to connect my <a href="//docs.getpelican.com/en/3.6.3/">Pelican</a> RSS feed to my <a href="//twitter.com/colbrydi">Titter</a> account. At first it didn't seem to do anything but then I noticed a message that said something like "Last checked 56 seconds ago" and I went back to my Twitter account and all of my blog posts had been tweeted.  Which is what I wanted so Yeah!</p>
+<p>However, there were a lot of options that I didn't understand.  For example, I thought it would only tweet the latest blog post.  It didn't, it tweeted them all. Which is fine, this is where I wanted to go but I was hoping to test it first before blasting all of my twitter followers (I do not think I have many).  </p>
+<p>The second problem was that it only tweeted the title and the URL which is not very detailed. I don't want to everyone to be required to go to my blog post.  I found an option to also include the body of the post.  We will see if that does anything.  </p>
+<p>I plan to use this post as a test.</p>
+<p><strong>Dirk</strong></p>
+<p><strong>Update 1:</strong> There was a setting in dlvr.it that I turned on to "Post Body".  This let more come though the twitter feed and nicely includes an image.  This makes the behavior act as expected so I am really excited.  Oddly, this particular post is not seen on Twitter.  This is because I went over the 10 post limit on dlvr.it.   I am going to change the post date to today and see if that helps things out.</p>
+<p><strong>Update 2:</strong> Changing the date in the post didn't seem to trigger dlvr.it to post this message on twitter. I am now changing the filename inside of pelican to see if that changes the RSS feed enough to make dlvr.it think this is a new post.  </p>
+<p><strong>Update 3:</strong> Changing the pelican filename didn't do anything either. I looked though the RSS feed and now I think maybe changing the post title will make a difference.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Getting dlvr.it to work with Pelican generated website';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>
