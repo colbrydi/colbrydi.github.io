@@ -1094,33 +1094,13 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;summary&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#d.entries[1].summary&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
-
-
-
-
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;&amp;#39;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;So my Ultimaker2 extruding head got clogged, really bad. &amp;amp;nbsp;Something got jammed while printing and I could not get the filament to feed. &amp;amp;nbsp;This had happened once in the past when I tried using some really cheap&amp;amp;nbsp;filament&amp;amp;nbsp;but I am not sure the real root of the problem this time. &amp;amp;nbsp;In any case, I found using the &amp;#34;atomic&amp;#34; method for getting a clean nozzle. This method is named after MostlyAtomicBob who described the method for the first time in the following post:&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;http://umforum.ultimaker.com/index.php?/topic/3561-ultimaker-2-extruder-nozzle-blocked/#entry28940&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;Here is a summary of the steps that I used:&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;1) Remove the boden tube from the printer head&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;2) Heat up the head to full temperature (around 210 degrees)&amp;amp;nbsp;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;3) Push in a piece of spare&amp;amp;nbsp;filament&amp;amp;nbsp;until I can no longer push or it starts coming out the end.&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;4) Reduce temperature to around 90 degrees. Filament&amp;amp;nbsp;should solidify but stay a little soft.&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;5) Pull the&amp;amp;nbsp;filament&amp;amp;nbsp;out of the print head.&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;6) Repeat steps 2-5 until I get completely clean filament&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: left;&amp;#34;&amp;gt;You can see the result of my cleaning in the picture below. The pieces are a little backward and ordered from right to left. &amp;amp;nbsp;Note the really dark char slowly going away and the pieces getting longer as they nest better and better in the print head.&amp;amp;nbsp;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: center;&amp;#34;&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: center;&amp;#34;&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both; text-align: center;&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;http://2.bp.blogspot.com/-XR1q8abGIBQ/VKDAa7uUlsI/AAAAAAAADNU/H9zDCR60fxI/s1600/IMG_2048.jpg&amp;#34; imageanchor=&amp;#34;1&amp;#34; style=&amp;#34;margin-left: 1em; margin-right: 1em;&amp;#34;&amp;gt;&amp;lt;img border=&amp;#34;0&amp;#34; src=&amp;#34;http://2.bp.blogspot.com/-XR1q8abGIBQ/VKDAa7uUlsI/AAAAAAAADNU/H9zDCR60fxI/s1600/IMG_2048.jpg&amp;#34; height=&amp;#34;240&amp;#34; width=&amp;#34;320&amp;#34; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;Here is the same procedure when it clogged a second time. This time I remembered to order them from left to right.&amp;lt;br /&amp;gt;&amp;lt;div&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;div class=&amp;#34;separator&amp;#34; style=&amp;#34;clear: both;&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;https://lh4.googleusercontent.com/-YLe--CTE7oM/VRhCaGoffLI/AAAAAAAADV8/XAEkYXloxyU/s640/blogger-image-193838586.jpg&amp;#34; imageanchor=&amp;#34;1&amp;#34; style=&amp;#34;margin-left: 1em; margin-right: 1em;&amp;#34;&amp;gt;&amp;lt;img border=&amp;#34;0&amp;#34; height=&amp;#34;300&amp;#34; src=&amp;#34;https://lh4.googleusercontent.com/-YLe--CTE7oM/VRhCaGoffLI/AAAAAAAADV8/XAEkYXloxyU/s400/blogger-image-193838586.jpg&amp;#34; width=&amp;#34;400&amp;#34; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;br /&amp;gt;- Dirk&amp;lt;/div&amp;gt;&amp;#39;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1838,7 +1818,9 @@ video together.  &lt;/p&gt;
 &lt;p&gt;Here is my final product:  &lt;/p&gt;
 &lt;iframe allowfullscreen="allowfullscreen" class="b-hbp-video b-uploaded" frameborder="0" height="266" id="BLOGGER-video-7bcf554431118cd5-5264" mozallowfullscreen="mozallowfullscreen" src="https://www.blogger.com/video.g?token=AD6v5dz_ZfGT92ivLvCO99r6vtIQwsrCdTFS4HnpnE9gn-b0I56TmP1sT3yoEIwLWpJkgZjeMUzDCGuOum9y10XB2-JDX2_13biU5k9nkIy8h4sMe0_u3vw76NatscksCqtwmJsiy98" webkitallowfullscreen="webkitallowfullscreen" width="320"&gt;&lt;/iframe&gt;
 
-&lt;p&gt;- Dirk&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dirk&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Blogpost migrated from &lt;a href="https://apprenticemaker.blogspot.com/2014/07/backblog-teleporter-video.html"&gt;Blogger&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Maker"></category></entry><entry><title>Bug bots</title><link href="https://colbrydi.github.io/bug-bots.html" rel="alternate"></link><published>2014-07-19T00:00:00-04:00</published><updated>2014-07-19T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-07-19:/bug-bots.html</id><summary type="html">&lt;p&gt;I like the simple fun of brushbots; little robots, typically made with
 toothbrush heads, that use a cell phone vibrating motor to scoot around a
 table (you can buy kits here: &lt;a href="http://www.makershed.com/products/brushbots"&gt;http://www.makershed.com/products/brushbots&lt;/a&gt;).
