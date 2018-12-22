@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../alexa-dot-holder.html"><h1>Alexa Dot Holder</h1></a>
-Sun 16 September 2018
+            <a href="../using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html"><h1>Using an X11 Virtual Frame buffer to run GUI jobs in batch mode on the HPC.</h1></a>
+Thu 20 December 2018
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,14 +75,156 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Alexa Dot Wall Mount" hspace="10" src="../images/Alexa.jpg" width="25%,"></p>
-<p>My brother got me an Alexa Dot for Christmas a few years ago.  It turns out to be a lot of fun. We put it in the kitchen and the kids play music.  My wife and I also use it to add things to our shopping list (very convenient!) Anyway, I like to explore <a href="https://www.thingiverse.com/">Thingaverse.com</a> by tying in the names of gadgets I have to see what kinds of modifications you can find.  When I typed in Alexa dot I came across this really cool plug holder which would get it off my kitchen counter.  </p>
-<p><a href="https://www.thingiverse.com/thing:2300667">https://www.thingiverse.com/thing:2300667</a></p>
-<p>The design is by <a href="https://www.thingiverse.com/cptskippy/designs">Cpt Skippy</a> and I am really pleased with how it turned out.  </p>
-<p>I may post a new picture when I get a smaller USB cable that doesn't need to wrap around so much.</p></div>
+        <div><p><img align="right," alt="X11 Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/a/ab/X11.png" width="20%,"></p>
+<p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunatly Pandemic requires X11 to run and I would get a segmentation fault everytime I ran it in the batch system.</p>
+<p>This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  </p>
+<p>First, here is the batch script for the OpenMP version.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -login</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --cpus-per-task=16</span>
+<span class="c1">#SBATCH --mem=10G</span>
+<span class="c1">#SBATCH --job-name Pandemic-OpenMP</span>
+
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
+
+<span class="c1">##### Specify the display, start the Xvfb server, and save the process ID.</span>
+<span class="nv">display_file</span><span class="o">=</span>.tmp_display.txt
+Xvfb -displayfd <span class="m">1</span> -auth /dev/null  <span class="m">1</span>&gt;<span class="nv">$display_file</span> <span class="m">2</span>&gt; /dev/null <span class="p">&amp;</span>
+sleep <span class="m">5</span>
+<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat <span class="nv">$display_file</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
+rm <span class="nv">$display_file</span>
+
+<span class="nb">echo</span> Running
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">16</span>
+<span class="nb">time</span> ./Pandemic.c-openmp
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span>
+<span class="nb">time</span> ./Pandemic.c-openmp
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">time</span> ./Pandemic.c-openmp
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">2</span>
+<span class="nb">time</span> ./Pandemic.c-openmp
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">time</span> ./Pandemic.c-openmp
+<span class="nb">echo</span> <span class="k">done</span>
+
+<span class="c1"># Report job statistics</span>
+scontrol show job <span class="nv">$SLURM_JOB_ID</span>
+</pre></div>
+</td></tr></table>
+
+<p>And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -login</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+<span class="c1">#SBATCH --ntasks=16</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem=10G</span>
+<span class="c1">#SBATCH --job-name Pandemic</span>
+
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
+module swap GNU Intel
+module load OpenMPI
+
+<span class="c1">##### Specify the display, start the Xvfb server, and save the process ID.</span>
+<span class="nv">display_file</span><span class="o">=</span>.tmp_display.txt
+Xvfb -displayfd <span class="m">1</span> -auth /dev/null  <span class="m">1</span>&gt;<span class="nv">$display_file</span> <span class="m">2</span>&gt; /dev/null <span class="p">&amp;</span>
+sleep <span class="m">5</span>
+<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat <span class="nv">$display_file</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
+rm <span class="nv">$display_file</span>
+
+<span class="nb">time</span> mpirun -n <span class="m">16</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">8</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">4</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">2</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">1</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+
+<span class="c1"># Report job statistics</span>
+scontrol show job <span class="nv">$SLURM_JOB_ID</span>
+</pre></div>
+</td></tr></table>
+
+<p>Hope you find this useful.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../alexa-dot-holder.html"><h2>Alexa Dot Holder</h2></a>
+        <div class= "well small"> Sun 16 September 2018
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Alexa Dot Wall Mount" hspace="10" src="../images/Alexa.jpg" width="25%,"></p>
+<p>My brother got me an Alexa Dot for Christmas a few years ago.  It turns out to be a lot of fun. We put it in the kitchen and the kids play music.  My wife and I also use it to add things to our shopping list (very convenient!) Anyway …</p> <a class="btn btn-info xsmall" href="../alexa-dot-holder.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -117,7 +259,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
  </div>
-        <div class="summary"><p><img align="right," alt="Picture from Panel" hspace="10" src="https://scontent.fdet1-1.fna.fbcdn.net/v/t1.0-9/38848724_2237070319912537_861379777389395968_n.jpg?_nc_cat=0&amp;oh=1a154f108c6825a27c966101f933801d&amp;oe=5BF4733A" width="20%,"></p>
+        <div class="summary"><p><img align="right," alt="Picture from Panel" hspace="10" src="//colbrydi.github.io/images/Emerging_Technologies.jpg" width="20%,"></p>
 <p>Today is the last day of the <a href="http://www.oscer.ou.edu/acirefvirtres2018.php">2018 ACI-REF Virtual residency</a> workshop here in Norman Ok.  It was a great week with a lot of great people.  I highly recommend the workshop for anyone in the area of Advanced Computing Instruction especially those do some Research and Education Facilitation in …</p> <a class="btn btn-info xsmall" href="../emerging-technologies-fpgas-2018-aci-ref-vr.html">read more</a></div>
     </div>	
 				
@@ -155,7 +297,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
  </div>
-        <div class="summary"><p><img align="right," alt="Image from Panel" hspace="10" src="//scontent.ftul1-1.fna.fbcdn.net/v/t1.0-9/38750962_2233443790275190_6728318345109569536_n.jpg?_nc_cat=0&amp;oh=0d7dfe7c70174c8b57534430491533c8&amp;oe=5C143E06" width="20%,"></p>
+        <div class="summary"><p><img align="right," alt="Image from Panel" hspace="10" src="//colbrydi.github.io/images/Audience.jpg" width="20%,"></p>
 <p>Thank you Aaron Bergstrom (U North Dakota) for facilitating the panel discussion on <strong>Teams of CI Professionals: Recruitment &amp; Retention, Management, Team-building, and Motivation</strong> at the <a href="http://www.oscer.ou.edu/acirefvirtres2018.php">2018 ACI-REF Virtual residency</a>. My fellow panel members included:</p>
 <ul>
 <li>Jerry Perez, U Texas Dallas</li>
@@ -242,28 +384,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>I had an opportunity to participate on the "Researcher Facing" Panel as part of the  <a href="https://www.xsede.org/community-engagement/campus-champions">Campus Champion 101</a> workshop at <a href="https://www.pearc18.pearc.org/">PEARC18</a>.  </p>
 <p><a href="//docs.google.com/document/d/1OsOCUOeWAk1IfJzEi8LuO5YnIiKkU2AO-cxzY0F0gzk/edit">Link to Notes For the Panel can be found  here</a></p>
 <p>The <a href="https://pearc18.conference-program.com/?page_id=10&amp;id=work108&amp;sess=sess123">Campus Champions 101 workshop</a> explores campus research computing roles. The workshop builds on the Campus Champions’ history and …</p> <a class="btn btn-info xsmall" href="../campus-champions-101-panel-at-pearc18.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../bringing-professional-skills-training-to-ci-pearc18-birds-of-a-feather-bof.html"><h2>Bringing Professional Skills Training to CI - PEARC18 Birds of a Feather (BOF)</h2></a>
-        <div class= "well small"> Sun 22 July 2018
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="PEARC18 Logo" hspace="10" src="http://insidehpc.com/wp-content/uploads/2017/10/pearc18.jpg" width="20%,"></p>
-<p>The <a href="//colbrydi.github.io/cyberambassadors">CyberAmbassador</a>  a Birds of a Feather Event at the 2018 PEARC Conference. Please Join us on Wednesday, July 25th from 5pm - 6pm.  More information can be found here:</p>
-<p><a href="//pearc18.conference-program.com/?page_id=10&amp;id=bof122&amp;sess=sess203">Link to BOF Schedule</a></p>
-<p><strong> Description: </strong>
-A number of professional skills training programs and resources have been developed in recent years, in …</p> <a class="btn btn-info xsmall" href="../bringing-professional-skills-training-to-ci-pearc18-birds-of-a-feather-bof.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
