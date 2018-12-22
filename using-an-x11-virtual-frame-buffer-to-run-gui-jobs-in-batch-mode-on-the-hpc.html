@@ -71,8 +71,8 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 	
         <div><p><img align="right," alt="X11 Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/a/ab/X11.png" width="20%,"></p>
 <p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunately Pandemic requires X11 to run and I would get a segmentation fault every time I ran it in the batch system.</p>
-<p>This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  </p>
-<p>First, here is the batch script for the OpenMP version.</p>
+<p>This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  This trick can come in really handing when you are using MATLAB to because last I checked it needed X11 to run in order to generate and save figures. This will let you do that even in batch mode.</p>
+<p>First, here is the batch script for the OpenMP version (Should work for serial jobs as well).</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
 <span class="c1">#SBATCH --ntasks=1</span>
