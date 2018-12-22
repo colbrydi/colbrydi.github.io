@@ -36,7 +36,8 @@
 29
 30
 31
-32&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash -login&lt;/span&gt;
+32
+33&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash -login&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --time=00:10:00&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --ntasks=1&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --cpus-per-task=16&lt;/span&gt;
@@ -45,7 +46,8 @@
 
 &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_SUBMIT_DIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;##### Specify the display, start the Xvfb server, and save the process ID.&lt;/span&gt;
+&lt;span class="c1"&gt;# Have X11 find an open display number and communicate the number&lt;/span&gt;
+&lt;span class="c1"&gt;# though a temporary file to set the environment variable.&lt;/span&gt;
 &lt;span class="nv"&gt;display_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.tmp_display.txt
 Xvfb -displayfd &lt;span class="m"&gt;1&lt;/span&gt; -auth /dev/null  &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="nv"&gt;$display_file&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt; /dev/null &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 sleep &lt;span class="m"&gt;5&lt;/span&gt;
@@ -53,7 +55,7 @@ sleep &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;DISPLAY set to &lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
 
-&lt;span class="nb"&gt;echo&lt;/span&gt; Running
+&lt;span class="c1"&gt;# Benchmark program with different numbers of processes&lt;/span&gt;
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;
 &lt;span class="nb"&gt;time&lt;/span&gt; ./Pandemic.c-openmp
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;
@@ -98,7 +100,8 @@ scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 24
 25
 26
-27&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash -login&lt;/span&gt;
+27
+28&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash -login&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --time=00:10:00&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --ntasks=16&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --cpus-per-task=1&lt;/span&gt;
@@ -109,14 +112,15 @@ scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 module swap GNU Intel
 module load OpenMPI
 
-&lt;span class="c1"&gt;##### Specify the display, start the Xvfb server, and save the process ID.&lt;/span&gt;
-&lt;span class="nv"&gt;display_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.tmp_display.txt
+&lt;span class="c1"&gt;# Have X11 find an open display number and communicate the number&lt;/span&gt;
+&lt;span class="c1"&gt;# though a temporary file to set the environment variable.display_file=.tmp_display.txt&lt;/span&gt;
 Xvfb -displayfd &lt;span class="m"&gt;1&lt;/span&gt; -auth /dev/null  &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="nv"&gt;$display_file&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt; /dev/null &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 sleep &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:&lt;span class="sb"&gt;`&lt;/span&gt;cat &lt;span class="nv"&gt;$display_file&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;DISPLAY set to &lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
 
+&lt;span class="c1"&gt;# Benchmark program with different numbers of processes&lt;/span&gt;
 &lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;16&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
 &lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;8&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
 &lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;4&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
