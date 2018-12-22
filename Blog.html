@@ -65,7 +65,7 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="./using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html"><h1>Using an X11 Virtual Frame buffer to run GUI jobs in batch mode on the HPC.</h1></a>
+            <a href="./using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html"><h1>Using an X11 Virtual Frame Buffer to run GUI jobs in batch mode on the HPC.</h1></a>
 Thu 20 December 2018
 
 by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
@@ -76,7 +76,7 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
         </div>
         
         <div><p><img align="right," alt="X11 Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/a/ab/X11.png" width="20%,"></p>
-<p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunatly Pandemic requires X11 to run and I would get a segmentation fault everytime I ran it in the batch system.</p>
+<p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunately Pandemic requires X11 to run and I would get a segmentation fault every time I ran it in the batch system.</p>
 <p>This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  </p>
 <p>First, here is the batch script for the OpenMP version.</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
