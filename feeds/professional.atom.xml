@@ -47,7 +47,7 @@ scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --ntasks=16&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --cpus-per-task=1&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --mem=10G&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --job-name Pandemic&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --job-name Pandemic-MPI&lt;/span&gt;
 
 &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_SUBMIT_DIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 module swap GNU Intel
