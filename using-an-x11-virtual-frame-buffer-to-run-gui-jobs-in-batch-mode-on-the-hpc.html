@@ -73,39 +73,7 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunatly Pandemic requires X11 to run and I would get a segmentation fault everytime I ran it in the batch system.</p>
 <p>This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  </p>
 <p>First, here is the batch script for the OpenMP version.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash </span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
 <span class="c1">#SBATCH --ntasks=1</span>
 <span class="c1">#SBATCH --cpus-per-task=16</span>
@@ -139,37 +107,10 @@ rm <span class="nv">$display_file</span>
 <span class="c1"># Report job statistics</span>
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
 <span class="c1">#SBATCH --ntasks=16</span>
 <span class="c1">#SBATCH --cpus-per-task=1</span>
@@ -198,7 +139,7 @@ rm <span class="nv">$display_file</span>
 <span class="c1"># Report job statistics</span>
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>Hope you find this useful.</p></div>
 	
