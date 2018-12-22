@@ -54,7 +54,8 @@ module swap GNU Intel
 module load OpenMPI
 
 &lt;span class="c1"&gt;# Have X11 find an open display number and communicate the number&lt;/span&gt;
-&lt;span class="c1"&gt;# though a temporary file to set the environment variable.display_file=.tmp_display.txt&lt;/span&gt;
+&lt;span class="c1"&gt;# though a temporary file to set the environment variable.&lt;/span&gt;
+&lt;span class="nv"&gt;display_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.tmp_display.txt
 Xvfb -displayfd &lt;span class="m"&gt;1&lt;/span&gt; -auth /dev/null  &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="nv"&gt;$display_file&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt; /dev/null &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 sleep &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:&lt;span class="sb"&gt;`&lt;/span&gt;cat &lt;span class="nv"&gt;$display_file&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
