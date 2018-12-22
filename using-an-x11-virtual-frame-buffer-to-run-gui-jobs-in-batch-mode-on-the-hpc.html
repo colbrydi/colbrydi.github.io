@@ -73,132 +73,67 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunatly Pandemic requires X11 to run and I would get a segmentation fault everytime I ran it in the batch system.</p>
 <p>This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  </p>
 <p>First, here is the batch script for the OpenMP version.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -login</span>
-<span class="c1">#SBATCH --time=00:10:00</span>
-<span class="c1">#SBATCH --ntasks=1</span>
-<span class="c1">#SBATCH --cpus-per-task=16</span>
-<span class="c1">#SBATCH --mem=10G</span>
-<span class="c1">#SBATCH --job-name Pandemic-OpenMP</span>
+<p>```!/bin/bash -login</p>
+<h1>SBATCH --time=00:10:00</h1>
+<h1>SBATCH --ntasks=1</h1>
+<h1>SBATCH --cpus-per-task=16</h1>
+<h1>SBATCH --mem=10G</h1>
+<h1>SBATCH --job-name Pandemic-OpenMP</h1>
+<p>cd ${SLURM_SUBMIT_DIR}</p>
+<h1>Have X11 find an open display number and communicate the number</h1>
+<h1>though a temporary file to set the environment variable.</h1>
+<p>display_file=.tmp_display.txt
+Xvfb -displayfd 1 -auth /dev/null  1&gt;$display_file 2&gt; /dev/null &amp;
+sleep 5
+export DISPLAY=:<code>cat $display_file</code>
+echo "DISPLAY set to $DISPLAY"
+rm $display_file</p>
+<h1>Benchmark program with different numbers of processes</h1>
+<p>export OMP_NUM_THREADS=16
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=8
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=4
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=2
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=1
+time ./Pandemic.c-openmp
+echo done</p>
+<h1>Report job statistics</h1>
+<p>scontrol show job $SLURM_JOB_ID</p>
+<div class="highlight"><pre><span></span>And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
+```#!/bin/bash -login
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --job-name Pandemic
 
-<span class="c1"># Have X11 find an open display number and communicate the number</span>
-<span class="c1"># though a temporary file to set the environment variable.</span>
-<span class="nv">display_file</span><span class="o">=</span>.tmp_display.txt
-Xvfb -displayfd <span class="m">1</span> -auth /dev/null  <span class="m">1</span>&gt;<span class="nv">$display_file</span> <span class="m">2</span>&gt; /dev/null <span class="p">&amp;</span>
-sleep <span class="m">5</span>
-<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat <span class="nv">$display_file</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
-rm <span class="nv">$display_file</span>
-
-<span class="c1"># Benchmark program with different numbers of processes</span>
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">16</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">2</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">echo</span> <span class="k">done</span>
-
-<span class="c1"># Report job statistics</span>
-scontrol show job <span class="nv">$SLURM_JOB_ID</span>
-</pre></div>
-</td></tr></table>
-
-<p>And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -login</span>
-<span class="c1">#SBATCH --time=00:10:00</span>
-<span class="c1">#SBATCH --ntasks=16</span>
-<span class="c1">#SBATCH --cpus-per-task=1</span>
-<span class="c1">#SBATCH --mem=10G</span>
-<span class="c1">#SBATCH --job-name Pandemic</span>
-
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
+cd <span class="cp">${</span><span class="n">SLURM_SUBMIT_DIR</span><span class="cp">}</span>
 module swap GNU Intel
 module load OpenMPI
 
-<span class="c1"># Have X11 find an open display number and communicate the number</span>
-<span class="c1"># though a temporary file to set the environment variable.display_file=.tmp_display.txt</span>
-Xvfb -displayfd <span class="m">1</span> -auth /dev/null  <span class="m">1</span>&gt;<span class="nv">$display_file</span> <span class="m">2</span>&gt; /dev/null <span class="p">&amp;</span>
-sleep <span class="m">5</span>
-<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat <span class="nv">$display_file</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
+# Have X11 find an open display number and communicate the number
+# though a temporary file to set the environment variable.display_file=.tmp_display.txt
+Xvfb -displayfd 1 -auth /dev/null  1&gt;<span class="nv">$display_file</span> 2&gt; /dev/null <span class="err">&amp;</span>
+sleep 5
+export DISPLAY=:`cat <span class="nv">$display_file</span>`
+echo &quot;DISPLAY set to <span class="nv">$DISPLAY</span>&quot;
 rm <span class="nv">$display_file</span>
 
-<span class="c1"># Benchmark program with different numbers of processes</span>
-<span class="nb">time</span> mpirun -n <span class="m">16</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">8</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">4</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">2</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">1</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+# Benchmark program with different numbers of processes
+time mpirun -n 16 -x DISPLAY=<span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+time mpirun -n 8 -x DISPLAY=<span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+time mpirun -n 4 -x DISPLAY=<span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+time mpirun -n 2 -x DISPLAY=<span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+time mpirun -n 1 -x DISPLAY=<span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
 
-<span class="c1"># Report job statistics</span>
+# Report job statistics
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>Hope you find this useful.</p></div>
 	

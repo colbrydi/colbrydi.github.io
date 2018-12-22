@@ -5,132 +5,67 @@
 &lt;p&gt;I have an example program that came with &lt;a href="http://bccd.net/"&gt;BCCD&lt;/a&gt; called Pandemic which I wanted to run on our local HPCC. Unfortunatly Pandemic requires X11 to run and I would get a segmentation fault everytime I ran it in the batch system.&lt;/p&gt;
 &lt;p&gt;This blog post shows how I used the X11 Virtual Frame Buffer (Xvfb) to enable X11 in batch mode.  This example uses SLURM running in CentOS7.  &lt;/p&gt;
 &lt;p&gt;First, here is the batch script for the OpenMP version.&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash -login&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --time=00:10:00&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --ntasks=1&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --cpus-per-task=16&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --mem=10G&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --job-name Pandemic-OpenMP&lt;/span&gt;
+&lt;p&gt;```!/bin/bash -login&lt;/p&gt;
+&lt;h1&gt;SBATCH --time=00:10:00&lt;/h1&gt;
+&lt;h1&gt;SBATCH --ntasks=1&lt;/h1&gt;
+&lt;h1&gt;SBATCH --cpus-per-task=16&lt;/h1&gt;
+&lt;h1&gt;SBATCH --mem=10G&lt;/h1&gt;
+&lt;h1&gt;SBATCH --job-name Pandemic-OpenMP&lt;/h1&gt;
+&lt;p&gt;cd ${SLURM_SUBMIT_DIR}&lt;/p&gt;
+&lt;h1&gt;Have X11 find an open display number and communicate the number&lt;/h1&gt;
+&lt;h1&gt;though a temporary file to set the environment variable.&lt;/h1&gt;
+&lt;p&gt;display_file=.tmp_display.txt
+Xvfb -displayfd 1 -auth /dev/null  1&amp;gt;$display_file 2&amp;gt; /dev/null &amp;amp;
+sleep 5
+export DISPLAY=:&lt;code&gt;cat $display_file&lt;/code&gt;
+echo "DISPLAY set to $DISPLAY"
+rm $display_file&lt;/p&gt;
+&lt;h1&gt;Benchmark program with different numbers of processes&lt;/h1&gt;
+&lt;p&gt;export OMP_NUM_THREADS=16
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=8
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=4
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=2
+time ./Pandemic.c-openmp
+export OMP_NUM_THREADS=1
+time ./Pandemic.c-openmp
+echo done&lt;/p&gt;
+&lt;h1&gt;Report job statistics&lt;/h1&gt;
+&lt;p&gt;scontrol show job $SLURM_JOB_ID&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  
 
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_SUBMIT_DIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+```#!/bin/bash -login
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --job-name Pandemic
 
-&lt;span class="c1"&gt;# Have X11 find an open display number and communicate the number&lt;/span&gt;
-&lt;span class="c1"&gt;# though a temporary file to set the environment variable.&lt;/span&gt;
-&lt;span class="nv"&gt;display_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.tmp_display.txt
-Xvfb -displayfd &lt;span class="m"&gt;1&lt;/span&gt; -auth /dev/null  &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="nv"&gt;$display_file&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt; /dev/null &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-sleep &lt;span class="m"&gt;5&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:&lt;span class="sb"&gt;`&lt;/span&gt;cat &lt;span class="nv"&gt;$display_file&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;DISPLAY set to &lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Benchmark program with different numbers of processes&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;
-&lt;span class="nb"&gt;time&lt;/span&gt; ./Pandemic.c-openmp
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;
-&lt;span class="nb"&gt;time&lt;/span&gt; ./Pandemic.c-openmp
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;
-&lt;span class="nb"&gt;time&lt;/span&gt; ./Pandemic.c-openmp
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;
-&lt;span class="nb"&gt;time&lt;/span&gt; ./Pandemic.c-openmp
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;OMP_NUM_THREADS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
-&lt;span class="nb"&gt;time&lt;/span&gt; ./Pandemic.c-openmp
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Report job statistics&lt;/span&gt;
-scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
-&lt;p&gt;And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  &lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash -login&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --time=00:10:00&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --ntasks=16&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --cpus-per-task=1&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --mem=10G&lt;/span&gt;
-&lt;span class="c1"&gt;#SBATCH --job-name Pandemic&lt;/span&gt;
-
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_SUBMIT_DIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+cd &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;SLURM_SUBMIT_DIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 module swap GNU Intel
 module load OpenMPI
 
-&lt;span class="c1"&gt;# Have X11 find an open display number and communicate the number&lt;/span&gt;
-&lt;span class="c1"&gt;# though a temporary file to set the environment variable.display_file=.tmp_display.txt&lt;/span&gt;
-Xvfb -displayfd &lt;span class="m"&gt;1&lt;/span&gt; -auth /dev/null  &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="nv"&gt;$display_file&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt; /dev/null &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-sleep &lt;span class="m"&gt;5&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;:&lt;span class="sb"&gt;`&lt;/span&gt;cat &lt;span class="nv"&gt;$display_file&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;DISPLAY set to &lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+# Have X11 find an open display number and communicate the number
+# though a temporary file to set the environment variable.display_file=.tmp_display.txt
+Xvfb -displayfd 1 -auth /dev/null  1&amp;gt;&lt;span class="nv"&gt;$display_file&lt;/span&gt; 2&amp;gt; /dev/null &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;
+sleep 5
+export DISPLAY=:`cat &lt;span class="nv"&gt;$display_file&lt;/span&gt;`
+echo &amp;quot;DISPLAY set to &lt;span class="nv"&gt;$DISPLAY&lt;/span&gt;&amp;quot;
 rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Benchmark program with different numbers of processes&lt;/span&gt;
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;16&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;8&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;4&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;2&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;1&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+# Benchmark program with different numbers of processes
+time mpirun -n 16 -x DISPLAY=&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+time mpirun -n 8 -x DISPLAY=&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+time mpirun -n 4 -x DISPLAY=&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+time mpirun -n 2 -x DISPLAY=&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+time mpirun -n 1 -x DISPLAY=&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
 
-&lt;span class="c1"&gt;# Report job statistics&lt;/span&gt;
+# Report job statistics
 scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;Hope you find this useful.&lt;/p&gt;</content><category term="HPC"></category></entry><entry><title>Emerging Technologies (FPGAs) @ 2018 ACI-REF VR</title><link href="https://colbrydi.github.io/emerging-technologies-fpgas-2018-aci-ref-vr.html" rel="alternate"></link><published>2018-08-10T00:00:00-04:00</published><updated>2018-08-10T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2018-08-10:/emerging-technologies-fpgas-2018-aci-ref-vr.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Picture from Panel" hspace="10" src="//colbrydi.github.io/images/Emerging_Technologies.jpg" width="20%,"&gt;&lt;/p&gt;
 &lt;p&gt;Today is the last day of the &lt;a href="http://www.oscer.ou.edu/acirefvirtres2018.php"&gt;2018 ACI-REF Virtual residency&lt;/a&gt; workshop here in Norman Ok.  It was a great week with a lot of great people.  I highly recommend the workshop for anyone in the area of Advanced Computing Instruction especially those do some Research and Education Facilitation in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Picture from Panel" hspace="10" src="//colbrydi.github.io/images/Emerging_Technologies.jpg" width="20%,"&gt;&lt;/p&gt;
