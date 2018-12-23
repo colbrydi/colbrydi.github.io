@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2018-12-21T00:00:00-05:00</updated><entry><title>Accessing computers camera inside of jupyter without installing OpenCV (Also works in Jupyterhub)</title><link href="https://colbrydi.github.io/accessing-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html" rel="alternate"></link><published>2018-12-21T00:00:00-05:00</published><updated>2018-12-21T00:00:00-05:00</updated><author><name>Dirk Colbry</name></author><id>tag:colbrydi.github.io,2018-12-21:/accessing-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2018-12-21T00:00:00-05:00</updated><entry><title>Accessing a computer's camera inside of jupyter without installing OpenCV (Also works in Jupyterhub)</title><link href="https://colbrydi.github.io/accessing-a-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html" rel="alternate"></link><published>2018-12-21T00:00:00-05:00</published><updated>2018-12-21T00:00:00-05:00</updated><author><name>Dirk Colbry</name></author><id>tag:colbrydi.github.io,2018-12-21:/accessing-a-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
@@ -1114,7 +1114,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;I hope you found this example useful. PLease leave a comment if you use it in your project.  I would really like to see how it is used.&lt;/p&gt;
+&lt;p&gt;I hope you found this example useful. Please leave a comment if you use it in your project.  I would really like to see how it is used.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Dirk&lt;/li&gt;
 &lt;/ul&gt;
