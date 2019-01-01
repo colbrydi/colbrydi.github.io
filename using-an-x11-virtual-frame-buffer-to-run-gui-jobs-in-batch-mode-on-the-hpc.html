@@ -132,10 +132,10 @@ rm <span class="nv">$display_file</span>
 
 <span class="c1"># Benchmark program with different numbers of processes</span>
 <span class="nb">time</span> mpirun -n <span class="m">16</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">8</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">4</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">2</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">1</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">8</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">4</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">2</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span> mpirun -n <span class="m">1</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
 
 <span class="c1"># Report job statistics</span>
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>

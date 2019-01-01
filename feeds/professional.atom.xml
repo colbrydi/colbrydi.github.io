@@ -1218,10 +1218,10 @@ rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Benchmark program with different numbers of processes&lt;/span&gt;
 &lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;16&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;8&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;4&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;2&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
-&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;1&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME&lt;/span&gt;:&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;8&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;4&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;2&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
+&lt;span class="nb"&gt;time&lt;/span&gt; mpirun -n &lt;span class="m"&gt;1&lt;/span&gt; -x &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOSTNAME$DISPLAY&lt;/span&gt; ./Pandemic.c-mpi
 
 &lt;span class="c1"&gt;# Report job statistics&lt;/span&gt;
 scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
