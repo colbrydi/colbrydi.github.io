@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - Authors</title>
+    <title>Dirk's Home Page - Quick Graphviz Tutorial</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,11 +58,67 @@
     <div class="row">
 
         <div class="span9">
-    <h1>Authors on Dirk's Home Page</h1>
+    <div class='article'>
+        <div class="content-title">
+            <h1>Quick Graphviz Tutorial</h1>
+Wed 02 January 2019
 
-    <ul>        <li><a href="./author/dirk-colbry.html">Dirk Colbry</a> (2)</li>
-        <li><a href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a> (54)</li>
-    </ul>
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p><img alt="vim system diagram" src="//colbrydi.github.io/images/vim.jpg"></p>
+<p>This quick tutorial shows provides basic instructions for generating the above graph using graphviz.</p>
+<p><a href="https://www.graphviz.org/"><img alt="Graphviz" src="https://graphviz.gitlab.io/_pages/Resources/app.png"></a></p>
+<p>If you already have Anaconda installed on your system, you can quickly install graphviz using the following command:</p>
+<div class="highlight"><pre><span></span>conda install graphviz
+</pre></div>
+
+
+<p>Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called tMest.dot) makes the figure above.  Use the <code>-&gt;</code> to indicate a directed link and a <code>--</code> to indicate a bi-directional link:</p>
+<div class="highlight"><pre><span></span>digraph G {
+ Linux -&gt; Normal  [ label=&quot;vim&quot; ];
+ Normal  -&gt; Insert  [ label=&quot;i/I/a/A/o/O&quot; ];
+ Insert  -&gt; Normal [ label=&quot;Esc&quot;];
+ Normal  -&gt; Command  [ label=&quot;: (colon)&quot;];
+ Command  -&gt; Normal  [ label=&quot;w&quot;];
+ Command  -&gt; Linux [ label=&quot;q/q!/wq/x&quot;]
+}
+</pre></div>
+
+
+<p>Once you have the file you can make an image using the following <code>dot</code> command (dot is one of the commands installed by Graphviz)</p>
+<div class="highlight"><pre><span></span>dot -Tpng test.dot -ovim.png
+</pre></div>
+
+
+<p>Just for fun, I tried my dot file with the other tools provided with Graphviz.  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:</p>
+<p><img alt="twopim" src="//colbrydi.github.io/images/twopi.jpg">
+<img alt="stdp" src="//colbrydi.github.io/images/stdp.jpg">
+<img alt="neato" src="//colbrydi.github.io/images/neato.jpg">
+<img alt="osage" src="//colbrydi.github.io/images/osage.jpg">
+<img alt="fdp" src="//colbrydi.github.io/images/fdp.jpg">
+<img alt="circo" src="//colbrydi.github.io/images/circo.jpg"></p>
+<p>Hope you find this useful.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Quick Graphviz Tutorial';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
