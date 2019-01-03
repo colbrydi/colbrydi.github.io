@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-01-02T00:00:00-05:00</updated><entry><title>Quick Graphviz Tutorial</title><link href="https://colbrydi.github.io/quick-graphviz-tutorial.html" rel="alternate"></link><published>2019-01-02T00:00:00-05:00</published><updated>2019-01-02T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-01-02:/quick-graphviz-tutorial.html</id><summary type="html">&lt;p&gt;&lt;img alt="vim system diagram" src="//colbrydi.github.io/images/vim.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;This quick tutorial shows provides basic instructions for generating the above graph using graphviz.&lt;/p&gt;
+&lt;p&gt;This quick tutorial shows provides basic instructions for generating the above graph using &lt;a href="https://www.graphviz.org/"&gt;Graphviz&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.graphviz.org/"&gt;&lt;img alt="Graphviz" src="https://graphviz.gitlab.io/_pages/Resources/app.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If you already have Anaconda installed on your system, you can quickly install graphviz using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;conda install graphviz
@@ -8,7 +8,7 @@
 
 
 &lt;p&gt;Once graphviz is installed you need to create a text file with the connections.  This …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="vim system diagram" src="//colbrydi.github.io/images/vim.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;This quick tutorial shows provides basic instructions for generating the above graph using graphviz.&lt;/p&gt;
+&lt;p&gt;This quick tutorial shows provides basic instructions for generating the above graph using &lt;a href="https://www.graphviz.org/"&gt;Graphviz&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.graphviz.org/"&gt;&lt;img alt="Graphviz" src="https://graphviz.gitlab.io/_pages/Resources/app.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If you already have Anaconda installed on your system, you can quickly install graphviz using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;conda install graphviz
