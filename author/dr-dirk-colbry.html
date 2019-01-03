@@ -83,7 +83,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 </pre></div>
 
 
-<p>Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called tMest.dot) makes the figure above.  Use the <code>-&gt;</code> to indicate a directed link and a <code>--</code> to indicate a bi-directional link:</p>
+<p>Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the <code>-&gt;</code> to indicate a directed link and a <code>--</code> to indicate a bi-directional link:</p>
 <div class="highlight"><pre><span></span>digraph G {
  Linux -&gt; Normal  [ label=&quot;vim&quot; ];
  Normal  -&gt; Insert  [ label=&quot;i/I/a/A/o/O&quot; ];
@@ -100,13 +100,14 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 </pre></div>
 
 
-<p>Just for fun, I tried my dot file with the other tools provided with Graphviz (twopim, sfdp, neato, osage, fdp and circo).  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:</p>
+<p>Just for fun, I tried my dot file with the other tools provided with Graphviz (twopim, sfdp, neato, osage, fdp, circo and patchwork).  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:</p>
 <p><img alt="twopim" src="//colbrydi.github.io/images/twopi.jpg">
 <img alt="sfdp" src="//colbrydi.github.io/images/sfdp.jpg">
 <img alt="neato" src="//colbrydi.github.io/images/neato.jpg">
 <img alt="osage" src="//colbrydi.github.io/images/osage.jpg">
 <img alt="fdp" src="//colbrydi.github.io/images/fdp.jpg">
-<img alt="circo" src="//colbrydi.github.io/images/circo.jpg"></p>
+<img alt="circo" src="//colbrydi.github.io/images/circo.jpg">
+<img alt="patchwork" src="//colbrydi.github.io/images/patchwork.jpg"></p>
 <p>Hope you find this useful.</p></div>
         <hr />
     </div>

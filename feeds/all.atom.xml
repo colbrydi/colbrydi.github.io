@@ -15,7 +15,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called tMest.dot) makes the figure above.  Use the &lt;code&gt;-&amp;gt;&lt;/code&gt; to indicate a directed link and a &lt;code&gt;--&lt;/code&gt; to indicate a bi-directional link:&lt;/p&gt;
+&lt;p&gt;Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the &lt;code&gt;-&amp;gt;&lt;/code&gt; to indicate a directed link and a &lt;code&gt;--&lt;/code&gt; to indicate a bi-directional link:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;digraph G {
  Linux -&amp;gt; Normal  [ label=&amp;quot;vim&amp;quot; ];
  Normal  -&amp;gt; Insert  [ label=&amp;quot;i/I/a/A/o/O&amp;quot; ];
@@ -32,13 +32,14 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Just for fun, I tried my dot file with the other tools provided with Graphviz (twopim, sfdp, neato, osage, fdp and circo).  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:&lt;/p&gt;
+&lt;p&gt;Just for fun, I tried my dot file with the other tools provided with Graphviz (twopim, sfdp, neato, osage, fdp, circo and patchwork).  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="twopim" src="//colbrydi.github.io/images/twopi.jpg"&gt;
 &lt;img alt="sfdp" src="//colbrydi.github.io/images/sfdp.jpg"&gt;
 &lt;img alt="neato" src="//colbrydi.github.io/images/neato.jpg"&gt;
 &lt;img alt="osage" src="//colbrydi.github.io/images/osage.jpg"&gt;
 &lt;img alt="fdp" src="//colbrydi.github.io/images/fdp.jpg"&gt;
-&lt;img alt="circo" src="//colbrydi.github.io/images/circo.jpg"&gt;&lt;/p&gt;
+&lt;img alt="circo" src="//colbrydi.github.io/images/circo.jpg"&gt;
+&lt;img alt="patchwork" src="//colbrydi.github.io/images/patchwork.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Hope you find this useful.&lt;/p&gt;</content></entry><entry><title>Three and Four way switch status lights</title><link href="https://colbrydi.github.io/three-and-four-way-switch-status-lights.html" rel="alternate"></link><published>2019-01-01T00:00:00-05:00</published><updated>2019-01-01T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-01-01:/three-and-four-way-switch-status-lights.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="25%,"&gt;&lt;/p&gt;
 &lt;p&gt;There are two light switches in our mudroom that control the garage lights and the lights on the front of the house.  Unfortunately I can not see these lights when standing next to the switches and sense there are multiple switches for each light you can not know if the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="25%,"&gt;&lt;/p&gt;
 &lt;p&gt;There are two light switches in our mudroom that control the garage lights and the lights on the front of the house.  Unfortunately I can not see these lights when standing next to the switches and sense there are multiple switches for each light you can not know if the lights are actually on or off.  I decided to install an indicator light next to the switch to tell if the lights are on or off.  &lt;/p&gt;
