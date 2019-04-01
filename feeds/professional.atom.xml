@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-03-26T00:00:00-04:00</updated><entry><title>Understanding Research Technology Support and Where it Fails</title><link href="https://colbrydi.github.io/understanding-research-technology-support-and-where-it-fails.html" rel="alternate"></link><published>2019-03-26T00:00:00-04:00</published><updated>2019-03-26T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-03-26:/understanding-research-technology-support-and-where-it-fails.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Image of a Microscope" hspace="10" src="//colbrydi.github.io/images/Microscope.png" width="200,"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-03-28T00:00:00-04:00</updated><entry><title>HPCC SLURM Buy-in Notes</title><link href="https://colbrydi.github.io/hpcc-slurm-buy-in-notes.html" rel="alternate"></link><published>2019-03-28T00:00:00-04:00</published><updated>2019-03-28T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-03-28:/hpcc-slurm-buy-in-notes.html</id><summary type="html">&lt;p&gt;&lt;a href="https://slurm.schedmd.com/"&gt;&lt;img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.&lt;/p&gt;
+&lt;p&gt;One nice new feature is that I can manage our own Buy-in account.  The CMSE department has …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://slurm.schedmd.com/"&gt;&lt;img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.&lt;/p&gt;
+&lt;p&gt;One nice new feature is that I can manage our own Buy-in account.  The CMSE department has multiple buy-in nodes. For example, the command to &lt;strong&gt;show&lt;/strong&gt; everyone on the CMSE account is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sacctmgr show association account=cmse
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If I want to &lt;strong&gt;add&lt;/strong&gt; someone to the CMSE buy-in account I just do the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sacctmgr add user account=cmse name=colbrydi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then if I want to &lt;strong&gt;delete&lt;/strong&gt; someone from he CMSE buy-in account is just as easy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sacctmgr delete user account=cmse name=colbrydi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The HPCC staff also provides the following useful powertools that users can access by running &lt;code&gt;module load powertools&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;priority_status&lt;/strong&gt; or &lt;strong&gt;buyin_status&lt;/strong&gt; - equivalent commands that shows all of your buy-in nodes and who is currently running on them.&lt;/p&gt;
+&lt;p&gt;To use the buy-in account you need to specifically use the account option in the job script (I think).  For example, the following SBATCH commands should request one of the Volta GPU cards on the cmse account:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#SBATCH --gres=gpu:1  
+#SBATCH --nodelist=nvl-001
+#SBATCH --time=08:00:00
+#SBATCH --account=cmse
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Many of our people want to use the Volta over Jupyterhub run though the &lt;a href="https://webrdp.hpcc.msu.edu"&gt;webrdp&lt;/a&gt; website.  To do this, you would log into &lt;a href="https://webrdp.hpcc.msu.edu"&gt;webrdp&lt;/a&gt;, open a terminal on the &lt;a href="https://webrdp.hpcc.msu.edu"&gt;webrdp&lt;/a&gt; desktop, ssh to one of the dev nodes and then issue the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once the job starts, you would just type &lt;code&gt;jupyter notebook&lt;/code&gt; assuming you have it installed.&lt;/p&gt;
+&lt;p&gt;Hope you find these notes useful.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dirk&lt;/li&gt;
+&lt;/ul&gt;</content><category term="HPC"></category></entry><entry><title>Understanding Research Technology Support and Where it Fails</title><link href="https://colbrydi.github.io/understanding-research-technology-support-and-where-it-fails.html" rel="alternate"></link><published>2019-03-26T00:00:00-04:00</published><updated>2019-03-26T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-03-26:/understanding-research-technology-support-and-where-it-fails.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Image of a Microscope" hspace="10" src="//colbrydi.github.io/images/Microscope.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;I was invited to give a talk to a newly formed IT Research Support group here on MSU campus.  As the name suggests, the purpose of this group is to find the best ways to help researchers use technology to do their science.  &lt;/p&gt;
 &lt;p&gt;This talk was a patchwork of many …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Image of a Microscope" hspace="10" src="//colbrydi.github.io/images/Microscope.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;I was invited to give a talk to a newly formed IT Research Support group here on MSU campus.  As the name suggests, the purpose of this group is to find the best ways to help researchers use technology to do their science.  &lt;/p&gt;
 &lt;p&gt;This talk was a patchwork of many of my other talks.  I motivated the discussion by talking about the history of research computing  and  telling a few stories about how research IT is very different than Enterprise IT.  The core of the talk was a group discussion around the idea that the  most common source of failure in any project is in human communication.&lt;/p&gt;
 &lt;p&gt;Then I discussed both campus and national efforts to solve the "human problem" by training a workforce of CI professionals dedicated to supporting research technology.  I ended my talk with a quick review of the many national efforts and a plug for our &lt;a href="https://colbrydi.github.io/cyberambassadors/"&gt;CyberAmbassador&lt;/a&gt; project.&lt;/p&gt;
 &lt;p&gt;A link to my slides can be found here:&lt;/p&gt;
-&lt;p&gt;&lt;a href="//colbrydi.github.io/images/20190326_IT_Research_support_Talk.pdf"&gt;Link to pdf of slides&lt;/a&gt;&lt;/p&gt;</content><category term="HPC"></category><category term="Presentations"></category></entry><entry><title>Managing Files on the MSU Engineering Jupyterhub server</title><link href="https://colbrydi.github.io/managing-files-on-the-msu-engineering-jupyterhub-server.html" rel="alternate"></link><published>2019-03-08T00:00:00-05:00</published><updated>2019-03-08T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-03-08:/managing-files-on-the-msu-engineering-jupyterhub-server.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Disk Icon" hspace="10" src="//www.maxpixel.net/static/photo/2x/Memory-Computer-Floppy-Disc-Storage-Floppy-Disc-23343.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//colbrydi.github.io/images/20190326_IT_Research_support_Talk.pdf"&gt;Link to pdf of slides&lt;/a&gt;&lt;/p&gt;</content><category term="HPC"></category><category term="Presentations"></category></entry><entry><title>Managing Files on the MSU Engineering Jupyterhub server</title><link href="https://colbrydi.github.io/managing-files-on-the-msu-engineering-jupyterhub-server.html" rel="alternate"></link><published>2019-03-08T00:00:00-05:00</published><updated>2019-03-08T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-03-08:/managing-files-on-the-msu-engineering-jupyterhub-server.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Disk Icon" hspace="10" src="//colbrydi.github.io/images/Floppy_Disk.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;The MSU Engineering Jupyterhub server provides 2GB of disk storage space for each student.  It can be helpful to learn some disk management so you can use this space effectively.&lt;/p&gt;
-&lt;p&gt;For example, pip install uses a temporary folder when downloading packages.  Periodically, deleting this folder can significantly free up space …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Disk Icon" hspace="10" src="//www.maxpixel.net/static/photo/2x/Memory-Computer-Floppy-Disc-Storage-Floppy-Disc-23343.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;For example, pip install uses a temporary folder when downloading packages.  Periodically, deleting this folder can significantly free up space …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Disk Icon" hspace="10" src="//colbrydi.github.io/images/Floppy_Disk.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;The MSU Engineering Jupyterhub server provides 2GB of disk storage space for each student.  It can be helpful to learn some disk management so you can use this space effectively.&lt;/p&gt;
 &lt;p&gt;For example, pip install uses a temporary folder when downloading packages.  Periodically, deleting this folder can significantly free up space.  &lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rm -rf ~/.cache&lt;/code&gt;&lt;/p&gt;

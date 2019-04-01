@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../understanding-research-technology-support-and-where-it-fails.html"><h1>Understanding Research Technology Support and Where it Fails</h1></a>
-Tue 26 March 2019
+            <a href="../hpcc-slurm-buy-in-notes.html"><h1>HPCC SLURM Buy-in Notes</h1></a>
+Thu 28 March 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,15 +75,66 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Image of a Microscope" hspace="10" src="//colbrydi.github.io/images/Microscope.png" width="200,"></p>
-<p>I was invited to give a talk to a newly formed IT Research Support group here on MSU campus.  As the name suggests, the purpose of this group is to find the best ways to help researchers use technology to do their science.  </p>
-<p>This talk was a patchwork of many of my other talks.  I motivated the discussion by talking about the history of research computing  and  telling a few stories about how research IT is very different than Enterprise IT.  The core of the talk was a group discussion around the idea that the  most common source of failure in any project is in human communication.</p>
-<p>Then I discussed both campus and national efforts to solve the "human problem" by training a workforce of CI professionals dedicated to supporting research technology.  I ended my talk with a quick review of the many national efforts and a plug for our <a href="https://colbrydi.github.io/cyberambassadors/">CyberAmbassador</a> project.</p>
-<p>A link to my slides can be found here:</p>
-<p><a href="//colbrydi.github.io/images/20190326_IT_Research_support_Talk.pdf">Link to pdf of slides</a></p></div>
+        <div><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
+<p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
+<p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has multiple buy-in nodes. For example, the command to <strong>show</strong> everyone on the CMSE account is:</p>
+<div class="highlight"><pre><span></span>sacctmgr show association account=cmse
+</pre></div>
+
+
+<p>If I want to <strong>add</strong> someone to the CMSE buy-in account I just do the following:</p>
+<div class="highlight"><pre><span></span>sacctmgr add user account=cmse name=colbrydi
+</pre></div>
+
+
+<p>Then if I want to <strong>delete</strong> someone from he CMSE buy-in account is just as easy:</p>
+<div class="highlight"><pre><span></span>sacctmgr delete user account=cmse name=colbrydi
+</pre></div>
+
+
+<p>The HPCC staff also provides the following useful powertools that users can access by running <code>module load powertools</code>:</p>
+<p><strong>priority_status</strong> or <strong>buyin_status</strong> - equivalent commands that shows all of your buy-in nodes and who is currently running on them.</p>
+<p>To use the buy-in account you need to specifically use the account option in the job script (I think).  For example, the following SBATCH commands should request one of the Volta GPU cards on the cmse account:</p>
+<div class="highlight"><pre><span></span>#SBATCH --gres=gpu:1  
+#SBATCH --nodelist=nvl-001
+#SBATCH --time=08:00:00
+#SBATCH --account=cmse
+</pre></div>
+
+
+<p>Many of our people want to use the Volta over Jupyterhub run though the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> website.  To do this, you would log into <a href="https://webrdp.hpcc.msu.edu">webrdp</a>, open a terminal on the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> desktop, ssh to one of the dev nodes and then issue the following command:</p>
+<div class="highlight"><pre><span></span>salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse
+</pre></div>
+
+
+<p>Once the job starts, you would just type <code>jupyter notebook</code> assuming you have it installed.</p>
+<p>Hope you find these notes useful.</p>
+<ul>
+<li>Dirk</li>
+</ul></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../understanding-research-technology-support-and-where-it-fails.html"><h2>Understanding Research Technology Support and Where it Fails</h2></a>
+        <div class= "well small"> Tue 26 March 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Image of a Microscope" hspace="10" src="//colbrydi.github.io/images/Microscope.png" width="200,"></p>
+<p>I was invited to give a talk to a newly formed IT Research Support group here on MSU campus.  As the name suggests, the purpose of this group is to find the best ways to help researchers use technology to do their science.  </p>
+<p>This talk was a patchwork of many …</p> <a class="btn btn-info xsmall" href="../understanding-research-technology-support-and-where-it-fails.html">read more</a></div>
+    </div>	
+				
 
  
         
