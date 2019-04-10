@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="./hpcc-slurm-buy-in-notes.html"><h1>HPCC SLURM Buy-in Notes</h1></a>
-Thu 28 March 2019
+            <a href="./accessibility-of-jupyter-for-impaired-individuals.html"><h1>Accessibility of Jupyter for Impaired Individuals</h1></a>
+Fri 05 April 2019
 
 by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,46 +75,55 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
-<p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
-<p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has multiple buy-in nodes. For example, the command to <strong>show</strong> everyone on the CMSE account is:</p>
-<div class="highlight"><pre><span></span>sacctmgr show association account=cmse
-</pre></div>
-
-
-<p>If I want to <strong>add</strong> someone to the CMSE buy-in account I just do the following:</p>
-<div class="highlight"><pre><span></span>sacctmgr add user account=cmse name=colbrydi
-</pre></div>
-
-
-<p>Then if I want to <strong>delete</strong> someone from he CMSE buy-in account is just as easy:</p>
-<div class="highlight"><pre><span></span>sacctmgr delete user account=cmse name=colbrydi
-</pre></div>
-
-
-<p>The HPCC staff also provides the following useful powertools that users can access by running <code>module load powertools</code>:</p>
-<p><strong>priority_status</strong> or <strong>buyin_status</strong> - equivalent commands that shows all of your buy-in nodes and who is currently running on them.</p>
-<p>To use the buy-in account you need to specifically use the account option in the job script (I think).  For example, the following SBATCH commands should request one of the Volta GPU cards on the cmse account:</p>
-<div class="highlight"><pre><span></span>#SBATCH --gres=gpu:1  
-#SBATCH --nodelist=nvl-001
-#SBATCH --time=08:00:00
-#SBATCH --account=cmse
-</pre></div>
-
-
-<p>Many of our people want to use the Volta over Jupyterhub run though the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> website.  To do this, you would log into <a href="https://webrdp.hpcc.msu.edu">webrdp</a>, open a terminal on the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> desktop, ssh to one of the dev nodes and then issue the following command:</p>
-<div class="highlight"><pre><span></span>salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse
-</pre></div>
-
-
-<p>Once the job starts, you would just type <code>jupyter notebook</code> assuming you have it installed.</p>
-<p>Hope you find these notes useful.</p>
-<ul>
-<li>Dirk</li>
-</ul></div>
+        <div><p><img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"></p>
+<p>This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  </p>
+<h2>Abstract</h2>
+<p>Jupyter is an open-source programming environment that uses "literate programming" by combining documentation, coding and visualization into one file format. The Jupyter notebook format is also particularly well-suited for learning environments, where the instructional content (text, links, videos, etc.) can be combined with executable code and student output (graphs, charts, solutions, feedback) in a single, easy-to-use, file format. Unfortunately, Jupyter software is not fully accessible.  This means individuals with impaired senses and abilities may not be able to interact with Jupyter effectively. MSU is leading an initiative working towards making Jupyter more accessible. In this project, I investigated the different accessibility issues with Jupyter and identified key problems that, if fixed, would provide an improved experience for the greatest number of our students. This project made progress in solving two key issues; 1) automatically identify and measuring color contrast across the entire graphical user interface and 2) identify structural edits to the source code that can be made to improve the overall readability for screen readers.</p>
+<p><a href="//colbrydi.github.io/images/UURAF_Jupyter_Accessibility.pdf">Link to the poster</a></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+</div></div></div>    <div class='article'>
+        <a href="./the-challenges-of-developing-research-tools-in-active-and-responsive-open-source-communities.html"><h2>The challenges of developing research tools in active and responsive open source communities</h2></a>
+        <div class= "well small"> Fri 05 April 2019
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Poster with Ty and Hattie" hspace="10" src="//colbrydi.github.io/images/2019_PA_Poster.jpg" width="200,"></p>
+<p>This poster presents work by Professorial Assistance, Ty Buckly and Hattie Pimentel and their work on building an image annotation system inside of Jupyter.  </p>
+<h2>Abstract</h2>
+<p>Scientists often gather observations of the world using images and need efficient image annotating tools to extract data from these images. Project Insight seeks to …</p> <a class="btn btn-info xsmall" href="./the-challenges-of-developing-research-tools-in-active-and-responsive-open-source-communities.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="./hpcc-slurm-buy-in-notes.html"><h2>HPCC SLURM Buy-in Notes</h2></a>
+        <div class= "well small"> Thu 28 March 2019
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
+<p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
+<p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has …</p> <a class="btn btn-info xsmall" href="./hpcc-slurm-buy-in-notes.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -265,46 +274,6 @@ by <a class="url fn" href="./author/dirk-colbry.html">Dirk Colbry</a>
 <p>I am particularly proud of this code because of the following features:</p>
 <ul>
 <li>Does not require the installation of OpenCV (This can be tricky)</li> <a class="btn btn-info xsmall" href="./accessing-a-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-</div></div></div>    <div class='article'>
-        <a href="./using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html"><h2>Using an X11 Virtual Frame Buffer to run GUI jobs in batch mode on the HPC.</h2></a>
-        <div class= "well small"> Thu 20 December 2018
-
-by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="X11 Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/a/ab/X11.png" width="20%,"></p>
-<p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunately Pandemic requires X11 to run and I would get a segmentation fault every time I ran it in the batch system.</p>
-<p>This blog post shows how I used the …</p> <a class="btn btn-info xsmall" href="./using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="./how-do-we-know-what-we-dont-know-we-dont-know.html"><h2>How do we know what we don't know we don't know?</h2></a>
-        <div class= "well small"> Fri 07 December 2018
-
-by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="Education2035" hspace="10" src="//colbrydi.github.io/images/Education2035.jpg" width="100%,"></p>
-<p>Faculty at MSU conducted a workshop to brainstorm and discuss ways we can try and foresee how education will be changed by technology in an effort to get ahead of the changes and make sure our teaching goals and values stay intact.</p>
-<p>My presentation was about the difficulty in predicting …</p> <a class="btn btn-info xsmall" href="./how-do-we-know-what-we-dont-know-we-dont-know.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
