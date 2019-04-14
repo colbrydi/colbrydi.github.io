@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../three-and-four-way-switch-status-lights.html"><h1>Three and Four way switch status lights</h1></a>
-Tue 01 January 2019
+            <a href="../sphere-o-bot-jjrobots-version.html"><h1>Sphere-O-Bot (JJRobots version)</h1></a>
+Sat 13 April 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,29 +75,59 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="25%,"></p>
-<p>There are two light switches in our mudroom that control the garage lights and the lights on the front of the house.  Unfortunately I can not see these lights when standing next to the switches and sense there are multiple switches for each light you can not know if the lights are actually on or off.  I decided to install an indicator light next to the switch to tell if the lights are on or off.  </p>
-<p>I did some web searching and there are some three way switches with "pilot" or indicator lights. However, most of these are lit when the switch is off and I wanted them to be lit when on.  I also didn't really like the look of most of them.</p>
-<h3>Attempt 1 - 120v LEDs (Spoiler, this Didn't work)</h3>
-<p>I found some really cool <a href="https://www.amazon.com/dp/B000K2IKPK/ref=cm_sw_em_r_mt_dp_U_DU5kCbE2CCCXM">120V LEDs on Amazon</a>. My thought was to wire one in series with my lights.  However, once I got them and tried them out the LEDs worked fine but the outside lights didn't work at all.  I slapped my head realizing that the "D" in LED stands for "diode" and I was chopping off the A/C signal.  </p>
-<p><img align="right," alt="120V LED" hspace="10" src="https://images-na.ssl-images-amazon.com/images/I/31CimWUcxwL.jpg" width="10%,"></p>
-<h3>Attempt 2 - two 120v LEDs (This didn't work either)</h3>
-<p>The obvious solution (to me) was to just use two of the 120V LEDs with going in opposite directions this way current would always be able to flow though them.  That didn't work either. Not exactly sure why... my best guess is that the LEDs dropped the current or voltage in such a way that the outside lights no longer could work.  To be honest I didn't spend much time debugging the problem because I came up with another solution...</p>
-<h3>Attempt 3 - Remote Current Indicator (This one worked nicely)</h3>
-<p>For my third attempt I found some <a href="https://www.amazon.com/dp/B005CWHD42/ref=cm_sw_em_r_mt_dp_U_h15kCbGJ8DPMQ">Low Cost Remote Current Indicators</a>.  </p>
-<p><img alt="Current Indicators" src="https://images-na.ssl-images-amazon.com/images/I/31Y%2B-8BHU7L.jpg"></p>
-<p>What is nice about these is that they get their power though induction instead of directly being wired in.  The only trick was to ensure that enough current is going through them to get the attached LEDs to work.  Fortunately wrapping the wires around the doughnut increases the current.  </p>
-<p>The trick was to figure out how to get them to work properly with three way and four way switches.  The three way solution is fairly strait-forward, all you need to do is wrap the wire going to the light fixture around a few times and the indicator turns on anytime the light turns on. Here are a few diagrams I quickly made to show you how it works.</p>
-<p><img align="right," alt="Three way switch Circuit diagram" hspace="10" src="../images/ThreeWaySwitch.png" width="25%,">
-<img align="right," alt="Three way switch wiring" hspace="10" src="../images/ThreeWayWire.png" width="25%,"></p>
-<p>I didn't realize until I had it all apart the third time that the garage ligth is a four way switch and not just a three way switch. This caused some head scratching since I could not know for sure which wires would be hot. The solution was to pass all the wires though as shown in the following figure.  This only gave me one "loop" but that proved to be enough to get the LED to light up.</p>
-<p><img align="right," alt="Four way switch Circuit diagram" hspace="10" src="../images/FourWaySwitch.png" width="25%,">
-<img align="right," alt="Four way switch wiring" hspace="10" src="../images/FourWayWire.png" width="25%,"></p>
-<p>Anyways, fun little project and now I can tell if my lights are on.
-!</p></div>
+        <div><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
+<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
+<p>I dug out the Sphere-O-bot this week and after some trial and error I got it back up and running just in time for the Easter Holiday. One of the tricky parts was getting the software to work on an old windows 8 surface we had laying around. The software has three components:</p>
+<ol>
+<li><a href="https://www.arduino.cc/en/Main/Software">Arduino Leonardo Arduino drivers</a></li>
+<li><a href="https://inkscape.org/release/0.91/">Inkscape Version 0.91</a> - Newer versions of Inkscape do not work.</li>
+<li><a href="https://wiki.evilmadscientist.com/Installing_software">Eggbot Extention for Inkscape</a></li>
+</ol>
+<p>Running the installers for the above is just the first step.  I had a heck of a time getting the software to connect to the Arduino. It took a lot of googling and multiple problems on top of each other which made it tricky.  One key thing I had to change was the following line in the
+<code>eggbot_scanwin32.py</code> file:</p>
+<p><code>hKey = _winreg.OpenKey( hReg, r"SYSTEM\CurrentControlSet\Enum\USB\VID_2341&amp;PID_0043" )</code></p>
+<p>Turns out the VID and PID are unique to my system.  You can figure these numbers out by using the Arduino software and looking at the board specifications or you can look them up in the device manager.  Kind of tricky.  </p>
+<p>Anyway, once we got it working it turns out to be extremely fun. I purchased a bunch of ping-pong balls online:</p>
+<p><a href="https://www.amazon.com/dp/B001QVA5A2/ref=cm_sw_em_r_mt_dp_U_OIFSCbTPRMWYN">STIGA 2-Star White No Print Table Tennis Balls (144-Count) by Amazon.com</a></p>
+<p>These are reasonably priced and work well for printing.  We have already gone though and printed a bunch of designs we download from the internet.  </p>
+<p><img align="right," alt="Example Printed Spheres" hspace="10" src="../images/FirstPlots.jpg" width="200,"></p>
+<p>I also had my daughter draw a picture and put it on an egg:</p>
+<p><img align="right," alt="Plot from a Drawing" hspace="10" src="../images/Drawing.jpg" width="200,"></p>
+<p>There are many steps to getting this to work but they are all fairly easy:</p>
+<ol>
+<li>Draw a picture with only one color (to start) on white paper.</li>
+<li>Open up the eggbot svg Inkscape template file from the examples directory.</li>
+<li>Take a picture with my phone and email it to me.</li>
+<li>Upload the picture into Inkscape.</li>
+<li>Run the trace bitmap function in the menu.  This will take some fiddling to get only the parts of the image you want.</li>
+<li>Edit the resulting vectors as needed.</li>
+<li>Highlight the entire bitmap such that all of the points are selected.</li>
+<li>Run the object to path function in the menu.</li>
+<li>Run the Eggbot Extension and print as normal.  </li>
+</ol>
+<p>The above instructions are really just notes for myself the next time I want to do this activity with the kids.  If anyone besides me is reading this blog, please feel free to put a comment below or drop me an email and I am happy to put together more detailed instructions for installation and/or printing a picture.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../three-and-four-way-switch-status-lights.html"><h2>Three and Four way switch status lights</h2></a>
+        <div class= "well small"> Tue 01 January 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="200,"></p>
+<p>There are two light switches in our mudroom that control the garage lights and the lights on the front of the house.  Unfortunately I can not see these lights when standing next to the switches and sense there are multiple switches for each light you can not know if the …</p> <a class="btn btn-info xsmall" href="../three-and-four-way-switch-status-lights.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -113,7 +143,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
  </div>
-        <div class="summary"><p><img align="right," alt="Alexa Dot Wall Mount" hspace="10" src="../images/Alexa.jpg" width="25%,"></p>
+        <div class="summary"><p><img align="right," alt="Alexa Dot Wall Mount" hspace="10" src="../images/Alexa.jpg" width="200,"></p>
 <p>My brother got me an Alexa Dot for Christmas a few years ago.  It turns out to be a lot of fun. We put it in the kitchen and the kids play music.  My wife and I also use it to add things to our shopping list (very convenient!) Anyway …</p> <a class="btn btn-info xsmall" href="../alexa-dot-holder.html">read more</a></div>
     </div>	
 				
@@ -174,7 +204,8 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
  </div>
-        <div class="summary"><p>I have been coveting a <a href="//farm.bot/">FarmBot</a>.  At $2500 to $4000 these farming robots are a little out of my price range. However, I guess if I had a big enough yard I would still be looking to purchase one of these. They are so cool, they will plant, water, weed …</p> <a class="btn btn-info xsmall" href="../farmbot.html">read more</a></div>
+        <div class="summary"><p><img align="right," alt="FarmBot Logo" hspace="10" src="https://cdn.shopify.com/s/files/1/2040/0289/files/FarmBot.io_Trimmed_Logo_Gray_on_Transparent_1_434x200.png?v=1525220371" width="200,"></p>
+<p>I have been coveting a <a href="//farm.bot/">FarmBot</a>.  At $2500 to $4000 these farming robots are a little out of my price range. However, I guess if I had a big enough yard I would still be looking to purchase one of these. They are so cool, they will plant, water, weed …</p> <a class="btn btn-info xsmall" href="../farmbot.html">read more</a></div>
     </div>	
 				
 
@@ -192,7 +223,8 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
  </div>
-        <div class="summary"><p>A great purchase for anyone with a 3D printer and looking for projects With the kids.</p>
+        <div class="summary"><p><img align="right," alt="JJRobotics Logo" hspace="10" src="https://www.jjrobots.com/wp-content/uploads/2018/10/jjrobots-logo-500x242.png" width="200,"></p>
+<p>A great purchase for anyone with a 3D printer and looking for projects With the kids.</p>
 <p>About a year ago I stubbled across <a href="//www.jjrobots.com/">JJRobots</a> and I just love the idea of this company.  They sell a kit of electronic parts to maker hobbyists with access to 3D printers.   The idea …</p> <a class="btn btn-info xsmall" href="../jjrobotics.html">read more</a></div>
     </div>	
 				
@@ -254,27 +286,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 It turns out that the fans got disconnected. Once I fixed the problem my
 printer is working better than ever. I was itching for something to print so I
 came up with this simple spacer …</p> <a class="btn btn-info xsmall" href="../electric-box-extender.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../ultimaker-2-cleaning-a-clogged-nozzle.html"><h2>Ultimaker 2, cleaning a clogged nozzle</h2></a>
-        <div class= "well small"> Sat 02 May 2015
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p>So my Ultimaker2 extruding head got clogged, really bad.  Something got jammed
-while printing and I could not get the filament to feed.  This had happened
-once in the past when I tried using some really cheap filament but I am not
-sure the real root of the problem this …</p> <a class="btn btn-info xsmall" href="../ultimaker-2-cleaning-a-clogged-nozzle.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

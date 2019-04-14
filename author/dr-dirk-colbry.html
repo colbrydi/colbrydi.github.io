@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../accessibility-of-jupyter-for-impaired-individuals.html"><h1>Accessibility of Jupyter for Impaired Individuals</h1></a>
-Fri 05 April 2019
+            <a href="../sphere-o-bot-jjrobots-version.html"><h1>Sphere-O-Bot (JJRobots version)</h1></a>
+Sat 13 April 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,14 +75,61 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"></p>
-<p>This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  </p>
-<h2>Abstract</h2>
-<p>Jupyter is an open-source programming environment that uses "literate programming" by combining documentation, coding and visualization into one file format. The Jupyter notebook format is also particularly well-suited for learning environments, where the instructional content (text, links, videos, etc.) can be combined with executable code and student output (graphs, charts, solutions, feedback) in a single, easy-to-use, file format. Unfortunately, Jupyter software is not fully accessible.  This means individuals with impaired senses and abilities may not be able to interact with Jupyter effectively. MSU is leading an initiative working towards making Jupyter more accessible. In this project, I investigated the different accessibility issues with Jupyter and identified key problems that, if fixed, would provide an improved experience for the greatest number of our students. This project made progress in solving two key issues; 1) automatically identify and measuring color contrast across the entire graphical user interface and 2) identify structural edits to the source code that can be made to improve the overall readability for screen readers.</p>
-<p><a href="//colbrydi.github.io/images/UURAF_Jupyter_Accessibility.pdf">Link to the poster</a></p></div>
+        <div><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
+<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
+<p>I dug out the Sphere-O-bot this week and after some trial and error I got it back up and running just in time for the Easter Holiday. One of the tricky parts was getting the software to work on an old windows 8 surface we had laying around. The software has three components:</p>
+<ol>
+<li><a href="https://www.arduino.cc/en/Main/Software">Arduino Leonardo Arduino drivers</a></li>
+<li><a href="https://inkscape.org/release/0.91/">Inkscape Version 0.91</a> - Newer versions of Inkscape do not work.</li>
+<li><a href="https://wiki.evilmadscientist.com/Installing_software">Eggbot Extention for Inkscape</a></li>
+</ol>
+<p>Running the installers for the above is just the first step.  I had a heck of a time getting the software to connect to the Arduino. It took a lot of googling and multiple problems on top of each other which made it tricky.  One key thing I had to change was the following line in the
+<code>eggbot_scanwin32.py</code> file:</p>
+<p><code>hKey = _winreg.OpenKey( hReg, r"SYSTEM\CurrentControlSet\Enum\USB\VID_2341&amp;PID_0043" )</code></p>
+<p>Turns out the VID and PID are unique to my system.  You can figure these numbers out by using the Arduino software and looking at the board specifications or you can look them up in the device manager.  Kind of tricky.  </p>
+<p>Anyway, once we got it working it turns out to be extremely fun. I purchased a bunch of ping-pong balls online:</p>
+<p><a href="https://www.amazon.com/dp/B001QVA5A2/ref=cm_sw_em_r_mt_dp_U_OIFSCbTPRMWYN">STIGA 2-Star White No Print Table Tennis Balls (144-Count) by Amazon.com</a></p>
+<p>These are reasonably priced and work well for printing.  We have already gone though and printed a bunch of designs we download from the internet.  </p>
+<p><img align="right," alt="Example Printed Spheres" hspace="10" src="../images/FirstPlots.jpg" width="200,"></p>
+<p>I also had my daughter draw a picture and put it on an egg:</p>
+<p><img align="right," alt="Plot from a Drawing" hspace="10" src="../images/Drawing.jpg" width="200,"></p>
+<p>There are many steps to getting this to work but they are all fairly easy:</p>
+<ol>
+<li>Draw a picture with only one color (to start) on white paper.</li>
+<li>Open up the eggbot svg Inkscape template file from the examples directory.</li>
+<li>Take a picture with my phone and email it to me.</li>
+<li>Upload the picture into Inkscape.</li>
+<li>Run the trace bitmap function in the menu.  This will take some fiddling to get only the parts of the image you want.</li>
+<li>Edit the resulting vectors as needed.</li>
+<li>Highlight the entire bitmap such that all of the points are selected.</li>
+<li>Run the object to path function in the menu.</li>
+<li>Run the Eggbot Extension and print as normal.  </li>
+</ol>
+<p>The above instructions are really just notes for myself the next time I want to do this activity with the kids.  If anyone besides me is reading this blog, please feel free to put a comment below or drop me an email and I am happy to put together more detailed instructions for installation and/or printing a picture.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../accessibility-of-jupyter-for-impaired-individuals.html"><h2>Accessibility of Jupyter for Impaired Individuals</h2></a>
+        <div class= "well small"> Fri 05 April 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"></p>
+<p>This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  </p>
+<p><strong>Abstract</strong></p>
+<p>Jupyter is an open-source programming environment that uses "literate programming" by combining documentation, coding and visualization into one file format. The Jupyter notebook format is also particularly well-suited for …</p> <a class="btn btn-info xsmall" href="../accessibility-of-jupyter-for-impaired-individuals.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -100,7 +147,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  </div>
         <div class="summary"><p><img align="right," alt="Poster with Ty and Hattie" hspace="10" src="//colbrydi.github.io/images/2019_PA_Poster.jpg" width="200,"></p>
 <p>This poster presents work by Professorial Assistance, Ty Buckly and Hattie Pimentel and their work on building an image annotation system inside of Jupyter.  </p>
-<h2>Abstract</h2>
+<p><strong>Abstract</strong></p>
 <p>Scientists often gather observations of the world using images and need efficient image annotating tools to extract data from these images. Project Insight seeks to …</p> <a class="btn btn-info xsmall" href="../the-challenges-of-developing-research-tools-in-active-and-responsive-open-source-communities.html">read more</a></div>
     </div>	
 				
@@ -245,28 +292,8 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
  </div>
-        <div class="summary"><p><img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="25%,"></p>
+        <div class="summary"><p><img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="200,"></p>
 <p>There are two light switches in our mudroom that control the garage lights and the lights on the front of the house.  Unfortunately I can not see these lights when standing next to the switches and sense there are multiple switches for each light you can not know if the …</p> <a class="btn btn-info xsmall" href="../three-and-four-way-switch-status-lights.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html"><h2>Using an X11 Virtual Frame Buffer to run GUI jobs in batch mode on the HPC.</h2></a>
-        <div class= "well small"> Thu 20 December 2018
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="X11 Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/a/ab/X11.png" width="20%,"></p>
-<p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunately Pandemic requires X11 to run and I would get a segmentation fault every time I ran it in the batch system.</p>
-<p>This blog post shows how I used the …</p> <a class="btn btn-info xsmall" href="../using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
