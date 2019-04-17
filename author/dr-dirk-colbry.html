@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../sphere-o-bot-jjrobots-version.html"><h1>Sphere-O-Bot (JJRobots version)</h1></a>
-Sat 13 April 2019
+            <a href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html"><h1>Extracting Desire to learn (D2L) zip files into student folders</h1></a>
+Mon 15 April 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,40 +75,79 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
-<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
-<p>I dug out the Sphere-O-bot this week and after some trial and error I got it back up and running just in time for the Easter Holiday. One of the tricky parts was getting the software to work on an old windows 8 surface we had laying around. The software has three components:</p>
-<ol>
-<li><a href="https://www.arduino.cc/en/Main/Software">Arduino Leonardo Arduino drivers</a></li>
-<li><a href="https://inkscape.org/release/0.91/">Inkscape Version 0.91</a> - Newer versions of Inkscape do not work.</li>
-<li><a href="https://wiki.evilmadscientist.com/Installing_software">Eggbot Extention for Inkscape</a></li>
-</ol>
-<p>Running the installers for the above is just the first step.  I had a heck of a time getting the software to connect to the Arduino. It took a lot of googling and multiple problems on top of each other which made it tricky.  One key thing I had to change was the following line in the
-<code>eggbot_scanwin32.py</code> file:</p>
-<p><code>hKey = _winreg.OpenKey( hReg, r"SYSTEM\CurrentControlSet\Enum\USB\VID_2341&amp;PID_0043" )</code></p>
-<p>Turns out the VID and PID are unique to my system.  You can figure these numbers out by using the Arduino software and looking at the board specifications or you can look them up in the device manager.  Kind of tricky.  </p>
-<p>Anyway, once we got it working it turns out to be extremely fun. I purchased a bunch of ping-pong balls online:</p>
-<p><a href="https://www.amazon.com/dp/B001QVA5A2/ref=cm_sw_em_r_mt_dp_U_OIFSCbTPRMWYN">STIGA 2-Star White No Print Table Tennis Balls (144-Count) by Amazon.com</a></p>
-<p>These are reasonably priced and work well for printing.  We have already gone though and printed a bunch of designs we download from the internet.  </p>
-<p><img align="right," alt="Example Printed Spheres" hspace="10" src="../images/FirstPlots.jpg" width="200,"></p>
-<p>I also had my daughter draw a picture and put it on an egg:</p>
-<p><img align="right," alt="Plot from a Drawing" hspace="10" src="../images/Drawing.jpg" width="200,"></p>
-<p>There are many steps to getting this to work but they are all fairly easy:</p>
-<ol>
-<li>Draw a picture with only one color (to start) on white paper.</li>
-<li>Open up the eggbot svg Inkscape template file from the examples directory.</li>
-<li>Take a picture with my phone and email it to me.</li>
-<li>Upload the picture into Inkscape.</li>
-<li>Run the trace bitmap function in the menu.  This will take some fiddling to get only the parts of the image you want.</li>
-<li>Edit the resulting vectors as needed.</li>
-<li>Highlight the entire bitmap such that all of the points are selected.</li>
-<li>Run the object to path function in the menu.</li>
-<li>Run the Eggbot Extension and print as normal.  </li>
-</ol>
-<p>The above instructions are really just notes for myself the next time I want to do this activity with the kids.  If anyone besides me is reading this blog, please feel free to put a comment below or drop me an email and I am happy to put together more detailed instructions for installation and/or printing a picture.</p></div>
+        <div><p><img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;name=D2L-web-500.png" width="200,"></p>
+<p>At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  </p>
+<p>When grading, I can download all of the student's submissions into a zip file such as the following:</p>
+<p>```Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip</p>
+<div class="highlight"><pre><span></span>```HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip
+</pre></div>
+
+
+<p>If this folder is unzipped files similar to the following will appear:</p>
+<div class="highlight"><pre><span></span>323771-372818 - Sam Smith - Jan 21, 2019 652 PM - submission.tgz
+325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - 1d wave eqn.pages
+325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - wave1d.py
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1.ipynb
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1_report.pdf
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - short.mp4
+331582-372818 - Joe Taylor - Jan 19, 2019 320 PM - HW1.tgz
+</pre></div>
+
+
+<p>For many of the topics we cover (mostly programming) these filenames are not easy to use.  In my classes student often submit files that need to work together with given file names (everything after the final dash).  I wrote the following program to convert the directory of complex filenames into folders. A separate folder for each student with the files in the folder:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">files</span><span class="o">=</span><span class="sb">`</span>ls<span class="sb">`</span>
+find . -iname <span class="s2">&quot;*&quot;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> file
+<span class="k">do</span>
+        <span class="nb">echo</span> <span class="nv">$file</span>
+        <span class="nv">folder</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span> <span class="p">|</span> cut -d <span class="s2">&quot;-&quot;</span> -f <span class="m">3</span> <span class="p">|</span> xargs<span class="sb">`</span>
+        <span class="nb">echo</span> <span class="s2">&quot;creating folder </span><span class="nv">$folder</span><span class="s2">&quot;</span>
+        mkdir -p <span class="s2">&quot;</span><span class="nv">$folder</span><span class="s2">&quot;</span>
+        <span class="nv">newname</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span> <span class="p">|</span> cut -d <span class="s2">&quot;-&quot;</span> -f5- <span class="p">|</span> xargs<span class="sb">`</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Renaming to </span><span class="nv">$newname</span><span class="s2">&quot;</span>
+        mv <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="s2">&quot;./</span><span class="nv">$folder</span><span class="s2">/</span><span class="nv">$newname</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Sam Smith
+Nan Carpenter
+Joe Taylor
+</pre></div>
+
+
+<p>Each directory contains that student's files. For example the <code>Joe Taylor</code> folder will have:</p>
+<div class="highlight"><pre><span></span>HW1.ipynb
+HW1_report.pdf
+short.mp4
+HW1.tgz
+</pre></div>
+
+
+<p>I hope you find this script useful.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../sphere-o-bot-jjrobots-version.html"><h2>Sphere-O-Bot (JJRobots version)</h2></a>
+        <div class= "well small"> Sat 13 April 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
+<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
+<p>I dug out the Sphere-O-bot this week and after …</p> <a class="btn btn-info xsmall" href="../sphere-o-bot-jjrobots-version.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -275,25 +314,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
 <p>Once graphviz is installed you need to create a text file with the connections.  This …</p> <a class="btn btn-info xsmall" href="../quick-graphviz-tutorial.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../three-and-four-way-switch-status-lights.html"><h2>Three and Four way switch status lights</h2></a>
-        <div class= "well small"> Tue 01 January 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="Indicator light with lights on" hspace="10" src="../images/Indicator_Light2.jpg" width="200,"></p>
-<p>There are two light switches in our mudroom that control the garage lights and the lights on the front of the house.  Unfortunately I can not see these lights when standing next to the switches and sense there are multiple switches for each light you can not know if the …</p> <a class="btn btn-info xsmall" href="../three-and-four-way-switch-status-lights.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../accessibility-of-jupyter-for-impaired-individuals.html"><h1>Accessibility of Jupyter for Impaired Individuals</h1></a>
-Fri 05 April 2019
+            <a href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html"><h1>Extracting Desire to learn (D2L) zip files into student folders</h1></a>
+Mon 15 April 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,11 +75,56 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"></p>
-<p>This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  </p>
-<p><strong>Abstract</strong></p>
-<p>Jupyter is an open-source programming environment that uses "literate programming" by combining documentation, coding and visualization into one file format. The Jupyter notebook format is also particularly well-suited for learning environments, where the instructional content (text, links, videos, etc.) can be combined with executable code and student output (graphs, charts, solutions, feedback) in a single, easy-to-use, file format. Unfortunately, Jupyter software is not fully accessible.  This means individuals with impaired senses and abilities may not be able to interact with Jupyter effectively. MSU is leading an initiative working towards making Jupyter more accessible. In this project, I investigated the different accessibility issues with Jupyter and identified key problems that, if fixed, would provide an improved experience for the greatest number of our students. This project made progress in solving two key issues; 1) automatically identify and measuring color contrast across the entire graphical user interface and 2) identify structural edits to the source code that can be made to improve the overall readability for screen readers.</p>
-<p><a href="//colbrydi.github.io/images/UURAF_Jupyter_Accessibility.pdf">Link to the poster</a></p></div>
+        <div><p><img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;name=D2L-web-500.png" width="200,"></p>
+<p>At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  </p>
+<p>When grading, I can download all of the student's submissions into a zip file such as the following:</p>
+<p>```Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip</p>
+<div class="highlight"><pre><span></span>```HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip
+</pre></div>
+
+
+<p>If this folder is unzipped files similar to the following will appear:</p>
+<div class="highlight"><pre><span></span>323771-372818 - Sam Smith - Jan 21, 2019 652 PM - submission.tgz
+325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - 1d wave eqn.pages
+325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - wave1d.py
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1.ipynb
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1_report.pdf
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - short.mp4
+331582-372818 - Joe Taylor - Jan 19, 2019 320 PM - HW1.tgz
+</pre></div>
+
+
+<p>For many of the topics we cover (mostly programming) these filenames are not easy to use.  In my classes student often submit files that need to work together with given file names (everything after the final dash).  I wrote the following program to convert the directory of complex filenames into folders. A separate folder for each student with the files in the folder:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">files</span><span class="o">=</span><span class="sb">`</span>ls<span class="sb">`</span>
+find . -iname <span class="s2">&quot;*&quot;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> file
+<span class="k">do</span>
+        <span class="nb">echo</span> <span class="nv">$file</span>
+        <span class="nv">folder</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span> <span class="p">|</span> cut -d <span class="s2">&quot;-&quot;</span> -f <span class="m">3</span> <span class="p">|</span> xargs<span class="sb">`</span>
+        <span class="nb">echo</span> <span class="s2">&quot;creating folder </span><span class="nv">$folder</span><span class="s2">&quot;</span>
+        mkdir -p <span class="s2">&quot;</span><span class="nv">$folder</span><span class="s2">&quot;</span>
+        <span class="nv">newname</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span> <span class="p">|</span> cut -d <span class="s2">&quot;-&quot;</span> -f5- <span class="p">|</span> xargs<span class="sb">`</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Renaming to </span><span class="nv">$newname</span><span class="s2">&quot;</span>
+        mv <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="s2">&quot;./</span><span class="nv">$folder</span><span class="s2">/</span><span class="nv">$newname</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Sam Smith
+Nan Carpenter
+Joe Taylor
+</pre></div>
+
+
+<p>Each directory contains that student's files. For example the <code>Joe Taylor</code> folder will have:</p>
+<div class="highlight"><pre><span></span>HW1.ipynb
+HW1_report.pdf
+short.mp4
+HW1.tgz
+</pre></div>
+
+
+<p>I hope you find this script useful.</p></div>
         <hr />
     </div>
 		
@@ -89,7 +134,28 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
  
 
-</div></div></div>    <div class='article'>
+    <div class='article'>
+        <a href="../accessibility-of-jupyter-for-impaired-individuals.html"><h2>Accessibility of Jupyter for Impaired Individuals</h2></a>
+        <div class= "well small"> Fri 05 April 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"></p>
+<p>This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  </p>
+<p><strong>Abstract</strong></p>
+<p>Jupyter is an open-source programming environment that uses "literate programming" by combining documentation, coding and visualization into one file format. The Jupyter notebook format is also particularly well-suited for …</p> <a class="btn btn-info xsmall" href="../accessibility-of-jupyter-for-impaired-individuals.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+</div></div>    <div class='article'>
         <a href="../the-challenges-of-developing-research-tools-in-active-and-responsive-open-source-communities.html"><h2>The challenges of developing research tools in active and responsive open source communities</h2></a>
         <div class= "well small"> Fri 05 April 2019
 
@@ -255,26 +321,6 @@ by <a class="url fn" href="../author/dirk-colbry.html">Dirk Colbry</a>
 <p>I am particularly proud of this code because of the following features:</p>
 <ul>
 <li>Does not require the installation of OpenCV (This can be tricky)</li> <a class="btn btn-info xsmall" href="../accessing-a-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-</div></div></div>    <div class='article'>
-        <a href="../using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html"><h2>Using an X11 Virtual Frame Buffer to run GUI jobs in batch mode on the HPC.</h2></a>
-        <div class= "well small"> Thu 20 December 2018
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="X11 Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/a/ab/X11.png" width="20%,"></p>
-<p>I have an example program that came with <a href="http://bccd.net/">BCCD</a> called Pandemic which I wanted to run on our local HPCC. Unfortunately Pandemic requires X11 to run and I would get a segmentation fault every time I ran it in the batch system.</p>
-<p>This blog post shows how I used the …</p> <a class="btn btn-info xsmall" href="../using-an-x11-virtual-frame-buffer-to-run-gui-jobs-in-batch-mode-on-the-hpc.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

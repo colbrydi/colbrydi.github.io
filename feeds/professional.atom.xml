@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-04-05T00:00:00-04:00</updated><entry><title>Accessibility of Jupyter for Impaired Individuals</title><link href="https://colbrydi.github.io/accessibility-of-jupyter-for-impaired-individuals.html" rel="alternate"></link><published>2019-04-05T00:00:00-04:00</published><updated>2019-04-05T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-04-05:/accessibility-of-jupyter-for-impaired-individuals.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-04-15T00:00:00-04:00</updated><entry><title>Extracting Desire to learn (D2L) zip files into student folders</title><link href="https://colbrydi.github.io/extracting-desire-to-learn-d2l-zip-files-into-student-folders.html" rel="alternate"></link><published>2019-04-15T00:00:00-04:00</published><updated>2019-04-15T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-04-15:/extracting-desire-to-learn-d2l-zip-files-into-student-folders.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;amp;name=D2L-web-500.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  &lt;/p&gt;
+&lt;p&gt;When grading, I can download all of the student's submissions into a zip file such as the following:&lt;/p&gt;
+&lt;p&gt;```Part …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;amp;name=D2L-web-500.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  &lt;/p&gt;
+&lt;p&gt;When grading, I can download all of the student's submissions into a zip file such as the following:&lt;/p&gt;
+&lt;p&gt;```Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;```HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If this folder is unzipped files similar to the following will appear:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;323771-372818 - Sam Smith - Jan 21, 2019 652 PM - submission.tgz
+325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - 1d wave eqn.pages
+325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - wave1d.py
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1.ipynb
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1_report.pdf
+331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - short.mp4
+331582-372818 - Joe Taylor - Jan 19, 2019 320 PM - HW1.tgz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For many of the topics we cover (mostly programming) these filenames are not easy to use.  In my classes student often submit files that need to work together with given file names (everything after the final dash).  I wrote the following program to convert the directory of complex filenames into folders. A separate folder for each student with the files in the folder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;files&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;ls&lt;span class="sb"&gt;`&lt;/span&gt;
+find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; file
+&lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$file&lt;/span&gt;
+        &lt;span class="nv"&gt;folder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$file&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt; -f &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; xargs&lt;span class="sb"&gt;`&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;creating folder &lt;/span&gt;&lt;span class="nv"&gt;$folder&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        mkdir -p &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$folder&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="nv"&gt;newname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$file&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt; -f5- &lt;span class="p"&gt;|&lt;/span&gt; xargs&lt;span class="sb"&gt;`&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Renaming to &lt;/span&gt;&lt;span class="nv"&gt;$newname&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        mv &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$file&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;./&lt;/span&gt;&lt;span class="nv"&gt;$folder&lt;/span&gt;&lt;span class="s2"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;$newname&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Sam Smith
+Nan Carpenter
+Joe Taylor
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Each directory contains that student's files. For example the &lt;code&gt;Joe Taylor&lt;/code&gt; folder will have:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;HW1.ipynb
+HW1_report.pdf
+short.mp4
+HW1.tgz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I hope you find this script useful.&lt;/p&gt;</content><category term="Teaching"></category></entry><entry><title>Accessibility of Jupyter for Impaired Individuals</title><link href="https://colbrydi.github.io/accessibility-of-jupyter-for-impaired-individuals.html" rel="alternate"></link><published>2019-04-05T00:00:00-04:00</published><updated>2019-04-05T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-04-05:/accessibility-of-jupyter-for-impaired-individuals.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Jupyter is an open-source programming environment that uses "literate programming" by combining documentation, coding and visualization into one file format. The Jupyter notebook format is also particularly well-suited for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"&gt;&lt;/p&gt;
