@@ -2,14 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-04-15T00:00:00-04:00</updated><entry><title>Extracting Desire to learn (D2L) zip files into student folders</title><link href="https://colbrydi.github.io/extracting-desire-to-learn-d2l-zip-files-into-student-folders.html" rel="alternate"></link><published>2019-04-15T00:00:00-04:00</published><updated>2019-04-15T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-04-15:/extracting-desire-to-learn-d2l-zip-files-into-student-folders.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;amp;name=D2L-web-500.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  &lt;/p&gt;
 &lt;p&gt;When grading, I can download all of the student's submissions into a zip file such as the following:&lt;/p&gt;
-&lt;p&gt;```Part …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;amp;name=D2L-web-500.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Part …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;amp;name=D2L-web-500.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  &lt;/p&gt;
 &lt;p&gt;When grading, I can download all of the student's submissions into a zip file such as the following:&lt;/p&gt;
-&lt;p&gt;```Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;```HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;p&gt;&lt;code&gt;Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;If this folder is unzipped files similar to the following will appear:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;323771-372818 - Sam Smith - Jan 21, 2019 652 PM - submission.tgz
 325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - 1d wave eqn.pages
