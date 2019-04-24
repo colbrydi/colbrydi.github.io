@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html"><h1>Extracting Desire to learn (D2L) zip files into student folders</h1></a>
-Mon 15 April 2019
+            <a href="../automating-scientific-image-analysis-workflows.html"><h1>Automating Scientific Image Analysis Workflows</h1></a>
+Tue 23 April 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,56 +75,34 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;name=D2L-web-500.png" width="200,"></p>
-<p>At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  </p>
-<p>When grading, I can download all of the student's submissions into a zip file such as the following:</p>
-<p><code>Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip</code></p>
-<p><code>HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip</code></p>
-<p>If this folder is unzipped files similar to the following will appear:</p>
-<div class="highlight"><pre><span></span>323771-372818 - Sam Smith - Jan 21, 2019 652 PM - submission.tgz
-325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - 1d wave eqn.pages
-325034-372818 - Nan Carpenter - Jan 21, 2019 330 PM - wave1d.py
-331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1.ipynb
-331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - HW1_report.pdf
-331582-372818 - Joe Taylor - Jan 19, 2019 315 PM - short.mp4
-331582-372818 - Joe Taylor - Jan 19, 2019 320 PM - HW1.tgz
-</pre></div>
-
-
-<p>For many of the topics we cover (mostly programming) these filenames are not easy to use.  In my classes student often submit files that need to work together with given file names (everything after the final dash).  I wrote the following program to convert the directory of complex filenames into folders. A separate folder for each student with the files in the folder:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nv">files</span><span class="o">=</span><span class="sb">`</span>ls<span class="sb">`</span>
-find . -iname <span class="s2">&quot;*&quot;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> file
-<span class="k">do</span>
-        <span class="nb">echo</span> <span class="nv">$file</span>
-        <span class="nv">folder</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span> <span class="p">|</span> cut -d <span class="s2">&quot;-&quot;</span> -f <span class="m">3</span> <span class="p">|</span> xargs<span class="sb">`</span>
-        <span class="nb">echo</span> <span class="s2">&quot;creating folder </span><span class="nv">$folder</span><span class="s2">&quot;</span>
-        mkdir -p <span class="s2">&quot;</span><span class="nv">$folder</span><span class="s2">&quot;</span>
-        <span class="nv">newname</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span> <span class="p">|</span> cut -d <span class="s2">&quot;-&quot;</span> -f5- <span class="p">|</span> xargs<span class="sb">`</span>
-        <span class="nb">echo</span> <span class="s2">&quot;Renaming to </span><span class="nv">$newname</span><span class="s2">&quot;</span>
-        mv <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="s2">&quot;./</span><span class="nv">$folder</span><span class="s2">/</span><span class="nv">$newname</span><span class="s2">&quot;</span>
-<span class="k">done</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>Sam Smith
-Nan Carpenter
-Joe Taylor
-</pre></div>
-
-
-<p>Each directory contains that student's files. For example the <code>Joe Taylor</code> folder will have:</p>
-<div class="highlight"><pre><span></span>HW1.ipynb
-HW1_report.pdf
-short.mp4
-HW1.tgz
-</pre></div>
-
-
-<p>I hope you find this script useful.</p></div>
+        <div><p><img align="right," alt="GA Title Slide" hspace="10" src="//colbrydi.github.io/images/20190423_GA_Talk.png" width="200,"></p>
+<p>I was asked to give a talk to Michael Murillo machine learning seminar group.  Michael put the group together as a first step to gather topics/ideas for a graduate level machine learning class that CMSE will be teaching in the fall.</p>
+<p>In this talk I introduced a difficult machine learning problem in the area of Exploratory Image Analysis.  I explained why this problem is unique and not easily solved using machine learning. Then I introduced my ideas on how we plan to try and solve the problem this summer using machine learning and, more specifically, Genetic Algorithms.  </p>
+<p><a href="//colbrydi.github.io/images/20190423_GA_Image_Segmentation.pdf">Link to the slides</a></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html"><h2>Extracting Desire to learn (D2L) zip files into student folders</h2></a>
+        <div class= "well small"> Mon 15 April 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;name=D2L-web-500.png" width="200,"></p>
+<p>At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  </p>
+<p>When grading, I can download all of the student's submissions into a zip file such as the following:</p>
+<p><code>Part …</code></p> <a class="btn btn-info xsmall" href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -291,33 +269,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
 
 <p>Once graphviz is installed you need to create a text file with the connections.  This …</p> <a class="btn btn-info xsmall" href="../quick-graphviz-tutorial.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../accessing-a-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html"><h2>Accessing a computer's camera inside of jupyter without installing OpenCV (Also works in Jupyterhub)</h2></a>
-        <div class= "well small"> Fri 21 December 2018
-
-by <a class="url fn" href="../author/dirk-colbry.html">Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="//colbrydi.github.io/images/Camera.png"></p>
-<p>The following code lets you take pictures inside of jupyter notebooks.  It uses Javascript inside of jupyterhub to access the client computers camera and transfer images back into python.</p>
-<p>I am particularly proud of this code because of the following features:</p>
-<ul>
-<li>Does not require the installation of OpenCV (This can be tricky)</li> <a class="btn btn-info xsmall" href="../accessing-a-computers-camera-inside-of-jupyter-without-installing-opencv-also-works-in-jupyterhub.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
