@@ -74,8 +74,8 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>For example, pip install uses a temporary folder when downloading packages.  Periodically, deleting this folder can significantly free up space.  </p>
 <p><code>rm -rf ~/.cache</code></p>
 <p>Also, some functions in the scikit learn and seaboarn libraries download their own data folders. You may also want to have them delete those once they are no longer using those packages.</p>
-<div class="highlight"><pre><span></span>rm -rf  ~/scikit_learn_data
-rm -rf ~/seaborn-data
+<div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span>  <span class="o">~/</span><span class="n">scikit_learn_data</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">~/</span><span class="n">seaborn</span><span class="o">-</span><span class="k">data</span>
 </pre></div>
 
 

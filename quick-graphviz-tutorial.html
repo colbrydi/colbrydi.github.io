@@ -73,24 +73,24 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>This quick tutorial shows provides basic instructions for generating the above graph using <a href="https://www.graphviz.org/">Graphviz</a>.</p>
 <p><a href="https://www.graphviz.org/"><img alt="Graphviz" src="https://graphviz.gitlab.io/_pages/Resources/app.png"></a></p>
 <p>If you already have Anaconda installed on your system, you can quickly install graphviz using the following command:</p>
-<div class="highlight"><pre><span></span>conda install graphviz
+<div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">graphviz</span>
 </pre></div>
 
 
 <p>Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the <code>-&gt;</code> to indicate a directed link and a <code>--</code> to indicate a bi-directional link:</p>
-<div class="highlight"><pre><span></span>digraph G {
- Linux -&gt; Normal  [ label=&quot;vim&quot; ];
- Normal  -&gt; Insert  [ label=&quot;i/I/a/A/o/O&quot; ];
- Insert  -&gt; Normal [ label=&quot;Esc&quot;];
- Normal  -&gt; Command  [ label=&quot;: (colon)&quot;];
- Command  -&gt; Normal  [ label=&quot;w&quot;];
- Command  -&gt; Linux [ label=&quot;q/q!/wq/x&quot;]
-}
+<div class="highlight"><pre><span></span><span class="n">digraph</span> <span class="k">G</span> <span class="err">{</span>
+ <span class="n">Linux</span> <span class="o">-&gt;</span> <span class="n">Normal</span>  <span class="p">[</span> <span class="n">label</span><span class="o">=</span><span class="ss">&quot;vim&quot;</span> <span class="p">];</span>
+ <span class="n">Normal</span>  <span class="o">-&gt;</span> <span class="k">Insert</span>  <span class="p">[</span> <span class="n">label</span><span class="o">=</span><span class="ss">&quot;i/I/a/A/o/O&quot;</span> <span class="p">];</span>
+ <span class="k">Insert</span>  <span class="o">-&gt;</span> <span class="n">Normal</span> <span class="p">[</span> <span class="n">label</span><span class="o">=</span><span class="ss">&quot;Esc&quot;</span><span class="p">];</span>
+ <span class="n">Normal</span>  <span class="o">-&gt;</span> <span class="n">Command</span>  <span class="p">[</span> <span class="n">label</span><span class="o">=</span><span class="ss">&quot;: (colon)&quot;</span><span class="p">];</span>
+ <span class="n">Command</span>  <span class="o">-&gt;</span> <span class="n">Normal</span>  <span class="p">[</span> <span class="n">label</span><span class="o">=</span><span class="ss">&quot;w&quot;</span><span class="p">];</span>
+ <span class="n">Command</span>  <span class="o">-&gt;</span> <span class="n">Linux</span> <span class="p">[</span> <span class="n">label</span><span class="o">=</span><span class="ss">&quot;q/q!/wq/x&quot;</span><span class="p">]</span>
+<span class="err">}</span>
 </pre></div>
 
 
 <p>Once you have the file you can make an image using the following <code>dot</code> command (dot is one of the commands installed by Graphviz)</p>
-<div class="highlight"><pre><span></span>dot -Tpng test.dot -ovim.png
+<div class="highlight"><pre><span></span><span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="n">test</span><span class="p">.</span><span class="n">dot</span> <span class="o">-</span><span class="n">ovim</span><span class="p">.</span><span class="n">png</span>
 </pre></div>
 
 

@@ -78,32 +78,32 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
         <div><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
 <p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
 <p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has multiple buy-in nodes. For example, the command to <strong>show</strong> everyone on the CMSE account is:</p>
-<div class="highlight"><pre><span></span>sacctmgr show association account=cmse
+<div class="highlight"><pre><span></span><span class="nv">sacctmgr</span> <span class="k">show</span> <span class="nv">association</span> <span class="nv">account</span><span class="o">=</span><span class="nv">cmse</span>
 </pre></div>
 
 
 <p>If I want to <strong>add</strong> someone to the CMSE buy-in account I just do the following:</p>
-<div class="highlight"><pre><span></span>sacctmgr add user account=cmse name=colbrydi
+<div class="highlight"><pre><span></span><span class="n">sacctmgr</span> <span class="k">add</span> <span class="k">user</span> <span class="n">account</span><span class="o">=</span><span class="n">cmse</span> <span class="n">name</span><span class="o">=</span><span class="n">colbrydi</span>
 </pre></div>
 
 
 <p>Then if I want to <strong>delete</strong> someone from he CMSE buy-in account is just as easy:</p>
-<div class="highlight"><pre><span></span>sacctmgr delete user account=cmse name=colbrydi
+<div class="highlight"><pre><span></span><span class="n">sacctmgr</span> <span class="k">delete</span> <span class="k">user</span> <span class="n">account</span><span class="o">=</span><span class="n">cmse</span> <span class="n">name</span><span class="o">=</span><span class="n">colbrydi</span>
 </pre></div>
 
 
 <p>The HPCC staff also provides the following useful powertools that users can access by running <code>module load powertools</code>:</p>
 <p><strong>priority_status</strong> or <strong>buyin_status</strong> - equivalent commands that shows all of your buy-in nodes and who is currently running on them.</p>
 <p>To use the buy-in account you need to specifically use the account option in the job script (I think).  For example, the following SBATCH commands should request one of the Volta GPU cards on the cmse account:</p>
-<div class="highlight"><pre><span></span>#SBATCH --gres=gpu:1  
-#SBATCH --nodelist=nvl-001
-#SBATCH --time=08:00:00
-#SBATCH --account=cmse
+<div class="highlight"><pre><span></span><span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--gres=gpu:1  </span>
+<span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--nodelist=nvl-001</span>
+<span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--time=08:00:00</span>
+<span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--account=cmse</span>
 </pre></div>
 
 
 <p>Many of our people want to use the Volta over Jupyterhub run though the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> website.  To do this, you would log into <a href="https://webrdp.hpcc.msu.edu">webrdp</a>, open a terminal on the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> desktop, ssh to one of the dev nodes and then issue the following command:</p>
-<div class="highlight"><pre><span></span>salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse
+<div class="highlight"><pre><span></span><span class="n">salloc</span> <span class="c1">--gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse</span>
 </pre></div>
 
 

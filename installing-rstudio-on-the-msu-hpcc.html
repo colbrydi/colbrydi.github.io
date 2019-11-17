@@ -79,25 +79,25 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 </ul>
 <h2><strong>Step 1:</strong> Download the Linux Anaconda installers</h2>
 <p>Find the latest Linux installer on the <a href="//www.anaconda.com/download/#linux">Anaconda website</a>. Right click on the download button for version 3.x and select "Copy Link". Use the <code>wget</code> command on the hpcc to download the script file by typing wget and then pasting the url. For Example:</p>
-<div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="p">.</span><span class="n">anaconda</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
 <h2><strong>Step 2:</strong> Install anaconda using the defaults</h2>
 <p>Run the downloaded script in bash using the following command:</p>
-<div class="highlight"><pre><span></span>bash ./Anaconda3-5.2.0-Linux-x86_64.sh
+<div class="highlight"><pre><span></span><span class="n">bash</span> <span class="p">.</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mi">5</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
 <p>The last question will ask you to add the anaconda folder to your bashrc file. Say yes...</p>
 <h2><strong>Step 3:</strong> Install RStudio</h2>
 <p>Use the conda install command to install RStudio.  Note you may need to run <code>source ~/.bashrc</code> first to update your path:</p>
-<div class="highlight"><pre><span></span>conda install rstudio
+<div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">rstudio</span>
 </pre></div>
 
 
 <p>That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:</p>
-<div class="highlight"><pre><span></span>rstudio
+<div class="highlight"><pre><span></span><span class="n">rstudio</span>
 </pre></div></div>
 	
         <hr>
