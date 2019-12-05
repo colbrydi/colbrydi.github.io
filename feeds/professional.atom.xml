@@ -41,7 +41,7 @@
 
 
 &lt;p&gt;Save the file as &lt;code&gt;myMacro.ijm&lt;/code&gt;&lt;/p&gt;
-&lt;h3&gt;Step 4: Submit the macro to the scheduler&lt;/h3&gt;
+&lt;h3&gt;Step 5: Submit the macro to the scheduler&lt;/h3&gt;
 &lt;p&gt;Let us assume that your macro name is &lt;code&gt;myMacro.ijm&lt;/code&gt; then the following submission script should work to get your macro running in SLURM:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --mem=4gb&lt;/span&gt;
