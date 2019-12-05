@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../cmse-presentation-at-sc19.html"><h1>CMSE Presentation at SC19</h1></a>
-Sun 17 November 2019
+            <a href="../running-imagej-on-the-hpcc.html"><h1>Running ImageJ on the HPCC</h1></a>
+Wed 04 December 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,15 +75,90 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"></p>
-<p>I just got out of giving a presentation about the CMSE department as part of the <a href="https://sc19.supercomputing.org/session/?sess=sess104">Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)</a> workshop at <a href="https://sc19.supercomputing.org/">SC19</a>. It was fun to show people what we are doing in CMSE and share our progress.  <a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf">Here is a link for my slides</a>.  </p>
-<h2>Computational Mathematics, Science and Engineering (CMSE): Establishing an Academic Department: Dedicated to Scientific Computation as a Discipline</h2>
-<p>By Dirk Colbry, Michael Murillo, Adam Alessio and Andrew Christlieb</p>
-<h3>Abstract</h3>
-<p>The Computational Mathematics, Science and Engineering (CMSE) department is one of the newest units at Michigan State University (MSU). Founded in 2015, CMSE recognizes computation as the “triple junction” of algorithm development and analysis, high performance computing, and applications to scientific and engineering modeling and data science (as illustrated in Figure 1). This approach is designed to engage with computation as a new integrated discipline, rather than a series of decentralized, isolated sub-specialties. In the four years since its inception, the department has grown and flourished; however, the pathway was sometimes arduous. This paper shares lessons learned during the department’s development and the initiatives it has taken on to support computational research and education across the university. By sharing these lessons, we hope to encourage and support the establishment of similar departments at other universities and grow this integrated approach to scientific computation as a discipline.</p></div>
+        <div><p><img align="right," alt="Fiji logo" hspace="10" src="//imagej.net/_images/a/ae/Fiji-icon.png" width="200,"></p>
+<p>A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.</p>
+<h3>Step 1: Log onto the HPCC with an X11 connection</h3>
+<p>Log onto the HPC using an X11 connection.  You need x11 in order to test the install using the Graphical User Interface (GUI).  If you are on windows, I recommend <a href="//mobaxterm.mobatek.net/">MobaXTerm</a> as an easy way to get started, if you are on Mac you may need to install <a href="https://www.xquartz.org/">XQuarts</a>.</p>
+<p>If you don't have X11 working you can try logging in using the HPCC remote server and a "full linux desktop" by going to the following website:</p>
+<p>https://webrdp.hpcc.msu.edu</p>
+<p>You can test if graphics are working by typing the following on the command line:</p>
+<div class="highlight"><pre><span></span>xeyes
+</pre></div>
+
+
+<h3>Step 2: Install ImageJ</h3>
+<p>For this step I recommend installing <a href="https://fiji.sc/">Fiji</a> (Fiji is just ImageJ) which a little easier to use than ImageJ proper.  For one thing it makes installing a few plug-ins much easier.</p>
+<p>Download the 64-bit installer into your home directory on the HPCC.  Go to the <a href="//imagej.net/Fiji/Downloads">Fiji</a> website to get a URL link to the latest version.  Once you have the URL you can run the following command on an HPC Development node:</p>
+<div class="highlight"><pre><span></span>wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
+</pre></div>
+
+
+<p>After the file has downloaded you just need to unzip the file using the following command:</p>
+<div class="highlight"><pre><span></span>unzip fiji-linux64.zip
+</pre></div>
+
+
+<p>Test ImageJ using the following command:</p>
+<div class="highlight"><pre><span></span>~/Fiji.app/ImageJ-linux64
+</pre></div>
+
+
+<p>The first time running it will ask if you want to run the "updater." I would recommend doing this.</p>
+<h3>Step 3: Install needed plugins</h3>
+<p>Once you have Fiji running you shold be able to install most plugins from the user interface.  You can also copy plugin jar files to the plugins folder inside the Fiji.app folder.</p>
+<h3>Step 4: Write a Macro</h3>
+<p>You can run for about 2 hours on any of the HPCC development nodes, however, to really take advantage of the HPCC you want to run in batch mode.  Batch mode does not let you use the mouse and click on the graphics which means you need to create an ImageJ macro that runs from start to end without any user input.  For now I will assume that you know how to make a macro, if not, you may have to look for some sort of online tutorial or read the <a href="https://imagej.nih.gov/ij/docs/guide/146-14.html">manual</a>,</p>
+<p>If you want to just do a quick test I recmmend making a macro with just a "hello world" print command as follows:</p>
+<div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="n">hello</span> <span class="n">world</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Save the file as <code>myMacro.ijm</code></p>
+<h3>Step 4: Submit the macro to the scheduler</h3>
+<p>Let us assume that your macro name is <code>myMacro.ijm</code> then the following submission script should work to get your macro running in SLURM:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mem=4gb</span>
+<span class="c1">#SBATCH --time=04:00:00</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1">#SBATCH -c 1</span>
+
+module load java
+module load powertools
+
+srun ~/Fiji.app/ImageJ-linux64 --headless --memory<span class="o">=</span>4000M -macro myMacro.ijm
+
+js <span class="nv">$SLURM_JOB_ID</span>
+</pre></div>
+
+
+<p>If we call the above script <code>runFiji.sb</code> then you can submit the job to the SLURM scheduler using the following command:</p>
+<div class="highlight"><pre><span></span>sbatch runFiji.sb
+</pre></div>
+
+
+<p>That should be it. You can change the required memory or the amount of time it takes to run.  </p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../cmse-presentation-at-sc19.html"><h2>CMSE Presentation at SC19</h2></a>
+        <div class= "well small"> Sun 17 November 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"></p>
+<p>I just got out of giving a presentation about the CMSE department as part of the <a href="https://sc19.supercomputing.org/session/?sess=sess104">Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)</a> workshop at <a href="https://sc19.supercomputing.org/">SC19</a>. It was fun to show people what we are doing in CMSE and share our progress.  <a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf">Here is a …</a></p> <a class="btn btn-info xsmall" href="../cmse-presentation-at-sc19.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -245,27 +320,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p><img align="right," alt="XSEDE Logo" hspace="10" src="https://www.xsede.org/image/image_gallery?uuid=c0ae4cfa-fa0e-4546-8b02-3305bf2a99cc&amp;groupId=10157&amp;t=1369258426990" width="200,"></p>
 <p>Last year, I attended a two-and-a-half-day community and curriculum building workshop.  It could not have been more perfectly timed. I was able to come up with a solid plan for my CMSE401 parallel programming course which I ended up teaching this last spring.  </p>
 <p>This year I was not able to …</p> <a class="btn btn-info xsmall" href="../workshop-community-building-for-high-performance-computing-curriculum-development.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../do-more-faster-utilizing-advanced-computational-resources-in-your-research-team.html"><h2>Do More, Faster: Utilizing Advanced Computational Resources in Your Research Team</h2></a>
-        <div class= "well small"> Tue 21 May 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="INSciTS Logo" src="https://www.inscits.org/assets/site/inscits-logo.png"></p>
-<p>Here are my slides from the <a href="https://www.inscits.org/">SciTS conference</a> last month.  </p>
-<blockquote>
-<p>The SciTS conference is the annual international forum dedicated to SciTS, bringing together thought leaders from a broad range of disciplines and fields, including: communications, management, social and behavioral sciences, information technology, systems science, and translational research. It provides investigators …</p></blockquote> <a class="btn btn-info xsmall" href="../do-more-faster-utilizing-advanced-computational-resources-in-your-research-team.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

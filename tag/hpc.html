@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../hpcc-slurm-buy-in-notes.html"><h1>HPCC SLURM Buy-in Notes</h1></a>
-Thu 28 March 2019
+            <a href="../running-imagej-on-the-hpcc.html"><h1>Running ImageJ on the HPCC</h1></a>
+Wed 04 December 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,46 +75,91 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
-<p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
-<p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has multiple buy-in nodes. For example, the command to <strong>show</strong> everyone on the CMSE account is:</p>
-<div class="highlight"><pre><span></span><span class="nv">sacctmgr</span> <span class="k">show</span> <span class="nv">association</span> <span class="nv">account</span><span class="o">=</span><span class="nv">cmse</span>
+        <div><p><img align="right," alt="Fiji logo" hspace="10" src="//imagej.net/_images/a/ae/Fiji-icon.png" width="200,"></p>
+<p>A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.</p>
+<h3>Step 1: Log onto the HPCC with an X11 connection</h3>
+<p>Log onto the HPC using an X11 connection.  You need x11 in order to test the install using the Graphical User Interface (GUI).  If you are on windows, I recommend <a href="//mobaxterm.mobatek.net/">MobaXTerm</a> as an easy way to get started, if you are on Mac you may need to install <a href="https://www.xquartz.org/">XQuarts</a>.</p>
+<p>If you don't have X11 working you can try logging in using the HPCC remote server and a "full linux desktop" by going to the following website:</p>
+<p>https://webrdp.hpcc.msu.edu</p>
+<p>You can test if graphics are working by typing the following on the command line:</p>
+<div class="highlight"><pre><span></span>xeyes
 </pre></div>
 
 
-<p>If I want to <strong>add</strong> someone to the CMSE buy-in account I just do the following:</p>
-<div class="highlight"><pre><span></span><span class="n">sacctmgr</span> <span class="k">add</span> <span class="k">user</span> <span class="n">account</span><span class="o">=</span><span class="n">cmse</span> <span class="n">name</span><span class="o">=</span><span class="n">colbrydi</span>
+<h3>Step 2: Install ImageJ</h3>
+<p>For this step I recommend installing <a href="https://fiji.sc/">Fiji</a> (Fiji is just ImageJ) which a little easier to use than ImageJ proper.  For one thing it makes installing a few plug-ins much easier.</p>
+<p>Download the 64-bit installer into your home directory on the HPCC.  Go to the <a href="//imagej.net/Fiji/Downloads">Fiji</a> website to get a URL link to the latest version.  Once you have the URL you can run the following command on an HPC Development node:</p>
+<div class="highlight"><pre><span></span>wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 </pre></div>
 
 
-<p>Then if I want to <strong>delete</strong> someone from he CMSE buy-in account is just as easy:</p>
-<div class="highlight"><pre><span></span><span class="n">sacctmgr</span> <span class="k">delete</span> <span class="k">user</span> <span class="n">account</span><span class="o">=</span><span class="n">cmse</span> <span class="n">name</span><span class="o">=</span><span class="n">colbrydi</span>
+<p>After the file has downloaded you just need to unzip the file using the following command:</p>
+<div class="highlight"><pre><span></span>unzip fiji-linux64.zip
 </pre></div>
 
 
-<p>The HPCC staff also provides the following useful powertools that users can access by running <code>module load powertools</code>:</p>
-<p><strong>priority_status</strong> or <strong>buyin_status</strong> - equivalent commands that shows all of your buy-in nodes and who is currently running on them.</p>
-<p>To use the buy-in account you need to specifically use the account option in the job script (I think).  For example, the following SBATCH commands should request one of the Volta GPU cards on the cmse account:</p>
-<div class="highlight"><pre><span></span><span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--gres=gpu:1  </span>
-<span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--nodelist=nvl-001</span>
-<span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--time=08:00:00</span>
-<span class="o">#</span><span class="n">SBATCH</span> <span class="c1">--account=cmse</span>
+<p>Test ImageJ using the following command:</p>
+<div class="highlight"><pre><span></span>~/Fiji.app/ImageJ-linux64
 </pre></div>
 
 
-<p>Many of our people want to use the Volta over Jupyterhub run though the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> website.  To do this, you would log into <a href="https://webrdp.hpcc.msu.edu">webrdp</a>, open a terminal on the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> desktop, ssh to one of the dev nodes and then issue the following command:</p>
-<div class="highlight"><pre><span></span><span class="n">salloc</span> <span class="c1">--gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse</span>
+<p>The first time running it will ask if you want to run the "updater." I would recommend doing this.</p>
+<h3>Step 3: Install needed plugins</h3>
+<p>Once you have Fiji running you shold be able to install most plugins from the user interface.  You can also copy plugin jar files to the plugins folder inside the Fiji.app folder.</p>
+<h3>Step 4: Write a Macro</h3>
+<p>You can run for about 2 hours on any of the HPCC development nodes, however, to really take advantage of the HPCC you want to run in batch mode.  Batch mode does not let you use the mouse and click on the graphics which means you need to create an ImageJ macro that runs from start to end without any user input.  For now I will assume that you know how to make a macro, if not, you may have to look for some sort of online tutorial or read the <a href="https://imagej.nih.gov/ij/docs/guide/146-14.html">manual</a>,</p>
+<p>If you want to just do a quick test I recmmend making a macro with just a "hello world" print command as follows:</p>
+<div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="n">hello</span> <span class="n">world</span><span class="p">);</span>
 </pre></div>
 
 
-<p>Once the job starts, you would just type <code>jupyter notebook</code> assuming you have it installed.</p>
-<p>Hope you find these notes useful.</p>
-<ul>
-<li>Dirk</li>
-</ul></div>
+<p>Save the file as <code>myMacro.ijm</code></p>
+<h3>Step 4: Submit the macro to the scheduler</h3>
+<p>Let us assume that your macro name is <code>myMacro.ijm</code> then the following submission script should work to get your macro running in SLURM:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mem=4gb</span>
+<span class="c1">#SBATCH --time=04:00:00</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1">#SBATCH -c 1</span>
+
+module load java
+module load powertools
+
+srun ~/Fiji.app/ImageJ-linux64 --headless --memory<span class="o">=</span>4000M -macro myMacro.ijm
+
+js <span class="nv">$SLURM_JOB_ID</span>
+</pre></div>
+
+
+<p>If we call the above script <code>runFiji.sb</code> then you can submit the job to the SLURM scheduler using the following command:</p>
+<div class="highlight"><pre><span></span>sbatch runFiji.sb
+</pre></div>
+
+
+<p>That should be it. You can change the required memory or the amount of time it takes to run.  </p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../hpcc-slurm-buy-in-notes.html"><h2>HPCC SLURM Buy-in Notes</h2></a>
+        <div class= "well small"> Thu 28 March 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
+<p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
+<p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has …</p> <a class="btn btn-info xsmall" href="../hpcc-slurm-buy-in-notes.html">read more</a></div>
+    </div>	
+				
 
  
         

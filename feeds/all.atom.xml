@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-11-17T00:00:00-05:00</updated><entry><title>CMSE Presentation at SC19</title><link href="https://colbrydi.github.io/cmse-presentation-at-sc19.html" rel="alternate"></link><published>2019-11-17T00:00:00-05:00</published><updated>2019-11-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-11-17:/cmse-presentation-at-sc19.html</id><summary type="html">&lt;p&gt;&lt;img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2019-12-04T00:00:00-05:00</updated><entry><title>Running ImageJ on the HPCC</title><link href="https://colbrydi.github.io/running-imagej-on-the-hpcc.html" rel="alternate"></link><published>2019-12-04T00:00:00-05:00</published><updated>2019-12-04T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-12-04:/running-imagej-on-the-hpcc.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Fiji logo" hspace="10" src="//imagej.net/_images/a/ae/Fiji-icon.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.&lt;/p&gt;
+&lt;h3&gt;Step 1: Log onto the HPCC with an X11 connection&lt;/h3&gt;
+&lt;p&gt;Log onto the HPC using …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img align="right," alt="Fiji logo" hspace="10" src="//imagej.net/_images/a/ae/Fiji-icon.png" width="200,"&gt;&lt;/p&gt;
+&lt;p&gt;A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.&lt;/p&gt;
+&lt;h3&gt;Step 1: Log onto the HPCC with an X11 connection&lt;/h3&gt;
+&lt;p&gt;Log onto the HPC using an X11 connection.  You need x11 in order to test the install using the Graphical User Interface (GUI).  If you are on windows, I recommend &lt;a href="//mobaxterm.mobatek.net/"&gt;MobaXTerm&lt;/a&gt; as an easy way to get started, if you are on Mac you may need to install &lt;a href="https://www.xquartz.org/"&gt;XQuarts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you don't have X11 working you can try logging in using the HPCC remote server and a "full linux desktop" by going to the following website:&lt;/p&gt;
+&lt;p&gt;https://webrdp.hpcc.msu.edu&lt;/p&gt;
+&lt;p&gt;You can test if graphics are working by typing the following on the command line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;xeyes
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 2: Install ImageJ&lt;/h3&gt;
+&lt;p&gt;For this step I recommend installing &lt;a href="https://fiji.sc/"&gt;Fiji&lt;/a&gt; (Fiji is just ImageJ) which a little easier to use than ImageJ proper.  For one thing it makes installing a few plug-ins much easier.&lt;/p&gt;
+&lt;p&gt;Download the 64-bit installer into your home directory on the HPCC.  Go to the &lt;a href="//imagej.net/Fiji/Downloads"&gt;Fiji&lt;/a&gt; website to get a URL link to the latest version.  Once you have the URL you can run the following command on an HPC Development node:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After the file has downloaded you just need to unzip the file using the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;unzip fiji-linux64.zip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Test ImageJ using the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/Fiji.app/ImageJ-linux64
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The first time running it will ask if you want to run the "updater." I would recommend doing this.&lt;/p&gt;
+&lt;h3&gt;Step 3: Install needed plugins&lt;/h3&gt;
+&lt;p&gt;Once you have Fiji running you shold be able to install most plugins from the user interface.  You can also copy plugin jar files to the plugins folder inside the Fiji.app folder.&lt;/p&gt;
+&lt;h3&gt;Step 4: Write a Macro&lt;/h3&gt;
+&lt;p&gt;You can run for about 2 hours on any of the HPCC development nodes, however, to really take advantage of the HPCC you want to run in batch mode.  Batch mode does not let you use the mouse and click on the graphics which means you need to create an ImageJ macro that runs from start to end without any user input.  For now I will assume that you know how to make a macro, if not, you may have to look for some sort of online tutorial or read the &lt;a href="https://imagej.nih.gov/ij/docs/guide/146-14.html"&gt;manual&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;If you want to just do a quick test I recmmend making a macro with just a "hello world" print command as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Save the file as &lt;code&gt;myMacro.ijm&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;Step 4: Submit the macro to the scheduler&lt;/h3&gt;
+&lt;p&gt;Let us assume that your macro name is &lt;code&gt;myMacro.ijm&lt;/code&gt; then the following submission script should work to get your macro running in SLURM:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --mem=4gb&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --time=04:00:00&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -n 1&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -c 1&lt;/span&gt;
+
+module load java
+module load powertools
+
+srun ~/Fiji.app/ImageJ-linux64 --headless --memory&lt;span class="o"&gt;=&lt;/span&gt;4000M -macro myMacro.ijm
+
+js &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we call the above script &lt;code&gt;runFiji.sb&lt;/code&gt; then you can submit the job to the SLURM scheduler using the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sbatch runFiji.sb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That should be it. You can change the required memory or the amount of time it takes to run.  &lt;/p&gt;</content><category term="professional"></category><category term="HPC"></category></entry><entry><title>CMSE Presentation at SC19</title><link href="https://colbrydi.github.io/cmse-presentation-at-sc19.html" rel="alternate"></link><published>2019-11-17T00:00:00-05:00</published><updated>2019-11-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-11-17:/cmse-presentation-at-sc19.html</id><summary type="html">&lt;p&gt;&lt;img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"&gt;&lt;/p&gt;
 &lt;p&gt;I just got out of giving a presentation about the CMSE department as part of the &lt;a href="https://sc19.supercomputing.org/session/?sess=sess104"&gt;Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)&lt;/a&gt; workshop at &lt;a href="https://sc19.supercomputing.org/"&gt;SC19&lt;/a&gt;. It was fun to show people what we are doing in CMSE and share our progress.  &lt;a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf"&gt;Here is a …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"&gt;&lt;/p&gt;
 &lt;p&gt;I just got out of giving a presentation about the CMSE department as part of the &lt;a href="https://sc19.supercomputing.org/session/?sess=sess104"&gt;Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)&lt;/a&gt; workshop at &lt;a href="https://sc19.supercomputing.org/"&gt;SC19&lt;/a&gt;. It was fun to show people what we are doing in CMSE and share our progress.  &lt;a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf"&gt;Here is a link for my slides&lt;/a&gt;.  &lt;/p&gt;
 &lt;h2&gt;Computational Mathematics, Science and Engineering (CMSE): Establishing an Academic Department: Dedicated to Scientific Computation as a Discipline&lt;/h2&gt;
