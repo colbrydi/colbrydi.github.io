@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../running-imagej-on-the-hpcc.html"><h1>Running ImageJ on the HPCC</h1></a>
-Wed 04 December 2019
+            <a href="../cylindrical-lithophans.html"><h1>Cylindrical Lithophans</h1></a>
+Wed 25 December 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,71 +75,59 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Fiji logo" hspace="10" src="//imagej.net/_images/a/ae/Fiji-icon.png" width="200,"></p>
-<p>A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.</p>
-<h3>Step 1: Log onto the HPCC with an X11 connection</h3>
-<p>Log onto the HPC using an X11 connection.  You need x11 in order to test the install using the Graphical User Interface (GUI).  If you are on windows, I recommend <a href="//mobaxterm.mobatek.net/">MobaXTerm</a> as an easy way to get started, if you are on Mac you may need to install <a href="https://www.xquartz.org/">XQuarts</a>.</p>
-<p>If you don't have X11 working you can try logging in using the HPCC remote server and a "full linux desktop" by going to the following website:</p>
-<p>https://webrdp.hpcc.msu.edu</p>
-<p>You can test if graphics are working by typing the following on the command line:</p>
-<div class="highlight"><pre><span></span>xeyes
-</pre></div>
+        <div><p><img alt="2019 Picture of kids" src="../images/Kids_2019.jpg"></p>
+<p>Lithophans are one of my favorite things to 3D print.  I have written software in MATLAB and python that can convert images to lithophans. Most years I design a lithophan and 3D printable frame to give away to family for Christmas and each year I like to try to do something different, creative and a little more challenging.  </p>
+<p>This year we had a picture of all 9 kids (my four, our brothers four and our exchange student) all standing in a line between our two houses.  This picture works best as a long and thin image (See above).  I thought it would be cool to print this on a cylinder with a light source on the inside and then have it rotate.  It took me a while to get the mesh right but the results turned out quite good:</p>
+<p>I also had fun with my time-lapse camera during the print.  I added in an electronic tea light when the print head was high enough and I managed to show the lithophan as it is being printed.</p>
+<iframe width="500" height="315" src="https://www.youtube.com/embed/-h8pF6psdp4?start=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-<h3>Step 2: Install ImageJ</h3>
-<p>For this step I recommend installing <a href="https://fiji.sc/">Fiji</a> (Fiji is just ImageJ) which a little easier to use than ImageJ proper.  For one thing it makes installing a few plug-ins much easier.</p>
-<p>Download the 64-bit installer into your home directory on the HPCC.  Go to the <a href="//imagej.net/Fiji/Downloads">Fiji</a> website to get a URL link to the latest version.  Once you have the URL you can run the following command on an HPC Development node:</p>
-<div class="highlight"><pre><span></span>wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
-</pre></div>
-
-
-<p>After the file has downloaded you just need to unzip the file using the following command:</p>
-<div class="highlight"><pre><span></span>unzip fiji-linux64.zip
-</pre></div>
-
-
-<p>Test ImageJ using the following command:</p>
-<div class="highlight"><pre><span></span>~/Fiji.app/ImageJ-linux64
-</pre></div>
-
-
-<p>The first time running it will ask if you want to run the "updater." I would recommend doing this.</p>
-<h3>Step 3: Install needed plugins</h3>
-<p>Once you have Fiji running you shold be able to install most plugins from the user interface.  You can also copy plugin jar files to the plugins folder inside the Fiji.app folder.</p>
-<h3>Step 4: Write a Macro</h3>
-<p>You can run for about 2 hours on any of the HPCC development nodes, however, to really take advantage of the HPCC you want to run in batch mode.  Batch mode does not let you use the mouse and click on the graphics which means you need to create an ImageJ macro that runs from start to end without any user input.  For now I will assume that you know how to make a macro, if not, you may have to look for some sort of online tutorial or read the <a href="https://imagej.nih.gov/ij/docs/guide/146-14.html">manual</a>,</p>
-<p>If you want to just do a quick test I recmmend making a macro with just a "hello world" print command as follows:</p>
-<div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="n">hello</span> <span class="n">world</span><span class="p">);</span>
-</pre></div>
-
-
-<p>Save the file as <code>myMacro.ijm</code></p>
-<h3>Step 5: Submit the macro to the scheduler</h3>
-<p>Let us assume that your macro name is <code>myMacro.ijm</code> then the following submission script should work to get your macro running in SLURM:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --mem=4gb</span>
-<span class="c1">#SBATCH --time=04:00:00</span>
-<span class="c1">#SBATCH -n 1</span>
-<span class="c1">#SBATCH -c 1</span>
-
-module load java
-module load powertools
-
-srun ~/Fiji.app/ImageJ-linux64 --headless --memory<span class="o">=</span>4000M -macro myMacro.ijm
-
-js <span class="nv">$SLURM_JOB_ID</span>
-</pre></div>
-
-
-<p>If we call the above script <code>runFiji.sb</code> then you can submit the job to the SLURM scheduler using the following command:</p>
-<div class="highlight"><pre><span></span>sbatch runFiji.sb
-</pre></div>
-
-
-<p>That should be it. You can change the required memory or the amount of time it takes to run.  </p></div>
+<p>The last thing I did was make a "lid" for the cylinder so that I could include a picture of my niece who was the only grandchild not in the picture from the two houses.  For this one I just made one of my standard square lithophans and then added a circular frame with a stepped lid so that It would fit snugly in the cylinder. It took a few iterations to get the lid part working but I just drilled a hole in the top and used the failures as ornaments for my brother and sister to give away.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../cmse-impact-video.html"><h2>CMSE Impact Video</h2></a>
+        <div class= "well small"> Sat 14 December 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Picture of me" src="//colbrydi.github.io/images/3_horiz.png"></p>
+<p>Xiaoxing (Adele) Han is a videographer who made some amazing videos to help promote research being done in our department.  The following is the video she made of my research which I am very excited to share.  I think she did a great job!</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VdsKHhncXYw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Thank you Adele!!!</p> <a class="btn btn-info xsmall" href="../cmse-impact-video.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../running-imagej-on-the-hpcc.html"><h2>Running ImageJ on the HPCC</h2></a>
+        <div class= "well small"> Wed 04 December 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Fiji logo" hspace="10" src="//imagej.net/_images/a/ae/Fiji-icon.png" width="200,"></p>
+<p>A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.</p>
+<h3>Step 1: Log onto the HPCC with an X11 connection</h3>
+<p>Log onto the HPC using …</p> <a class="btn btn-info xsmall" href="../running-imagej-on-the-hpcc.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -280,46 +268,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  </div>
         <div class="summary"><p><img alt="EnSURE Logo" src="//www.egr.msu.edu/graduate/sites/default/files/content/ensure_logo.jpg"></p>
 <p>I gave my annual autobiographical talk today to the <a href="//www.egr.msu.edu/graduate/ensure">EnSURE</a> (Engineering Summer Undergraduate Research Experience) students. I give this talk every year and it is noticeably different that most of my presentations because the EnSURE organizers asked me to talk about myself and how I got where I am (instead …</p> <a class="btn btn-info xsmall" href="../2019-ensure-talk-an-engineers-autobiography.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../research-team-retreat.html"><h2>Research Team Retreat</h2></a>
-        <div class= "well small"> Tue 18 June 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Research group in front of college van" src="//colbrydi.github.io/images/Group_Van.jpg"></p>
-<p>This summer we managed to find a time to take my research team on a retreat (Road Trip!) to the lake (Noah, Abudit, Shelby, Lilly and Anna).  It was a great opportunity to get to know each other and really bond as a team.  We played games, had a boat …</p> <a class="btn btn-info xsmall" href="../research-team-retreat.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../workshop-community-building-for-high-performance-computing-curriculum-development.html"><h2>Workshop Community Building for High-Performance Computing Curriculum development</h2></a>
-        <div class= "well small"> Mon 10 June 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="National Computational Science Institute Logo" hspace="10" src="http://shodor.org/logos/logos/NCSI/thumb.jpg" width="200,"></p>
-<p><img align="right," alt="XSEDE Logo" hspace="10" src="https://www.xsede.org/image/image_gallery?uuid=c0ae4cfa-fa0e-4546-8b02-3305bf2a99cc&amp;groupId=10157&amp;t=1369258426990" width="200,"></p>
-<p>Last year, I attended a two-and-a-half-day community and curriculum building workshop.  It could not have been more perfectly timed. I was able to come up with a solid plan for my CMSE401 parallel programming course which I ended up teaching this last spring.  </p>
-<p>This year I was not able to …</p> <a class="btn btn-info xsmall" href="../workshop-community-building-for-high-performance-computing-curriculum-development.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

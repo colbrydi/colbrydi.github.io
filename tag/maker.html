@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../sphere-o-bot-jjrobots-version.html"><h1>Sphere-O-Bot (JJRobots version)</h1></a>
-Sat 13 April 2019
+            <a href="../cylindrical-lithophans.html"><h1>Cylindrical Lithophans</h1></a>
+Wed 25 December 2019
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,40 +75,36 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
-<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
-<p>I dug out the Sphere-O-bot this week and after some trial and error I got it back up and running just in time for the Easter Holiday. One of the tricky parts was getting the software to work on an old windows 8 surface we had laying around. The software has three components:</p>
-<ol>
-<li><a href="https://www.arduino.cc/en/Main/Software">Arduino Leonardo Arduino drivers</a></li>
-<li><a href="https://inkscape.org/release/0.91/">Inkscape Version 0.91</a> - Newer versions of Inkscape do not work.</li>
-<li><a href="https://wiki.evilmadscientist.com/Installing_software">Eggbot Extention for Inkscape</a></li>
-</ol>
-<p>Running the installers for the above is just the first step.  I had a heck of a time getting the software to connect to the Arduino. It took a lot of googling and multiple problems on top of each other which made it tricky.  One key thing I had to change was the following line in the
-<code>eggbot_scanwin32.py</code> file:</p>
-<p><code>hKey = _winreg.OpenKey( hReg, r"SYSTEM\CurrentControlSet\Enum\USB\VID_2341&amp;PID_0043" )</code></p>
-<p>Turns out the VID and PID are unique to my system.  You can figure these numbers out by using the Arduino software and looking at the board specifications or you can look them up in the device manager.  Kind of tricky.  </p>
-<p>Anyway, once we got it working it turns out to be extremely fun. I purchased a bunch of ping-pong balls online:</p>
-<p><a href="https://www.amazon.com/dp/B001QVA5A2/ref=cm_sw_em_r_mt_dp_U_OIFSCbTPRMWYN">STIGA 2-Star White No Print Table Tennis Balls (144-Count) by Amazon.com</a></p>
-<p>These are reasonably priced and work well for printing.  We have already gone though and printed a bunch of designs we download from the internet.  </p>
-<p><img align="right," alt="Example Printed Spheres" hspace="10" src="../images/FirstPlots.jpg" width="200,"></p>
-<p>I also had my daughter draw a picture and put it on an egg:</p>
-<p><img align="right," alt="Plot from a Drawing" hspace="10" src="../images/Drawing.jpg" width="200,"></p>
-<p>There are many steps to getting this to work but they are all fairly easy:</p>
-<ol>
-<li>Draw a picture with only one color (to start) on white paper.</li>
-<li>Open up the eggbot svg Inkscape template file from the examples directory.</li>
-<li>Take a picture with my phone and email it to me.</li>
-<li>Upload the picture into Inkscape.</li>
-<li>Run the trace bitmap function in the menu.  This will take some fiddling to get only the parts of the image you want.</li>
-<li>Edit the resulting vectors as needed.</li>
-<li>Highlight the entire bitmap such that all of the points are selected.</li>
-<li>Run the object to path function in the menu.</li>
-<li>Run the Eggbot Extension and print as normal.  </li>
-</ol>
-<p>The above instructions are really just notes for myself the next time I want to do this activity with the kids.  If anyone besides me is reading this blog, please feel free to put a comment below or drop me an email and I am happy to put together more detailed instructions for installation and/or printing a picture.</p></div>
+        <div><p><img alt="2019 Picture of kids" src="../images/Kids_2019.jpg"></p>
+<p>Lithophans are one of my favorite things to 3D print.  I have written software in MATLAB and python that can convert images to lithophans. Most years I design a lithophan and 3D printable frame to give away to family for Christmas and each year I like to try to do something different, creative and a little more challenging.  </p>
+<p>This year we had a picture of all 9 kids (my four, our brothers four and our exchange student) all standing in a line between our two houses.  This picture works best as a long and thin image (See above).  I thought it would be cool to print this on a cylinder with a light source on the inside and then have it rotate.  It took me a while to get the mesh right but the results turned out quite good:</p>
+<p>I also had fun with my time-lapse camera during the print.  I added in an electronic tea light when the print head was high enough and I managed to show the lithophan as it is being printed.</p>
+<iframe width="500" height="315" src="https://www.youtube.com/embed/-h8pF6psdp4?start=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>The last thing I did was make a "lid" for the cylinder so that I could include a picture of my niece who was the only grandchild not in the picture from the two houses.  For this one I just made one of my standard square lithophans and then added a circular frame with a stepped lid so that It would fit snugly in the cylinder. It took a few iterations to get the lid part working but I just drilled a hole in the top and used the failures as ornaments for my brother and sister to give away.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../sphere-o-bot-jjrobots-version.html"><h2>Sphere-O-Bot (JJRobots version)</h2></a>
+        <div class= "well small"> Sat 13 April 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
+<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
+<p>I dug out the Sphere-O-bot this week and after …</p> <a class="btn btn-info xsmall" href="../sphere-o-bot-jjrobots-version.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -270,31 +266,6 @@ once in the past when I tried using some really cheap filament but I am not
 sure the real root of the problem this …</p> <a class="btn btn-info xsmall" href="../ultimaker-2-cleaning-a-clogged-nozzle.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../april-1st-brownies.html"><h2>April 1st Brownies</h2></a>
-        <div class= "well small"> Fri 03 April 2015
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p>An oldie but a goodie with a modern twist. This year I printed out the letter
-E on my 3D printer using Brown PLA plastic.  </p>
-<p><img align="right," alt="" hspace="10" src="../images/blogger-image--2074689448.jpg" width="200,"></p>
-<p>Then I put the Brown E's in a baking pan:</p>
-<p><img alt="" src="../images/blogger-image--458341699.jpg"></p>
-<p>Cover with aluminum foil and tell the kids I made brownies for them.</p>
-<p><img align="right," alt="../images/blogger-image-1911830558.jpg" hspace="10" src="../images/blogger-image-1911830558.jpg" width="200,"></p>
-<p>The were …</p> <a class="btn btn-info xsmall" href="../april-1st-brownies.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -302,6 +273,7 @@ E on my 3D printer using Brown PLA plastic.  </p>
     <li class="active"><a href="../tag/maker.html">1</a></li>
     <li class=""><a href="../tag/maker2.html">2</a></li>
     <li class=""><a href="../tag/maker3.html">3</a></li>
+    <li class=""><a href="../tag/maker4.html">4</a></li>
 
     <li class="next"><a href="../tag/maker2.html">Next &rarr;</a></li>
 
