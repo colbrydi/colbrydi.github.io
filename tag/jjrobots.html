@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../sphere-o-bot-jjrobots-version.html"><h1>Sphere-O-Bot (JJRobots version)</h1></a>
-Sat 13 April 2019
+            <a href="../jjrobots-b-robot.html"><h1>JJRobots B-Robot</h1></a>
+Sat 18 January 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,40 +75,37 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
-<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
-<p>I dug out the Sphere-O-bot this week and after some trial and error I got it back up and running just in time for the Easter Holiday. One of the tricky parts was getting the software to work on an old windows 8 surface we had laying around. The software has three components:</p>
-<ol>
-<li><a href="https://www.arduino.cc/en/Main/Software">Arduino Leonardo Arduino drivers</a></li>
-<li><a href="https://inkscape.org/release/0.91/">Inkscape Version 0.91</a> - Newer versions of Inkscape do not work.</li>
-<li><a href="https://wiki.evilmadscientist.com/Installing_software">Eggbot Extention for Inkscape</a></li>
-</ol>
-<p>Running the installers for the above is just the first step.  I had a heck of a time getting the software to connect to the Arduino. It took a lot of googling and multiple problems on top of each other which made it tricky.  One key thing I had to change was the following line in the
-<code>eggbot_scanwin32.py</code> file:</p>
-<p><code>hKey = _winreg.OpenKey( hReg, r"SYSTEM\CurrentControlSet\Enum\USB\VID_2341&amp;PID_0043" )</code></p>
-<p>Turns out the VID and PID are unique to my system.  You can figure these numbers out by using the Arduino software and looking at the board specifications or you can look them up in the device manager.  Kind of tricky.  </p>
-<p>Anyway, once we got it working it turns out to be extremely fun. I purchased a bunch of ping-pong balls online:</p>
-<p><a href="https://www.amazon.com/dp/B001QVA5A2/ref=cm_sw_em_r_mt_dp_U_OIFSCbTPRMWYN">STIGA 2-Star White No Print Table Tennis Balls (144-Count) by Amazon.com</a></p>
-<p>These are reasonably priced and work well for printing.  We have already gone though and printed a bunch of designs we download from the internet.  </p>
-<p><img align="right," alt="Example Printed Spheres" hspace="10" src="../images/FirstPlots.jpg" width="200,"></p>
-<p>I also had my daughter draw a picture and put it on an egg:</p>
-<p><img align="right," alt="Plot from a Drawing" hspace="10" src="../images/Drawing.jpg" width="200,"></p>
-<p>There are many steps to getting this to work but they are all fairly easy:</p>
-<ol>
-<li>Draw a picture with only one color (to start) on white paper.</li>
-<li>Open up the eggbot svg Inkscape template file from the examples directory.</li>
-<li>Take a picture with my phone and email it to me.</li>
-<li>Upload the picture into Inkscape.</li>
-<li>Run the trace bitmap function in the menu.  This will take some fiddling to get only the parts of the image you want.</li>
-<li>Edit the resulting vectors as needed.</li>
-<li>Highlight the entire bitmap such that all of the points are selected.</li>
-<li>Run the object to path function in the menu.</li>
-<li>Run the Eggbot Extension and print as normal.  </li>
-</ol>
-<p>The above instructions are really just notes for myself the next time I want to do this activity with the kids.  If anyone besides me is reading this blog, please feel free to put a comment below or drop me an email and I am happy to put together more detailed instructions for installation and/or printing a picture.</p></div>
+        <div><p><img alt="Picture of JJRobots And kids" src="../images/BRobot.jpeg"></p>
+<p>A few years ago I purchased a kit from <a href="//www.jjrobots.com/">JJRobots</a>. The kit provides all non-plastic parts and then allows you to build a variety of robots.  Up until now I only made the <a href="Sphere-O-Bot (JJRobots version)">eggbot</a> which tends to come out around Easter time, the kids love it.</p>
+<p>Last week my niblets and children helped me put together a 3D printer.  I used the printer to print the last few parts of the B-Robot.  The bumpers came out backwards but serviceable.  </p>
+<p><img alt="Printer and Robot Parts" src="../images/Tronxy-B-Robot.jpeg"></p>
+<p>This week we got together, took apart the eggbot and then assembled the b-robot.  It was a lot of fun, the kids had a great time. To be honest only my nephue really had the pacients to stick it out and complete the robot but it was still a lot of fun.</p>
+<p>The one big challenge for me was that the software did not work out of the box. it took me a while to figure out that the version of the kit I had (from a few years ago) was different than the kit currently on the <a href="//www.jjrobots.com/">JJRobots</a> website.  Fortunately, once I figured out I was working from old hardware, it was fairly easy to search the site and find the old directions.  </p>
+<p>With the software installed all the kids had a great time driving it around.  It is fun to see the robot balance on two wheels and the app works great.  </p>
+<p>Both projects (eggbot and B-robot) from <a href="//www.jjrobots.com/">JJRobots</a> were fun to build.  I am looking forward to building the other projects with the kids.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../sphere-o-bot-jjrobots-version.html"><h2>Sphere-O-Bot (JJRobots version)</h2></a>
+        <div class= "well small"> Sat 13 April 2019
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
+<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
+<p>I dug out the Sphere-O-bot this week and after …</p> <a class="btn btn-info xsmall" href="../sphere-o-bot-jjrobots-version.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -194,7 +191,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2019</p>
+<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
 </footer>
 
 </div> <!-- /container -->
