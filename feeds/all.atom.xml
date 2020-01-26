@@ -4,6 +4,8 @@
 &lt;p&gt;Many MSU classrooms have two overhead monitors that project on two screens at the front of class.  Each room is equipped with a technology cart that has a desktop computer, overhead camera and laptop connections that can be used to project any of the content to either screen. Up until now I haven't really seen many learning benefit of having two screens in smaller classrooms.  However, recently I have been using one screen for my standard presentation and the other screen with a live close caption.  Here is a video with a few examples:&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/fE1bveNGeR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
+&lt;p style="text-align:right;"&gt;Special Thanks to my Graduate Teaching Assistant, Janez Krek, for taking these videos&lt;/p&gt;
+
 &lt;p&gt;https://youtu.be/fE1bveNGeR0
 To get this to work I am using &lt;a href="https://support.google.com/docs/answer/9109474?hl=en"&gt;Google Slide&lt;/a&gt; presentations which have an option for live closed captioning.  Here are my steps:&lt;/p&gt;
 &lt;ol&gt;
