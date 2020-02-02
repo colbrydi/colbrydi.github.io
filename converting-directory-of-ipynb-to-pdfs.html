@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - Teaching</title>
+    <title>Dirk's Home Page - Converting directory of ipynb to pdfs</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-    <script src="../theme/html5.js"></script>
+    <script src="./theme/html5.js"></script>
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="../theme/bootstrap.min.css" rel="stylesheet">
-    <link href="../theme/bootstrap.min.responsive.css" rel="stylesheet">
-    <link href="../theme/local.css" rel="stylesheet">
-    <link href="../theme/pygments.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
 
     <!-- So Firefox can bookmark->"abo this site" -->
         <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
@@ -27,7 +27,7 @@
 
 <div class="navbar">
     <div class="navbar-inner">
-   <img src="../images/2017Dirk.jpg" align="left" width=100 hspace="20">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
 
     <div class="container">
 
@@ -37,7 +37,7 @@
              <span class="icon-bar"></span>
          </a>
 
-        <a class="brand" href="..">Dirk's Home Page</a>
+        <a class="brand" href=".">Dirk's Home Page</a>
 
         <div class="nav-collapse">
         <ul class="nav">
@@ -58,23 +58,17 @@
     <div class="row">
 
         <div class="span9">
-        
-
-        
-
-
     <div class='article'>
         <div class="content-title">
-            <a href="../converting-directory-of-ipynb-to-pdfs.html"><h1>Converting directory of ipynb to pdfs</h1></a>
+            <h1>Converting directory of ipynb to pdfs</h1>
 Sun 02 February 2020
 
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
 
 
- 
         </div>
-        
+	
         <div><p><img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"></p>
 <p>I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  </p>
 <p><strong>Option 1:</strong> I decided to convert all of the notebooks to pdfs using <a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a>.  However, <code>nbconvert</code> isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  </p>
@@ -137,80 +131,23 @@ open CMSE314.pdf
 
 <p>Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).</p>
 <p>Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.</p></div>
-        <hr />
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Converting directory of ipynb to pdfs';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-		
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html"><h2>Extracting Desire to learn (D2L) zip files into student folders</h2></a>
-        <div class= "well small"> Mon 15 April 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="D2L Logo" hspace="10" src="https://info.d2l.com/hs-fs/hubfs/D2L-web-500.png?width=500&amp;name=D2L-web-500.png" width="200,"></p>
-<p>At MSU we use Desire to Learn for our classroom content management system.  Students can go to D2L to get their assignments and turn in their assignments though the D2L dropbox.  </p>
-<p>When grading, I can download all of the student's submissions into a zip file such as the following:</p>
-<p><code>Part …</code></p> <a class="btn btn-info xsmall" href="../extracting-desire-to-learn-d2l-zip-files-into-student-folders.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../planning-a-new-course.html"><h2>Planning a new Course</h2></a>
-        <div class= "well small"> Sun 10 June 2018
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p>This post describes a technique I use to plan an organize a course from scratch.  I learned this technique from Dr. Brian O'Shea.  </p>
-<p>At Michigan State University (MSU) my official title is curriculum specialist.  I have the unique opportunity to help develop entirely new courses for a brand new department …</p> <a class="btn btn-info xsmall" href="../planning-a-new-course.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../white-noise-and-teaching.html"><h2>White Noise and Teaching</h2></a>
-        <div class= "well small"> Wed 23 May 2018
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p>It can be difficult to be the first student to talk in a quite classroom.  I have been experimenting with the use of white noise to raise the overall din in the room and encourage taking more quickly.</p>
-<p>When I teach I try to encourage peer and group discussions.  Activities …</p> <a class="btn btn-info xsmall" href="../white-noise-and-teaching.html">read more</a></div>
-    </div>	
-				
-<div class="pagination">
-<ul>
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-    <li class="active"><a href="../tag/teaching.html">1</a></li>
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-</ul>
-</div>
- 
-  
         </div>
         
         <div class="span3">
@@ -221,8 +158,8 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
                 Site
                 </li>
             
-                <li><a href="../archives.html">Archives</a>
-                <li><a href="../tags.html">Tags</a>
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
 
 
 
@@ -238,8 +175,8 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
                 Categories
                 </li>
                 
-                <li><a href="../category/fun.html">Fun</a></li>
-                <li><a href="../category/professional.html">Professional</a></li>
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
                    
             </ul>
             </div>
@@ -264,12 +201,12 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
 </footer>
 
 </div> <!-- /container -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="../theme/bootstrap-collapse.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
 <script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
  
 </body>

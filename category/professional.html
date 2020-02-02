@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../live-closed-captioning.html"><h1>Live Closed Captioning</h1></a>
-Sun 26 January 2020
+            <a href="../converting-directory-of-ipynb-to-pdfs.html"><h1>Converting directory of ipynb to pdfs</h1></a>
+Sun 02 February 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,29 +75,90 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="Picture of me writing on the white board with live closed captioning" src="//colbrydi.github.io/images/CC_example.png"></p>
-<p>Many MSU classrooms have two overhead monitors that project on two screens at the front of class.  Each room is equipped with a technology cart that has a desktop computer, overhead camera and laptop connections that can be used to project any of the content to either screen. Up until now I haven't really seen many learning benefit of having two screens in smaller classrooms.  However, recently I have been using one screen for my standard presentation and the other screen with a live close caption.  Here is a video with a few examples:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fE1bveNGeR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p style="text-align:right;">Special Thanks to my Graduate Teaching Assistant, Janez Krek, for taking these videos</p>
-
-<p>https://youtu.be/fE1bveNGeR0
-To get this to work I am using <a href="https://support.google.com/docs/answer/9109474?hl=en">Google Slide</a> presentations which have an option for live closed captioning.  Here are my steps:</p>
+        <div><p><img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"></p>
+<p>I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  </p>
+<p><strong>Option 1:</strong> I decided to convert all of the notebooks to pdfs using <a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a>.  However, <code>nbconvert</code> isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  </p>
+<p><strong>Option 2:</strong> However, <code>nbconvert</code> works great if I convert to html.  So then I had a thought to first convert to html and then print to pdf.  However this option requires me to open and save each html file individually.</p>
+<p><strong>Option 3:</strong> I discovered there are a bunch of tools that convert html to pdf.  Most of them require similar installation I was having trouble with in Option 1. However, Chrome allows me to run in "Headless" mode which may make it easy to automate.</p>
+<p>My final solution has the following steps.  Note, this only works on Makes but conceptually could be converted to work on any system:</p>
 <ol>
-<li>Log into the classroom desktop with my MSU login/password</li>
-<li>Open up Chrome</li>
-<li>Log into <a href="http://googleapps.msu.edu">http://googleapps.msu.edu</a> drive using my MSU login/password</li>
-<li>Open a new Google Slides file and set the background to black</li>
-<li>Start the presentation and hit the 'CC' button which appears at the bottom of the screen when I move my mouse</li>
-<li>Attach the portable room microphone to my lapel and turn it on</li>
-<li>Adjust volume as appropriate for room and test the captioning</li>
+<li>Use <code>nbconvert</code> to convert each ipynb in the current directory to html.</li>
+<li>Use <code>Chrome</code> headless mode to convert html files to pdfs.</li>
+<li>Use the <code>join</code> command to combine all of the pdfs into one file.</li>
 </ol>
-<p>Once I have closed captioning work on the right monitor, I plug in my laptop and use the technology cart interface to set the left screen and desktop monitor to the laptop input.  Now I can control my lecture content from my laptop and the close captioning will work on a mostly black screen.  </p>
-<p>Obviously student's with a hearing disability (temporary and long term) may benefit from the technology but overall I have found many students appreciate the extra information. When I am excited I can talk fast and this helps students keep up with what I am saying. I also have had positive feedback from international students for which English is a second language.   </p>
-<p>Another drawback to this approach is that I can't figure out how to download a transcript from the lecture. I full transcript could be useful resource for me as well as students.  </p></div>
+<p>Here is a bash script that seems to work:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+mkdir -p HTML
+
+jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML *.ipynb
+
+mkdir -p PDF
+
+<span class="k">for</span> file in ./html/*.html
+<span class="k">do</span>
+    /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --crash-dumps-dir<span class="o">=</span>./html/ --disable-gpu --print-to-pdf file://<span class="nv">$PWD</span>/<span class="nv">$file</span>
+    <span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename -- <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
+    <span class="nv">extension</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">&quot;</span>
+    mv output.pdf ./PDF/<span class="si">${</span><span class="nv">filename</span><span class="si">}</span>.pdf
+<span class="k">done</span>
+
+<span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf ./PDF/*.pdf
+
+open CMSE314.pdf
+</pre></div>
+
+
+<p>Once I got the bash script working I decided a Makefile would be better</p>
+<div class="highlight"><pre><span></span><span class="nv">IPYNB_FILES</span> <span class="o">=</span> <span class="k">$(</span>wildcard *.ipynb<span class="k">)</span>
+<span class="nv">PDF_FILES</span> <span class="o">=</span> <span class="k">$(</span>patsubst %.ipynb, PDF/%.pdf, <span class="k">$(</span>IPYNB_FILES<span class="k">))</span>
+
+<span class="nf">all</span><span class="o">:</span> <span class="n">CMSE</span>314.<span class="n">pdf</span>
+        open CMSE314.pdf
+
+<span class="nf">HTML/%.html</span><span class="o">:</span> %.<span class="n">ipynb</span>
+        @mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>@D<span class="k">)</span><span class="s2">&quot;</span>
+        jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML <span class="s2">&quot;</span>$<span class="s2">&lt;&quot;</span>
+
+<span class="nf">PDF/%.pdf</span><span class="o">:</span> <span class="n">HTML</span>/%.<span class="n">html</span>
+        @mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>@D<span class="k">)</span><span class="s2">&quot;</span>
+        /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --crash-dumps-dir<span class="o">=</span><span class="k">$(</span>@D<span class="k">)</span> --disable-gpu --print-to-pdf file://<span class="k">$(</span>PWD<span class="k">)</span>/$&lt;
+        mv output.pdf <span class="nv">$@</span>
+
+<span class="nf">CMSE314.pdf</span><span class="o">:</span> <span class="k">$(</span><span class="nv">PDF_FILES</span><span class="k">)</span>
+        <span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf <span class="k">$(</span>PDF_FILES<span class="k">)</span>
+
+<span class="nf">clean</span><span class="o">:</span>
+        rm -rf HTML
+        rm -rf PDF
+</pre></div>
+
+
+<p>Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).</p>
+<p>Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../live-closed-captioning.html"><h2>Live Closed Captioning</h2></a>
+        <div class= "well small"> Sun 26 January 2020
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Picture of me writing on the white board with live closed captioning" src="//colbrydi.github.io/images/CC_example.png"></p>
+<p>Many MSU classrooms have two overhead monitors that project on two screens at the front of class.  Each room is equipped with a technology cart that has a desktop computer, overhead camera and laptop connections that can be used to project any of the content to either screen. Up until …</p> <a class="btn btn-info xsmall" href="../live-closed-captioning.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -262,25 +323,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
         <div class="summary"><p><img alt="Picture of Abudit in front of her poster" src="//colbrydi.github.io/images/2019_EnSURE_Abudit.jpg"></p>
 <p>Summer 2019 <a href="https://cmse.msu.edu/employment-opportunities/cmse-student-technical-support/">CMSE Undergraduate Intern</a> Poster presentation at MidSure by Abudit Rai:</p>
 <p>Jupyter Notebook is a relatively new environment that incorporates formatted text (using markdown), multimedia (video and pictures using html) and executable code where users can write and execute code within “cells” for languages such as Python, Julia, and …</p> <a class="btn btn-info xsmall" href="../the-keyboard-trap-making-jupyter-notebooks-accessible-to-all-students.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../2019-ensure-talk-an-engineers-autobiography.html"><h2>2019 Ensure Talk - An Engineers Autobiography</h2></a>
-        <div class= "well small"> Tue 25 June 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="EnSURE Logo" src="//www.egr.msu.edu/graduate/sites/default/files/content/ensure_logo.jpg"></p>
-<p>I gave my annual autobiographical talk today to the <a href="//www.egr.msu.edu/graduate/ensure">EnSURE</a> (Engineering Summer Undergraduate Research Experience) students. I give this talk every year and it is noticeably different that most of my presentations because the EnSURE organizers asked me to talk about myself and how I got where I am (instead …</p> <a class="btn btn-info xsmall" href="../2019-ensure-talk-an-engineers-autobiography.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

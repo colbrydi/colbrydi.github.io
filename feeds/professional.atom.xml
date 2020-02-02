@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-01-26T00:00:00-05:00</updated><entry><title>Live Closed Captioning</title><link href="https://colbrydi.github.io/live-closed-captioning.html" rel="alternate"></link><published>2020-01-26T00:00:00-05:00</published><updated>2020-01-26T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-01-26:/live-closed-captioning.html</id><summary type="html">&lt;p&gt;&lt;img alt="Picture of me writing on the white board with live closed captioning" src="//colbrydi.github.io/images/CC_example.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-02-02T00:00:00-05:00</updated><entry><title>Converting directory of ipynb to pdfs</title><link href="https://colbrydi.github.io/converting-directory-of-ipynb-to-pdfs.html" rel="alternate"></link><published>2020-02-02T00:00:00-05:00</published><updated>2020-02-02T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-02:/converting-directory-of-ipynb-to-pdfs.html</id><summary type="html">&lt;p&gt;&lt;img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"&gt;&lt;/p&gt;
+&lt;p&gt;I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; I decided to convert all of the notebooks to pdfs using &lt;a href="https://nbconvert.readthedocs.io/en/latest/"&gt;nbconvert&lt;/a&gt;.  However, &lt;code&gt;nbconvert&lt;/code&gt; isn't working on my MacBook.  I think I have too …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"&gt;&lt;/p&gt;
+&lt;p&gt;I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; I decided to convert all of the notebooks to pdfs using &lt;a href="https://nbconvert.readthedocs.io/en/latest/"&gt;nbconvert&lt;/a&gt;.  However, &lt;code&gt;nbconvert&lt;/code&gt; isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Option 2:&lt;/strong&gt; However, &lt;code&gt;nbconvert&lt;/code&gt; works great if I convert to html.  So then I had a thought to first convert to html and then print to pdf.  However this option requires me to open and save each html file individually.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Option 3:&lt;/strong&gt; I discovered there are a bunch of tools that convert html to pdf.  Most of them require similar installation I was having trouble with in Option 1. However, Chrome allows me to run in "Headless" mode which may make it easy to automate.&lt;/p&gt;
+&lt;p&gt;My final solution has the following steps.  Note, this only works on Makes but conceptually could be converted to work on any system:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use &lt;code&gt;nbconvert&lt;/code&gt; to convert each ipynb in the current directory to html.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;Chrome&lt;/code&gt; headless mode to convert html files to pdfs.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;join&lt;/code&gt; command to combine all of the pdfs into one file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is a bash script that seems to work:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+mkdir -p HTML
+
+jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML *.ipynb
+
+mkdir -p PDF
+
+&lt;span class="k"&gt;for&lt;/span&gt; file in ./html/*.html
+&lt;span class="k"&gt;do&lt;/span&gt;
+    /Applications/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome.app/Contents/MacOS/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome --headless --crash-dumps-dir&lt;span class="o"&gt;=&lt;/span&gt;./html/ --disable-gpu --print-to-pdf file://&lt;span class="nv"&gt;$PWD&lt;/span&gt;/&lt;span class="nv"&gt;$file&lt;/span&gt;
+    &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename -- &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$file&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+    &lt;span class="nv"&gt;extension&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;##*.&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;%.*&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+    mv output.pdf ./PDF/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.pdf
+&lt;span class="k"&gt;done&lt;/span&gt;
+
+&lt;span class="s2"&gt;&amp;quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&amp;quot;&lt;/span&gt; -o CMSE314.pdf ./PDF/*.pdf
+
+open CMSE314.pdf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once I got the bash script working I decided a Makefile would be better&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;IPYNB_FILES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;wildcard *.ipynb&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;PDF_FILES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;patsubst %.ipynb, PDF/%.pdf, &lt;span class="k"&gt;$(&lt;/span&gt;IPYNB_FILES&lt;span class="k"&gt;))&lt;/span&gt;
+
+&lt;span class="nf"&gt;all&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;CMSE&lt;/span&gt;314.&lt;span class="n"&gt;pdf&lt;/span&gt;
+        open CMSE314.pdf
+
+&lt;span class="nf"&gt;HTML/%.html&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; %.&lt;span class="n"&gt;ipynb&lt;/span&gt;
+        @mkdir -p &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;@D&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;&amp;lt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="nf"&gt;PDF/%.pdf&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;HTML&lt;/span&gt;/%.&lt;span class="n"&gt;html&lt;/span&gt;
+        @mkdir -p &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;@D&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+        /Applications/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome.app/Contents/MacOS/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome --headless --crash-dumps-dir&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;@D&lt;span class="k"&gt;)&lt;/span&gt; --disable-gpu --print-to-pdf file://&lt;span class="k"&gt;$(&lt;/span&gt;PWD&lt;span class="k"&gt;)&lt;/span&gt;/$&amp;lt;
+        mv output.pdf &lt;span class="nv"&gt;$@&lt;/span&gt;
+
+&lt;span class="nf"&gt;CMSE314.pdf&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nv"&gt;PDF_FILES&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&amp;quot;&lt;/span&gt; -o CMSE314.pdf &lt;span class="k"&gt;$(&lt;/span&gt;PDF_FILES&lt;span class="k"&gt;)&lt;/span&gt;
+
+&lt;span class="nf"&gt;clean&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        rm -rf HTML
+        rm -rf PDF
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).&lt;/p&gt;
+&lt;p&gt;Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.&lt;/p&gt;</content><category term="Professional"></category><category term="Accessibility"></category><category term="Teaching"></category></entry><entry><title>Live Closed Captioning</title><link href="https://colbrydi.github.io/live-closed-captioning.html" rel="alternate"></link><published>2020-01-26T00:00:00-05:00</published><updated>2020-01-26T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-01-26:/live-closed-captioning.html</id><summary type="html">&lt;p&gt;&lt;img alt="Picture of me writing on the white board with live closed captioning" src="//colbrydi.github.io/images/CC_example.png"&gt;&lt;/p&gt;
 &lt;p&gt;Many MSU classrooms have two overhead monitors that project on two screens at the front of class.  Each room is equipped with a technology cart that has a desktop computer, overhead camera and laptop connections that can be used to project any of the content to either screen. Up until …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Picture of me writing on the white board with live closed captioning" src="//colbrydi.github.io/images/CC_example.png"&gt;&lt;/p&gt;
 &lt;p&gt;Many MSU classrooms have two overhead monitors that project on two screens at the front of class.  Each room is equipped with a technology cart that has a desktop computer, overhead camera and laptop connections that can be used to project any of the content to either screen. Up until now I haven't really seen many learning benefit of having two screens in smaller classrooms.  However, recently I have been using one screen for my standard presentation and the other screen with a live close caption.  Here is a video with a few examples:&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/fE1bveNGeR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
