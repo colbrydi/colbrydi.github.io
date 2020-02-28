@@ -74,7 +74,7 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p><strong>Option 1:</strong> I decided to convert all of the notebooks to pdfs using <a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a>.  However, <code>nbconvert</code> isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  </p>
 <p><strong>Option 2:</strong> However, <code>nbconvert</code> works great if I convert to html.  So then I had a thought to first convert to html and then print to pdf.  However this option requires me to open and save each html file individually.</p>
 <p><strong>Option 3:</strong> I discovered there are a bunch of tools that convert html to pdf.  Most of them require similar installation I was having trouble with in Option 1. However, Chrome allows me to run in "Headless" mode which may make it easy to automate.</p>
-<p>My final solution has the following steps.  Note, this only works on Makes but conceptually could be converted to work on any system:</p>
+<p>My final solution has the following steps.  Note, this only works on MacOS but conceptually could be converted to work on any system:</p>
 <ol>
 <li>Use <code>nbconvert</code> to convert each ipynb in the current directory to html.</li>
 <li>Use <code>Chrome</code> headless mode to convert html files to pdfs.</li>
@@ -91,11 +91,16 @@ mkdir -p PDF
 
 <span class="k">for</span> file in ./html/*.html
 <span class="k">do</span>
-    /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --crash-dumps-dir<span class="o">=</span>./html/ --disable-gpu --print-to-pdf file://<span class="nv">$PWD</span>/<span class="nv">$file</span>
     <span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename -- <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
     <span class="nv">extension</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">&quot;</span>
-    mv output.pdf ./PDF/<span class="si">${</span><span class="nv">filename</span><span class="si">}</span>.pdf
+    /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless <span class="se">\</span>
+            --virtual-time-budget<span class="o">=</span><span class="m">10000</span> <span class="se">\</span>
+            --crash-dumps-dir<span class="o">=</span>./html/ <span class="se">\</span>
+            --disable-gpu <span class="se">\</span>
+            --print-to-pdf<span class="o">=</span>./PDF/<span class="si">${</span><span class="nv">filename</span><span class="si">}</span>.pdf <span class="se">\</span>
+              --no-margins <span class="se">\</span>
+            file://<span class="nv">$PWD</span>/<span class="nv">$file</span>
 <span class="k">done</span>
 
 <span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf ./PDF/*.pdf

@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-02-02T00:00:00-05:00</updated><entry><title>Converting directory of ipynb to pdfs</title><link href="https://colbrydi.github.io/converting-directory-of-ipynb-to-pdfs.html" rel="alternate"></link><published>2020-02-02T00:00:00-05:00</published><updated>2020-02-02T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-02:/converting-directory-of-ipynb-to-pdfs.html</id><summary type="html">&lt;p&gt;&lt;img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-02-27T00:00:00-05:00</updated><entry><title>Tensorflow and Keras/PyTorch on the HPCC</title><link href="https://colbrydi.github.io/tensorflow-and-keraspytorch-on-the-hpcc.html" rel="alternate"></link><published>2020-02-27T00:00:00-05:00</published><updated>2020-02-27T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-27:/tensorflow-and-keraspytorch-on-the-hpcc.html</id><summary type="html">&lt;p&gt;&lt;img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;amp;v=4"&gt;&lt;/p&gt;
+&lt;p&gt;Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;amp;v=4"&gt;&lt;/p&gt;
+&lt;p&gt;Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to get it working something changes.  This time around wasn't too bad so I thought I would share my latest install instructions.&lt;/p&gt;
+&lt;h3&gt;Step 1: Install Anaconda Python&lt;/h3&gt;
+&lt;p&gt;Here is a video I made a while ago about how to download and install Anaconda on the HPC.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/g0rGb6QqBPo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Step 2: Make a Tensor Conda Environment&lt;/h3&gt;
+&lt;p&gt;On one of the development nodes create a Conda environment using the following commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;conda create --prefix ./tensorflow-env tensorflow-gpu keras pytorch
+conda init bash
+&lt;span class="nb"&gt;exit&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 3: Test Conda&lt;/h3&gt;
+&lt;p&gt;Now we need to test keras and tensorflow.  I found an example on the internet and had to fix a few bugs. I am not sure how good an example is but it is good enough to run as a benchmark test. You can download the example file &lt;a href=""&gt;here&lt;/a&gt;, or just use the following commands on a dev-node on the HPC:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget &lt;span class="c1"&gt;#&lt;/span&gt;
+conda activate ./tensorflow-env
+&lt;span class="nb"&gt;time&lt;/span&gt; python convolution.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special volta node (nvl-001) which is only avaliable to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;salloc --gres&lt;span class="o"&gt;=&lt;/span&gt;gpu:1 --nodelist&lt;span class="o"&gt;=&lt;/span&gt;nvl-001 --time&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;00&lt;/span&gt;:10:00 --account&lt;span class="o"&gt;=&lt;/span&gt;cmse
+conda activate ./tensorflow-env
+&lt;span class="nb"&gt;time&lt;/span&gt; srun python convolutional.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 4: SLURM Script&lt;/h3&gt;
+&lt;p&gt;To run this in a slurm script you need to request GPUs and use the srun command. Here is an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --time=01:00:00&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -c 1&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -n 1&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --gres=gpu:1&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --mem=4gb&lt;/span&gt;
+
+module load powertools
+
+&lt;span class="c1"&gt;#conda init bash&lt;/span&gt;
+conda activate ./tensorflow-env
+
+&lt;span class="nb"&gt;time&lt;/span&gt; srun python convolutional.py
+
+js &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_JOB_ID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This installation is probably not optimal but seems to work consistently.  &lt;/p&gt;</content><category term="Professional"></category><category term="HPCC"></category><category term="Teaching"></category></entry><entry><title>Converting directory of ipynb to pdfs</title><link href="https://colbrydi.github.io/converting-directory-of-ipynb-to-pdfs.html" rel="alternate"></link><published>2020-02-02T00:00:00-05:00</published><updated>2020-02-02T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-02:/converting-directory-of-ipynb-to-pdfs.html</id><summary type="html">&lt;p&gt;&lt;img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"&gt;&lt;/p&gt;
 &lt;p&gt;I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; I decided to convert all of the notebooks to pdfs using &lt;a href="https://nbconvert.readthedocs.io/en/latest/"&gt;nbconvert&lt;/a&gt;.  However, &lt;code&gt;nbconvert&lt;/code&gt; isn't working on my MacBook.  I think I have too …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"&gt;&lt;/p&gt;
 &lt;p&gt;I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; I decided to convert all of the notebooks to pdfs using &lt;a href="https://nbconvert.readthedocs.io/en/latest/"&gt;nbconvert&lt;/a&gt;.  However, &lt;code&gt;nbconvert&lt;/code&gt; isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Option 2:&lt;/strong&gt; However, &lt;code&gt;nbconvert&lt;/code&gt; works great if I convert to html.  So then I had a thought to first convert to html and then print to pdf.  However this option requires me to open and save each html file individually.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Option 3:&lt;/strong&gt; I discovered there are a bunch of tools that convert html to pdf.  Most of them require similar installation I was having trouble with in Option 1. However, Chrome allows me to run in "Headless" mode which may make it easy to automate.&lt;/p&gt;
-&lt;p&gt;My final solution has the following steps.  Note, this only works on Makes but conceptually could be converted to work on any system:&lt;/p&gt;
+&lt;p&gt;My final solution has the following steps.  Note, this only works on MacOS but conceptually could be converted to work on any system:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Use &lt;code&gt;nbconvert&lt;/code&gt; to convert each ipynb in the current directory to html.&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;Chrome&lt;/code&gt; headless mode to convert html files to pdfs.&lt;/li&gt;
@@ -23,11 +73,16 @@ mkdir -p PDF
 
 &lt;span class="k"&gt;for&lt;/span&gt; file in ./html/*.html
 &lt;span class="k"&gt;do&lt;/span&gt;
-    /Applications/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome.app/Contents/MacOS/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome --headless --crash-dumps-dir&lt;span class="o"&gt;=&lt;/span&gt;./html/ --disable-gpu --print-to-pdf file://&lt;span class="nv"&gt;$PWD&lt;/span&gt;/&lt;span class="nv"&gt;$file&lt;/span&gt;
     &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename -- &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$file&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
     &lt;span class="nv"&gt;extension&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;##*.&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
     &lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;%.*&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-    mv output.pdf ./PDF/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.pdf
+    /Applications/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome.app/Contents/MacOS/Google&lt;span class="se"&gt;\ &lt;/span&gt;Chrome --headless &lt;span class="se"&gt;\&lt;/span&gt;
+            --virtual-time-budget&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10000&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+            --crash-dumps-dir&lt;span class="o"&gt;=&lt;/span&gt;./html/ &lt;span class="se"&gt;\&lt;/span&gt;
+            --disable-gpu &lt;span class="se"&gt;\&lt;/span&gt;
+            --print-to-pdf&lt;span class="o"&gt;=&lt;/span&gt;./PDF/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.pdf &lt;span class="se"&gt;\&lt;/span&gt;
+              --no-margins &lt;span class="se"&gt;\&lt;/span&gt;
+            file://&lt;span class="nv"&gt;$PWD&lt;/span&gt;/&lt;span class="nv"&gt;$file&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&amp;quot;&lt;/span&gt; -o CMSE314.pdf ./PDF/*.pdf

@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../converting-directory-of-ipynb-to-pdfs.html"><h1>Converting directory of ipynb to pdfs</h1></a>
-Sun 02 February 2020
+            <a href="../tensorflow-and-keraspytorch-on-the-hpcc.html"><h1>Tensorflow and Keras/PyTorch on the HPCC</h1></a>
+Thu 27 February 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,71 +75,79 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"></p>
-<p>I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  </p>
-<p><strong>Option 1:</strong> I decided to convert all of the notebooks to pdfs using <a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a>.  However, <code>nbconvert</code> isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  </p>
-<p><strong>Option 2:</strong> However, <code>nbconvert</code> works great if I convert to html.  So then I had a thought to first convert to html and then print to pdf.  However this option requires me to open and save each html file individually.</p>
-<p><strong>Option 3:</strong> I discovered there are a bunch of tools that convert html to pdf.  Most of them require similar installation I was having trouble with in Option 1. However, Chrome allows me to run in "Headless" mode which may make it easy to automate.</p>
-<p>My final solution has the following steps.  Note, this only works on Makes but conceptually could be converted to work on any system:</p>
-<ol>
-<li>Use <code>nbconvert</code> to convert each ipynb in the current directory to html.</li>
-<li>Use <code>Chrome</code> headless mode to convert html files to pdfs.</li>
-<li>Use the <code>join</code> command to combine all of the pdfs into one file.</li>
-</ol>
-<p>Here is a bash script that seems to work:</p>
+        <div><p><img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;v=4"></p>
+<p>Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to get it working something changes.  This time around wasn't too bad so I thought I would share my latest install instructions.</p>
+<h3>Step 1: Install Anaconda Python</h3>
+<p>Here is a video I made a while ago about how to download and install Anaconda on the HPC.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g0rGb6QqBPo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3>Step 2: Make a Tensor Conda Environment</h3>
+<p>On one of the development nodes create a Conda environment using the following commands:</p>
+<div class="highlight"><pre><span></span>conda create --prefix ./tensorflow-env tensorflow-gpu keras pytorch
+conda init bash
+<span class="nb">exit</span>
+</pre></div>
+
+
+<h3>Step 3: Test Conda</h3>
+<p>Now we need to test keras and tensorflow.  I found an example on the internet and had to fix a few bugs. I am not sure how good an example is but it is good enough to run as a benchmark test. You can download the example file <a href="">here</a>, or just use the following commands on a dev-node on the HPC:</p>
+<div class="highlight"><pre><span></span>wget <span class="c1">#</span>
+conda activate ./tensorflow-env
+<span class="nb">time</span> python convolution.py
+</pre></div>
+
+
+<p>Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special volta node (nvl-001) which is only avaliable to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):</p>
+<div class="highlight"><pre><span></span>salloc --gres<span class="o">=</span>gpu:1 --nodelist<span class="o">=</span>nvl-001 --time<span class="o">=</span><span class="m">00</span>:10:00 --account<span class="o">=</span>cmse
+conda activate ./tensorflow-env
+<span class="nb">time</span> srun python convolutional.py
+</pre></div>
+
+
+<h3>Step 4: SLURM Script</h3>
+<p>To run this in a slurm script you need to request GPUs and use the srun command. Here is an example:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH -c 1</span>
+<span class="c1">#SBATCH -n 1</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+<span class="c1">#SBATCH --mem=4gb</span>
 
-mkdir -p HTML
+module load powertools
 
-jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML *.ipynb
+<span class="c1">#conda init bash</span>
+conda activate ./tensorflow-env
 
-mkdir -p PDF
+<span class="nb">time</span> srun python convolutional.py
 
-<span class="k">for</span> file in ./html/*.html
-<span class="k">do</span>
-    /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --crash-dumps-dir<span class="o">=</span>./html/ --disable-gpu --print-to-pdf file://<span class="nv">$PWD</span>/<span class="nv">$file</span>
-    <span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename -- <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
-    <span class="nv">extension</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">&quot;</span>
-    mv output.pdf ./PDF/<span class="si">${</span><span class="nv">filename</span><span class="si">}</span>.pdf
-<span class="k">done</span>
-
-<span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf ./PDF/*.pdf
-
-open CMSE314.pdf
+js <span class="si">${</span><span class="nv">SLURM_JOB_ID</span><span class="si">}</span>
 </pre></div>
 
 
-<p>Once I got the bash script working I decided a Makefile would be better</p>
-<div class="highlight"><pre><span></span><span class="nv">IPYNB_FILES</span> <span class="o">=</span> <span class="k">$(</span>wildcard *.ipynb<span class="k">)</span>
-<span class="nv">PDF_FILES</span> <span class="o">=</span> <span class="k">$(</span>patsubst %.ipynb, PDF/%.pdf, <span class="k">$(</span>IPYNB_FILES<span class="k">))</span>
-
-<span class="nf">all</span><span class="o">:</span> <span class="n">CMSE</span>314.<span class="n">pdf</span>
-        open CMSE314.pdf
-
-<span class="nf">HTML/%.html</span><span class="o">:</span> %.<span class="n">ipynb</span>
-        @mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>@D<span class="k">)</span><span class="s2">&quot;</span>
-        jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML <span class="s2">&quot;</span>$<span class="s2">&lt;&quot;</span>
-
-<span class="nf">PDF/%.pdf</span><span class="o">:</span> <span class="n">HTML</span>/%.<span class="n">html</span>
-        @mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>@D<span class="k">)</span><span class="s2">&quot;</span>
-        /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --crash-dumps-dir<span class="o">=</span><span class="k">$(</span>@D<span class="k">)</span> --disable-gpu --print-to-pdf file://<span class="k">$(</span>PWD<span class="k">)</span>/$&lt;
-        mv output.pdf <span class="nv">$@</span>
-
-<span class="nf">CMSE314.pdf</span><span class="o">:</span> <span class="k">$(</span><span class="nv">PDF_FILES</span><span class="k">)</span>
-        <span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf <span class="k">$(</span>PDF_FILES<span class="k">)</span>
-
-<span class="nf">clean</span><span class="o">:</span>
-        rm -rf HTML
-        rm -rf PDF
-</pre></div>
-
-
-<p>Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).</p>
-<p>Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.</p></div>
+<p>This installation is probably not optimal but seems to work consistently.  </p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../converting-directory-of-ipynb-to-pdfs.html"><h2>Converting directory of ipynb to pdfs</h2></a>
+        <div class= "well small"> Sun 02 February 2020
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"></p>
+<p>I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  </p>
+<p><strong>Option 1:</strong> I decided to convert all of the notebooks to pdfs using <a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a>.  However, <code>nbconvert</code> isn't working on my MacBook.  I think I have too …</p> <a class="btn btn-info xsmall" href="../converting-directory-of-ipynb-to-pdfs.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -297,25 +305,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  </div>
         <div class="summary"><p><img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"></p>
 <p>I just got out of giving a presentation about the CMSE department as part of the <a href="https://sc19.supercomputing.org/session/?sess=sess104">Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)</a> workshop at <a href="https://sc19.supercomputing.org/">SC19</a>. It was fun to show people what we are doing in CMSE and share our progress.  <a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf">Here is a …</a></p> <a class="btn btn-info xsmall" href="../cmse-presentation-at-sc19.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../surplus-workbench.html"><h2>Surplus Workbench</h2></a>
-        <div class= "well small"> Fri 04 October 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Finished Workbench" src="../images/Finished_workbench.JPG"></p>
-<p>Since moving into our new home I have been wanting to build/buy a workbench for my shop.  I have been living with a piece of plywood on some saw horses (bowing in the middle).  I wanted something more rugged but on casters so I could roll the bench out …</p> <a class="btn btn-info xsmall" href="../surplus-workbench.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
