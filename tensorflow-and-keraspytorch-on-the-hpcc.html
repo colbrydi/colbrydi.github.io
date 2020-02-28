@@ -91,7 +91,7 @@ conda activate ./tensorflow-env
 </pre></div>
 
 
-<p>Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special volta node (nvl-001) which is only avaliable to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):</p>
+<p>Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special Volta node (nvl-001) which is only available to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):</p>
 <div class="highlight"><pre><span></span>salloc --gres<span class="o">=</span>gpu:1 --nodelist<span class="o">=</span>nvl-001 --time<span class="o">=</span><span class="m">00</span>:10:00 --account<span class="o">=</span>cmse
 conda activate ./tensorflow-env
 <span class="nb">time</span> srun python convolutional.py
@@ -99,8 +99,8 @@ conda activate ./tensorflow-env
 
 
 <h3>Step 4: SLURM Script</h3>
-<p>To run this in a slurm script you need to request GPUs and use the srun command. Here is an example:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<p>To run this in a SLURM script you need to request GPUs and use the srun command. Here is an example:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash --login</span>
 <span class="c1">#SBATCH --time=01:00:00</span>
 <span class="c1">#SBATCH -c 1</span>
 <span class="c1">#SBATCH -n 1</span>
@@ -109,11 +109,11 @@ conda activate ./tensorflow-env
 
 module load powertools
 
-<span class="c1">#conda init bash</span>
-conda activate ./tensorflow-env
+conda activate ../tensorflow-env
 
 <span class="nb">time</span> srun python convolutional.py
 
+<span class="c1">#Prints out job statistics</span>
 js <span class="si">${</span><span class="nv">SLURM_JOB_ID</span><span class="si">}</span>
 </pre></div>
 

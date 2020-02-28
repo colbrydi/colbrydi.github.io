@@ -22,7 +22,7 @@ conda activate ./tensorflow-env
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special volta node (nvl-001) which is only avaliable to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):&lt;/p&gt;
+&lt;p&gt;Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special Volta node (nvl-001) which is only available to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;salloc --gres&lt;span class="o"&gt;=&lt;/span&gt;gpu:1 --nodelist&lt;span class="o"&gt;=&lt;/span&gt;nvl-001 --time&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;00&lt;/span&gt;:10:00 --account&lt;span class="o"&gt;=&lt;/span&gt;cmse
 conda activate ./tensorflow-env
 &lt;span class="nb"&gt;time&lt;/span&gt; srun python convolutional.py
@@ -30,8 +30,8 @@ conda activate ./tensorflow-env
 
 
 &lt;h3&gt;Step 4: SLURM Script&lt;/h3&gt;
-&lt;p&gt;To run this in a slurm script you need to request GPUs and use the srun command. Here is an example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;p&gt;To run this in a SLURM script you need to request GPUs and use the srun command. Here is an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash --login&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --time=01:00:00&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH -c 1&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH -n 1&lt;/span&gt;
@@ -40,11 +40,11 @@ conda activate ./tensorflow-env
 
 module load powertools
 
-&lt;span class="c1"&gt;#conda init bash&lt;/span&gt;
-conda activate ./tensorflow-env
+conda activate ../tensorflow-env
 
 &lt;span class="nb"&gt;time&lt;/span&gt; srun python convolutional.py
 
+&lt;span class="c1"&gt;#Prints out job statistics&lt;/span&gt;
 js &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_JOB_ID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
