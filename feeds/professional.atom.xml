@@ -15,8 +15,8 @@ conda init bash
 
 
 &lt;h3&gt;Step 3: Test Conda&lt;/h3&gt;
-&lt;p&gt;Now we need to test keras and tensorflow.  I found an example on the internet and had to fix a few bugs. I am not sure how good an example is but it is good enough to run as a benchmark test. You can download the example file &lt;a href=""&gt;here&lt;/a&gt;, or just use the following commands on a dev-node on the HPC:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget &lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;p&gt;Now we need to test keras and tensorflow.  I found an example on the internet and had to fix a few bugs. I am not sure how good an example is but it is good enough to run as a benchmark test. You can download the example file (&lt;a href="//colbrydi.github.io/images/convolutional.py"&gt;convolutional.py&lt;/a&gt;, or just use the following commands on a dev-node on the HPC:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget https://colbrydi.github.io/images/convolutional.py
 conda activate ./tensorflow-env
 &lt;span class="nb"&gt;time&lt;/span&gt; python convolution.py
 &lt;/pre&gt;&lt;/div&gt;
