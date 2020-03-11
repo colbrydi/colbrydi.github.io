@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-02-27T00:00:00-05:00</updated><entry><title>Tensorflow and Keras/PyTorch on the HPCC</title><link href="https://colbrydi.github.io/tensorflow-and-keraspytorch-on-the-hpcc.html" rel="alternate"></link><published>2020-02-27T00:00:00-05:00</published><updated>2020-02-27T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-27:/tensorflow-and-keraspytorch-on-the-hpcc.html</id><summary type="html">&lt;p&gt;&lt;img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;amp;v=4"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-03-11T00:00:00-04:00</updated><entry><title>Zoom'in in the Classroom</title><link href="https://colbrydi.github.io/zoomin-in-the-classroom.html" rel="alternate"></link><published>2020-03-11T00:00:00-04:00</published><updated>2020-03-11T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-03-11:/zoomin-in-the-classroom.html</id><summary type="html">&lt;p&gt;I was asked to put together a few videos to help transition to online teaching. Here is my first pass...&lt;/p&gt;
+&lt;p&gt;Zoom is an online video chat program with many useful features including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Face-to-face Communication&lt;/li&gt;
+&lt;li&gt;Desktop Sharing&lt;/li&gt;
+&lt;li&gt;Chat&lt;/li&gt;
+&lt;li&gt;Breakout rooms&lt;/li&gt;
+&lt;li&gt;Video Recording&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using zoom requires the download and installation of an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was asked to put together a few videos to help transition to online teaching. Here is my first pass...&lt;/p&gt;
+&lt;p&gt;Zoom is an online video chat program with many useful features including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Face-to-face Communication&lt;/li&gt;
+&lt;li&gt;Desktop Sharing&lt;/li&gt;
+&lt;li&gt;Chat&lt;/li&gt;
+&lt;li&gt;Breakout rooms&lt;/li&gt;
+&lt;li&gt;Video Recording&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using zoom requires the download and installation of an app and anyone with an MSU account can get the app and log into zoom at the following website:&lt;/p&gt;
+&lt;p&gt;http://zoom.msu.edu/&lt;/p&gt;
+&lt;p&gt;A basic introduction to zoom controls can be found here (video is a little last minute and I apologize for the quality):&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/_YMlLgIe9d0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;As we move our classes online, we can use zoom as a one size fits most solution.  In this tutorial I will talk about a couple of solutions. All use zoom and have a lot of similar setups.  First off is a concept of zoom rooms which are represented by a nine-digit address (think phone number).  &lt;/p&gt;
+&lt;p&gt;Each account is associated with a personal zoom room. This room is tied to your ID and doesn’t change and does not need to be scheduled.  You can use your personal zoom room when you are planning a meeting and do not have access to zoom.msu.edu.   However, you can also create new zoom rooms.  These are scheduled though the zoom interface.  For class I recommend setting up a scheduled zoom room which you use for both office hours and in-class activities.  IF you schedule this room far enough into the future you can use it for all your class related zoom meetings.  The following video goes though scheduling your zoom room:&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/47C21AX898Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Here is the scheduled meeting I set up in the video. Have a look and see what it is like from the student point of view (I may cancel this meeting at some point but feel free to try):&lt;/p&gt;
+&lt;p&gt;https://msu.zoom.us/s/675712003&lt;/p&gt;
+&lt;p&gt;Once you have a room you have a zoom URL and id which students can use to log into the room.  I recommend using a different zoom room for office hours and for class.  &lt;/p&gt;
+&lt;h1&gt;Online Office hours&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Open your personal zoom session using the zoom link you created.&lt;/li&gt;
+&lt;li&gt;Check audio and video&lt;/li&gt;
+&lt;li&gt;Wait for students.   &lt;/li&gt;
+&lt;li&gt;Have students share their screen if you are helping them debug problems.&lt;/li&gt;
+&lt;li&gt;Share your screen if you are showing them something.  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/rXnwQbW0q2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;Recording Video&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Open your personal zoom session using the zoom link you created.&lt;/li&gt;
+&lt;li&gt;Check audio and video&lt;/li&gt;
+&lt;li&gt;Share your desktop&lt;/li&gt;
+&lt;li&gt;Maximize your slides&lt;/li&gt;
+&lt;li&gt;Click Record&lt;/li&gt;
+&lt;li&gt;Present your lecture&lt;/li&gt;
+&lt;li&gt;Click Stop&lt;/li&gt;
+&lt;li&gt;Select End Meeting (Zoom will convert your video into a useable format)  &lt;/li&gt;
+&lt;li&gt;Upload video to YouTube(use unlisted setting).  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/mswYtrcSRRI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VScTgfeLARA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;Live Lecture&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Open your personal zoom session using the zoom link you created.&lt;/li&gt;
+&lt;li&gt;Check audio and video&lt;/li&gt;
+&lt;li&gt;Share your desktop&lt;/li&gt;
+&lt;li&gt;Maximize your slides&lt;/li&gt;
+&lt;li&gt;Wait for students to join&lt;/li&gt;
+&lt;li&gt;Mute all students&lt;/li&gt;
+&lt;li&gt;Click Record (Optional)  &lt;/li&gt;
+&lt;li&gt;Present your lecture&lt;/li&gt;
+&lt;li&gt;Make sure to check chatroom for questions.&lt;/li&gt;
+&lt;li&gt;Click Stop&lt;/li&gt;
+&lt;li&gt;Select End Meeting (Zoom will convert your video into a useable format)  &lt;/li&gt;
+&lt;li&gt;Upload video to YouTube(use unlisted setting)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/-bI7qcojy0w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VScTgfeLARA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;Recommendations for students&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Although there are tablet/phone apps, whenever possible use a laptop or two screens. This helps with code along activities.  &lt;/li&gt;
+&lt;li&gt;Calling in via phone can significantly improve sound quality.&lt;/li&gt;
+&lt;li&gt;Turning off student video can save on bandwidth and improve their experience.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Advanced Options&lt;/h1&gt;
+&lt;p&gt;I have been playing with a couple of more advanced setups when using zoom.  Once you have mastered the basics, here are a few things to think about:&lt;/p&gt;
+&lt;h2&gt;Using Breakout Rooms:&lt;/h2&gt;
+&lt;p&gt;During live classes and maybe office hours you can click on the breakout room option to automatically add students to rooms. Students can join their breakout rooms or leave and join the “main” room.   &lt;/p&gt;
+&lt;h2&gt;Live Closed Captioning:&lt;/h2&gt;
+&lt;p&gt;Although there is a closed captioning button on the zoom interface, It does not work without a third party program or someone type in words live.  However, google slides has a close captioning option which works fairly well and can add to your zoom experience.  Just run a zoom slide in presentation mode and one of the onscreen options is a close captioning button.&lt;/p&gt;
+&lt;h2&gt;Remote desktop control:&lt;/h2&gt;
+&lt;p&gt;Another advanced feature is remote desktop control. It does not work with breakout rooms enabled but will allow you to remote control a computer which may be especially helpful if you are trying to help a student debug a problem. I have not tried this feature yet but you could probably use your personal room and try it from there.&lt;/p&gt;
+&lt;h2&gt;Using a Tablet to record writing:&lt;/h2&gt;
+&lt;p&gt;Another nice option is you can use an Ipad to act as your whiteboard as you record a lecture. The tablet is really nice because it works a pen.  Instead of sharing your screen you can plug in your ipad and share that.  &lt;/p&gt;</content><category term="Professional"></category><category term="Teaching"></category></entry><entry><title>Tensorflow and Keras/PyTorch on the HPCC</title><link href="https://colbrydi.github.io/tensorflow-and-keraspytorch-on-the-hpcc.html" rel="alternate"></link><published>2020-02-27T00:00:00-05:00</published><updated>2020-02-27T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-27:/tensorflow-and-keraspytorch-on-the-hpcc.html</id><summary type="html">&lt;p&gt;&lt;img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;amp;v=4"&gt;&lt;/p&gt;
 &lt;p&gt;Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;amp;v=4"&gt;&lt;/p&gt;
 &lt;p&gt;Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to get it working something changes.  This time around wasn't too bad so I thought I would share my latest install instructions.&lt;/p&gt;
 &lt;h3&gt;Step 1: Install Anaconda Python&lt;/h3&gt;

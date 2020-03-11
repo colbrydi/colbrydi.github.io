@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../tensorflow-and-keraspytorch-on-the-hpcc.html"><h1>Tensorflow and Keras/PyTorch on the HPCC</h1></a>
-Thu 27 February 2020
+            <a href="../zoomin-in-the-classroom.html"><h1>Zoom'in in the Classroom</h1></a>
+Wed 11 March 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,59 +75,110 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;v=4"></p>
-<p>Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to get it working something changes.  This time around wasn't too bad so I thought I would share my latest install instructions.</p>
-<h3>Step 1: Install Anaconda Python</h3>
-<p>Here is a video I made a while ago about how to download and install Anaconda on the HPC.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/g0rGb6QqBPo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div><p>I was asked to put together a few videos to help transition to online teaching. Here is my first pass...</p>
+<p>Zoom is an online video chat program with many useful features including:</p>
+<ul>
+<li>Face-to-face Communication</li>
+<li>Desktop Sharing</li>
+<li>Chat</li>
+<li>Breakout rooms</li>
+<li>Video Recording</li>
+</ul>
+<p>Using zoom requires the download and installation of an app and anyone with an MSU account can get the app and log into zoom at the following website:</p>
+<p>http://zoom.msu.edu/</p>
+<p>A basic introduction to zoom controls can be found here (video is a little last minute and I apologize for the quality):</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_YMlLgIe9d0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h3>Step 2: Make a Tensor Conda Environment</h3>
-<p>On one of the development nodes create a Conda environment using the following commands:</p>
-<div class="highlight"><pre><span></span>conda create --prefix ./tensorflow-env tensorflow-gpu keras pytorch
-conda init bash
-<span class="nb">exit</span>
-</pre></div>
+<p>As we move our classes online, we can use zoom as a one size fits most solution.  In this tutorial I will talk about a couple of solutions. All use zoom and have a lot of similar setups.  First off is a concept of zoom rooms which are represented by a nine-digit address (think phone number).  </p>
+<p>Each account is associated with a personal zoom room. This room is tied to your ID and doesn’t change and does not need to be scheduled.  You can use your personal zoom room when you are planning a meeting and do not have access to zoom.msu.edu.   However, you can also create new zoom rooms.  These are scheduled though the zoom interface.  For class I recommend setting up a scheduled zoom room which you use for both office hours and in-class activities.  IF you schedule this room far enough into the future you can use it for all your class related zoom meetings.  The following video goes though scheduling your zoom room:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/47C21AX898Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<p>Here is the scheduled meeting I set up in the video. Have a look and see what it is like from the student point of view (I may cancel this meeting at some point but feel free to try):</p>
+<p>https://msu.zoom.us/s/675712003</p>
+<p>Once you have a room you have a zoom URL and id which students can use to log into the room.  I recommend using a different zoom room for office hours and for class.  </p>
+<h1>Online Office hours</h1>
+<ol>
+<li>Open your personal zoom session using the zoom link you created.</li>
+<li>Check audio and video</li>
+<li>Wait for students.   </li>
+<li>Have students share their screen if you are helping them debug problems.</li>
+<li>Share your screen if you are showing them something.  </li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rXnwQbW0q2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h3>Step 3: Test Conda</h3>
-<p>Now we need to test keras and tensorflow.  I found an example on the internet and had to fix a few bugs. I am not sure how good an example is but it is good enough to run as a benchmark test. You can download the example file (<a href="//colbrydi.github.io/images/convolutional.py">convolutional.py</a>, or just use the following commands on a dev-node on the HPC:</p>
-<div class="highlight"><pre><span></span>wget https://colbrydi.github.io/images/convolutional.py
-conda activate ./tensorflow-env
-<span class="nb">time</span> python convolution.py
-</pre></div>
+<h1>Recording Video</h1>
+<ol>
+<li>Open your personal zoom session using the zoom link you created.</li>
+<li>Check audio and video</li>
+<li>Share your desktop</li>
+<li>Maximize your slides</li>
+<li>Click Record</li>
+<li>Present your lecture</li>
+<li>Click Stop</li>
+<li>Select End Meeting (Zoom will convert your video into a useable format)  </li>
+<li>Upload video to YouTube(use unlisted setting).  </li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mswYtrcSRRI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VScTgfeLARA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special Volta node (nvl-001) which is only available to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):</p>
-<div class="highlight"><pre><span></span>salloc --gres<span class="o">=</span>gpu:1 --nodelist<span class="o">=</span>nvl-001 --time<span class="o">=</span><span class="m">00</span>:10:00 --account<span class="o">=</span>cmse
-conda activate ./tensorflow-env
-<span class="nb">time</span> srun python convolutional.py
-</pre></div>
+<h1>Live Lecture</h1>
+<ol>
+<li>Open your personal zoom session using the zoom link you created.</li>
+<li>Check audio and video</li>
+<li>Share your desktop</li>
+<li>Maximize your slides</li>
+<li>Wait for students to join</li>
+<li>Mute all students</li>
+<li>Click Record (Optional)  </li>
+<li>Present your lecture</li>
+<li>Make sure to check chatroom for questions.</li>
+<li>Click Stop</li>
+<li>Select End Meeting (Zoom will convert your video into a useable format)  </li>
+<li>Upload video to YouTube(use unlisted setting)</li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-bI7qcojy0w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VScTgfeLARA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h3>Step 4: SLURM Script</h3>
-<p>To run this in a SLURM script you need to request GPUs and use the srun command. Here is an example:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash --login</span>
-<span class="c1">#SBATCH --time=01:00:00</span>
-<span class="c1">#SBATCH -c 1</span>
-<span class="c1">#SBATCH -n 1</span>
-<span class="c1">#SBATCH --gres=gpu:1</span>
-<span class="c1">#SBATCH --mem=4gb</span>
-
-module load powertools
-
-conda activate ../tensorflow-env
-
-<span class="nb">time</span> srun python convolutional.py
-
-<span class="c1">#Prints out job statistics</span>
-js <span class="si">${</span><span class="nv">SLURM_JOB_ID</span><span class="si">}</span>
-</pre></div>
-
-
-<p>This installation is probably not optimal but seems to work consistently.  </p></div>
+<h1>Recommendations for students</h1>
+<ul>
+<li>Although there are tablet/phone apps, whenever possible use a laptop or two screens. This helps with code along activities.  </li>
+<li>Calling in via phone can significantly improve sound quality.</li>
+<li>Turning off student video can save on bandwidth and improve their experience.  </li>
+</ul>
+<h1>Advanced Options</h1>
+<p>I have been playing with a couple of more advanced setups when using zoom.  Once you have mastered the basics, here are a few things to think about:</p>
+<h2>Using Breakout Rooms:</h2>
+<p>During live classes and maybe office hours you can click on the breakout room option to automatically add students to rooms. Students can join their breakout rooms or leave and join the “main” room.   </p>
+<h2>Live Closed Captioning:</h2>
+<p>Although there is a closed captioning button on the zoom interface, It does not work without a third party program or someone type in words live.  However, google slides has a close captioning option which works fairly well and can add to your zoom experience.  Just run a zoom slide in presentation mode and one of the onscreen options is a close captioning button.</p>
+<h2>Remote desktop control:</h2>
+<p>Another advanced feature is remote desktop control. It does not work with breakout rooms enabled but will allow you to remote control a computer which may be especially helpful if you are trying to help a student debug a problem. I have not tried this feature yet but you could probably use your personal room and try it from there.</p>
+<h2>Using a Tablet to record writing:</h2>
+<p>Another nice option is you can use an Ipad to act as your whiteboard as you record a lecture. The tablet is really nice because it works a pen.  Instead of sharing your screen you can plug in your ipad and share that.  </p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../tensorflow-and-keraspytorch-on-the-hpcc.html"><h2>Tensorflow and Keras/PyTorch on the HPCC</h2></a>
+        <div class= "well small"> Thu 27 February 2020
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="The Tensorflow Logo" src="//avatars0.githubusercontent.com/u/15658638?s=200&amp;v=4"></p>
+<p>Every few semesters I have a Tensorflow example I want to try on the HPCC.  I'm not an expert on the software and between the HPCC, CUDA, Tensorflow, Keras, Python, Anaconda, etc. there are a lot of continuously changing and moving parts. Seems like when I figure out how to …</p> <a class="btn btn-info xsmall" href="../tensorflow-and-keraspytorch-on-the-hpcc.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -286,25 +337,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>A group working over in Plant and Soil Sciences are experts on ImageJ but are relatively new to the HPCC.  Together we put together a workflow for getting ImageJ up and running on the HPCC.</p>
 <h3>Step 1: Log onto the HPCC with an X11 connection</h3>
 <p>Log onto the HPC using …</p> <a class="btn btn-info xsmall" href="../running-imagej-on-the-hpcc.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../cmse-presentation-at-sc19.html"><h2>CMSE Presentation at SC19</h2></a>
-        <div class= "well small"> Sun 17 November 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"></p>
-<p>I just got out of giving a presentation about the CMSE department as part of the <a href="https://sc19.supercomputing.org/session/?sess=sess104">Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)</a> workshop at <a href="https://sc19.supercomputing.org/">SC19</a>. It was fun to show people what we are doing in CMSE and share our progress.  <a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf">Here is a …</a></p> <a class="btn btn-info xsmall" href="../cmse-presentation-at-sc19.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
