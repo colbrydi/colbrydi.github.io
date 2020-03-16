@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../jjrobots-b-robot.html"><h1>JJRobots B-Robot</h1></a>
-Sat 18 January 2020
+            <a href="../magical-staff.html"><h1>Magical Staff</h1></a>
+Sun 15 March 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,17 +75,58 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="Picture of JJRobots And kids" src="../images/BRobot.jpeg"></p>
-<p>A few years ago I purchased a kit from <a href="//www.jjrobots.com/">JJRobots</a>. The kit provides all non-plastic parts and then allows you to build a variety of robots.  Up until now I only made the <a href="Sphere-O-Bot (JJRobots version)">eggbot</a> which tends to come out around Easter time, the kids love it.</p>
-<p>Last week my niblets and children helped me put together a 3D printer.  I used the printer to print the last few parts of the B-Robot.  The bumpers came out backwards but serviceable.  </p>
-<p><img alt="Printer and Robot Parts" src="../images/Tronxy-B-Robot.jpeg"></p>
-<p>This week we got together, took apart the eggbot and then assembled the b-robot.  It was a lot of fun, the kids had a great time. To be honest only my nephue really had the pacients to stick it out and complete the robot but it was still a lot of fun.</p>
-<p>The one big challenge for me was that the software did not work out of the box. it took me a while to figure out that the version of the kit I had (from a few years ago) was different than the kit currently on the <a href="//www.jjrobots.com/">JJRobots</a> website.  Fortunately, once I figured out I was working from old hardware, it was fairly easy to search the site and find the old directions.  </p>
-<p>With the software installed all the kids had a great time driving it around.  It is fun to see the robot balance on two wheels and the app works great.  </p>
-<p>Both projects (eggbot and B-robot) from <a href="//www.jjrobots.com/">JJRobots</a> were fun to build.  I am looking forward to building the other projects with the kids.</p></div>
+        <div><p><img alt="Magical Staff Drawing" src="../images/StaffDrawing.png"></p>
+<p>My eldest is a big Harry Potter Fan and made a few drawings of a Magical Staff they wanted to construct. I was really excited by the drawing. We purchased the crystal and staff online and sat down in front of OpenSCAD and came up with a fairly close design. Here is the OpenSCAD code:</p>
+<div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">(){</span>
+    <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">])</span>  <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span>  <span class="mi">16</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+    <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">103</span><span class="p">])</span>  <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+    <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">40</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">26</span><span class="p">,</span><span class="n">r1</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span><span class="n">r2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">])</span> <span class="k">for</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="o">:</span><span class="mi">4</span><span class="o">:+</span><span class="mi">350</span><span class="p">])</span> <span class="p">{</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="o">/</span><span class="mi">6</span><span class="o">+</span><span class="mi">10</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">z</span><span class="o">+</span><span class="mi">180</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="o">/</span><span class="mi">6</span><span class="o">+</span><span class="mi">10</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">40</span><span class="p">])</span> <span class="k">for</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">180</span><span class="o">:</span><span class="mi">6</span><span class="o">:</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">z</span><span class="o">+</span><span class="mi">180</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">])</span> <span class="k">for</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">350</span><span class="o">:</span><span class="mi">6</span><span class="o">:+</span><span class="mi">420</span><span class="p">])</span> <span class="p">{</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">350</span><span class="o">/</span><span class="mi">6</span><span class="o">+</span><span class="mi">10</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">z</span><span class="o">+</span><span class="mi">180</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">350</span><span class="o">/</span><span class="mi">6</span><span class="o">+</span><span class="mi">10</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><img alt="OpenSCAD drawing of staff" src="../images/Staff_OpenSCAD.png"></p>
+<p>The print came out well with minimal supports and we were happy with the design.  The final project looked great.</p>
+<p><img alt="Final image of the staff with Crystal" src="../images/Finished_Staff.png"></p>
+<p>To get everything to stick together we used Surgu Moldable glue.  We were very happy with the final product.</p>
+<p><img alt="Final image of the staff in costume" src="../images/TLC_with_Staff.jpg"></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../jjrobots-b-robot.html"><h2>JJRobots B-Robot</h2></a>
+        <div class= "well small"> Sat 18 January 2020
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Picture of JJRobots And kids" src="../images/BRobot.jpeg"></p>
+<p>A few years ago I purchased a kit from <a href="//www.jjrobots.com/">JJRobots</a>. The kit provides all non-plastic parts and then allows you to build a variety of robots.  Up until now I only made the <a href="Sphere-O-Bot (JJRobots version)">eggbot</a> which tends to come out around Easter time, the kids love it.</p>
+<p>Last week my niblets …</p> <a class="btn btn-info xsmall" href="../jjrobots-b-robot.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -241,28 +282,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 printer is fun to watch, kids tend to get board with it in just a few minutes.
 I like to come up with classroom projects that let the kids use things that
 are printed with the …</p> <a class="btn btn-info xsmall" href="../intrducing-a-3d-printer-to-my-daughters-kindergarten-class.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../electric-box-extender.html"><h2>Electric box extender</h2></a>
-        <div class= "well small"> Sat 02 May 2015
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="./images/blogger-image--470762115.jpg" hspace="10" src="../images/blogger-image--470762115.jpg" width="200,"></p>
-<p>I have been having trouble with my 3D printer over the last couple of months.
-It turns out that the fans got disconnected. Once I fixed the problem my
-printer is working better than ever. I was itching for something to print so I
-came up with this simple spacer …</p> <a class="btn btn-info xsmall" href="../electric-box-extender.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
