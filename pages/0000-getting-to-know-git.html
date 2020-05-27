@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - 0000-Getting-to-know-git</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="../theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="../theme/bootstrap.min.css" rel="stylesheet">
+    <link href="../theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="../theme/local.css" rel="stylesheet">
+    <link href="../theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="../images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="..">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+<section id="content" class="body">    
+    <h2 class="content-title">
+        0000-Getting-to-know-git
+    </h2>
+    
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Getting-to-Know-Git">Getting to Know Git<a class="anchor-link" href="#Getting-to-Know-Git">&#182;</a></h1><p><strong>by Dirk Colbry</strong></p>
+<p><img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" width="70%"></p>
+<p><code>Git</code> is a version control system that is used by programmers all over the world. If you want to use programming then you should learn how to use <code>git</code>.  This tutorial is just the first step in learning <code>git</code>. It is a complex tool with with a lot of functionality this tutorial tries to present only some of the commands based on what you nee to do. The three basic categories are:</p>
+<ol>
+<li>Consumer of files (the class files)</li>
+<li>Producers of files (your files)</li>
+<li>Collaborators to files (code reviews)</li>
+</ol>
+<p>Watch the following video for a brief overview of git and this tutorial:</p>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/HuQFjov9CQI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
+<li><a href="#Installing_Git">Installing git</a><ul>
+<li>conda install 'git'</li>
+</ul>
+</li>
+<li><a href="#Cloning_a_repository">Cloning a repository</a><ul>
+<li>What is git</li>
+<li>git clone</li>
+<li>git status</li>
+<li>git log</li>
+</ul>
+</li>
+<li><a href="#Cleaning_Updating_a_cloned_repository">Cleaning/Updating a cloned repository</a><ul>
+<li>git pull # (our first conflict)</li>
+<li>git diff</li>
+<li>git checkout</li>
+</ul>
+</li>
+<li><a href="#Making_your_own_repository">Making your own repository</a><ul>
+<li>git init</li>
+<li>folder structure</li>
+</ul>
+</li>
+<li><a href="#Updating_your_Repository">Updating your Repository</a><ul>
+<li>git add</li>
+<li>git rm</li>
+<li>git mv</li>
+<li>git commit</li>
+<li>git push</li>
+</ul>
+</li>
+<li><a href="#Your_First_Branch">Your First Branch</a><ul>
+<li>git branch</li>
+<li>git checkout</li>
+</ul>
+</li>
+<li><a href="#Pulling_in_a_new_branch">Pulling in a new branch</a><ul>
+<li>git merge</li>
+</ul>
+</li>
+<li><a href="#Forking_a_repository">Forking a repository</a></li>
+<li><a href="#Issuing_a_pull_merge_request">Issuing a pull/merge request</a></li>
+<li><a href="#Bringing_in_collaborators_changes">Bringing in collaborators changes</a><ul>
+<li>git config -l </li>
+<li>git remote add </li>
+<li>git fetch</li>
+<li>git rebase</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Installing_Git"></a></p>
+<h2 id="Installing-Git">Installing Git<a class="anchor-link" href="#Installing-Git">&#182;</a></h2><p>In order to effectively clone a directory you will need to install <code>git</code> on your computer.</p>
+<p>How to install git will depend on the computer you are working on and it's operating systems. Many *nix based operating systems (Linux, MacOS, etc) may have git already installed.  To check if git is installed open a command prompt on your system and type the following:</p>
+<div class="highlight"><pre><span></span>git --version
+</pre></div>
+<p>If <code>git</code> is installed you should see the verion number if not you will get something like "Command not found errror" If git is already installed you should be all set to go.  If not continue on with the remainder of the instructions.</p>
+<p>For this tutorial we will assume that you already have <code>conda</code> Installed.  The <code>conda</code> command is a cross-platform installation system. It is primarily installed with Anaconda Python distributions but has support for many other programming languages and commands (including git).  Open up a command prompt on your system and see if you can run the following command:</p>
+<div class="highlight"><pre><span></span>conda --version
+</pre></div>
+<p>If conda is installed you should see it's version number if not try installing it fromt he <a href="https://www.anaconda.com/">Anaconda Python website</a>.</p>
+<p>Once you have conda working you should be able to install <code>git</code> using the following commands:</p>
+<div class="highlight"><pre><span></span>conda install git
+</pre></div>
+<p>That should be it. Test <code>git</code> again by opening the command prompt and typing <code>git --version</code> like we did above.</p>
+<p>Although not required for using <code>git</code>, if you are using windows, I highly recommend also installing the following the <code>md-base</code> which also provides a nice set of  *nix commands that will work on the windows command line:</p>
+<div class="highlight"><pre><span></span>conda install m2-base
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Cloning_a_repository"></a></p>
+<h2 id="Cloning-a-repository-(Consumer)">Cloning a repository (Consumer)<a class="anchor-link" href="#Cloning-a-repository-(Consumer)">&#182;</a></h2><p>Most people's introduction to <code>git</code> is when the come across some software on <a href="http://github.com">github.com</a> they want to download.  Downloading a <code>git</code> repository is called cloning.  For example, lets download an example git repository called <code>git_practice_repository</code> using the following command:</p>
+<div class="highlight"><pre><span></span>git clone git_practice_repository
+</pre></div>
+<p>This should create a folder in your current directory with the name <code>git_practice_repostory</code> change into this directory using the following command:</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> git_practice_repository
+</pre></div>
+<p>List the contents of the directory using (<code>dir</code> on windows and <code>ls</code> on everything else)</p>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/sNcxGBk2W78" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>git clone URL
+<span class="nb">cd</span> folder
+ls
+jupyter notebook
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Form more information on ssh a really fun video which uses a paint alalogy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Cleaning_Updating_a_cloned_repository"></a></p>
+<h2 id="Cleaning/Updating-a-cloned-repository-(Consumer)">Cleaning/Updating a cloned repository (Consumer)<a class="anchor-link" href="#Cleaning/Updating-a-cloned-repository-(Consumer)">&#182;</a></h2><p>It may be possible that the developer has made some changes to the repository and posted them on their git website. You can use the <code>git pull</code> command to pull in the changes to your repository.</p>
+<div class="highlight"><pre><span></span>git pull
+</pre></div>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/rRRNUUyxJ_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, problems can occur if both you and the developer make changes to the same file.  <code>git</code> is smart and can figure out how to automatically "merge" changes but if there is a conflict you may have to figure out what to do.  The easiest thing you can do is:</p>
+<ol>
+<li>Delete your changes</li>
+<li>Rename your files (effectively getting rid of your changes</li>
+<li>Add/commit your changes (This one is advanced and will be covered later)</li>
+</ol>
+<p>First, check to see what files are in conflict by running the <code>get status</code> command:</p>
+<div class="highlight"><pre><span></span>git status
+</pre></div>
+<p>You can look at the changes you made by running the <code>git diff FILENAME</code> command.  This should show you what you added (Lines with a + before them) and what you deleted (lines with a - before them)</p>
+<p>Once you have determined what you want to keep, make a copy of the file with a different name and then move on to the next step.</p>
+<p>You can reset (overwrite) all of the changes to your local files "checking out" the original file.  The <code>git checkout FILENAME</code> command gets the file before your changes were made and overrides your changes.</p>
+<div class="highlight"><pre><span></span>git checkout FILENAME
+</pre></div>
+<p>Once all of the conflicts have been removed you can then go back and pull in the changes from the developer:</p>
+<div class="highlight"><pre><span></span>git pull
+</pre></div>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/bLHxdHKv1_c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Making_your_own_repository"></a></p>
+<h2 id="Making-your-own-repository">Making your own repository<a class="anchor-link" href="#Making-your-own-repository">&#182;</a></h2><p>Now that we are more familiar with git we can make your own repository.  If you plan on using one of the web services such as Github] or Gitlab (there are many others) then you can use their web interface to create a new project and then just clone the empty repository to your local machine. Often the web interfaces have some nice features to add some default files that are common in most repositories (ex. README.md and .gitignore)</p>
+<p>However in this step we are going to assume that you have a directory with a few files already in it that you want to turn into a git repository.  In this case you can just change to the git directory and issue the following git initialization command:</p>
+<div class="highlight"><pre><span></span>git init .
+</pre></div>
+<p>(<strong><em>Note:</em></strong> the dot in this command. It said to initialize the "current" directory and is very important to include)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once you have successfully initialized the directory you can add the files in one at a time using the following commands (substitute these FILENAMES with yours):</p>
+<div class="highlight"><pre><span></span>git add FILENAME1 FILENAME2 FILENAME3
+git add FILENAME4
+git commit -m <span class="s2">&quot;Initial commit&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>WARNING</em></strong> <code>git</code> repositories work best with text based files.</p>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/IAAv4DjYYUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gitlab tutorial</p>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/6_cegMFG0Pw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Github tutorial</p>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/dpeHlFm8SYU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Updating_your_Repository"></a></p>
+<h2 id="Updating-your-Repository">Updating your Repository<a class="anchor-link" href="#Updating-your-Repository">&#182;</a></h2>
+<pre><code>* git add
+* git rm
+* git mv
+* git commit
+* git push
+
+</code></pre>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/GTM-h5xX2Lk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Your_First_Branch"></a></p>
+<h2 id="Your-First-Branch">Your First Branch<a class="anchor-link" href="#Your-First-Branch">&#182;</a></h2>
+<pre><code>* git branch
+* git checkout
+
+</code></pre>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/X0jbrdemjjs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Pulling_in_a_new_branch"></a></p>
+<h2 id="Pulling-in-a-new-branch">Pulling in a new branch<a class="anchor-link" href="#Pulling-in-a-new-branch">&#182;</a></h2>
+<pre><code>* git merge
+
+
+</code></pre>
+<center>
+<iframe width="576" height="360" src="https://www.youtube.com/embed/Byp7TFk5jYw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Forking_a_repository"></a></p>
+<h2 id="Forking-a-repository">Forking a repository<a class="anchor-link" href="#Forking-a-repository">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Issuing_a_pull_merge_request"></a></p>
+<h2 id="Issuing-a-pull/merge-request">Issuing a pull/merge request<a class="anchor-link" href="#Issuing-a-pull/merge-request">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="Bringing_in_collaborators_changes"></a></p>
+<h2 id="Bringing-in-collaborators-changes">Bringing in collaborators changes<a class="anchor-link" href="#Bringing-in-collaborators-changes">&#182;</a></h2>
+<pre><code>* git config -l 
+* git remote add 
+* git fetch
+* git rebase</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+</section>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="../archives.html">Archives</a>
+                <li><a href="../tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="../category/fun.html">Fun</a></li>
+                <li><a href="../category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="../theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>
