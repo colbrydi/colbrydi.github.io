@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Restart Stalled Programs</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Restart Stalled Programs</h1>
+Tue 28 October 2014
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Page <strong>edited</strong> by <a href="https://wiki.hpcc.msu.edu/display/~archerc5@msu.edu">Camille Archer</a> - "Migration of unmigrated content due to installation of a new plugin"</p>
+<p><a href="/display/~colbrydi@msu.edu"> <img alt="User icon: colbrydi@msu.edu" src="/images/icons/profilepics/default.svg"> </a> <a href="/display/~colbrydi@msu.edu/2015/01/16/Hack+to+automatically+restart+programs+that+stall+during+inicialization">Hack to automatically restart programs that stall during
+inicialization</a></p>
+<p>Unknown User (colbrydi@msu.edu) posted on Jan 16, 2015</p>
+<p>Sometimes we get jobs that stall out right at the beginning but do not error
+out until the walltime for the job has been exceeded. Users get an email
+saying their job "exceeds walltime" but when they check the output nothing (or
+very little) seems to have happened. The cause of this problem is highly
+dependent on what the job is doing. However, in some cases a simple resubmit
+of the job gets it working. The following scripts check to see if the program
+is running and automatically re-submits the job if their seems to be a
+problem.</p>
+<p><strong>file_flag_example.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
+<span class="c1">#PBS -m a</span>
+<span class="c1">#PBS -j oe</span>
+
+<span class="c1"># This method checks to see if a file is created at the beginning of a run. If the file is not created then the job is killed and restarted.</span>
+<span class="c1"># This method assumes that the program stalls before it has a chance to generate a file. This method is useful if the code does self checkpointing and the failure state is a busy wait.</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+ 
+<span class="c1">#Run the main program</span>
+<span class="o">(</span> 
+    mpirun mycommand
+</code></pre></div>
+</td></tr></table>
+
+<p>) &amp;
+    PID=$!</p>
+<div class="highlight"><pre><span></span><code># Sleep for enough time to see if the job is running
+sleep 300
+if [ ! -f testfile.flag ]
+then
+         echo &quot;Job Seems to have stalled. Killing and restarting&quot;
+         kill <span class="nv">$PID</span>
+         qsub $0
+         echo &quot;Job stats for debugging&quot;
+         qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+         exit 1
+fi
+
+wait <span class="nv">$PID</span>
+RET=$?
+qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+
+
+#return the output of the main program
+exit <span class="nv">$RET</span>
+</code></pre></div>
+
+
+<p><strong>output_monitor_example.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
+<span class="c1">#PBS -m a</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1"># This method monitors job output and stops if the output doesn&#39;t change. </span>
+<span class="c1"># This method assumes that the program continuously generates output at regular intervals. </span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+<span class="nv">testfile</span><span class="o">=</span><span class="sb">`</span>testfile.flag<span class="sb">`</span>
+ 
+<span class="c1">#Run the main program</span>
+<span class="o">(</span> 
+    mpirun mycommand &gt; <span class="nv">$testfile</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>) &amp;
+    PID=$!</p>
+<div class="highlight"><pre><span></span><code># Sleep for enough time to start generating output
+sleep 300
+linecount1=`cat <span class="nv">$testfile</span> | wc -l`
+ 
+# Sleep enough for more output
+sleep 100
+linecount2=`cat <span class="nv">$testfile</span> | wc -l`
+if [ &quot;<span class="nv">$linecount1</span>&quot; == &quot;<span class="nv">$linecount2</span>&quot; ]
+then
+         echo &quot;Job Seems to have stalled. Killing and restarting&quot;
+         kill <span class="nv">$PID</span>
+         qsub $0
+         echo &quot;Job stats for debugging&quot;
+         qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+         exit 1
+fi
+
+wait <span class="nv">$PID</span>
+RET=$?
+qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+
+
+#return the output of the main program
+exit <span class="nv">$RET</span>
+</code></pre></div>
+
+
+<p><strong>qstat_monitor_example.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
+<span class="c1">#PBS -m a</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1"># This method uses the same idea as the previous but instead of relying on output it uses the cput stat generated by qstat.</span>
+<span class="c1"># This solution will not work if the job is in a busy wait state.</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+<span class="c1">#Run the main program</span>
+<span class="o">(</span> 
+    mpirun mycommand
+</code></pre></div>
+</td></tr></table>
+
+<p>) &amp;
+    PID=$!</p>
+<div class="highlight"><pre><span></span><code># Sleep for enough time to start generating output
+sleep 300
+cpu1=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
+ 
+# Sleep enough for more output
+sleep 100
+cpu2=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
+if [ &quot;<span class="nv">$cpu1</span>&quot; == &quot;<span class="nv">$cpu2</span>&quot; ]
+then
+         echo &quot;Job Seems to have stalled. Killing and restarting&quot;
+         kill <span class="nv">$PID</span>
+         qsub $0
+         echo &quot;Job stats for debugging&quot;
+         qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+         exit 1
+fi
+
+wait <span class="nv">$PID</span>
+RET=$?
+qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+
+
+#return the output of the main program
+exit <span class="nv">$RET</span>
+</code></pre></div>
+
+
+<p>These solutions are nice work arounds because, if it works, the scripts just
+restarts your job until it runs and gets the research done. However, using
+this hack does not get at the root of the problem. Actually there are two
+problems:</p>
+<ol>
+<li>Something is broken causing the job to hang. This could be a race condition in the code, a bad node, bad file I/O, bad network connections, etc. All depends on what the code is doing.</li>
+<li>Code hangs insteads of quitting and reporting an error. Well engineered code should not hang. For example, file and network access should have timeouts so that code is not running forever.</li>
+</ol>
+<p>Researchers, should first notify the HPCC if they are using this hack so we
+can try to track down problems with the nodes. Researchers should also work to
+modify their code to report an error if something hanges. This will also help
+track down the problem.</p>
+<ul>
+<li>
+<p>Dirk</p>
+</li>
+<li>
+<p><a href="/label/~colbrydi@msu.edu/dirk">dirk</a></p>
+</li>
+</ul>
+<p>[ <img alt="User icon: colbrydi@msu.edu" src="/images/icons/profilepics/default.svg"> ](
+/display/~colbrydi@msu.edu</p>
+<p>) <a href="/display/~colbrydi@msu.edu/2014/12/15/2014-12-16+HPCC+workshop+slides+and+handouts">2014-12-16 HPCC workshop slides and
+handouts</a></p>
+<p>Unknown User (colbrydi@msu.edu) posted on Dec 15, 2014</p>
+<p>I will be teaching my bi-annual Introductory and Advanced HPCC workshops
+tomorrow. Below are links to my updated slides and handouts. Registration
+looks lite so feel free to drop in if you have the time. These workshops are
+being provided as part of IT Services two day offering of no-charge seminars
+to faculty and graduate students on technology topics on December 16 and 17.
+More information and registration can be done at the following website:</p>
+<p><a href="http://tech.msu.edu/events/tech-seminars/">http://tech.msu.edu/events/tech-seminars/</a></p>
+<p><strong>Introduction to the HPCC: A Hands-On Introduction to High Performance
+Computing at MSU</strong></p>
+<ul>
+<li>Tuesday, December 16th 8:30am-11:30am in 403 of the Computer Center</li>
+<li>During this workshop, participants will learn through hands-on examples how to get started with the MSU High Performance Computing Center (HPCC). Topics include: connecting to the HPCC; copying files to your home directories; navigating the command line interface; accessing available software; testing and running programs interactively; editing files; writing job scripts; submitting jobs to the queue; and monitoring jobs running on the system.</li>
+<li>This is an interactive workshop held in a computer lab, although participants are encouraged to bring their research laptops if applicable. Multiple instructors will be available to help you get started and diagnose problems.</li>
+</ul>
+<p><strong>12:00-1:15pm Lunch is provided in the MSU Ballroom (registered participants
+only)</strong></p>
+<p><strong>Making Your Research Go Faster: Advance Topics in Getting the Most Out of
+the MSU HPCC</strong></p>
+<ul>
+<li>Tuesday, December 16th 1:30pm-4:30pm in 403 of the Computer Center</li>
+<li>During this workshop, participants already familiar with using the HPCC systems will be shown advanced techniques on how to use the system more effectively. Topics include: techniques for effective scheduling of pleasantly parallel jobs; shared memory jobs and shared network jobs; running jobs longer than a week; and making jobs fault tolerant.</li>
+<li>This is an interactive workshop held in a computer lab, although participants are encouraged to bring their research laptops if applicable. Multiple instructors will be available to help get you started and diagnose problems.</li>
+</ul>
+<p>SLIDES:</p>
+<ul>
+<li>
+<p><a href="https://wiki.hpcc.msu.edu/download/attachments/5411653/2014-12-16%20Introduction%20to%20HPCC.pdf?version=1&amp;modificationDate=1418669575000&amp;api=v2">2014-12-16 Introduction to HPCC.pdf</a></p>
+</li>
+<li>
+<p><a href="https://wiki.hpcc.msu.edu/download/attachments/5411653/2014-12-16_Advanced%20HPCC.pdf?version=1&amp;modificationDate=1418669589000&amp;api=v2">2014-12-16_Advanced HPCC.pdf</a></p>
+</li>
+</ul>
+<p>HANDOUTS:</p>
+<ul>
+<li><a href="https://wiki.hpcc.msu.edu/download/attachments/5411653/2014-12-16%20[HPCC_WORKSHOP_COMMANDS.pdf](./images/HPCC_WORKSHOP_COMMANDS.pdf)?version=1&amp;modificationDate=1418670002000&amp;api=v2">2014-12-16 [HPCC_WORKSHOP_COMMANDS.pdf](./images/HPCC_WORKSHOP_COMMANDS.pdf)</a></li>
+<li><a href="https://wiki.hpcc.msu.edu/download/attachments/5411653/HPCC_Command_Summary.pdf?version=1&amp;modificationDate=1418669599000&amp;api=v2">HPCC_Command_Summary.pdf</a></li>
+<li>
+<p><a href="http://files.fosswire.com/2007/08/fwunixref.pdf">http://files.fosswire.com/2007/08/fwunixref.pdf</a></p>
+</li>
+<li>
+<p><a href="/label/~colbrydi@msu.edu/slides">slides</a></p>
+</li>
+<li><a href="/label/~colbrydi@msu.edu/dirk">dirk</a></li>
+</ul>
+<p>[ <img alt="User icon: colbrydi@msu.edu" src="/images/icons/profilepics/default.svg"> ](
+/display/~colbrydi@msu.edu</p>
+<p>) <a href="/display/~colbrydi@msu.edu/2014/12/04/2014-12-05+Western+Michigan+University%2C+Introduction+to+iCER+slides">2014-12-05 Western Michigan University, Introduction to iCER
+slides</a></p>
+<p>Unknown User (colbrydi@msu.edu) posted on Dec 04, 2014</p>
+<p>Here are a copy of my slides and the handout for our two hour introductory
+talk at Western Michigan University:</p>
+<ul>
+<li><a href="https://wiki.hpcc.msu.edu/download/attachments/5411650/2014-12-05%20WMU%20iCER%20Talk.pdf?version=1&amp;modificationDate=1417709173000&amp;api=v2">2014-12-05 WMU iCER Talk.pdf</a></li>
+<li>
+<p><a href="https://wiki.hpcc.msu.edu/download/attachments/5411650/2014-12-05%20WMU%20iCER%20Talk%20Commands.pdf?version=1&amp;modificationDate=1417709861000&amp;api=v2">2014-12-05 WMU iCER Talk Commands.pdf</a></p>
+</li>
+<li>
+<p><a href="/label/~colbrydi@msu.edu/slides">slides</a></p>
+</li>
+<li><a href="/label/~colbrydi@msu.edu/dirk">dirk</a></li>
+</ul>
+<p>[ <img alt="User icon: colbrydi@msu.edu" src="/images/icons/profilepics/default.svg"> ](
+/display/~colbrydi@msu.edu</p>
+<p>) <a href="/display/~colbrydi@msu.edu/2014/11/16/zsh+job+number+autocomplete">zsh job number
+autocomplete</a></p>
+<p>Unknown User (colbrydi@msu.edu) posted on Nov 16, 2014</p>
+<p>We do not directly support zsh users on our system. However, many of our more
+advanced users enjoy some of the modern and advanced features provided by zsh.
+One of these users shared a code snippet that he uses in his ~/.zshrc file to
+autocomplete job id numbers. He is letting us share the code for use to our
+users who prefer zsh over bash.</p>
+<p><strong>.zshrc</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">_jobs_list</span><span class="p">()</span> <span class="err">{</span>
+<span class="n">qstat</span> <span class="o">|</span> <span class="n">grep</span> <span class="err">$</span><span class="k">USER</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="s1">&#39; &#39;</span> <span class="o">-</span><span class="n">f1</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="s1">&#39;.&#39;</span> <span class="o">-</span><span class="n">f1</span>
+<span class="err">}</span>
+
+<span class="n">_jshow_complete</span><span class="p">()</span> <span class="err">{</span>
+<span class="k">if</span> <span class="p">((</span> <span class="k">CURRENT</span> <span class="o">==</span><span class="mi">2</span><span class="p">));</span> <span class="k">then</span>
+<span class="n">jjobs</span><span class="o">=</span><span class="p">(</span> <span class="err">$</span><span class="p">(</span><span class="n">_jobs_list</span><span class="p">))</span>
+<span class="n">_multi_parts</span> <span class="o">/</span> <span class="n">jjobs</span>
+<span class="k">else</span>
+<span class="n">_files</span>
+<span class="n">fi</span>
+<span class="err">}</span>
+
+<span class="n">compdef</span> <span class="n">_jshow_complete</span> <span class="n">showstart</span> <span class="n">jdel</span> <span class="n">checkjob</span> <span class="n">qstat</span>
+</code></pre></div>
+
+
+<p>This code should work on any system that used PBS Torque.</p>
+<p>I hope you find it useful,</p>
+<ul>
+<li>
+<p>Dirk</p>
+</li>
+<li>
+<p><a href="/label/~colbrydi@msu.edu/example">example</a></p>
+</li>
+<li><a href="/label/~colbrydi@msu.edu/dirk">dirk</a></li>
+</ul>
+<p>[ <img alt="User icon: colbrydi@msu.edu" src="/images/icons/profilepics/default.svg"> ](
+/display/~colbrydi@msu.edu</p>
+<p>) <a href="/display/~colbrydi@msu.edu/2014/10/23/2014-10-23+Advanced+High+Performance+Computing">2014-10-23 Advanced High Performance
+Computing</a></p>
+<p>Unknown User (colbrydi@msu.edu) posted on Oct 23, 2014</p>
+<p>Here are the slides for the Advanced HPC class:</p>
+<p><a href="https://wiki.hpcc.msu.edu/download/attachments/5411677/2014-10-24_CI-
+Days%20Advanced%20HPCC.pdf?version=1&amp;modificationDate=1414073145000&amp;api=v2">2014-10-24_CI-Days Advanced
+HPCC.pdf</a></p>
+<p>And here is the handout:</p>
+<p><a href="https://wiki.hpcc.msu.edu/download/attachments/5411677/2014-10-24_CI-
+Days%20Advanced%20HPCC%20Handout.pdf?version=1&amp;modificationDate=1414077081000&amp;api=v2">2014-10-24_CI-Days Advanced HPCC
+Handout.pdf</a></p>
+<ul>
+<li>
+<p>Dirk</p>
+</li>
+<li>
+<p><a href="/label/~colbrydi@msu.edu/slides">slides</a></p>
+</li>
+<li><a href="/label/~colbrydi@msu.edu/dirk">dirk</a></li>
+</ul>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/Blog">View Online</a> *
+<a href="https://wiki.hpcc.msu.edu/pages/diffpagesbyversion.action?pageId=5411630&amp;revisedVersion=14&amp;originalVersion=13">View Changes
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/Blog">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Restart Stalled Programs';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

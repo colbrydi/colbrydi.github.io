@@ -1,0 +1,50 @@
+#!/bin/sh -login
+
+# Time job will take to execute (HH:MM:SS format)
+#PBS -l walltime=48:00:00
+
+# Memory needed by the job
+#PBS -l mem=5Gb         
+ 
+# Number of shared memory nodes required and the number of processors per node
+#PBS -l nodes=1:ppn=1,feature=gbe 
+
+# Make output and error files the same file
+#PBS -j oe        
+       
+# Send an email when a job is aborted, begins or ends
+#PBS -m abe      
+         
+# Give the job a name  
+#PBS -N nbhurygb
+   
+# Request temporary local disk space for this job
+#PBS -l file=5gb      
+ 
+# Change to the Original Working Directory
+cd ${PBS_O_WORKDIR}       
+cd ${PBS_JOBNAME} 
+mkdir ${PBS_JOBID}
+
+#Copy files to temp directory
+cp * ${TEMPDIR}
+cd ${TEMPDIR}
+
+# Print out values of the current jobs PBS environment variables ++++++
+env | grep PBS
+
+#Convert files to unix format
+dos2unix *.*
+
+#here call your bash file or your executable file ++++++
+admb -r ${PBS_JOBNAME} 
+
+#Send output to this file             ++++++
+./${PBS_JOBNAME} >runtime.log
+
+#Copy everything back
+cp * ${PBS_O_WORKDIR}/${PBS_JOBNAME}/${PBS_JOBID}/
+
+qstat -f ${PBS_JOBID}
+
+

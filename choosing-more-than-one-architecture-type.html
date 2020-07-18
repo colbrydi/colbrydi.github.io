@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Choosing more than one architecture type</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Choosing more than one architecture type</h1>
+Tue 28 August 2012
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>Although all of our nodes are binary compatible, the HPCC is a heterogeneous
+cluster based built from many different types of nodes. The node types are
+based on the type of architecture that the node is built on and the year the
+nodes where purchased. Here is a current list:</p>
+<p>Cluster name</p>
+<p>|</p>
+<p>Development node</p>
+<p>|</p>
+<p>Chip Manufacturer</p>
+<p>|</p>
+<p>Year Purchased</p>
+<p>|</p>
+<p>Node Prefix  </p>
+<p>---|---|---|---|---  </p>
+<p>amd05</p>
+<p>|</p>
+<p>dev-amd05</p>
+<p>|</p>
+<p>AMD</p>
+<p>|</p>
+<p>2005</p>
+<p>|</p>
+<p>amd  </p>
+<p>intel07</p>
+<p>|</p>
+<p>dev-intel07</p>
+<p>|</p>
+<p>Intel</p>
+<p>|</p>
+<p>2007</p>
+<p>|</p>
+<p>scw  </p>
+<p>amd09</p>
+<p>|</p>
+<p>dev-amd09</p>
+<p>|</p>
+<p>AMD</p>
+<p>|</p>
+<p>2009</p>
+<p>|</p>
+<p>afn  </p>
+<p>gfx10</p>
+<p>|</p>
+<p>dev-gfx10</p>
+<p>|</p>
+<p>Intel with nVidia Graphics Card</p>
+<p>|</p>
+<p>2010</p>
+<p>|</p>
+<p>nvx  </p>
+<p>intel10</p>
+<p>|</p>
+<p>dev-intel10</p>
+<p>|</p>
+<p>Intel</p>
+<p>|</p>
+<p>2010</p>
+<p>|</p>
+<p>icx  </p>
+<p>intel11</p>
+<p>|</p>
+<p>n/a</p>
+<p>|</p>
+<p>intel</p>
+<p>|</p>
+<p>2011</p>
+<p>|</p>
+<p>ifi  </p>
+<p>You can specify a specific architechture in your submission script using
+feature= command. For example the following will only run on the intel10 node:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<span class="c1">#PBS -l nodes=1:ppn=1,mem=1gb,feature=intel10,walltime=03:59:00</span>
+<span class="c1">#PBS -j oe</span>
+
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+<span class="c1">#Your stuff here...</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>You can also specifiy multipule architechtures using the PIPE (OR) charicture.
+For example the following will run on the intel07 or the intel10 nodes:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<span class="c1">#PBS -l nodes=1:ppn=1,mem=500mb,feature=intel07|intel10,walltime=00:05:00</span>
+<span class="c1">#PBS -j oe</span>
+
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+<span class="c1">#Your stuff here...</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Unfortunately, as far as I can tell, the gfx10 nodes will not work using the
+OR syntax. This is probably because the gfx10 nodes also use a different
+network fabric (gbe) and I have not figured out the way use more complex logic
+with the feature= resource.</p>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/08/28/Choosing+more+than+one+architecture+type">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/08/28/Choosing+more+than+one+architecture+type">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Choosing more than one architecture type';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

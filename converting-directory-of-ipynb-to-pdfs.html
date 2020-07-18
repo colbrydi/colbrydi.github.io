@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Converting directory of ipynb to pdfs</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Converting directory of ipynb to pdfs</h1>
+Sun 02 February 2020
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p><img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"></p>
+<p>I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  </p>
+<p><strong>Option 1:</strong> I decided to convert all of the notebooks to pdfs using <a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a>.  However, <code>nbconvert</code> isn't working on my MacBook.  I think I have too many versions of latex and python installed and I can't quickly find the right magic to get the pdf converter working.  </p>
+<p><strong>Option 2:</strong> However, <code>nbconvert</code> works great if I convert to html.  So then I had a thought to first convert to html and then print to pdf.  However this option requires me to open and save each html file individually.</p>
+<p><strong>Option 3:</strong> I discovered there are a bunch of tools that convert html to pdf.  Most of them require similar installation I was having trouble with in Option 1. However, Chrome allows me to run in "Headless" mode which may make it easy to automate.</p>
+<p>My final solution has the following steps.  Note, this only works on MacOS but conceptually could be converted to work on any system:</p>
+<ol>
+<li>Use <code>nbconvert</code> to convert each ipynb in the current directory to html.</li>
+<li>Use <code>Chrome</code> headless mode to convert html files to pdfs.</li>
+<li>Use the <code>join</code> command to combine all of the pdfs into one file.</li>
+</ol>
+<p>Here is a bash script that seems to work:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+mkdir -p HTML
+
+jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML *.ipynb
+
+mkdir -p PDF
+
+<span class="k">for</span> file in ./html/*.html
+<span class="k">do</span>
+    <span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename -- <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
+    <span class="nv">extension</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">&quot;</span>
+    /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless <span class="se">\</span>
+            --virtual-time-budget<span class="o">=</span><span class="m">10000</span> <span class="se">\</span>
+            --crash-dumps-dir<span class="o">=</span>./html/ <span class="se">\</span>
+            --disable-gpu <span class="se">\</span>
+            --print-to-pdf<span class="o">=</span>./PDF/<span class="si">${</span><span class="nv">filename</span><span class="si">}</span>.pdf <span class="se">\</span>
+              --no-margins <span class="se">\</span>
+            file://<span class="nv">$PWD</span>/<span class="nv">$file</span>
+<span class="k">done</span>
+
+<span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf ./PDF/*.pdf
+
+open CMSE314.pdf
+</code></pre></div>
+
+
+<p>Once I got the bash script working I decided a Makefile would be better</p>
+<div class="highlight"><pre><span></span><code><span class="nv">IPYNB_FILES</span> <span class="o">=</span> <span class="k">$(</span>wildcard *.ipynb<span class="k">)</span>
+<span class="nv">PDF_FILES</span> <span class="o">=</span> <span class="k">$(</span>patsubst %.ipynb, PDF/%.pdf, <span class="k">$(</span>IPYNB_FILES<span class="k">))</span>
+
+<span class="nf">all</span><span class="o">:</span> <span class="n">CMSE</span>314.<span class="n">pdf</span>
+        open CMSE314.pdf
+
+<span class="nf">HTML/%.html</span><span class="o">:</span> %.<span class="n">ipynb</span>
+        @mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>@D<span class="k">)</span><span class="s2">&quot;</span>
+        jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML <span class="s2">&quot;</span>$<span class="s2">&lt;&quot;</span>
+
+<span class="nf">PDF/%.pdf</span><span class="o">:</span> <span class="n">HTML</span>/%.<span class="n">html</span>
+        @mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>@D<span class="k">)</span><span class="s2">&quot;</span>
+        /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --crash-dumps-dir<span class="o">=</span><span class="k">$(</span>@D<span class="k">)</span> --disable-gpu --print-to-pdf file://<span class="k">$(</span>PWD<span class="k">)</span>/$&lt;
+        mv output.pdf <span class="nv">$@</span>
+
+<span class="nf">CMSE314.pdf</span><span class="o">:</span> <span class="k">$(</span><span class="nv">PDF_FILES</span><span class="k">)</span>
+        <span class="s2">&quot;/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py&quot;</span> -o CMSE314.pdf <span class="k">$(</span>PDF_FILES<span class="k">)</span>
+
+<span class="nf">clean</span><span class="o">:</span>
+        rm -rf HTML
+        rm -rf PDF
+</code></pre></div>
+
+
+<p>Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).</p>
+<p>Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Converting directory of ipynb to pdfs';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

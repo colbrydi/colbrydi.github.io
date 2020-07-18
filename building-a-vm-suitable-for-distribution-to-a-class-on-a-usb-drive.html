@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Building a VM suitable for distribution to a class on a USB drive</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Building a VM suitable for distribution to a class on a USB drive</h1>
+Thu 15 November 2012
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>I am teaching a class to first and second year undergrads. Since we will be
+using many different types of software I was discouraged by the idea of
+installing all of the software they would need on all of their computers.
+Although installing software is a very useful exercise, the many different
+platforms and laptops make this task prohibitively hard to manage.</p>
+<p>In the past I have used "<a href="http://portableapps.com/">Portable Apps</a>" to deliver
+software to windows users. This works great and eliminates the need to install
+a lot of software. However, typical portable apps do not work on macs and more
+than half of my class use macs.</p>
+<p>So, my next thought was to use a lightweight Virtual Machine (VM). I had some
+supply funds for the students so I bought them all 16GB USB drives and my plan
+is to install the VM on the drives and use the drives to also pass around the
+data files the students need for their projects. I would just put all the data
+files on the VM but each student needs a different set of files and they would
+make the VM much bigger than the 16GB that I had available.</p>
+<p>My plan is to create a USB drive with a standard Virtual Machine Image and
+then Individual project data for each student. Here is the process I went
+though to make these drives:</p>
+<h3>Choosing a VM platform and building the machine:</h3>
+<p>I created a <a href="http://lubuntu.net/">Lubuntu</a> VM using
+<a href="http://www.vmware.com/">VMWare</a> and installed all of the software I wanted
+the students to have. This included; Python (with a lot of packages), ImageJ,
+FFmpeg and others. Then I found out that VMWare Player doesn’t run on a mac so
+I had to switch to <a href="https://www.virtualbox.org/">VirtualBox</a>. I used the
+following instructions to convert the VM:</p>
+<p><a href="http://www.ubuntugeek.com/howto-convert-vmware-image-to-virtualbox-image.html">http://www.ubuntugeek.com/howto-convert-vmware-image-to-virtualbox-image.html</a></p>
+<p><strong>Take away</strong> : Use VirtualBox, it works the best cross platform and is
+available for free</p>
+<h3>Copy the VM to the USB drive (first attempt):</h3>
+<p>Once I had a working VM I copied over the file to the USB drive and tried to
+run it. Unfortunately, trying to boot the VM gave me all types of errors and I
+ended up realizing that the USB drives are formatted using FAT32 and can not
+contain files larger than 2gb
+<img alt="(sad)" src="https://wiki.hpcc.msu.edu/s/en_US/8100/4410012ac87e845516b70bc69b6f7a893eabaa5a/_/images/icons/emoticons/sad.svg"></p>
+<p><strong>Take away</strong> : Can't use FAT32 to save large VM drive files</p>
+<h3>Reformat and copy the VM to the USB drive (second attempt):</h3>
+<p>So, I did some research and both mac and windows support exFAT a new files
+system from Microsoft specifically designed for larger files on USB drives.
+Great! I formatted the USB drive to use exFAT, copied over the VM and then
+individually copied the data files each student needed onto their USB drive.</p>
+<p>Problem 1: exFAT drive formatted on a MAC</p>
+<p>When I passed the drives out in class today they would not be recognized by
+the windows machine. It seems that exFAT only works in one direction. When I
+format the drive on my MAC and try to read it on windows it doesn’t work.
+However, if I format exFAT on windows my MAC can read it fine.</p>
+<p>Problem 2: Missing Linux USB Drivers</p>
+<p>Another problem I did not consider is that the exFAT drive can not be
+recognized in the Lubuntu VM. So, although the VM worked fine on the MACs, the
+students could not read their data.</p>
+<h3>Fix limitations of exFAT (third attempt):</h3>
+<p>We did some brainstorming and came up with the following possible solutions
+that cover both problems:</p>
+<p><strong>Option 1</strong>. Format exFAT on windows machines (so they will work on both MAC
+and windows). Figure out how to install exFAT drivers in Lubuntu.</p>
+<p>This option ended up not being too difficult. I used the following commands to
+install exFAT on the Lubuntu machine:</p>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-add-repository ppa:relan/exFAT</span>
+<span class="err">sudo apt-get update</span>
+<span class="err">sudo apt-get install fuse-exFAT exFAT-utils</span>
+</code></pre></div>
+
+
+<p><strong>Option 2</strong>. Duel partition the USB drive with one exFAT drive (Formatted on
+windows) and one FAT32 drive for the data.</p>
+<p>Seems like a lot of work and I would need to switch to the disk duplicate tool
+(dd) to make the copies.</p>
+<p><strong>Option 3</strong>. Format the entire drive back to FAT32 and break the VM down into
+smaller files.</p>
+<p>I can't find a way to break the large files apart in Virtual box. I could do
+it with some third party splitting software but then I would need to figure
+out how to merge the files on each individual computer. Not really a step I
+prefer to take.</p>
+<p>The VMDK files in VMWear are already broken up into 2gb or less files. I may
+be able to convert back to the VMDK files and load the VM in Virtual box
+directly.</p>
+<p><strong>Option 4</strong>. Try a different large-scale file system such as NTSF and get
+that to work on all of the platforms.</p>
+<p>I was told that this could be tricky especially if the students to not
+properly eject their USB drives. So far I have avoided this option.</p>
+<p><strong>Final Take Aways</strong> : Option 1 worked for me. Use VirtualBox and an exFAT
+formatted USB drive. Make sure the exFAT drive is formatted in Windows and
+install exFAT drivers on your Linux VM before distribution.  </p>
+<p>- Dirk</p>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/11/15/Building+a+VM+suitable+for+distribution+to+a+class+on+a+USB+drive">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/11/15/Building+a+VM+suitable+for+distribution+to+a+class+on+a+USB+drive">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Building a VM suitable for distribution to a class on a USB drive';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>
