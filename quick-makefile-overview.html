@@ -79,7 +79,6 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
   <span class="o">...</span>
 </code></pre></div>
 
-
 <p>When you type “make Target” on the command line you active the rule.  Then the Make program recursively activates rules to make each of the prerequisites.  If there is no rule to make a prerequisite it looks to see if the prerequisite file exists. If there is no rule and there is no file you will get an error.  However, assuming you have all the prerequisite files you need  for a rule, the Make program then runs the Recipe commands (things like gcc or whatever you want).  It is assumed that the commands will take the prerequisites as inputs and generate the target file (this is not always the case).
 That is basically it.  Some more things to note:
 *   If you just type “make” (with no target) the Make command assumes you are trying to make the first rule in the file.

@@ -135,7 +135,6 @@ qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class=
 <span class="nb">exit</span> <span class="nv">$ret</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>To get longjob to work, the following modificaitons need to be made:</p>
 <ol>
 <li>Adjust the walltime to be shorter (I suggest 4 hours or less).</li>
@@ -223,7 +222,6 @@ qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class=
 <span class="nb">exit</span> <span class="nv">$ret</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>If everything works as expected, you should be able to qsub the above file and
 it will resubmit itself every four hours until the job completes. Note, this
 is a work in progress and I have not tested all cases. For example, one case

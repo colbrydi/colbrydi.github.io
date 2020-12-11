@@ -108,7 +108,6 @@ matlab -nodisplay -r <span class="s2">&quot;makeAVI&quot;</span>
 qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>Running this script will give me an error that says "Display not found." The
 following script is modified to start Xvfb at the beginning, run the same
 basic command and then terminate Xvfb at the end:</p>
@@ -176,7 +175,6 @@ rm -f  /tmp/.X11-lock
 qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>Please note that the -nodisplay option was removed from the MATLAB command
 line in the second script</p>
 <p>An working example of this script can be downloaded on the HPCC using the
@@ -188,7 +186,6 @@ example:</p>
 <span class="err">cd MATLAB_movie</span>
 <span class="err">qsub makeAVI.qsub</span>
 </code></pre></div>
-
 
 <ul>
 <li>Dirk</li>

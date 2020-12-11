@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - Automatically log into a dev-node from gateway</title>
+    <title>Dirk's Home Page - JupyterInstruct Python library for Instructors maintaining curriculum in Jupyter</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,8 +60,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>Automatically log into a dev-node from gateway</h1>
-Tue 27 March 2012
+            <h1>JupyterInstruct Python library for Instructors maintaining curriculum in Jupyter</h1>
+Fri 11 December 2020
 
 by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -69,27 +69,16 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
         </div>
 	
-        <div><p>Tags: HPC, example, Migration</p>
-<p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
-installation of a new plugin"</p>
-<p>You are not allowed to do any computation on the gateway nodes. Mostly they
-are there as a firewall and a place to check and submit jobs. Many users find
-it annoying to log into gateway and then have to immediately log into one of
-the dev nodes. Although I have not tested it thoughouly, you can add the
-following script to the beginning of your .bash_profile file and it will
-automaticlly log you into a random dev node. Give it a try:</p>
-<div class="highlight"><pre><span></span><code><span class="err">if [ &quot;$HOSTNAME&quot; == &quot;gateway-01&quot; ]; then</span>
-<span class="err">        /opt/software/powertools/bin/dev</span>
-<span class="err">fi</span>
-</code></pre></div>
-
+        <div><p><a href="https://github.com/colbrydi/jupyterinstruct"><img align="right," alt="JupyterInstruct Logo with a cartoon Jupiter at a chalkboard" hspace="10" src="https://raw.githubusercontent.com/colbrydi/jupyterinstruct/main/docs/images/JupyterInstruct_icon.png" width="200,"></a></p>
+<p>I just uploaded my first developer release of my Python <a href="https://github.com/colbrydi/jupyterinstruct">jupyterinstruct library mo github</a>.  This library has been in development over the last couple of years but has really materialized in the last few months as I have been planning to pass on my curriculum materials to other faculty.  The library has a number of main goals including:</p>
 <ul>
-<li>Dirk</li>
+<li>Tools to help instructors maintain course materials all in one place including instructor notes and Answers. </li>
+<li>Tools to help migrate curriculum form one semester to the next.</li>
+<li>Tools to automatically generate websites and ebooks from notebooks. </li>
+<li>Notebook validation tools to identify common problems with links, images and accessibility.</li>
+<li>Tools to interface nbgrader with the MSU jupyterhub servers and MSU Desire2Learn course management systems. </li>
 </ul>
-<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/27/Automatically+log+into+a+dev-
-node+from+gateway">View
-Online</a></p>
-<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/27/Automatically+log+into+a+dev-node+from+gateway">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+<p>Obviously there is a lot of work that still needs done but I am excited to continue develop these tools and hopefully make it easer to curate curriculum materials between semesters with the long term goals of saving instructor time while improving the learning experience for students.</p></div>
 	
         <hr>
 
@@ -97,7 +86,7 @@ Online</a></p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'DirkColbry'; 
-    var disqus_title = 'Automatically log into a dev-node from gateway';
+    var disqus_title = 'JupyterInstruct Python library for Instructors maintaining curriculum in Jupyter';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -82,19 +82,16 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <div class="highlight"><pre><span></span><code><span class="err">wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh</span>
 </code></pre></div>
 
-
 <h2><strong>Step 2:</strong> Install anaconda using the defaults</h2>
 <p>Run the downloaded script in bash using the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">bash ./Anaconda3-5.2.0-Linux-x86_64.sh</span>
 </code></pre></div>
-
 
 <p>The last question will ask you to add the anaconda folder to your bashrc file. Say yes...</p>
 <h2><strong>Step 3:</strong> Install RStudio</h2>
 <p>Use the conda install command to install RStudio.  Note you may need to run <code>source ~/.bashrc</code> first to update your path:</p>
 <div class="highlight"><pre><span></span><code><span class="err">conda install rstudio</span>
 </code></pre></div>
-
 
 <p>That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:</p>
 <div class="highlight"><pre><span></span><code><span class="err">rstudio</span>

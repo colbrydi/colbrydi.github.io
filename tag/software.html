@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - alter</title>
+    <title>Dirk's Home Page - software</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../altering-jobs-that-are-in-the-queue.html"><h1>Altering jobs that are in the queue</h1></a>
-Wed 15 August 2012
+            <a href="../jupyterinstruct-python-library-for-instructors-maintaining-curriculum-in-jupyter.html"><h1>JupyterInstruct Python library for Instructors maintaining curriculum in Jupyter</h1></a>
+Fri 11 December 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,49 +75,16 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
-installation of a new plugin"</p>
-<p>Recently a user came by my office to complain that his jobs where not running
-in the queue. This is a reasonable complainte because many of our nodes are
-being drained to reboot and avoid the 208 day bug. Fortunately this user had a
-lot of single threaded jobs that could run on the gfx10 nodes. To run on these
-nodes the user needs to change the jobs to add the feature=gbe option
-(Gigabyte either-net). First I tried the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qalter -l feature=gbe $PBS_JOBID</span>
-</code></pre></div>
-
-<p>Unfortunately,the qalter command modifies jobs in the resource manager but the
-job is waiting on the scheduler. I had hoped that the scheduler would talk to
-the resouce manager and update the properties but this did not happen. After
-talking with others in the office we found the command to alter jobs in the
-scheduler:</p>
-<div class="highlight"><pre><span></span><code><span class="err"> mjobctl -m feature=gbe $PBS_JOBID</span>
-</code></pre></div>
-
-<p>This worked great and propagated all changes to the resource manager. I wrote
-a quick script to change all nodes currently pending in the queue to accept
-add this change:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
-<span class="k">for</span> job in <span class="sb">`</span>qselect -s Q -u <span class="nv">$USER</span><span class="sb">`</span><span class="p">;</span>
-<span class="k">do</span>
-     <span class="nb">echo</span> mjobctl -m <span class="nv">feature</span><span class="o">=</span>gbe <span class="nv">$job</span>
-     mjobctl -m <span class="nv">feature</span><span class="o">=</span>gbe <span class="nv">$job</span>
-<span class="k">done</span>
-</code></pre></div>
-</td></tr></table>
-<p>I added a qalter_all_gbe command to powertools to help users do the same thing
-on the hpcc.</p>
+        <div><p><a href="https://github.com/colbrydi/jupyterinstruct"><img align="right," alt="JupyterInstruct Logo with a cartoon Jupiter at a chalkboard" hspace="10" src="https://raw.githubusercontent.com/colbrydi/jupyterinstruct/main/docs/images/JupyterInstruct_icon.png" width="200,"></a></p>
+<p>I just uploaded my first developer release of my Python <a href="https://github.com/colbrydi/jupyterinstruct">jupyterinstruct library mo github</a>.  This library has been in development over the last couple of years but has really materialized in the last few months as I have been planning to pass on my curriculum materials to other faculty.  The library has a number of main goals including:</p>
 <ul>
-<li>Dirk</li>
+<li>Tools to help instructors maintain course materials all in one place including instructor notes and Answers. </li>
+<li>Tools to help migrate curriculum form one semester to the next.</li>
+<li>Tools to automatically generate websites and ebooks from notebooks. </li>
+<li>Notebook validation tools to identify common problems with links, images and accessibility.</li>
+<li>Tools to interface nbgrader with the MSU jupyterhub servers and MSU Desire2Learn course management systems. </li>
 </ul>
-<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/08/15/Altering+jobs+that+are+in+the+queue">View
-Online</a></p>
-<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/08/15/Altering+jobs+that+are+in+the+queue">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+<p>Obviously there is a lot of work that still needs done but I am excited to continue develop these tools and hopefully make it easer to curate curriculum materials between semesters with the long term goals of saving instructor time while improving the learning experience for students.</p></div>
         <hr />
     </div>
 		
@@ -125,7 +92,7 @@ Online</a></p>
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-    <li class="active"><a href="../tag/alter.html">1</a></li>
+    <li class="active"><a href="../tag/software.html">1</a></li>
 
     <li class="next disabled"><a href="#">&rarr; Next</a></li>
 
@@ -186,7 +153,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2012</p>
+<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
 </footer>
 
 </div> <!-- /container -->

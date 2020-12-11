@@ -75,16 +75,13 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <div class="highlight"><pre><span></span><code><span class="err">sacctmgr show association account=cmse</span>
 </code></pre></div>
 
-
 <p>If I want to <strong>add</strong> someone to the CMSE buy-in account I just do the following:</p>
 <div class="highlight"><pre><span></span><code><span class="err">sacctmgr add user account=cmse name=colbrydi</span>
 </code></pre></div>
 
-
 <p>Then if I want to <strong>delete</strong> someone from he CMSE buy-in account is just as easy:</p>
 <div class="highlight"><pre><span></span><code><span class="err">sacctmgr delete user account=cmse name=colbrydi</span>
 </code></pre></div>
-
 
 <p>The HPCC staff also provides the following useful powertools that users can access by running <code>module load powertools</code>:</p>
 <p><strong>priority_status</strong> or <strong>buyin_status</strong> - equivalent commands that shows all of your buy-in nodes and who is currently running on them.</p>
@@ -95,11 +92,9 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <span class="err">#SBATCH --account=cmse</span>
 </code></pre></div>
 
-
 <p>Many of our people want to use the Volta over Jupyterhub run though the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> website.  To do this, you would log into <a href="https://webrdp.hpcc.msu.edu">webrdp</a>, open a terminal on the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> desktop, ssh to one of the dev nodes and then issue the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse</span>
 </code></pre></div>
-
 
 <p>Once the job starts, you would just type <code>jupyter notebook</code> assuming you have it installed.</p>
 <p>Hope you find these notes useful.</p>

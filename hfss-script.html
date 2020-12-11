@@ -105,7 +105,6 @@ patient if the system is busy.</p>
 <span class="k">First</span><span class="o">-</span><span class="nc">time</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="n">successfully</span><span class="p">.</span><span class="w"></span>
 </code></pre></div>
 
-
 <p>At which point the GUI/ Window will start. It will ask you a question about
 which directories you'd like to use. Please change the scratch folder:</p>
 <p><img alt="" src="https://wiki.hpcc.msu.edu/download/attachments/5411556/hfss-folderchoice.png?version=1&amp;modificationDate=1441138478000&amp;api=v2">The default scratch directory is simply /mnt/scratch. We suggest you createyour own folder on scratch, and enter that folder here. You have to firstcheck the "override" box and then type in your scratch folder.You may also use Batch mode to run HFSS jobs on the cluster. Here is anexample HFSS 15.0 submission script written by Andrew Temme that sets up theHFSS job options. For more detail see his excellent <a href="http://nbviewer.ipython.org/urls/bitbucket.org/temmeand/example-ipython-notebooks/raw/master/MSU-supercomputer-HFSS-and-IPython.ipynb">Python Notebook onHFSS</a></p>
@@ -173,7 +172,6 @@ chmod <span class="m">777</span> <span class="si">${</span><span class="nv">OptF
 hfss -ng -monitor -distributed -machinelist <span class="nv">num</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_NODES</span><span class="si">}</span> -batchoptions <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span> -BatchSolve <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span>.hfss
 </code></pre></div>
 </td></tr></table>
-
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/06/08/HFSS+script">View
 Online</a></p>
 <p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/06/08/HFSS+script">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>

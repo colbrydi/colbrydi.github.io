@@ -78,7 +78,6 @@ account:</p>
 <div class="highlight"><pre><span></span><code><span class="err">&gt; svn checkout https://avida.devosoft.org/svn/stable</span>
 </code></pre></div>
 
-
 <p>Then I modified the build_avida script as follows:</p>
 <p><strong>build_avida</strong></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -96,13 +95,11 @@ make -j <span class="m">10</span>
 make install
 </code></pre></div>
 </td></tr></table>
-
 <p>Then I run the build script using the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="err">&gt; module load cmake</span>
 <span class="err">&gt; ./build_avida</span>
 <span class="err">&gt; ./run_tests</span>
 </code></pre></div>
-
 
 <p>Once Avida builds and tests successfully I write a condor script</p>
 <p><strong>avida.condor</strong></p>
@@ -140,13 +137,11 @@ make install
 <span class="n">queue</span> <span class="mi">5</span>
 </code></pre></div>
 
-
 <p>Make an output directory and submit the job to the condor scheduler using the
 following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="err">&gt; mkdir /home/ba01/u124/dcolbry/avida_condor/work/output</span>
 <span class="err">&gt; condor_submit avida.condor</span>
 </code></pre></div>
-
 
 <p>That did it for me.</p>
 <ul>

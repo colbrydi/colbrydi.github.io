@@ -108,7 +108,6 @@ nodes=16:ppn=2, the job's PBS_NODEFILE could look like the following:</p>
 <span class="err">scw-006</span>
 </code></pre></div>
 
-
 <p>If you run using the -pernode option, the job will run on the following nodes:</p>
 <div class="highlight"><pre><span></span><code><span class="err">afn-000</span>
 <span class="err">afn-002</span>
@@ -118,7 +117,6 @@ nodes=16:ppn=2, the job's PBS_NODEFILE could look like the following:</p>
 <span class="err">scw-094</span>
 <span class="err">scw-006</span>
 </code></pre></div>
-
 
 <p>However, this may be a problem depending on the type of job you are running.
 The pernode option may not run the number of nodes asked for by the job script
@@ -224,7 +222,6 @@ job:</p>
 <span class="k">print</span> <span class="s">&quot;\n&quot;</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>To use this command you can add the following to your submission script:</p>
 <p><strong>pernodetest.qsub</strong></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -240,7 +237,6 @@ job:</p>
 mpiexec -comm none -conf <span class="nv">$PBS_JOBID</span>.cfg
 </code></pre></div>
 </td></tr></table>
-
 <p>This script will output the following nodes which is may be more correct
 depending on your job:</p>
 <div class="highlight"><pre><span></span><code><span class="err">afn-000</span>
@@ -260,7 +256,6 @@ depending on your job:</p>
 <span class="err">scw-094</span>
 <span class="err">scw-006</span>
 </code></pre></div>
-
 
 <p>Email me if you find this helpful,</p>
 <ul>

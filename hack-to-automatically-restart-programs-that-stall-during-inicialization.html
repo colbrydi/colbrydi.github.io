@@ -105,7 +105,6 @@ problem.</p>
     mpirun mycommand
 </code></pre></div>
 </td></tr></table>
-
 <p>) &amp;
     PID=$!</p>
 <div class="highlight"><pre><span></span><code># Sleep for enough time to see if the job is running
@@ -128,7 +127,6 @@ qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="
 #return the output of the main program
 exit <span class="nv">$RET</span>
 </code></pre></div>
-
 
 <p><strong>output_monitor_example.qsub</strong></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -158,7 +156,6 @@ exit <span class="nv">$RET</span>
     mpirun mycommand &gt; <span class="nv">$testfile</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>) &amp;
     PID=$!</p>
 <div class="highlight"><pre><span></span><code># Sleep for enough time to start generating output
@@ -187,7 +184,6 @@ qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="
 exit <span class="nv">$RET</span>
 </code></pre></div>
 
-
 <p><strong>qstat_monitor_example.qsub</strong></p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -212,7 +208,6 @@ exit <span class="nv">$RET</span>
     mpirun mycommand
 </code></pre></div>
 </td></tr></table>
-
 <p>) &amp;
     PID=$!</p>
 <div class="highlight"><pre><span></span><code># Sleep for enough time to start generating output
@@ -240,7 +235,6 @@ qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="
 #return the output of the main program
 exit <span class="nv">$RET</span>
 </code></pre></div>
-
 
 <p>These solutions are nice work arounds because, if it works, the scripts just
 restarts your job until it runs and gets the research done. However, using

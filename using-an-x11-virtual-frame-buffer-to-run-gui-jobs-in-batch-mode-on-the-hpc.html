@@ -108,7 +108,6 @@ rm <span class="nv">$display_file</span>
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div>
 
-
 <p>And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  </p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --time=00:10:00</span>
@@ -140,7 +139,6 @@ rm <span class="nv">$display_file</span>
 <span class="c1"># Report job statistics</span>
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div>
-
 
 <p>Hope you find this useful.</p></div>
 	

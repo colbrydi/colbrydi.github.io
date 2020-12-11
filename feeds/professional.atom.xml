@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-12-04T00:00:00-05:00</updated><entry><title>Using the Michigan Sate University Virtual Desktop System</title><link href="https://colbrydi.github.io/using-the-michigan-sate-university-virtual-desktop-system.html" rel="alternate"></link><published>2020-12-04T00:00:00-05:00</published><updated>2020-12-04T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-12-04:/using-the-michigan-sate-university-virtual-desktop-system.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="MSU VID System" hspace="10" src="//colbrydi.github.io/images/VDI1.png" width="200,"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2020-12-11T00:00:00-05:00</updated><entry><title>JupyterInstruct Python library for Instructors maintaining curriculum in Jupyter</title><link href="https://colbrydi.github.io/jupyterinstruct-python-library-for-instructors-maintaining-curriculum-in-jupyter.html" rel="alternate"></link><published>2020-12-11T00:00:00-05:00</published><updated>2020-12-11T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-12-11:/jupyterinstruct-python-library-for-instructors-maintaining-curriculum-in-jupyter.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/colbrydi/jupyterinstruct"&gt;&lt;img align="right," alt="JupyterInstruct Logo with a cartoon Jupiter at a chalkboard" hspace="10" src="https://raw.githubusercontent.com/colbrydi/jupyterinstruct/main/docs/images/JupyterInstruct_icon.png" width="200,"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I just uploaded my first developer release of my Python &lt;a href="https://github.com/colbrydi/jupyterinstruct"&gt;jupyterinstruct library mo github&lt;/a&gt;.  This library has been in development over the last couple of years but has really materialized in the last few months as I have been planning to pass on my curriculum materials to other faculty.  The …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/colbrydi/jupyterinstruct"&gt;&lt;img align="right," alt="JupyterInstruct Logo with a cartoon Jupiter at a chalkboard" hspace="10" src="https://raw.githubusercontent.com/colbrydi/jupyterinstruct/main/docs/images/JupyterInstruct_icon.png" width="200,"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I just uploaded my first developer release of my Python &lt;a href="https://github.com/colbrydi/jupyterinstruct"&gt;jupyterinstruct library mo github&lt;/a&gt;.  This library has been in development over the last couple of years but has really materialized in the last few months as I have been planning to pass on my curriculum materials to other faculty.  The library has a number of main goals including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tools to help instructors maintain course materials all in one place including instructor notes and Answers. &lt;/li&gt;
+&lt;li&gt;Tools to help migrate curriculum form one semester to the next.&lt;/li&gt;
+&lt;li&gt;Tools to automatically generate websites and ebooks from notebooks. &lt;/li&gt;
+&lt;li&gt;Notebook validation tools to identify common problems with links, images and accessibility.&lt;/li&gt;
+&lt;li&gt;Tools to interface nbgrader with the MSU jupyterhub servers and MSU Desire2Learn course management systems. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Obviously there is a lot of work that still needs done but I am excited to continue develop these tools and hopefully make it easer to curate curriculum materials between semesters with the long term goals of saving instructor time while improving the learning experience for students.&lt;/p&gt;</content><category term="Professional"></category><category term="software"></category></entry><entry><title>Using the Michigan Sate University Virtual Desktop System</title><link href="https://colbrydi.github.io/using-the-michigan-sate-university-virtual-desktop-system.html" rel="alternate"></link><published>2020-12-04T00:00:00-05:00</published><updated>2020-12-04T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-12-04:/using-the-michigan-sate-university-virtual-desktop-system.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="MSU VID System" hspace="10" src="//colbrydi.github.io/images/VDI1.png" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;Michigan State University (MSU) has a &lt;a href="https://tech.msu.edu/technology/virtual-desktop/"&gt;Virtual Desktop System&lt;/a&gt; that is accessible to students and staff.  If you have an account you can access it from here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://vdi.msu.edu"&gt;vdi.msu.edu&lt;/a&gt;&lt;/li&gt;
@@ -134,7 +144,6 @@ conda init bash
 &lt;span class="nb"&gt;exit&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;h3&gt;Step 3: Test Conda&lt;/h3&gt;
 &lt;p&gt;Now we need to test keras and tensorflow.  I found an example on the internet and had to fix a few bugs. I am not sure how good an example is but it is good enough to run as a benchmark test. You can download the example file (&lt;a href="//colbrydi.github.io/images/convolutional.py"&gt;convolutional.py&lt;/a&gt;, or just use the following commands on a dev-node on the HPC:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://colbrydi.github.io/images/convolutional.py
@@ -142,13 +151,11 @@ conda activate ./tensorflow-env
 &lt;span class="nb"&gt;time&lt;/span&gt; python convolution.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Running the above took me about 8 minutes on dev-intel18 about 1.3 minutes on dev-intel16-k80 and about 2 minutes on dev-intel14-k20.  I also ran on the special Volta node (nvl-001) which is only available to buy-in users. That thing only to about 30 seconds. Here are the commands I used (Requires buy-in access):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;salloc --gres&lt;span class="o"&gt;=&lt;/span&gt;gpu:1 --nodelist&lt;span class="o"&gt;=&lt;/span&gt;nvl-001 --time&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;00&lt;/span&gt;:10:00 --account&lt;span class="o"&gt;=&lt;/span&gt;cmse
 conda activate ./tensorflow-env
 &lt;span class="nb"&gt;time&lt;/span&gt; srun python convolutional.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;h3&gt;Step 4: SLURM Script&lt;/h3&gt;
 &lt;p&gt;To run this in a SLURM script you need to request GPUs and use the srun command. Here is an example:&lt;/p&gt;
@@ -168,7 +175,6 @@ conda activate ../tensorflow-env
 &lt;span class="c1"&gt;#Prints out job statistics&lt;/span&gt;
 js &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SLURM_JOB_ID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;This installation is probably not optimal but seems to work consistently.  &lt;/p&gt;</content><category term="Professional"></category><category term="HPCC"></category><category term="Teaching"></category></entry><entry><title>Converting directory of ipynb to pdfs</title><link href="https://colbrydi.github.io/converting-directory-of-ipynb-to-pdfs.html" rel="alternate"></link><published>2020-02-02T00:00:00-05:00</published><updated>2020-02-02T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-02-02:/converting-directory-of-ipynb-to-pdfs.html</id><summary type="html">&lt;p&gt;&lt;img alt="Image Showing Icons for converting from Jupyter to PDF files" src="//colbrydi.github.io/images/Jupyter2PDF.png"&gt;&lt;/p&gt;
 &lt;p&gt;I wanted to share the content for one of my courses with some other instructors but it turns out not everyone uses Jupyter notebooks.  &lt;/p&gt;
@@ -211,7 +217,6 @@ mkdir -p PDF
 open CMSE314.pdf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Once I got the bash script working I decided a Makefile would be better&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;IPYNB_FILES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;wildcard *.ipynb&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;span class="nv"&gt;PDF_FILES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;patsubst %.ipynb, PDF/%.pdf, &lt;span class="k"&gt;$(&lt;/span&gt;IPYNB_FILES&lt;span class="k"&gt;))&lt;/span&gt;
@@ -235,7 +240,6 @@ open CMSE314.pdf
         rm -rf HTML
         rm -rf PDF
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).&lt;/p&gt;
 &lt;p&gt;Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.&lt;/p&gt;</content><category term="Professional"></category><category term="Accessibility"></category><category term="Teaching"></category></entry><entry><title>Live Closed Captioning</title><link href="https://colbrydi.github.io/live-closed-captioning.html" rel="alternate"></link><published>2020-01-26T00:00:00-05:00</published><updated>2020-01-26T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2020-01-26:/live-closed-captioning.html</id><summary type="html">&lt;p&gt;&lt;img alt="Picture of me writing on the white board with live closed captioning" src="//colbrydi.github.io/images/CC_example.png"&gt;&lt;/p&gt;
@@ -275,23 +279,19 @@ To get this to work I am using &lt;a href="https://support.google.com/docs/answe
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;xeyes
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;h3&gt;Step 2: Install ImageJ&lt;/h3&gt;
 &lt;p&gt;For this step I recommend installing &lt;a href="https://fiji.sc/"&gt;Fiji&lt;/a&gt; (Fiji is just ImageJ) which a little easier to use than ImageJ proper.  For one thing it makes installing a few plug-ins much easier.&lt;/p&gt;
 &lt;p&gt;Download the 64-bit installer into your home directory on the HPCC.  Go to the &lt;a href="//imagej.net/Fiji/Downloads"&gt;Fiji&lt;/a&gt; website to get a URL link to the latest version.  Once you have the URL you can run the following command on an HPC Development node:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;After the file has downloaded you just need to unzip the file using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;unzip fiji-linux64.zip
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Test ImageJ using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;~/Fiji.app/ImageJ-linux64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;The first time running it will ask if you want to run the "updater." I would recommend doing this.&lt;/p&gt;
 &lt;h3&gt;Step 3: Install needed plugins&lt;/h3&gt;
@@ -301,7 +301,6 @@ To get this to work I am using &lt;a href="https://support.google.com/docs/answe
 &lt;p&gt;If you want to just do a quick test I recmmend making a macro with just a "hello world" print command as follows:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;print(hello world);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Save the file as &lt;code&gt;myMacro.ijm&lt;/code&gt;&lt;/p&gt;
 &lt;h3&gt;Step 5: Submit the macro to the scheduler&lt;/h3&gt;
@@ -320,11 +319,9 @@ srun ~/Fiji.app/ImageJ-linux64 --headless --memory&lt;span class="o"&gt;=&lt;/sp
 js &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;If we call the above script &lt;code&gt;runFiji.sb&lt;/code&gt; then you can submit the job to the SLURM scheduler using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sbatch runFiji.sb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;That should be it. You can change the required memory or the amount of time it takes to run.  &lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category></entry><entry><title>CMSE Presentation at SC19</title><link href="https://colbrydi.github.io/cmse-presentation-at-sc19.html" rel="alternate"></link><published>2019-11-17T00:00:00-05:00</published><updated>2019-11-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-11-17:/cmse-presentation-at-sc19.html</id><summary type="html">&lt;p&gt;&lt;img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"&gt;&lt;/p&gt;
 &lt;p&gt;I just got out of giving a presentation about the CMSE department as part of the &lt;a href="https://sc19.supercomputing.org/session/?sess=sess104"&gt;Sixth SC Workshop on Best Practices for HPC Training and Education (BPHTE19)&lt;/a&gt; workshop at &lt;a href="https://sc19.supercomputing.org/"&gt;SC19&lt;/a&gt;. It was fun to show people what we are doing in CMSE and share our progress.  &lt;a href="//colbrydi.github.io/images/SC19_bphpcte_Colbrydi.pdf"&gt;Here is a …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="SC19 Logo" src="https://sc19.supercomputing.org/app/uploads/2018/11/ogimage_1200.png"&gt;&lt;/p&gt;
@@ -411,7 +408,6 @@ The use of technology in research is becoming ubiquitous as low cost programmabl
 &lt;span class="err"&gt;331582-372818 - Joe Taylor - Jan 19, 2019 320 PM - HW1.tgz&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;For many of the topics we cover (mostly programming) these filenames are not easy to use.  In my classes student often submit files that need to work together with given file names (everything after the final dash).  I wrote the following program to convert the directory of complex filenames into folders. A separate folder for each student with the files in the folder:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="nv"&gt;files&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;ls&lt;span class="sb"&gt;`&lt;/span&gt;
@@ -427,12 +423,10 @@ find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Sam Smith&lt;/span&gt;
 &lt;span class="err"&gt;Nan Carpenter&lt;/span&gt;
 &lt;span class="err"&gt;Joe Taylor&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Each directory contains that student's files. For example the &lt;code&gt;Joe Taylor&lt;/code&gt; folder will have:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;HW1.ipynb&lt;/span&gt;
@@ -440,7 +434,6 @@ find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span
 &lt;span class="err"&gt;short.mp4&lt;/span&gt;
 &lt;span class="err"&gt;HW1.tgz&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;I hope you find this script useful.&lt;/p&gt;</content><category term="Professional"></category><category term="Teaching"></category></entry><entry><title>Accessibility of Jupyter for Impaired Individuals</title><link href="https://colbrydi.github.io/accessibility-of-jupyter-for-impaired-individuals.html" rel="alternate"></link><published>2019-04-05T00:00:00-04:00</published><updated>2019-04-05T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2019-04-05:/accessibility-of-jupyter-for-impaired-individuals.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Asha in front of her poster" hspace="10" src="//colbrydi.github.io/images/AshaPoster.jpeg" width="200,"&gt;&lt;/p&gt;
 &lt;p&gt;This poster presents work by CMSETech Intern, Ahsa Shekar and her work on finding ways to make Jupyter More accessible.  &lt;/p&gt;
@@ -466,16 +459,13 @@ find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sacctmgr show association account=cmse&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;If I want to &lt;strong&gt;add&lt;/strong&gt; someone to the CMSE buy-in account I just do the following:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sacctmgr add user account=cmse name=colbrydi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Then if I want to &lt;strong&gt;delete&lt;/strong&gt; someone from he CMSE buy-in account is just as easy:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sacctmgr delete user account=cmse name=colbrydi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;The HPCC staff also provides the following useful powertools that users can access by running &lt;code&gt;module load powertools&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;priority_status&lt;/strong&gt; or &lt;strong&gt;buyin_status&lt;/strong&gt; - equivalent commands that shows all of your buy-in nodes and who is currently running on them.&lt;/p&gt;
@@ -486,11 +476,9 @@ find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span
 &lt;span class="err"&gt;#SBATCH --account=cmse&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Many of our people want to use the Volta over Jupyterhub run though the &lt;a href="https://webrdp.hpcc.msu.edu"&gt;webrdp&lt;/a&gt; website.  To do this, you would log into &lt;a href="https://webrdp.hpcc.msu.edu"&gt;webrdp&lt;/a&gt;, open a terminal on the &lt;a href="https://webrdp.hpcc.msu.edu"&gt;webrdp&lt;/a&gt; desktop, ssh to one of the dev nodes and then issue the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Once the job starts, you would just type &lt;code&gt;jupyter notebook&lt;/code&gt; assuming you have it installed.&lt;/p&gt;
 &lt;p&gt;Hope you find these notes useful.&lt;/p&gt;
@@ -513,7 +501,6 @@ find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rm -rf  ~/scikit_learn_data&lt;/span&gt;
 &lt;span class="err"&gt;rm -rf ~/seaborn-data&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Another good command to learn is the “dh” command.  I like to run the following in my home directory to see which of my folders are taking up the most space:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;du -sh ~/*&lt;/code&gt;&lt;/p&gt;
@@ -541,7 +528,6 @@ find . -iname &lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt; &lt;span
   &lt;span class="o"&gt;...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;When you type “make Target” on the command line you active the rule.  Then the Make program recursively activates rules to make each of the prerequisites.  If there is no rule to make a prerequisite it looks to see if the prerequisite file exists. If there is no rule and there is no file you will get an error.  However, assuming you have all the prerequisite files you need  for a rule, the Make program then runs the Recipe commands (things like gcc or whatever you want).  It is assumed that the commands will take the prerequisites as inputs and generate the target file (this is not always the case).
 That is basically it.  Some more things to note:
 *   If you just type “make” (with no target) the Make command assumes you are trying to make the first rule in the file.
@@ -560,14 +546,12 @@ That is basically it.  Some more things to note:
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install graphviz&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Once graphviz is installed you need to create a text file with the connections.  This …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="vim system diagram" src="//colbrydi.github.io/images/vim.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This quick tutorial shows provides basic instructions for generating the above graph using &lt;a href="https://www.graphviz.org/"&gt;Graphviz&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.graphviz.org/"&gt;&lt;img alt="Graphviz" src="https://graphviz.gitlab.io/_pages/Resources/app.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If you already have Anaconda installed on your system, you can quickly install graphviz using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install graphviz&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the &lt;code&gt;-&amp;gt;&lt;/code&gt; to indicate a directed link and a &lt;code&gt;--&lt;/code&gt; to indicate a bi-directional link:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;digraph G {&lt;/span&gt;
@@ -580,11 +564,9 @@ That is basically it.  Some more things to note:
 &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Once you have the file you can make an image using the following &lt;code&gt;dot&lt;/code&gt; command (dot is one of the commands installed by Graphviz)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;dot -Tpng test.dot -ovim.png&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Just for fun, I tried my dot file with the other tools provided with Graphviz (twopim, sfdp, neato, osage, fdp, circo and patchwork).  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="twopim" src="//colbrydi.github.io/images/twopi.jpg"&gt;
@@ -1935,7 +1917,6 @@ rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
 scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="c1"&gt;#SBATCH --time=00:10:00&lt;/span&gt;
@@ -1967,7 +1948,6 @@ rm &lt;span class="nv"&gt;$display_file&lt;/span&gt;
 &lt;span class="c1"&gt;# Report job statistics&lt;/span&gt;
 scontrol show job &lt;span class="nv"&gt;$SLURM_JOB_ID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Hope you find this useful.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category></entry><entry><title>How do we know what we don't know we don't know?</title><link href="https://colbrydi.github.io/how-do-we-know-what-we-dont-know-we-dont-know.html" rel="alternate"></link><published>2018-12-07T00:00:00-05:00</published><updated>2018-12-07T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2018-12-07:/how-do-we-know-what-we-dont-know-we-dont-know.html</id><summary type="html">&lt;p&gt;&lt;img align="right," alt="Education2035" hspace="10" src="//colbrydi.github.io/images/Education2035.jpg" width="100%,"&gt;&lt;/p&gt;
 &lt;p&gt;Faculty at MSU conducted a workshop to brainstorm and discuss ways we can try and foresee how education will be changed by technology in an effort to get ahead of the changes and make sure our teaching goals and values stay intact.&lt;/p&gt;
@@ -2077,19 +2057,16 @@ A number of professional skills training programs and resources have been develo
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;h2&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; Install anaconda using the defaults&lt;/h2&gt;
 &lt;p&gt;Run the downloaded script in bash using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bash ./Anaconda3-5.2.0-Linux-x86_64.sh&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;The last question will ask you to add the anaconda folder to your bashrc file. Say yes...&lt;/p&gt;
 &lt;h2&gt;&lt;strong&gt;Step 3:&lt;/strong&gt; Install RStudio&lt;/h2&gt;
 &lt;p&gt;Use the conda install command to install RStudio.  Note you may need to run &lt;code&gt;source ~/.bashrc&lt;/code&gt; first to update your path:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;conda install rstudio&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;That should be it, RStudio is now installed in your home directory on the HPCC.  The only other thing you will need is a X11 server.  Assuming you have connected to the hpcc with an X11 connection you can run rstudio from the command line by typing:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rstudio&lt;/span&gt;
@@ -2223,7 +2200,6 @@ problem.&lt;/p&gt;
     mpirun mycommand
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     PID=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to see if the job is running
@@ -2246,7 +2222,6 @@ qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&l
 #return the output of the main program
 exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;strong&gt;output_monitor_example.qsub&lt;/strong&gt;&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -2276,7 +2251,6 @@ exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
     mpirun mycommand &amp;gt; &lt;span class="nv"&gt;$testfile&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     PID=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to start generating output
@@ -2305,7 +2279,6 @@ qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&l
 exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;strong&gt;qstat_monitor_example.qsub&lt;/strong&gt;&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -2330,7 +2303,6 @@ exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
     mpirun mycommand
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     PID=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to start generating output
@@ -2358,7 +2330,6 @@ qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&l
 #return the output of the main program
 exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;These solutions are nice work arounds because, if it works, the scripts just
 restarts your job until it runs and gets the research done. However, using
@@ -2468,7 +2439,6 @@ users who prefer zsh over bash.&lt;/p&gt;
 &lt;span class="n"&gt;compdef&lt;/span&gt; &lt;span class="n"&gt;_jshow_complete&lt;/span&gt; &lt;span class="n"&gt;showstart&lt;/span&gt; &lt;span class="n"&gt;jdel&lt;/span&gt; &lt;span class="n"&gt;checkjob&lt;/span&gt; &lt;span class="n"&gt;qstat&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;This code should work on any system that used PBS Torque.&lt;/p&gt;
 &lt;p&gt;I hope you find it useful,&lt;/p&gt;
 &lt;ul&gt;
@@ -2533,7 +2503,6 @@ problem.&lt;/p&gt;
     mpirun mycommand
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     PID=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to see if the job is running
@@ -2556,7 +2525,6 @@ qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&l
 #return the output of the main program
 exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;strong&gt;output_monitor_example.qsub&lt;/strong&gt;&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -2586,7 +2554,6 @@ exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
     mpirun mycommand &amp;gt; &lt;span class="nv"&gt;$testfile&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     PID=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to start generating output
@@ -2615,7 +2582,6 @@ qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&l
 exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;strong&gt;qstat_monitor_example.qsub&lt;/strong&gt;&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -2640,7 +2606,6 @@ exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
     mpirun mycommand
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     PID=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to start generating output
@@ -2668,7 +2633,6 @@ qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&l
 #return the output of the main program
 exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;These solutions are nice work arounds because, if it works, the scripts just
 restarts your job until it runs and gets the research done. However, using
@@ -2782,7 +2746,6 @@ users who prefer zsh over bash.&lt;/p&gt;
 
 &lt;span class="n"&gt;compdef&lt;/span&gt; &lt;span class="n"&gt;_jshow_complete&lt;/span&gt; &lt;span class="n"&gt;showstart&lt;/span&gt; &lt;span class="n"&gt;jdel&lt;/span&gt; &lt;span class="n"&gt;checkjob&lt;/span&gt; &lt;span class="n"&gt;qstat&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;This code should work on any system that used PBS Torque.&lt;/p&gt;
 &lt;p&gt;I hope you find it useful,&lt;/p&gt;
@@ -3118,7 +3081,6 @@ matlab -nodisplay -r &lt;span class="s2"&gt;&amp;quot;makeAVI&amp;quot;&lt;/span
 qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Running this script will give me an error that says "Display not found." The
 following script is modified to start Xvfb at the beginning, run the same
 basic command and then terminate Xvfb at the end:&lt;/p&gt;
@@ -3186,7 +3148,6 @@ rm -f  /tmp/.X11-lock
 qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Please note that the -nodisplay option was removed from the MATLAB command
 line in the second script&lt;/p&gt;
 &lt;p&gt;An working example of this script can be downloaded on the HPCC using the
@@ -3198,7 +3159,6 @@ example:&lt;/p&gt;
 &lt;span class="err"&gt;cd MATLAB_movie&lt;/span&gt;
 &lt;span class="err"&gt;qsub makeAVI.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;ul&gt;
 &lt;li&gt;Dirk&lt;/li&gt;
@@ -3292,7 +3252,6 @@ cfx5solve -def mymodel.def -start-method &lt;span class="s1"&gt;&amp;#39;Platfor
 qstat -f &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Users should consider changing the &lt;strong&gt;walltime&lt;/strong&gt; , &lt;strong&gt;nodes&lt;/strong&gt; and &lt;strong&gt;def file&lt;/strong&gt;
 to get this to work for their program.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/07/30/Running+ANSYS+CFX5+solver+on+the+HPCC"&gt;View
@@ -3358,19 +3317,16 @@ example command:&lt;/p&gt;
 &lt;span class="err"&gt;getexample XSEDE_MPI_WORKSHOP&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Step 2:&lt;br&gt;
 Compile the code using "mpicc" or "mpif90":&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;mpicc ex1.c&lt;/span&gt;
 &lt;span class="err"&gt;mpif90 ex1.f&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Step 3:&lt;br&gt;
 Run the code in the command line using same command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;mpirun -np 4 ./a.out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Step 4:&lt;br&gt;
 Write a submission script and run the job on the cluster:&lt;/p&gt;
@@ -3393,12 +3349,10 @@ mpirun ./a.out
 qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Step 5:&lt;br&gt;
 Submit the job using the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qsub myjob.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/06/17/Running+the+XSEDE+MPI+workshop+examples+on+the+HPCC"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
@@ -3449,14 +3403,12 @@ are in a directory called MyMacro. When I execute RunJavaOnly.sh I get:&lt;/p&gt
 &lt;span class="n"&gt;Plugin&lt;/span&gt; &lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;double&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bonej&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ParticleCounter&lt;/span&gt; &lt;span class="n"&gt;did&lt;/span&gt; &lt;span class="k"&gt;not&lt;/span&gt; &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;javax&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;j3d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Shape3D&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;And when I execute ./runmacro.sh I get:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;runmacro&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
 
 &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;span class="n"&gt;Unrecognized&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="n"&gt;Fast&lt;/span&gt; &lt;span class="n"&gt;Filters&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;h3&gt;Fixes&lt;/h3&gt;
 &lt;h5&gt;RunJavaOnly.sh&lt;/h5&gt;
@@ -3469,13 +3421,11 @@ ImageJ in you home directory.&lt;/p&gt;
 &lt;span class="err"&gt;tar -zxf ij146-linux64.tar.gz&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;2. Delete the old version of ImageJ and copy the new version to your MyMacro
 directory. Assuming that MyMacro is also in your home directory:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rm MyMacro/ij-1.45q.jar&lt;/span&gt;
 &lt;span class="err"&gt;cp ImageJ/ij.jar MyMacro/ij.jar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;3. Edit the RunJavaOnly.sh script. Java needs to know where to find the
 libj3dcore-ogl.so shared object file (it's in the
@@ -3488,12 +3438,10 @@ look like:&lt;/p&gt;
 java -Xmx8000m -Dplugins.dir&lt;span class="o"&gt;=&lt;/span&gt;./plugins/ -Djava.library.path&lt;span class="o"&gt;=&lt;/span&gt;/opt/software/Java3D/lib/amd64 -jar ./ij.jar &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;4. Edit the MyMacro/ij.jar/META-INF/MANIFEST.MF file. Java needs to know
 where to find Java3D classes. Add the following line to the end of the file:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;Class-Path: /opt/software/Java3D/lib/ext/j3dcore.jar /opt/software/Java3D/lib/ext/j3dutils.jar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;If this continues to create problems, you can also try adding
 /opt/software/Java3D/lib/ext/vecmath.jar to the Class-Path. At this point I
@@ -3506,13 +3454,11 @@ supposed to do, so Dirk should test this.&lt;/p&gt;
 java -Xmx8000m -Dplugins.dir&lt;span class="o"&gt;=&lt;/span&gt;./plugins/ -jar ./ij.jar -macro ./SplitLargePiece.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Runs for awhile. Don't get the 3D Fast Filters error. Get the following errors
 instead:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;No window with the title &amp;quot;particleID_parts&amp;quot; found.&lt;/span&gt;
 &lt;span class="err"&gt;This command requires a stack.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/05/06/Working+with+ImageJ+plugins+on+the+HPCC"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
@@ -3571,12 +3517,10 @@ Python by typing the following:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module list&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;As of writing this post, my default was set to Python/2.7.2. If you need
 another vision you can see what is available by typing the following:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module spider Python&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;To load a different version of python use the "module unload" and "module
 load" commands. For example the following will switch from the default version
@@ -3585,19 +3529,16 @@ of Python to 2.6.7:&lt;/p&gt;
 &lt;span class="err"&gt;module load Python/2.6.7&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; use system modules to load existing Python related software. Many
 Python packages are already installed and can be loaded using the module
 system. Use the following command to list all available modules:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module avail&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Since most of the Python modules have the word "py" in them so you can use the
 spider command to see what is installed:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module spider py&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Once you know what is available, you can load the modules using "module load"
 command. For example:&lt;/p&gt;
@@ -3606,7 +3547,6 @@ command. For example:&lt;/p&gt;
 &lt;span class="err"&gt;module load PIL&lt;/span&gt;
 &lt;span class="err"&gt;module load matplotlib&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt; at this point you can make your own virtual Python environment.
 This environment lets you install packages using easy_install and pip in your
@@ -3618,7 +3558,6 @@ create and activate a virtual environment:&lt;/p&gt;
 &lt;span class="err"&gt;source myPy/bin/activate&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;After running the source command, you should see your normal command prompt
 with a (myPy) in front of it. This tells you, that you are running in the myPy
 virtual environment.&lt;/p&gt;
@@ -3628,12 +3567,10 @@ example, the following command installed a redditanalysis package:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;easy_install redditanalysis&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;strong&gt;Step 5:&lt;/strong&gt; Once you have everything installed test out your program. If you
 need to leave the Python virtual environment just type the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;deactivate&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;If you log out of the system and log back in, you can reactivate the virtual
 environment as before. Just make sure you load the modules you need:&lt;/p&gt;
@@ -3643,7 +3580,6 @@ environment as before. Just make sure you load the modules you need:&lt;/p&gt;
 &lt;span class="err"&gt;module load matplotlib&lt;/span&gt;
 &lt;span class="err"&gt;source myPy/bin/activate&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;strong&gt;Submission Scripts&lt;/strong&gt;&lt;br&gt;
 Now that you have your own version of Python running, you will want to use it
@@ -3681,7 +3617,6 @@ python mypythonscript.py
 qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="example"></category><category term="Migration"></category></entry><entry><title>2013-02-19 Campus Champion Fellows Presentation</title><link href="https://colbrydi.github.io/2013-02-19-campus-champion-fellows-presentation.html" rel="alternate"></link><published>2013-02-19T00:00:00-05:00</published><updated>2013-02-19T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2013-02-19:/2013-02-19-campus-champion-fellows-presentation.html</id><summary type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
@@ -3882,7 +3817,6 @@ install exFAT on the Lubuntu machine:&lt;/p&gt;
 &lt;span class="err"&gt;sudo apt-get install fuse-exFAT exFAT-utils&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;strong&gt;Option 2&lt;/strong&gt;. Duel partition the USB drive with one exFAT drive (Formatted on
 windows) and one FAT32 drive for the data.&lt;/p&gt;
 &lt;p&gt;Seems like a lot of work and I would need to switch to the disk duplicate tool
@@ -3942,7 +3876,6 @@ window:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;       man ffmpeg&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Use arrow …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;ffmpeg can be used to crop the start and end times of a video sequece. Use the
@@ -3950,7 +3883,6 @@ following command to read though the ffmpeg help message in the terminal
 window:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;       man ffmpeg&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Use arrow keys to move the text up and down and use 'q' key to quit. The two
 options we are interested in are as follows:&lt;/p&gt;
@@ -3965,11 +3897,9 @@ options we are interested in are as follows:&lt;/p&gt;
    &lt;span class="ss"&gt;&amp;quot;hh:mm:ss[.xxx]&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;The following command should trim out the interesting area of the video:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;     ffmpeg -i ChamC_Jul12_2011_LB3.MOV -ss  &amp;quot;00:01:40&amp;quot; -t 23 ChamC_Jul12_2011_LB3.mpg&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;That worked for me but the quality is not right. I did some more searching of
 the ffmpeg man page and came up with the following item that will impact
@@ -3978,11 +3908,9 @@ quality:&lt;/p&gt;
 &lt;span class="err"&gt;   Use same video quality as source (implies VBR).&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;This seems to work better:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;     ffmpeg -i ChamC_Jul12_2011_LB3.MOV -ss  &amp;quot;00:01:40&amp;quot; -t 23 -sameq ChamC_Jul12_2011_LB3.mpg&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/11/01/ffmpeg+to+select+video+sequences"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
@@ -4104,7 +4032,6 @@ feature= command. For example the following will only run on the intel10 node:&l
 &lt;span class="c1"&gt;#Your stuff here...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;You can also specifiy multipule architechtures using the PIPE (OR) charicture.
 For example the following will run on the intel07 or the intel10 nodes:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -4122,7 +4049,6 @@ For example the following will run on the intel07 or the intel10 nodes:&lt;/p&gt
 &lt;span class="c1"&gt;#Your stuff here...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Unfortunately, as far as I can tell, the gfx10 nodes will not work using the
 OR syntax. This is probably because the gfx10 nodes also use a different
 network fabric (gbe) and I have not figured out the way use more complex logic
@@ -4144,7 +4070,6 @@ nodes the user needs to change the jobs to add the feature=gbe option
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qalter -l feature=gbe $PBS_JOBID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Unfortunately,the qalter command modifies jobs in the resource manager but the
 job is waiting on the scheduler. I had hoped that the scheduler would talk to
 the resouce manager and update the properties but this did not happen. After
@@ -4152,7 +4077,6 @@ talking with others in the office we found the command to alter jobs in the
 scheduler:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt; mjobctl -m feature=gbe $PBS_JOBID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;This worked great and propagated all changes to the resource manager. I wrote
 a quick script to change all nodes currently pending in the queue to accept
@@ -4170,7 +4094,6 @@ add this change:&lt;/p&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;I added a qalter_all_gbe command to powertools to help users do the same thing
 on the hpcc.&lt;/p&gt;
 &lt;ul&gt;
@@ -4874,13 +4797,11 @@ stata-se -b &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;dofile&
 &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Obviously a user needs to modify the script to fit their need (this one was
 designed to work with stata). To start the script you can just issue the
 following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qsub -t 1-149 FilesAsSemaphores.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;This will start 149 jobs working. When each job is done it will start another
 job until all of the input files have been processed. This script could easily
@@ -4995,7 +4916,6 @@ cat &lt;span class="nv"&gt;$PBS_ARRAYID&lt;/span&gt;.md5sum
 longjob ./NKprob.sh &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_ARRAYID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Unfortunately, all this test showed me was that the difference in the
 /usr/lib/locale/locale-archive files was not the problem I am debugging
 (although it could be another problem).&lt;/p&gt;
@@ -5032,7 +4952,6 @@ automaticlly log you into a random dev node. Give it a try:&lt;/p&gt;
 &lt;span class="err"&gt;        /opt/software/powertools/bin/dev&lt;/span&gt;
 &lt;span class="err"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;ul&gt;
 &lt;li&gt;Dirk&lt;/li&gt;
@@ -5126,7 +5045,6 @@ I was not aware of. When running my makefile I saw the following lines appear:&l
 &lt;span class="err"&gt;chmod a+x build&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;I could not find any part of the makefile that used either the cat or the
 chmod command yet it seemed to work. Upon further testing I discovered that
 Make will automatically convert a shell script to an executable. For example,
@@ -5141,7 +5059,6 @@ consider the following makefile&lt;/p&gt;
     &lt;span class="n"&gt;rm&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;This code seems streatforward but there is no rule to build test and my clean
 removes test. However, the script works fine if I include the following in the
 same directory:&lt;/p&gt;
@@ -5153,7 +5070,6 @@ same directory:&lt;/p&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is a test!!!!, Hello world&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Now when I run make, I get the following output:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt;make&lt;/span&gt;
 &lt;span class="err"&gt;cat test.sh &amp;gt;test&lt;/span&gt;
@@ -5161,7 +5077,6 @@ same directory:&lt;/p&gt;
 &lt;span class="err"&gt;./test&lt;/span&gt;
 &lt;span class="err"&gt;This is a test!!!!, Hello world&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;This is a really neat feature but it threw me for a loop.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/05/Makefile+Mystery"&gt;View
@@ -5231,12 +5146,10 @@ from a tar.gz file). Use the following command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git pull /mnt/home/colbrydi/UserCode/greerjos/powertools master&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Check the changes and then upload them to the external repository:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;git log&lt;/span&gt;
 &lt;span class="err"&gt;git push&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/01/26/Playing+around+with+git"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
@@ -5373,7 +5286,6 @@ module load cctools
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;h1&gt;Option 2: Schedule a large job and use pbsdsh to call the worker nodes.&lt;/h1&gt;
 &lt;p&gt;This option can be used if the system is not set up to schedule jobs from the
 compute nodes. It has the added benefit of starting immediately. However, the
@@ -5467,7 +5379,6 @@ module load cctools
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;h1&gt;Option 3: Combine Options 1 &amp;amp; 2&lt;/h1&gt;
 &lt;p&gt;The third option is to combine Options 1 &amp;amp; 2 together. This way the job can
 get started right away and grow as additional workers get added to the queue.&lt;/p&gt;
@@ -5578,7 +5489,6 @@ module load cctools
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Future Work&lt;/p&gt;
 &lt;p&gt;I need to be careful with this script because I have not tested the behavior
 when two master jobs end up getting scheduled on the same node and use the
@@ -5657,7 +5567,6 @@ qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&
 &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;$ret&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;To get longjob to work, the following modificaitons need to be made:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Adjust the walltime to be shorter (I suggest 4 hours or less).&lt;/li&gt;
@@ -5745,7 +5654,6 @@ qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&
 &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;$ret&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;If everything works as expected, you should be able to qsub the above file and
 it will resubmit itself every four hours until the job completes. Note, this
 is a work in progress and I have not tested all cases. For example, one case
@@ -5808,7 +5716,6 @@ for an example) using syntax such as the following:&lt;/p&gt;
 v2=`echo &amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_ARRAYID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; / &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; | bc`
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;However, this code can quickly get out of hand as you get bigger sets. One
 simple alternative is to just make a file that contains a list of all of the
 variations that you want to run of your command. For example, say you need to
@@ -5826,7 +5733,6 @@ run the following programs with various different inputs:&lt;/p&gt;
 &lt;span class="err"&gt;./myotherporgram&lt;/span&gt;
 &lt;span class="err"&gt;./mythirdprogram&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;It is fairly easy to make a program to generate your command list or even use
 something like excell to generate different input parameters. Then, assuming
@@ -5861,13 +5767,11 @@ array:&lt;/p&gt;
 qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;You should make sure that the array length is the same size as the number of
 lines in your commands.txt file. One way to do this is to submit the job as
 follows:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qsub -t 1-`cat commands.txt | wc -l` jobarray.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Hope you find this useful,&lt;/p&gt;
 &lt;ul&gt;
@@ -5915,7 +5819,6 @@ patient if the system is busy.&lt;/p&gt;
 &lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Configuring&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;binaries&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="k"&gt;First&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nc"&gt;time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;completed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;successfully&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;At which point the GUI/ Window will start. It will ask you a question about
 which directories you'd like to use. Please change the scratch folder:&lt;/p&gt;
@@ -5984,7 +5887,6 @@ chmod &lt;span class="m"&gt;777&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&
 hfss -ng -monitor -distributed -machinelist &lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_NUM_NODES&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -batchoptions &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;OptFile&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -BatchSolve &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBNAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.hfss
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/06/08/HFSS+script"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/06/08/HFSS+script"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="example"></category><category term="Migration"></category></entry><entry><title>Monitoring Job overutilization</title><link href="https://colbrydi.github.io/monitoring-job-overutilization.html" rel="alternate"></link><published>2011-04-28T00:00:00-04:00</published><updated>2011-04-28T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2011-04-28:/monitoring-job-overutilization.html</id><summary type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
@@ -6077,7 +5979,6 @@ sleep &lt;span class="m"&gt;60&lt;/span&gt;
      &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Killed &lt;/span&gt;&lt;span class="nv"&gt;$PID&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;) &amp;amp;
     wpid=$!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;#Wait for job to complete
@@ -6089,7 +5990,6 @@ kill &lt;span class="nv"&gt;$wpid&lt;/span&gt;
 #Display all the stats for the job
 qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/04/28/Monitoring+Job+overutilization"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
@@ -6287,7 +6187,6 @@ qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&
 &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;254&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;The job will keep submitting itself until the code exits successfully.&lt;/p&gt;
 &lt;p&gt;Some limitations of this script include:&lt;/p&gt;
 &lt;ul&gt;
@@ -6328,7 +6227,6 @@ account:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; svn checkout https://avida.devosoft.org/svn/stable&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Then I modified the build_avida script …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;Today I figured got a condor_compile version of
@@ -6337,7 +6235,6 @@ installation of a new plugin"&lt;/p&gt;
 account:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; svn checkout https://avida.devosoft.org/svn/stable&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Then I modified the build_avida script as follows:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;build_avida&lt;/strong&gt;&lt;/p&gt;
@@ -6356,13 +6253,11 @@ make -j &lt;span class="m"&gt;10&lt;/span&gt;
 make install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;Then I run the build script using the following commands:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; module load cmake&lt;/span&gt;
 &lt;span class="err"&gt;&amp;gt; ./build_avida&lt;/span&gt;
 &lt;span class="err"&gt;&amp;gt; ./run_tests&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Once Avida builds and tests successfully I write a condor script&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;avida.condor&lt;/strong&gt;&lt;/p&gt;
@@ -6400,13 +6295,11 @@ make install
 &lt;span class="n"&gt;queue&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Make an output directory and submit the job to the condor scheduler using the
 following commands:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; mkdir /home/ba01/u124/dcolbry/avida_condor/work/output&lt;/span&gt;
 &lt;span class="err"&gt;&amp;gt; condor_submit avida.condor&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;That did it for me.&lt;/p&gt;
 &lt;ul&gt;
@@ -6439,17 +6332,14 @@ module load matlab
 matlab -nodisplay -r &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBNAME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;This is a qsub wrapper script that allows you to specify the name of the
 MATLAB script as the name of the job. To run the script just type:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qsub -N myScriptName runMatlab.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Then when you want to run a different script you can type:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qsub -N myDifferentScript runMatlab.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Make sure you do not include the ".m" in the script name. Since command line
 resource request override requests in the script, it is possible to also
@@ -6457,7 +6347,6 @@ change the resources from the command line. For example, if you have a really
 short test you need to run you can do the following:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qsub -N myquicktest -l walltime=00:05:00 runMatlab.qsub&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This above only works for MATLAB scripts (i.e. no input arguments)
 and not functions.&lt;/p&gt;
@@ -6506,7 +6395,6 @@ nodes=16:ppn=2, the job's PBS_NODEFILE could look like the following:&lt;/p&gt;
 &lt;span class="err"&gt;scw-006&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;If you run using the -pernode option, the job will run on the following nodes:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;afn-000&lt;/span&gt;
 &lt;span class="err"&gt;afn-002&lt;/span&gt;
@@ -6516,7 +6404,6 @@ nodes=16:ppn=2, the job's PBS_NODEFILE could look like the following:&lt;/p&gt;
 &lt;span class="err"&gt;scw-094&lt;/span&gt;
 &lt;span class="err"&gt;scw-006&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;However, this may be a problem depending on the type of job you are running.
 The pernode option may not run the number of nodes asked for by the job script
@@ -6622,7 +6509,6 @@ job:&lt;/p&gt;
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;To use this command you can add the following to your submission script:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;pernodetest.qsub&lt;/strong&gt;&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -6638,7 +6524,6 @@ job:&lt;/p&gt;
 mpiexec -comm none -conf &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt;.cfg
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
 &lt;p&gt;This script will output the following nodes which is may be more correct
 depending on your job:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;afn-000&lt;/span&gt;
@@ -6658,7 +6543,6 @@ depending on your job:&lt;/p&gt;
 &lt;span class="err"&gt;scw-094&lt;/span&gt;
 &lt;span class="err"&gt;scw-006&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Email me if you find this helpful,&lt;/p&gt;
 &lt;ul&gt;
@@ -6703,14 +6587,12 @@ command:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qhold JOBID#&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Suspending the complex jobs allows my single core job to move to the eligible
 queue and be able to run. I can then immediately run the queue resume command
 (qrls) and the complex jobs move back into the queue, behind the single core
 job. To resume a suspended job in the queue:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;qrls JOBID#&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Just for fun, I quickly came up with the following scripts that can help move
 a job to either the top or the bottom of a users eligible queue:&lt;/p&gt;
@@ -6741,7 +6623,6 @@ qrls `qselect -s H -u &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&g
 showjobs
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;strong&gt;move2bot&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="c1"&gt;--login&lt;/span&gt;
 &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;DESCRIPTION&lt;/span&gt; &lt;span class="k"&gt;Move&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;job&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;bottom&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;eligble&lt;/span&gt; &lt;span class="n"&gt;queue&lt;/span&gt;
@@ -6766,14 +6647,12 @@ showjobs
 &lt;span class="n"&gt;showjobs&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;I put copies of these scripts in the powertools module. To use them just type
 the following in one of the developer nodes:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;module load powertools&lt;/span&gt;
 &lt;span class="err"&gt;move2top JOBID&lt;/span&gt;
 &lt;span class="err"&gt;move2bot JOBID&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 
 &lt;p&gt;Hope you find this useful,&lt;/p&gt;
 &lt;ul&gt;

@@ -76,7 +76,6 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <div class="highlight"><pre><span></span><code><span class="err">conda install graphviz</span>
 </code></pre></div>
 
-
 <p>Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the <code>-&gt;</code> to indicate a directed link and a <code>--</code> to indicate a bi-directional link:</p>
 <div class="highlight"><pre><span></span><code><span class="err">digraph G {</span>
 <span class="err"> Linux -&gt; Normal  [ label=&quot;vim&quot; ];</span>
@@ -88,11 +87,9 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <span class="err">}</span>
 </code></pre></div>
 
-
 <p>Once you have the file you can make an image using the following <code>dot</code> command (dot is one of the commands installed by Graphviz)</p>
 <div class="highlight"><pre><span></span><code><span class="err">dot -Tpng test.dot -ovim.png</span>
 </code></pre></div>
-
 
 <p>Just for fun, I tried my dot file with the other tools provided with Graphviz (twopim, sfdp, neato, osage, fdp, circo and patchwork).  They don't look as good as dot (most of them mess up the line labels) however i could see that they may be useful (and easy) for other figures:</p>
 <p><img alt="twopim" src="//colbrydi.github.io/images/twopi.jpg">

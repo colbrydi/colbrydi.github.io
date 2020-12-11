@@ -80,19 +80,16 @@ example command:</p>
 <span class="err">getexample XSEDE_MPI_WORKSHOP</span>
 </code></pre></div>
 
-
 <p>Step 2:<br>
 Compile the code using "mpicc" or "mpif90":</p>
 <div class="highlight"><pre><span></span><code><span class="err">mpicc ex1.c</span>
 <span class="err">mpif90 ex1.f</span>
 </code></pre></div>
 
-
 <p>Step 3:<br>
 Run the code in the command line using same command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">mpirun -np 4 ./a.out</span>
 </code></pre></div>
-
 
 <p>Step 4:<br>
 Write a submission script and run the job on the cluster:</p>
@@ -115,12 +112,10 @@ mpirun ./a.out
 qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>Step 5:<br>
 Submit the job using the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">qsub myjob.qsub</span>
 </code></pre></div>
-
 
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/06/17/Running+the+XSEDE+MPI+workshop+examples+on+the+HPCC">View
 Online</a></p>

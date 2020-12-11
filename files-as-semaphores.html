@@ -237,13 +237,11 @@ stata-se -b <span class="si">${</span><span class="nv">dofile</span><span class=
 <span class="nb">exit</span> <span class="nv">$RET</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>Obviously a user needs to modify the script to fit their need (this one was
 designed to work with stata). To start the script you can just issue the
 following command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">qsub -t 1-149 FilesAsSemaphores.qsub</span>
 </code></pre></div>
-
 
 <p>This will start 149 jobs working. When each job is done it will start another
 job until all of the input files have been processed. This script could easily

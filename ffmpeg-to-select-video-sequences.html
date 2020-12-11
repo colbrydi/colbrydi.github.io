@@ -77,7 +77,6 @@ window:</p>
 <div class="highlight"><pre><span></span><code><span class="err">       man ffmpeg</span>
 </code></pre></div>
 
-
 <p>Use arrow keys to move the text up and down and use 'q' key to quit. The two
 options we are interested in are as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="o">-</span><span class="n">i</span> <span class="n">filename</span>
@@ -91,11 +90,9 @@ options we are interested in are as follows:</p>
    <span class="ss">&quot;hh:mm:ss[.xxx]&quot;</span> <span class="n">syntax</span> <span class="k">is</span> <span class="n">also</span> <span class="n">supported</span><span class="p">.</span>
 </code></pre></div>
 
-
 <p>The following command should trim out the interesting area of the video:</p>
 <div class="highlight"><pre><span></span><code><span class="err">     ffmpeg -i ChamC_Jul12_2011_LB3.MOV -ss  &quot;00:01:40&quot; -t 23 ChamC_Jul12_2011_LB3.mpg</span>
 </code></pre></div>
-
 
 <p>That worked for me but the quality is not right. I did some more searching of
 the ffmpeg man page and came up with the following item that will impact
@@ -104,11 +101,9 @@ quality:</p>
 <span class="err">   Use same video quality as source (implies VBR).</span>
 </code></pre></div>
 
-
 <p>This seems to work better:</p>
 <div class="highlight"><pre><span></span><code><span class="err">     ffmpeg -i ChamC_Jul12_2011_LB3.MOV -ss  &quot;00:01:40&quot; -t 23 -sameq ChamC_Jul12_2011_LB3.mpg</span>
 </code></pre></div>
-
 
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/11/01/ffmpeg+to+select+video+sequences">View
 Online</a></p>

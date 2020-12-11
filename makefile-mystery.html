@@ -77,7 +77,6 @@ I was not aware of. When running my makefile I saw the following lines appear:</
 <span class="err">chmod a+x build</span>
 </code></pre></div>
 
-
 <p>I could not find any part of the makefile that used either the cat or the
 chmod command yet it seemed to work. Upon further testing I discovered that
 Make will automatically convert a shell script to an executable. For example,
@@ -92,7 +91,6 @@ consider the following makefile</p>
     <span class="n">rm</span> <span class="n">test</span>
 </code></pre></div>
 
-
 <p>This code seems streatforward but there is no rule to build test and my clean
 removes test. However, the script works fine if I include the following in the
 same directory:</p>
@@ -104,7 +102,6 @@ same directory:</p>
 <span class="nb">echo</span> <span class="s2">&quot;This is a test!!!!, Hello world&quot;</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>Now when I run make, I get the following output:</p>
 <div class="highlight"><pre><span></span><code><span class="err">&gt;make</span>
 <span class="err">cat test.sh &gt;test</span>
@@ -112,7 +109,6 @@ same directory:</p>
 <span class="err">./test</span>
 <span class="err">This is a test!!!!, Hello world</span>
 </code></pre></div>
-
 
 <p>This is a really neat feature but it threw me for a loop.</p>
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/05/Makefile+Mystery">View

@@ -91,12 +91,10 @@ Python by typing the following:</p>
 <div class="highlight"><pre><span></span><code><span class="err">module list</span>
 </code></pre></div>
 
-
 <p>As of writing this post, my default was set to Python/2.7.2. If you need
 another vision you can see what is available by typing the following:</p>
 <div class="highlight"><pre><span></span><code><span class="err">module spider Python</span>
 </code></pre></div>
-
 
 <p>To load a different version of python use the "module unload" and "module
 load" commands. For example the following will switch from the default version
@@ -105,19 +103,16 @@ of Python to 2.6.7:</p>
 <span class="err">module load Python/2.6.7</span>
 </code></pre></div>
 
-
 <p><strong>Step 2:</strong> use system modules to load existing Python related software. Many
 Python packages are already installed and can be loaded using the module
 system. Use the following command to list all available modules:</p>
 <div class="highlight"><pre><span></span><code><span class="err">module avail</span>
 </code></pre></div>
 
-
 <p>Since most of the Python modules have the word "py" in them so you can use the
 spider command to see what is installed:</p>
 <div class="highlight"><pre><span></span><code><span class="err">module spider py</span>
 </code></pre></div>
-
 
 <p>Once you know what is available, you can load the modules using "module load"
 command. For example:</p>
@@ -126,7 +121,6 @@ command. For example:</p>
 <span class="err">module load PIL</span>
 <span class="err">module load matplotlib</span>
 </code></pre></div>
-
 
 <p><strong>Step 3:</strong> at this point you can make your own virtual Python environment.
 This environment lets you install packages using easy_install and pip in your
@@ -138,7 +132,6 @@ create and activate a virtual environment:</p>
 <span class="err">source myPy/bin/activate</span>
 </code></pre></div>
 
-
 <p>After running the source command, you should see your normal command prompt
 with a (myPy) in front of it. This tells you, that you are running in the myPy
 virtual environment.</p>
@@ -148,12 +141,10 @@ example, the following command installed a redditanalysis package:</p>
 <div class="highlight"><pre><span></span><code><span class="err">easy_install redditanalysis</span>
 </code></pre></div>
 
-
 <p><strong>Step 5:</strong> Once you have everything installed test out your program. If you
 need to leave the Python virtual environment just type the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">deactivate</span>
 </code></pre></div>
-
 
 <p>If you log out of the system and log back in, you can reactivate the virtual
 environment as before. Just make sure you load the modules you need:</p>
@@ -163,7 +154,6 @@ environment as before. Just make sure you load the modules you need:</p>
 <span class="err">module load matplotlib</span>
 <span class="err">source myPy/bin/activate</span>
 </code></pre></div>
-
 
 <p><strong>Submission Scripts</strong><br>
 Now that you have your own version of Python running, you will want to use it
@@ -201,7 +191,6 @@ python mypythonscript.py
 qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
-
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC">View
 Online</a></p>
 <p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>

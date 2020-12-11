@@ -91,14 +91,12 @@ command:</p>
 <div class="highlight"><pre><span></span><code><span class="err">qhold JOBID#</span>
 </code></pre></div>
 
-
 <p>Suspending the complex jobs allows my single core job to move to the eligible
 queue and be able to run. I can then immediately run the queue resume command
 (qrls) and the complex jobs move back into the queue, behind the single core
 job. To resume a suspended job in the queue:</p>
 <div class="highlight"><pre><span></span><code><span class="err">qrls JOBID#</span>
 </code></pre></div>
-
 
 <p>Just for fun, I quickly came up with the following scripts that can help move
 a job to either the top or the bottom of a users eligible queue:</p>
@@ -129,7 +127,6 @@ qrls `qselect -s H -u <span class="cp">${</span><span class="n">USER</span><span
 showjobs
 </code></pre></div>
 
-
 <p><strong>move2bot</strong></p>
 <div class="highlight"><pre><span></span><code><span class="o">#/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="c1">--login</span>
 <span class="o">#</span><span class="n">DESCRIPTION</span> <span class="k">Move</span> <span class="n">a</span> <span class="n">job</span> <span class="k">to</span> <span class="n">the</span> <span class="n">bottom</span> <span class="k">of</span> <span class="n">your</span> <span class="n">eligble</span> <span class="n">queue</span>
@@ -154,14 +151,12 @@ showjobs
 <span class="n">showjobs</span>
 </code></pre></div>
 
-
 <p>I put copies of these scripts in the powertools module. To use them just type
 the following in one of the developer nodes:</p>
 <div class="highlight"><pre><span></span><code><span class="err">module load powertools</span>
 <span class="err">move2top JOBID</span>
 <span class="err">move2bot JOBID</span>
 </code></pre></div>
-
 
 <p>Hope you find this useful,</p>
 <ul>

@@ -114,7 +114,6 @@ mkdir -p PDF
 open CMSE314.pdf
 </code></pre></div>
 
-
 <p>Once I got the bash script working I decided a Makefile would be better</p>
 <div class="highlight"><pre><span></span><code><span class="nv">IPYNB_FILES</span> <span class="o">=</span> <span class="k">$(</span>wildcard *.ipynb<span class="k">)</span>
 <span class="nv">PDF_FILES</span> <span class="o">=</span> <span class="k">$(</span>patsubst %.ipynb, PDF/%.pdf, <span class="k">$(</span>IPYNB_FILES<span class="k">))</span>
@@ -138,7 +137,6 @@ open CMSE314.pdf
         rm -rf HTML
         rm -rf PDF
 </code></pre></div>
-
 
 <p>Both seem to work and get the job done. The output for the script is a little easier to read but the makefile is nice because it can be restarted (although It can't be run with the -j parallel option because of the output.pdf temporary file).</p>
 <p>Anyway, let me know if you find this helpful. I am sure there are better ways but I needed something quick.</p></div>

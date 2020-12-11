@@ -88,14 +88,12 @@ are in a directory called MyMacro. When I execute RunJavaOnly.sh I get:</p>
 <span class="n">Plugin</span> <span class="n">org</span><span class="p">.</span><span class="n">double</span><span class="p">.</span><span class="n">bonej</span><span class="p">.</span><span class="n">ParticleCounter</span> <span class="n">did</span> <span class="k">not</span> <span class="n">find</span> <span class="n">required</span> <span class="k">class</span><span class="p">:</span> <span class="n">javax</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">j3d</span><span class="o">/</span><span class="n">Shape3D</span>
 </code></pre></div>
 
-
 <p>And when I execute ./runmacro.sh I get:</p>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="o">/</span><span class="n">runmacro</span><span class="p">.</span><span class="n">sh</span>
 
 <span class="n">Error</span><span class="p">:</span>
 <span class="n">Unrecognized</span> <span class="n">command</span><span class="p">:</span> <span class="mi">3</span><span class="n">D</span> <span class="n">Fast</span> <span class="n">Filters</span>
 </code></pre></div>
-
 
 <h3>Fixes</h3>
 <h5>RunJavaOnly.sh</h5>
@@ -108,13 +106,11 @@ ImageJ in you home directory.</p>
 <span class="err">tar -zxf ij146-linux64.tar.gz</span>
 </code></pre></div>
 
-
 <p>2. Delete the old version of ImageJ and copy the new version to your MyMacro
 directory. Assuming that MyMacro is also in your home directory:</p>
 <div class="highlight"><pre><span></span><code><span class="err">rm MyMacro/ij-1.45q.jar</span>
 <span class="err">cp ImageJ/ij.jar MyMacro/ij.jar</span>
 </code></pre></div>
-
 
 <p>3. Edit the RunJavaOnly.sh script. Java needs to know where to find the
 libj3dcore-ogl.so shared object file (it's in the
@@ -127,12 +123,10 @@ look like:</p>
 java -Xmx8000m -Dplugins.dir<span class="o">=</span>./plugins/ -Djava.library.path<span class="o">=</span>/opt/software/Java3D/lib/amd64 -jar ./ij.jar <span class="p">&amp;</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>4. Edit the MyMacro/ij.jar/META-INF/MANIFEST.MF file. Java needs to know
 where to find Java3D classes. Add the following line to the end of the file:</p>
 <div class="highlight"><pre><span></span><code><span class="c">Class-Path: /opt/software/Java3D/lib/ext/j3dcore.jar /opt/software/Java3D/lib/ext/j3dutils.jar</span>
 </code></pre></div>
-
 
 <p>If this continues to create problems, you can also try adding
 /opt/software/Java3D/lib/ext/vecmath.jar to the Class-Path. At this point I
@@ -145,13 +139,11 @@ supposed to do, so Dirk should test this.</p>
 java -Xmx8000m -Dplugins.dir<span class="o">=</span>./plugins/ -jar ./ij.jar -macro ./SplitLargePiece.txt
 </code></pre></div>
 </td></tr></table>
-
 <p>Runs for awhile. Don't get the 3D Fast Filters error. Get the following errors
 instead:</p>
 <div class="highlight"><pre><span></span><code><span class="err">No window with the title &quot;particleID_parts&quot; found.</span>
 <span class="err">This command requires a stack.</span>
 </code></pre></div>
-
 
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/05/06/Working+with+ImageJ+plugins+on+the+HPCC">View
 Online</a></p>
