@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../air-conditioner-cam-replacement.html"><h1>Air Conditioner CAM Replacement</h1></a>
-Tue 25 August 2020
+            <a href="../blockscad.html"><h1>BlocksCAD</h1></a>
+Fri 11 December 2020
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,43 +75,33 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="Picture with Part number" src="../images/ACCAM-PartNum.jpg"></p>
-<p>Our house has a 2-zone heating and air conditioning system.  Today is the third time in the same number of years that one of the automated damper has broken.  The problem seems to be the CAM that triggers the limit switches inside the motor is made of a flimsy plastic and easily breaks (see following pictures).</p>
-<p><img alt="Original CAMs with a broken piece in the corner" src="../images/ACCAM-Open.jpg"></p>
-<p><img alt="Picture of the broken CAMs" src="../images/ACCAM-Broken.jpg"></p>
-<p>I decided to build 3D print a stronger CAM.  Instead of trying to replace with two adjustable CAMS my design includes one, thicker CAM which I modeled in OPENSCAD using the following code:</p>
-<div class="highlight"><pre><span></span><code>  <span class="n">difference</span><span class="p">()</span> <span class="err">{</span>
-      <span class="k">union</span><span class="p">()</span> <span class="err">{</span>
-          <span class="k">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="k">cube</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-          <span class="k">translate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">])</span> <span class="k">cube</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-          <span class="k">translate</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">])</span> <span class="k">cube</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-
-          <span class="n">rotate</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">90</span><span class="p">])</span> <span class="k">union</span><span class="p">()</span> <span class="err">{</span>
-              <span class="k">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="k">cube</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-              <span class="k">translate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">])</span> <span class="k">cube</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-              <span class="k">translate</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">])</span> <span class="k">cube</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-          <span class="err">}</span>
-          <span class="n">difference</span><span class="p">()</span> <span class="err">{</span>
-              <span class="k">scale</span><span class="p">([</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-              <span class="k">scale</span><span class="p">([</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">35</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-
-          <span class="err">}</span><span class="p">;</span>
-      <span class="err">}</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">:</span><span class="mi">65</span><span class="p">])</span> <span class="err">{</span>
-          <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">a</span><span class="p">])</span> <span class="k">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="k">scale</span><span class="p">([</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="k">true</span><span class="p">);</span>
-      <span class="err">}</span>
-  <span class="err">}</span>
-</code></pre></div>
-
-<p>Here is a picture of the final CAM design:</p>
-<p><img alt="Rendered New Part" src="../images/ACCAM-Render.png"></p>
-<p><a href="../images/AC-Cam.stl">Link to the generated STL File</a></p>
-<p>And here is the CAM put back into the moter housing:</p>
-<p><img alt="New CAM in place" src="../images/ACCAM-New.jpg"></p>
-<p>I have included the files in case someone else has the same problem.  The part number for the entire uint is "DURO DYNE C 005096".  Let me know if you find this helpful.</p></div>
+        <div><p><img alt="Picture with Part number" src="../images/Jack_AmongUs.jpg">
+<img alt="Picture with Part number" src="../images/Ken_AmongUs.jpg"></p>
+<p>I am a big fan of <a href="http://www.openscad.org/">OpenSCAD</a>, it is my goto tool for making 3D designs.  My kids have been getting into block coding like scratch and I thought, "wouldn't it be cool if there was a block code program that used OpenSCAD?" A quick google search showed me exactly that:</p>
+<p><a href="https://www.blockscad3d.com/"><img alt="BlocksCAD" src="https://www.blockscad3d.com/themes/custom/blockscad/logo.svg"></a></p>
+<p>It is a really great interface. I showed my two youngest and then challenged them to make an AmongUs figure (They are really into the game and the shapes are really interesting).  In less than a few hours (with almost no help) they cam eup with some really amazing designs. You can output the designs as stl files or scad files. Very cool!</p></div>
         <hr />
     </div>
 		
+
+
+        
+
+ 
+
+    <div class='article'>
+        <a href="../air-conditioner-cam-replacement.html"><h2>Air Conditioner CAM Replacement</h2></a>
+        <div class= "well small"> Tue 25 August 2020
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Picture with Part number" src="../images/ACCAM-PartNum.jpg"></p>
+<p>Our house has a 2-zone heating and air conditioning system.  Today is the third time in the same number of years that one of the automated damper has broken.  The problem seems to be the CAM that triggers the limit switches inside the motor is made of a flimsy plastic …</p> <a class="btn btn-info xsmall" href="../air-conditioner-cam-replacement.html">read more</a></div>
+    </div>	
+				
 
 
         
@@ -268,26 +258,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>The original cabinet had 3/4" whiteboard panels in the back and additional panels on the inside of each door:</p>
 <p><img alt="Whiteboard on door" src="../images/Whiteboards.JPG"></p>
 <p>These things were really heavy! I removed all of …</p> <a class="btn btn-info xsmall" href="../surplus-tool-cabinet.html">read more</a></div>
-    </div>	
-				
-
-
-        
-
- 
-
-    <div class='article'>
-        <a href="../sphere-o-bot-jjrobots-version.html"><h2>Sphere-O-Bot (JJRobots version)</h2></a>
-        <div class= "well small"> Sat 13 April 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img align="right," alt="Sphere-O Robot" hspace="10" src="../images/Sphereo.jpg" width="200,"></p>
-<p>So, the Sphere-O-Bot was my first (and so far only) <a href="https://www.jjrobots.com/sphere-o-bot-jjrobots-version/">JJRobots</a> project a few years ago (when I didn't have a blog).  My 3D printer was not in the best shape but I was able to get everything assembled and working.</p>
-<p>I dug out the Sphere-O-bot this week and after …</p> <a class="btn btn-info xsmall" href="../sphere-o-bot-jjrobots-version.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
