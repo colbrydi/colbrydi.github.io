@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../stl-files-to-cnc.html"><h1>STL files to CNC</h1></a>
-Sun 13 December 2020
+            <a href="../makercrate-projects.html"><h1>MakerCrate Projects</h1></a>
+Fri 05 March 2021
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,59 +75,33 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p>I purchased a discount Workbench CNC machine. I've been a 3D printing person for a while and was suprised how hard it has been to get gcode for a CNC machine.  I assumed that I could just upload something like an STL file but there are not a lot of software tools.  Or better yet, there are too many software tools and I can't figure out which ones work the best.  </p>
-<p>Part of the problem is that CNC milling is not true 3D.  Instead it is more like 2.5D, where the tool only comes in from one direction. </p>
-<p>There are lot of STl designs that should work fine in a 2.5D setting. For example, I have been fascinated by these project cards you can find on Thingiverse:</p>
-<ul>
-<li><a href="https://www.thingiverse.com/thing:4601489">Enterprise-D</a></li>
-</ul>
-<p>In this project I am exploring ways to convert these types of one-directional stl files into something I can cut using my CNC machine.  So far I am trying to use the following steps:</p>
-<ol>
-<li>Generate a depthmap from STL file using <a href="https://www.meshlab.net/">Meshlab</a> and following directions <a href="https://community.glowforge.com/t/tutorial-creating-a-depth-map-from-a-3d-model-for-3d-engraving">posted here</a>.</li>
-<li>Adjust the contrast of the depthmap to use full grayscale range. (I used preview on mac but any image processing tool should work)</li>
-<li>Generate gcode from depthmap using <a href="http://scorchworks.com/Dmap2gcode/dmap2gcode.htm">Dmap2gcode</a> python tool</li>
-<li>Review the gcode using <a href="https://nraynaud.github.io/webgcode/">g-code simulator</a></li>
-<li><a href="https://www.youtube.com/watch?v=gTUAAm0DFOQ">Hold down method for thin stock using glue and Painters tape</a></li>
-</ol>
-<h2>Step 1: STL to Depthmap</h2>
-<p>Using this <a href="https://community.glowforge.com/t/tutorial-creating-a-depth-map-from-a-3d-model-for-3d-engraving">tutorial</a> as a guild, I downloaded <a href="https://www.meshlab.net/">Meshlab</a> and imported the <a href="https://www.thingiverse.com/thing:4601489">Enterprise-D</a> stl file.  </p>
-<p>I do not use Meshlab that much so I was not sure how to set the camera view.  Fortunately the stl file loaded in the way I wanted so as long as I did not rotate it I could follow the tutorial directions and generate a depthmap.  It was a little tricky to figure out where to set the zmax and zmin values.  I tried really hard to pick settings that would show the most color contrast in the image.  </p>
-<p>I found that values near the right side of the slider seemed to work well for this stl model.</p>
-<p>When taking the image snapshot I set the background to black because I wanted to cut away the background.</p>
-<p><strong><em>Alternative to Step1:</em></strong> I found this website which seems to be much quicker and easier than using meshgrid. I can't adjust anything but the results are clean and could allow someone to skip step 2:</p>
-<ul>
-<li><a href="https://fenrus75.github.io/FenrusCNCtools/javascript/stl2png.html">STL2PNG</a></li>
-</ul>
-<h2>Step 2: Adjust contrast</h2>
-<p>I found it difficult to get the colors right in Meshlab so I loaded the image into preview (on mac), cropped the image and fiddled with the contrast.  Try using histogram equalization if it is available in your image processing program. The goal is to use the entire color range for the file with white being the highest peak in your cut and black being everything is removed. </p>
-<p><img alt="Enterpise-D01" src="Enterpise-D01.png"></p>
-<h2>Step 3: dmap2gcode</h2>
-<p>I found this interesting python project to convert depthmap files to gcode. </p>
-<ul>
-<li><a href="http://scorchworks.com/Dmap2gcode/dmap2gcode.html">dmap2gcode</a></li>
-</ul>
-<p>I have no idea if this will work. Also the developer has executables for windows but not mac. Turns out not to be a big deal.  I am a python programmer and I was easily able to download and run the python code on my laptop.  <strong><em>NOTE</em></strong> python 3.9 did not work but python 3.7 was fine.  I ended up making a conda environment, installing the necessary packages and running from there.  Here is a link to my environment.yml file if you want to try it out.</p>
-<ul>
-<li><a href="">environment.yml</a></li>
-</ul>
-<p>Importing the image file seemed to work fine. The gcode takes hours to generate but once I downgraded to python 3.7 everything seemed to work fine. </p>
-<h2>Step 4: Preview G-code</h2>
-<p>I have no idea what settings I should be using for the dmap2gcode interface.  I found this online simulator which allows me to copy/paste my code and view the gcode (neat).  I used the following mac trick to copy the code:</p>
-<p><code>cat Enterprise-D.ngc | pbcopy</code></p>
-<p>The first few times generating the gcode did not seem like it worked well.  I fiddled for a bit and came up with this answer.</p>
-<h2>Step 5: Milling a thin sheet</h2>
-<p>Next, I needed to figure out how to hold my sample into place.  I want to use a thin piece of wood and cut though the material.  This means I need a way to hold the entire sample down.  I found <a href="https://www.youtube.com/watch?v=gTUAAm0DFOQ">this video tutorial</a> for using a special kind of super glue and painters tape.   Seems like a cool trick to do what I want. </p>
-<h2>Final Product</h2>
-<p>I haven't actually got this working yet.  I am keeping this blog post for notes and plan to update it as I get closer.</p>
-<p>Like any project, there was a lot of learning for each of the above steps.  What I have shown here are some notes to remind my future self what I did to get this working.  I am posting these notes on-line just in case anyone else wants to give it a try. </p>
-<p>Please feel free to email me questions and/or let me know if you have found better ways to do any of these steps.</p>
-<p>Take care,</p>
-<ul>
-<li>Dirk</li>
-</ul></div>
+        <div><p>For Christmas my family got me a box full of <a href="https://www.kiwico.com/maker">MakerCrate projects from KiwiCo</a>.  There were five kits in the gift; one for me to work with each of my kids and one for myself. We had a lot of fun putting things together.  The quality of the kits are outstanding, the directions are clear. </p>
+<p><img alt="Safe Project" src="../images/Kiwi_Safe.jpg">
+<img alt="Safe Project" src="../images/Kiwi_1.jpg">
+<img alt="Safe Project" src="../images/Kiwi_2.jpg">
+<img alt="Safe Project" src="../images/Kiwi_3.jpg">
+<img alt="Safe Project" src="../images/Kiwi_4.jpg"></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../stl-files-to-cnc.html"><h2>STL files to CNC</h2></a>
+        <div class= "well small"> Sun 13 December 2020
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>I purchased a discount Workbench CNC machine. I've been a 3D printing person for a while and was suprised how hard it has been to get gcode for a CNC machine.  I assumed that I could just upload something like an STL file but there are not a lot of …</p> <a class="btn btn-info xsmall" href="../stl-files-to-cnc.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -284,25 +258,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>Lithophans are one of my favorite things to 3D print.  I have written software in MATLAB and python that can convert images to lithophans. Most years I design a lithophan and 3D printable frame to give away to family for Christmas and each year I like to try to do …</p> <a class="btn btn-info xsmall" href="../cylindrical-lithophans.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../surplus-workbench.html"><h2>Surplus Workbench</h2></a>
-        <div class= "well small"> Fri 04 October 2019
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Finished Workbench" src="../images/Finished_workbench.JPG"></p>
-<p>Since moving into our new home I have been wanting to build/buy a workbench for my shop.  I have been living with a piece of plywood on some saw horses (bowing in the middle).  I wanted something more rugged but on casters so I could roll the bench out …</p> <a class="btn btn-info xsmall" href="../surplus-workbench.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -360,6 +315,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
                 </li>
             
                 <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
                 <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
                 <li><a href="//cmse.msu.edu">CMSE</a></li>
                 <li><a href="//www.msu.edu/">MSU</a></li>
@@ -372,7 +328,7 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2020</p>
+<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
 </footer>
 
 </div> <!-- /container -->
