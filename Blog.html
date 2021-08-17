@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="./davin-lins-final-project-presentation-see-classify.html"><h1>Davin Lin's Final Project Presentation (SEE-Classify)</h1></a>
-Fri 30 July 2021
+            <a href="./obs-default-backdrop-on-mac.html"><h1>OBS Default Backdrop on Mac</h1></a>
+Tue 17 August 2021
 
 by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,16 +75,49 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><a href="//colbrydi.github.io/images/Davin_midSURE-2021-final.pdf"><img alt="Davin's Poster" src="//colbrydi.github.io/images/Davin_midSURE-2021-final.png"></a> </p>
-<p>In the summer of 2021 Davin Lin worked with me as part of the ICER/ACERS REu program on his project titled "Simple Evolutionary Exploration in Classification Algorithms for Supervised Learning"</p>
-<blockquote>
-<p>Genetic algorithms (GAs) find good solutions to search problems through a process inspired by evolution. Solutions are randomly selected and tested using a fitness function. The best solutions undergo changes (mutations) over multiple iterations (generations) to try and find better solutions. There have been several studies that use GAs to search over hyper-parameters of machine learning algorithms to learn values that work well for specific problems. For example, one popular study performs genetic search over breast cancer data to find the best supervised learning classification algorithm [ref]. One of the main benefits of using genetic search is that it can be domain independent. Any scientist can use this method to find a well-performing classification algorithm for their dataset. This summer, we will leverage this property by extending an existing GA framework to adopt classifiers. This will allow scientists from any field to search a classifier “algorithm space” without having to recreate the machinery to do so. We will test our software and perform a proof-of-concept by attempting to partially reproduce the experimental results of previous works.</p>
-</blockquote>
-<p>Here is a video from his final presentation:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J3khxAWeYCs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div><p><img alt="My new default background picture" src="//colbrydi.github.io/images/placeholder.png"> </p>
+<p>As we move online I have been experimenting with <a href="https://obsproject.com/">Open Broadcast Software (OBS Studio)</a> as a way to improve my video input while I am in meetings and conducting lectures.  </p>
+<p>Although it had a small learning curve and often produces a lag between the audio and video; I really like the flexibility that OBS brings to my remote meetings.  Some tools I particularly like include:</p>
+<ul>
+<li>Custom away messages</li>
+<li>On screen logos</li>
+<li>Changing background images</li>
+<li>Over the shoulder coding</li>
+</ul>
+<p>Today I figured out how to change the default OBS image that appears when the software is not running.  Although I didn't mind the built in default I wanted to have something that was more personal and less distracting than an advertisement for OBS.  It took me a little searching so I thought I would share the steps that worked for me: </p>
+<ol>
+<li>Create a 1920x1080 image (Not sure if this exact size is required but I matched the size I found). Name this file <code>placeholder.png</code></li>
+<li>
+<p>Copy and replace the image in the corresponding<code>/Application/OBS.app</code> folder and the <code>obs-mac-virtualcam.plugin</code> folder.  I assume that only the second one is required but I went ahead and copied both. here are the exact commands (note the second one requires root privliges)</p>
+<p><code>cp placeholder.png /Applications/OBS.app/Contents/Resources/data/obs-mac-virtualcam.plugin/Contents/Resources/placeholder.png</code></p>
+<p><code>sudo cp placeholder.png /Library/CoreMediaIO/Plug-Ins/DAL/obs-mac-virtualcam.plugin/Contents/Resources</code></p>
+</li>
+</ol>
+<p>That should be it! The new image started working for me right away.  I haven't done much else checking to see if I could use a different size image and/or if I needed to coy both files.  </p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="./davin-lins-final-project-presentation-see-classify.html"><h2>Davin Lin's Final Project Presentation (SEE-Classify)</h2></a>
+        <div class= "well small"> Fri 30 July 2021
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><a href="//colbrydi.github.io/images/Davin_midSURE-2021-final.pdf"><img alt="Davin's Poster" src="//colbrydi.github.io/images/Davin_midSURE-2021-final.png"></a> </p>
+<p>In the summer of 2021 Davin Lin worked with me as part of the ICER/ACERS REu program on his project titled "Simple Evolutionary Exploration in Classification Algorithms for Supervised Learning"</p>
+<blockquote>
+<p>Genetic algorithms (GAs) find good solutions to search problems through a process inspired by evolution. Solutions are randomly selected …</p></blockquote> <a class="btn btn-info xsmall" href="./davin-lins-final-project-presentation-see-classify.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -241,26 +274,6 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 
  </div>
         <div class="summary"><p>I purchased a discount Workbench CNC machine. I've been a 3D printing person for a while and was suprised how hard it has been to get gcode for a CNC machine.  I assumed that I could just upload something like an STL file but there are not a lot of …</p> <a class="btn btn-info xsmall" href="./stl-files-to-cnc.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="./blockscad.html"><h2>BlocksCAD</h2></a>
-        <div class= "well small"> Fri 11 December 2020
-
-by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Picture with Part number" src="../images/Jack_AmongUs.jpg">
-<img alt="Picture with Part number" src="../images/Ken_AmongUs.jpg"></p>
-<p>I am a big fan of <a href="http://www.openscad.org/">OpenSCAD</a>, it is my goto tool for making 3D designs.  My kids have been getting into block coding like scratch and I thought, "wouldn't it be cool if there was a block code program that used OpenSCAD?" A quick google search showed me exactly …</p> <a class="btn btn-info xsmall" href="./blockscad.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dirk's Home Page - Authors</title>
+    <title>Dirk's Home Page - OBS Default Backdrop on Mac</title>
     <meta name="description" content="">
     <meta name="author" content="Dr. Dirk Colbry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,11 +58,53 @@
     <div class="row">
 
         <div class="span9">
-    <h1>Authors on Dirk's Home Page</h1>
-    <ul>
-        <li><a href="./author/dirk-colbry.html">Dirk Colbry</a> (2)</li>
-        <li><a href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a> (193)</li>
-    </ul>
+    <div class='article'>
+        <div class="content-title">
+            <h1>OBS Default Backdrop on Mac</h1>
+Tue 17 August 2021
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p><img alt="My new default background picture" src="//colbrydi.github.io/images/placeholder.png"> </p>
+<p>As we move online I have been experimenting with <a href="https://obsproject.com/">Open Broadcast Software (OBS Studio)</a> as a way to improve my video input while I am in meetings and conducting lectures.  </p>
+<p>Although it had a small learning curve and often produces a lag between the audio and video; I really like the flexibility that OBS brings to my remote meetings.  Some tools I particularly like include:</p>
+<ul>
+<li>Custom away messages</li>
+<li>On screen logos</li>
+<li>Changing background images</li>
+<li>Over the shoulder coding</li>
+</ul>
+<p>Today I figured out how to change the default OBS image that appears when the software is not running.  Although I didn't mind the built in default I wanted to have something that was more personal and less distracting than an advertisement for OBS.  It took me a little searching so I thought I would share the steps that worked for me: </p>
+<ol>
+<li>Create a 1920x1080 image (Not sure if this exact size is required but I matched the size I found). Name this file <code>placeholder.png</code></li>
+<li>
+<p>Copy and replace the image in the corresponding<code>/Application/OBS.app</code> folder and the <code>obs-mac-virtualcam.plugin</code> folder.  I assume that only the second one is required but I went ahead and copied both. here are the exact commands (note the second one requires root privliges)</p>
+<p><code>cp placeholder.png /Applications/OBS.app/Contents/Resources/data/obs-mac-virtualcam.plugin/Contents/Resources/placeholder.png</code></p>
+<p><code>sudo cp placeholder.png /Library/CoreMediaIO/Plug-Ins/DAL/obs-mac-virtualcam.plugin/Contents/Resources</code></p>
+</li>
+</ol>
+<p>That should be it! The new image started working for me right away.  I haven't done much else checking to see if I could use a different size image and/or if I needed to coy both files.  </p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'OBS Default Backdrop on Mac';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
