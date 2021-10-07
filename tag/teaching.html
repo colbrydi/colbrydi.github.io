@@ -89,11 +89,14 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <li>Create a 1920x1080 image (Not sure if this exact size is required but I matched the size I found). Name this file <code>placeholder.png</code></li>
 <li>
 <p>Copy and replace the image in the corresponding<code>/Application/OBS.app</code> folder and the <code>obs-mac-virtualcam.plugin</code> folder.  I assume that only the second one is required but I went ahead and copied both. here are the exact commands (note the second one requires root privliges)</p>
-<p><code>cp placeholder.png /Applications/OBS.app/Contents/Resources/data/obs-mac-virtualcam.plugin/Contents/Resources/placeholder.png</code></p>
+<p><code>cp placeholder.png /Applications/OBS.app/Contents/Resources//data/obs-plugins/mac-virtualcam/obs-mac-virtualcam.plugin/Contents/Resources/placeholder.png</code></p>
 <p><code>sudo cp placeholder.png /Library/CoreMediaIO/Plug-Ins/DAL/obs-mac-virtualcam.plugin/Contents/Resources</code></p>
 </li>
 </ol>
-<p>That should be it! The new image started working for me right away.  I haven't done much else checking to see if I could use a different size image and/or if I needed to coy both files.  </p></div>
+<p>That should be it! The new image started working for me right away.  I haven't done much else checking to see if I could use a different size image and/or if I needed to coy both files.  </p>
+<h3>Edited Oct 6, 2021</h3>
+<p>Recent update to OBS changed the wrokign path and overwrite my placeholder file. I updated the path in the first command from <code>/Applications/OBS.app/Contents/Resources/data/obs-mac-virtualcam.plugin/Contents/Resources/placeholder.png</code> to 
+<code>/Applications/OBS.app/Contents/Resources//data/obs-plugins/mac-virtualcam/obs-mac-virtualcam.plugin/Contents/Resources/placeholder.png</code>.  Again, I am not sure if this copy is required. </p></div>
         <hr />
     </div>
 		
