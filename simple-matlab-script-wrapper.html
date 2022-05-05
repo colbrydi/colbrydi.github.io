@@ -77,12 +77,12 @@ constantly edit the submission script every time you need to change to a
 different variation. However, I find that this can be confusing so I made the
 following script to make my life easier:</p>
 <p><strong>runMatlab.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l walltime=01:00:00,nodes=1:ppn=1</span>
 <span class="c1">#PBS -l software=MATLAB</span>
 <span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
@@ -92,18 +92,18 @@ matlab -nodisplay -r <span class="s2">&quot;</span><span class="si">${</span><sp
 </td></tr></table>
 <p>This is a qsub wrapper script that allows you to specify the name of the
 MATLAB script as the name of the job. To run the script just type:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qsub -N myScriptName runMatlab.qsub</span>
+<div class="highlight"><pre><span></span><code>qsub -N myScriptName runMatlab.qsub
 </code></pre></div>
 
 <p>Then when you want to run a different script you can type:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qsub -N myDifferentScript runMatlab.qsub</span>
+<div class="highlight"><pre><span></span><code>qsub -N myDifferentScript runMatlab.qsub
 </code></pre></div>
 
 <p>Make sure you do not include the ".m" in the script name. Since command line
 resource request override requests in the script, it is possible to also
 change the resources from the command line. For example, if you have a really
 short test you need to run you can do the following:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qsub -N myquicktest -l walltime=00:05:00 runMatlab.qsub</span>
+<div class="highlight"><pre><span></span><code>qsub -N myquicktest -l walltime=00:05:00 runMatlab.qsub
 </code></pre></div>
 
 <p><strong>NOTE:</strong> This above only works for MATLAB scripts (i.e. no input arguments)
@@ -182,7 +182,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

@@ -87,17 +87,17 @@ simple alternative is to just make a file that contains a list of all of the
 variations that you want to run of your command. For example, say you need to
 run the following programs with various different inputs:</p>
 <p><strong>commands.txt</strong></p>
-<div class="highlight"><pre><span></span><code><span class="err">./myprogram -a 100 -z 3023</span>
-<span class="err">./myprogram dosomething different</span>
-<span class="err">./myprogram</span>
-<span class="err">./myprogram -s 100 -d 1</span>
-<span class="err">./myprogram -s 100 -d 2</span>
-<span class="err">./myprogram -s 100 -d 3</span>
-<span class="err">./myprogram -s 200</span>
-<span class="err">./myprogram -s 300</span>
-<span class="err">./myprogram -w 400</span>
-<span class="err">./myotherporgram</span>
-<span class="err">./mythirdprogram</span>
+<div class="highlight"><pre><span></span><code>./myprogram -a 100 -z 3023
+./myprogram dosomething different
+./myprogram
+./myprogram -s 100 -d 1
+./myprogram -s 100 -d 2
+./myprogram -s 100 -d 3
+./myprogram -s 200
+./myprogram -s 300
+./myprogram -w 400
+./myotherporgram
+./mythirdprogram
 </code></pre></div>
 
 <p>It is fairly easy to make a program to generate your command list or even use
@@ -106,19 +106,19 @@ all of these commands take the same number of resources, you can use the
 folloing following job submission script to run them all in the same job
 array:</p>
 <p><strong>jobarray.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l walltime=00:05:00</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,feature=gbe</span>
 <span class="c1">#PBS -j oe</span>
@@ -136,7 +136,7 @@ qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class=
 <p>You should make sure that the array length is the same size as the number of
 lines in your commands.txt file. One way to do this is to submit the job as
 follows:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qsub -t 1-`cat commands.txt | wc -l` jobarray.qsub</span>
+<div class="highlight"><pre><span></span><code>qsub -t 1-`cat commands.txt | wc -l` jobarray.qsub
 </code></pre></div>
 
 <p>Hope you find this useful,</p>
@@ -218,7 +218,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

@@ -89,7 +89,7 @@ jupyter nbconvert --to html --no-prompt --allow-errors --output-dir HTML *.ipynb
 
 mkdir -p PDF
 
-<span class="k">for</span> file in ./html/*.html
+<span class="k">for</span> file <span class="k">in</span> ./html/*.html
 <span class="k">do</span>
     <span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename -- <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
     <span class="nv">extension</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -205,7 +205,7 @@ open CMSE314.pdf
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

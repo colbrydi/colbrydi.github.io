@@ -80,18 +80,18 @@ of the job gets it working. The following scripts check to see if the program
 is running and automatically re-submits the job if their seems to be a
 problem.</p>
 <p><strong>file_flag_example.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
 <span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
 <span class="c1">#PBS -m a</span>
 <span class="c1">#PBS -j oe</span>
@@ -129,19 +129,19 @@ exit <span class="nv">$RET</span>
 </code></pre></div>
 
 <p><strong>output_monitor_example.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
 <span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
 <span class="c1">#PBS -m a</span>
 <span class="c1">#PBS -j oe</span>
@@ -185,17 +185,17 @@ exit <span class="nv">$RET</span>
 </code></pre></div>
 
 <p><strong>qstat_monitor_example.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
 <span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
 <span class="c1">#PBS -m a</span>
 <span class="c1">#PBS -j oe</span>
@@ -325,7 +325,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

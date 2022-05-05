@@ -73,8 +73,8 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 installation of a new plugin"</p>
 <p>I was working with a makfile the other day and I came across a "feature" that
 I was not aware of. When running my makefile I saw the following lines appear:</p>
-<div class="highlight"><pre><span></span><code><span class="err">cat build.sh &gt;build</span>
-<span class="err">chmod a+x build</span>
+<div class="highlight"><pre><span></span><code>cat build.sh &gt;build
+chmod a+x build
 </code></pre></div>
 
 <p>I could not find any part of the makefile that used either the cat or the
@@ -95,19 +95,19 @@ consider the following makefile</p>
 removes test. However, the script works fine if I include the following in the
 same directory:</p>
 <p><strong>"test.sh"</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#</span>
 <span class="nb">echo</span> <span class="s2">&quot;This is a test!!!!, Hello world&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <p>Now when I run make, I get the following output:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;make</span>
-<span class="err">cat test.sh &gt;test</span>
-<span class="err">chmod a+x test</span>
-<span class="err">./test</span>
-<span class="err">This is a test!!!!, Hello world</span>
+<div class="highlight"><pre><span></span><code>&gt;make
+cat test.sh &gt;test
+chmod a+x test
+./test
+This is a test!!!!, Hello world
 </code></pre></div>
 
 <p>This is a really neat feature but it threw me for a loop.</p>
@@ -185,7 +185,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

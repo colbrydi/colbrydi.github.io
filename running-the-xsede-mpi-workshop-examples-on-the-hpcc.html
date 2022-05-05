@@ -75,33 +75,33 @@ installation of a new plugin"</p>
 <p>Step 1:<br>
 Download these examples buy loading the power tools module and using the get
 example command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module load powertools</span>
-<span class="err">getexample</span>
-<span class="err">getexample XSEDE_MPI_WORKSHOP</span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="nb">load</span> <span class="n">powertools</span>
+<span class="n">getexample</span>
+<span class="n">getexample</span> <span class="n">XSEDE_MPI_WORKSHOP</span>
 </code></pre></div>
 
 <p>Step 2:<br>
 Compile the code using "mpicc" or "mpif90":</p>
-<div class="highlight"><pre><span></span><code><span class="err">mpicc ex1.c</span>
-<span class="err">mpif90 ex1.f</span>
+<div class="highlight"><pre><span></span><code>mpicc ex1.c
+mpif90 ex1.f
 </code></pre></div>
 
 <p>Step 3:<br>
 Run the code in the command line using same command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">mpirun -np 4 ./a.out</span>
+<div class="highlight"><pre><span></span><code>mpirun -np 4 ./a.out
 </code></pre></div>
 
 <p>Step 4:<br>
 Write a submission script and run the job on the cluster:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -l walltime=05:00,nodes=8:ppn=1</span>
 
@@ -114,7 +114,7 @@ qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class=
 </td></tr></table>
 <p>Step 5:<br>
 Submit the job using the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qsub myjob.qsub</span>
+<div class="highlight"><pre><span></span><code>qsub myjob.qsub
 </code></pre></div>
 
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/06/17/Running+the+XSEDE+MPI+workshop+examples+on+the+HPCC">View
@@ -191,7 +191,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

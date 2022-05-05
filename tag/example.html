@@ -83,20 +83,20 @@ One of these users shared a code snippet that he uses in his ~/.zshrc file to
 autocomplete job id numbers. He is letting us share the code for use to our
 users who prefer zsh over bash.</p>
 <p><strong>.zshrc</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">_jobs_list</span><span class="p">()</span> <span class="err">{</span>
-<span class="n">qstat</span> <span class="o">|</span> <span class="n">grep</span> <span class="err">$</span><span class="k">USER</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="s1">&#39; &#39;</span> <span class="o">-</span><span class="n">f1</span> <span class="o">|</span> <span class="n">cut</span> <span class="o">-</span><span class="n">d</span><span class="s1">&#39;.&#39;</span> <span class="o">-</span><span class="n">f1</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="nv">_jobs_list</span><span class="ss">()</span> {
+<span class="nv">qstat</span> <span class="o">|</span> <span class="nv">grep</span> $<span class="nv">USER</span> <span class="o">|</span> <span class="nv">cut</span> <span class="o">-</span><span class="nv">d</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span> <span class="o">-</span><span class="nv">f1</span> <span class="o">|</span> <span class="nv">cut</span> <span class="o">-</span><span class="nv">d</span><span class="s1">&#39;</span><span class="s">.</span><span class="s1">&#39;</span> <span class="o">-</span><span class="nv">f1</span>
+}
 
-<span class="n">_jshow_complete</span><span class="p">()</span> <span class="err">{</span>
-<span class="k">if</span> <span class="p">((</span> <span class="k">CURRENT</span> <span class="o">==</span><span class="mi">2</span><span class="p">));</span> <span class="k">then</span>
-<span class="n">jjobs</span><span class="o">=</span><span class="p">(</span> <span class="err">$</span><span class="p">(</span><span class="n">_jobs_list</span><span class="p">))</span>
-<span class="n">_multi_parts</span> <span class="o">/</span> <span class="n">jjobs</span>
+<span class="nv">_jshow_complete</span><span class="ss">()</span> {
+<span class="k">if</span> <span class="ss">((</span> <span class="nv">CURRENT</span> <span class="o">==</span><span class="mi">2</span><span class="ss">))</span><span class="c1">; then</span>
+<span class="nv">jjobs</span><span class="o">=</span><span class="ss">(</span> $<span class="ss">(</span><span class="nv">_jobs_list</span><span class="ss">))</span>
+<span class="nv">_multi_parts</span> <span class="o">/</span> <span class="nv">jjobs</span>
 <span class="k">else</span>
-<span class="n">_files</span>
-<span class="n">fi</span>
-<span class="err">}</span>
+<span class="nv">_files</span>
+<span class="nv">fi</span>
+}
 
-<span class="n">compdef</span> <span class="n">_jshow_complete</span> <span class="n">showstart</span> <span class="n">jdel</span> <span class="n">checkjob</span> <span class="n">qstat</span>
+<span class="nv">compdef</span> <span class="nv">_jshow_complete</span> <span class="nv">showstart</span> <span class="nv">jdel</span> <span class="nv">checkjob</span> <span class="nv">qstat</span>
 </code></pre></div>
 
 <p>This code should work on any system that used PBS Torque.</p>
@@ -200,9 +200,9 @@ installation of a new plugin"</p>
 <p>Step 1:<br>
 Download these examples buy loading the power tools module and using the get
 example command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module load powertools</span>
-<span class="err">getexample</span>
-<span class="err">getexample XSEDE_MPI_WORKSHOP …</span></code></pre></div> <a class="btn btn-info xsmall" href="../running-the-xsede-mpi-workshop-examples-on-the-hpcc.html">read more</a></div>
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="nb">load</span> <span class="n">powertools</span>
+<span class="n">getexample</span>
+<span class="n">getexample</span> <span class="n">XSEDE …</span></code></pre></div> <a class="btn btn-info xsmall" href="../running-the-xsede-mpi-workshop-examples-on-the-hpcc.html">read more</a></div>
     </div>	
 				
 
@@ -293,7 +293,7 @@ installation of a new plugin"</p>
 <p>ffmpeg can be used to crop the start and end times of a video sequece. Use the
 following command to read though the ffmpeg help message in the terminal
 window:</p>
-<div class="highlight"><pre><span></span><code><span class="err">       man ffmpeg</span>
+<div class="highlight"><pre><span></span><code>       man ffmpeg
 </code></pre></div>
 
 <p>Use arrow …</p> <a class="btn btn-info xsmall" href="../ffmpeg-to-select-video-sequences.html">read more</a></div>

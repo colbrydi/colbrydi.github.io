@@ -88,14 +88,14 @@ end up blocking my single core job which will not be eligible to run unless
 one of the 8-core jobs gets out of the way. To fix this problem I reorder my
 queue by putting a temporary hold on the more complex jobs using the "qhold"
 command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qhold JOBID#</span>
+<div class="highlight"><pre><span></span><code>qhold JOBID#
 </code></pre></div>
 
 <p>Suspending the complex jobs allows my single core job to move to the eligible
 queue and be able to run. I can then immediately run the queue resume command
 (qrls) and the complex jobs move back into the queue, behind the single core
 job. To resume a suspended job in the queue:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qrls JOBID#</span>
+<div class="highlight"><pre><span></span><code>qrls JOBID#
 </code></pre></div>
 
 <p>Just for fun, I quickly came up with the following scripts that can help move
@@ -128,34 +128,34 @@ showjobs
 </code></pre></div>
 
 <p><strong>move2bot</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">#/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="c1">--login</span>
-<span class="o">#</span><span class="n">DESCRIPTION</span> <span class="k">Move</span> <span class="n">a</span> <span class="n">job</span> <span class="k">to</span> <span class="n">the</span> <span class="n">bottom</span> <span class="k">of</span> <span class="n">your</span> <span class="n">eligble</span> <span class="n">queue</span>
-<span class="o">#</span> <span class="n">This</span> <span class="n">script</span> <span class="n">teporarily</span> <span class="n">suspends</span> <span class="n">a</span> <span class="n">jobs</span> <span class="k">to</span> <span class="n">allow</span> <span class="n">other</span> <span class="n">jobs</span> <span class="k">to</span>
-<span class="o">#</span> <span class="k">move</span> <span class="n">up</span> <span class="k">in</span> <span class="n">the</span> <span class="n">eligible</span> <span class="n">queue</span><span class="p">.</span>  <span class="n">The</span> <span class="n">job</span> <span class="k">is</span> <span class="k">then</span> <span class="n">resumed</span> <span class="p">(</span><span class="k">after</span>
-<span class="o">#</span> <span class="mi">30</span> <span class="k">second</span> <span class="n">wait</span> <span class="n">period</span><span class="p">.</span>
-<span class="o">#</span>
-<span class="o">#</span> <span class="n">Written</span> <span class="k">by</span> <span class="n">Dirk</span> <span class="n">Colbry</span> <span class="n">August</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">2010</span>
-<span class="o">#</span> <span class="err">©</span> <span class="mi">2010</span> <span class="n">Michigan</span> <span class="k">State</span> <span class="n">University</span> <span class="n">Board</span> <span class="k">of</span> <span class="n">Trustees</span><span class="p">.</span>
+<div class="highlight"><pre><span></span><code>#<span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">bash</span> <span class="o">--</span><span class="nv">login</span>
+#<span class="nv">DESCRIPTION</span> <span class="nv">Move</span> <span class="nv">a</span> <span class="nv">job</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">bottom</span> <span class="nv">of</span> <span class="nv">your</span> <span class="nv">eligble</span> <span class="nv">queue</span>
+# <span class="nv">This</span> <span class="nv">script</span> <span class="nv">teporarily</span> <span class="nv">suspends</span> <span class="nv">a</span> <span class="nv">jobs</span> <span class="nv">to</span> <span class="nv">allow</span> <span class="nv">other</span> <span class="nv">jobs</span> <span class="nv">to</span>
+# <span class="nv">move</span> <span class="nv">up</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">eligible</span> <span class="nv">queue</span>.  <span class="nv">The</span> <span class="nv">job</span> <span class="nv">is</span> <span class="k">then</span> <span class="nv">resumed</span> <span class="ss">(</span><span class="nv">after</span>
+# <span class="mi">30</span> <span class="nv">second</span> <span class="k">wait</span> <span class="nv">period</span>.
+#
+# <span class="nv">Written</span> <span class="nv">by</span> <span class="nv">Dirk</span> <span class="nv">Colbry</span> <span class="nv">August</span> <span class="mi">17</span>, <span class="mi">2010</span>
+# © <span class="mi">2010</span> <span class="nv">Michigan</span> <span class="nv">State</span> <span class="nv">University</span> <span class="nv">Board</span> <span class="nv">of</span> <span class="nv">Trustees</span>.
 
-<span class="n">jobid</span><span class="o">=</span><span class="err">$</span><span class="mi">1</span>
-<span class="k">if</span> <span class="p">[</span> <span class="ss">&quot;$1&quot;</span> <span class="o">==</span> <span class="ss">&quot;&quot;</span> <span class="p">]</span>
+<span class="nv">jobid</span><span class="o">=</span><span class="mh">$1</span>
+<span class="k">if</span> [ <span class="s2">&quot;</span><span class="s">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> ]
 <span class="k">then</span>
-    <span class="n">echo</span> <span class="ss">&quot;job id required&quot;</span>
-    <span class="n">exit</span> <span class="mi">1</span>
-<span class="n">fi</span>
+    <span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">job id required</span><span class="s2">&quot;</span>
+    <span class="k">exit</span> <span class="mi">1</span>
+<span class="nv">fi</span>
 
-<span class="n">qhold</span> <span class="err">$</span><span class="mi">1</span>
-<span class="n">echo</span> <span class="ss">&quot;Waiting 30 seconds for queue to settle...&quot;</span>
-<span class="n">sleep</span> <span class="mi">30</span>
-<span class="n">qrls</span> <span class="err">$</span><span class="mi">1</span>
-<span class="n">showjobs</span>
+<span class="nv">qhold</span> <span class="mh">$1</span>
+<span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">Waiting 30 seconds for queue to settle...</span><span class="s2">&quot;</span>
+<span class="nv">sleep</span> <span class="mi">30</span>
+<span class="nv">qrls</span> <span class="mh">$1</span>
+<span class="nv">showjobs</span>
 </code></pre></div>
 
 <p>I put copies of these scripts in the powertools module. To use them just type
 the following in one of the developer nodes:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module load powertools</span>
-<span class="err">move2top JOBID</span>
-<span class="err">move2bot JOBID</span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="nb">load</span> <span class="n">powertools</span>
+<span class="n">move2top</span> <span class="n">JOBID</span>
+<span class="n">move2bot</span> <span class="n">JOBID</span>
 </code></pre></div>
 
 <p>Hope you find this useful,</p>
@@ -248,7 +248,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

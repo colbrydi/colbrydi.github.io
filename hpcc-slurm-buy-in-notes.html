@@ -72,28 +72,28 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
         <div><p><a href="https://slurm.schedmd.com/"><img align="right," alt="SLURM Logo" hspace="10" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/2000px-Slurm_logo.svg.png" width="200,"></a></p>
 <p>This year, the HPCC moved over to SLURM.  Overall, I think the new scheduler is nice but it required me to relearn a bunch of things I have gotten to know by reflex.</p>
 <p>One nice new feature is that I can manage our own Buy-in account.  The CMSE department has multiple buy-in nodes. For example, the command to <strong>show</strong> everyone on the CMSE account is:</p>
-<div class="highlight"><pre><span></span><code><span class="err">sacctmgr show association account=cmse</span>
+<div class="highlight"><pre><span></span><code><span class="nv">sacctmgr</span> <span class="k">show</span> <span class="nv">association</span> <span class="nv">account</span><span class="o">=</span><span class="nv">cmse</span>
 </code></pre></div>
 
 <p>If I want to <strong>add</strong> someone to the CMSE buy-in account I just do the following:</p>
-<div class="highlight"><pre><span></span><code><span class="err">sacctmgr add user account=cmse name=colbrydi</span>
+<div class="highlight"><pre><span></span><code>sacctmgr add user account=cmse name=colbrydi
 </code></pre></div>
 
 <p>Then if I want to <strong>delete</strong> someone from he CMSE buy-in account is just as easy:</p>
-<div class="highlight"><pre><span></span><code><span class="err">sacctmgr delete user account=cmse name=colbrydi</span>
+<div class="highlight"><pre><span></span><code>sacctmgr delete user account=cmse name=colbrydi
 </code></pre></div>
 
 <p>The HPCC staff also provides the following useful powertools that users can access by running <code>module load powertools</code>:</p>
 <p><strong>priority_status</strong> or <strong>buyin_status</strong> - equivalent commands that shows all of your buy-in nodes and who is currently running on them.</p>
 <p>To use the buy-in account you need to specifically use the account option in the job script (I think).  For example, the following SBATCH commands should request one of the Volta GPU cards on the cmse account:</p>
-<div class="highlight"><pre><span></span><code><span class="err">#SBATCH --gres=gpu:1  </span>
-<span class="err">#SBATCH --nodelist=nvl-001</span>
-<span class="err">#SBATCH --time=08:00:00</span>
-<span class="err">#SBATCH --account=cmse</span>
+<div class="highlight"><pre><span></span><code>#SBATCH --gres=gpu:1  
+#SBATCH --nodelist=nvl-001
+#SBATCH --time=08:00:00
+#SBATCH --account=cmse
 </code></pre></div>
 
 <p>Many of our people want to use the Volta over Jupyterhub run though the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> website.  To do this, you would log into <a href="https://webrdp.hpcc.msu.edu">webrdp</a>, open a terminal on the <a href="https://webrdp.hpcc.msu.edu">webrdp</a> desktop, ssh to one of the dev nodes and then issue the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">salloc --gres=gpu:1  --x11 --nodelist=nvl-001 --time=08:00:00 --mail-type=BEGIN --account=cmse</span>
+<div class="highlight"><pre><span></span><code><span class="n">salloc</span> <span class="o">--</span><span class="n">gres</span><span class="o">=</span><span class="n">gpu</span><span class="p">:</span><span class="mi">1</span>  <span class="o">--</span><span class="n">x11</span> <span class="o">--</span><span class="n">nodelist</span><span class="o">=</span><span class="n">nvl</span><span class="o">-</span><span class="mi">001</span> <span class="o">--</span><span class="n">time</span><span class="o">=</span><span class="mi">08</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">mail</span><span class="o">-</span><span class="n">type</span><span class="o">=</span><span class="kr">BEGIN</span> <span class="o">--</span><span class="n">account</span><span class="o">=</span><span class="n">cmse</span>
 </code></pre></div>
 
 <p>Once the job starts, you would just type <code>jupyter notebook</code> assuming you have it installed.</p>
@@ -172,7 +172,7 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->

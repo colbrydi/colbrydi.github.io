@@ -83,7 +83,7 @@ being drained to reboot and avoid the 208 day bug. Fortunately this user had a
 lot of single threaded jobs that could run on the gfx10 nodes. To run on these
 nodes the user needs to change the jobs to add the feature=gbe option
 (Gigabyte either-net). First I tried the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">qalter -l feature=gbe $PBS_JOBID</span>
+<div class="highlight"><pre><span></span><code>qalter -l feature=gbe $PBS_JOBID
 </code></pre></div>
 
 <p>Unfortunately,the qalter command modifies jobs in the resource manager but the
@@ -91,19 +91,19 @@ job is waiting on the scheduler. I had hoped that the scheduler would talk to
 the resouce manager and update the properties but this did not happen. After
 talking with others in the office we found the command to alter jobs in the
 scheduler:</p>
-<div class="highlight"><pre><span></span><code><span class="err"> mjobctl -m feature=gbe $PBS_JOBID</span>
+<div class="highlight"><pre><span></span><code> mjobctl -m feature=gbe $PBS_JOBID
 </code></pre></div>
 
 <p>This worked great and propagated all changes to the resource manager. I wrote
 a quick script to change all nodes currently pending in the queue to accept
 add this change:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
-<span class="k">for</span> job in <span class="sb">`</span>qselect -s Q -u <span class="nv">$USER</span><span class="sb">`</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="k">for</span> job <span class="k">in</span> <span class="sb">`</span>qselect -s Q -u <span class="nv">$USER</span><span class="sb">`</span><span class="p">;</span>
 <span class="k">do</span>
      <span class="nb">echo</span> mjobctl -m <span class="nv">feature</span><span class="o">=</span>gbe <span class="nv">$job</span>
      mjobctl -m <span class="nv">feature</span><span class="o">=</span>gbe <span class="nv">$job</span>

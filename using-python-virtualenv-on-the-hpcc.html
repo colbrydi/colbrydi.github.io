@@ -88,38 +88,38 @@ Documentation for virtualenv can be found at the following website:</p>
 <p><strong>Step 1:</strong> make sure you are on a developer node and use system modules to
 load the Python version you want to use. You can see the default version of
 Python by typing the following:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module list</span>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">list</span>
 </code></pre></div>
 
 <p>As of writing this post, my default was set to Python/2.7.2. If you need
 another vision you can see what is available by typing the following:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module spider Python</span>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">spider</span> <span class="n">Python</span>
 </code></pre></div>
 
 <p>To load a different version of python use the "module unload" and "module
 load" commands. For example the following will switch from the default version
 of Python to 2.6.7:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module unload Python</span>
-<span class="err">module load Python/2.6.7</span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="n">unload</span> <span class="n">Python</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">Python</span><span class="o">/</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">7</span>
 </code></pre></div>
 
 <p><strong>Step 2:</strong> use system modules to load existing Python related software. Many
 Python packages are already installed and can be loaded using the module
 system. Use the following command to list all available modules:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module avail</span>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">avail</span>
 </code></pre></div>
 
 <p>Since most of the Python modules have the word "py" in them so you can use the
 spider command to see what is installed:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module spider py</span>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">spider</span> <span class="n">py</span>
 </code></pre></div>
 
 <p>Once you know what is available, you can load the modules using "module load"
 command. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module load NumPy</span>
-<span class="err">module load SciPy</span>
-<span class="err">module load PIL</span>
-<span class="err">module load matplotlib</span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="nb">load</span> <span class="n">NumPy</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">SciPy</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">PIL</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">matplotlib</span>
 </code></pre></div>
 
 <p><strong>Step 3:</strong> at this point you can make your own virtual Python environment.
@@ -128,8 +128,8 @@ how directory. You can also have multiple different virtual Python
 environments, each one with a different name. For this example, I am going to
 call my virtual Python environment "myPy". Use the following commands to
 create and activate a virtual environment:</p>
-<div class="highlight"><pre><span></span><code><span class="err">virtualenv myPy</span>
-<span class="err">source myPy/bin/activate</span>
+<div class="highlight"><pre><span></span><code>virtualenv myPy
+source myPy/bin/activate
 </code></pre></div>
 
 <p>After running the source command, you should see your normal command prompt
@@ -138,21 +138,21 @@ virtual environment.</p>
 <p><strong>Step 4:</strong> Now that you are running in your virtual environment you can run
 easy_install or pip commands to install almost all Python modules. For
 example, the following command installed a redditanalysis package:</p>
-<div class="highlight"><pre><span></span><code><span class="err">easy_install redditanalysis</span>
+<div class="highlight"><pre><span></span><code>easy_install redditanalysis
 </code></pre></div>
 
 <p><strong>Step 5:</strong> Once you have everything installed test out your program. If you
 need to leave the Python virtual environment just type the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="err">deactivate</span>
+<div class="highlight"><pre><span></span><code>deactivate
 </code></pre></div>
 
 <p>If you log out of the system and log back in, you can reactivate the virtual
 environment as before. Just make sure you load the modules you need:</p>
-<div class="highlight"><pre><span></span><code><span class="err">module load NumPy</span>
-<span class="err">module load SciPy</span>
-<span class="err">module load PIL</span>
-<span class="err">module load matplotlib</span>
-<span class="err">source myPy/bin/activate</span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="nb">load</span> <span class="n">NumPy</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">SciPy</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">PIL</span>
+<span class="n">module</span> <span class="nb">load</span> <span class="n">matplotlib</span>
+<span class="n">source</span> <span class="n">myPy</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
 </code></pre></div>
 
 <p><strong>Submission Scripts</strong><br>
@@ -160,21 +160,21 @@ Now that you have your own version of Python running, you will want to use it
 in your submission scripts. The following job submission script can be used as
 a template for running virtualenv Python jobs (note this job assumes that your
 myPy folder is in your home directory):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -l walltime=03:00:00,mem=2gb,nodes=1:ppn=1</span>
 
@@ -265,7 +265,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2021</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
 </footer>
 
 </div> <!-- /container -->
