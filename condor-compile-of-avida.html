@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Condor compile of Avida</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Condor compile of Avida</h1>
+Fri 11 March 2011
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>Today I figured got a condor_compile version of
+<a href="http://avida.devosoft.org/">Avida</a> working on
+<a href="http://www.teragrid.org/">TeraGrid</a>. First, I downloaded Avida to my Teragrid
+account:</p>
+<div class="highlight"><pre><span></span><code>&gt; svn checkout https://avida.devosoft.org/svn/stable
+</code></pre></div>
+
+<p>Then I modified the build_avida script as follows:</p>
+<p><strong>build_avida</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span><span class="s2">&quot;condor_compile gcc&quot;</span>
+mkdir -p cbuild
+<span class="nb">cd</span> cbuild
+cmake <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> ../
+make -j <span class="m">10</span>
+make install
+</code></pre></div>
+</td></tr></table>
+<p>Then I run the build script using the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">cmake</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="o">./</span><span class="n">build_avida</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="o">./</span><span class="n">run_tests</span><span class="w"></span>
+</code></pre></div>
+
+<p>Once Avida builds and tests successfully I write a condor script</p>
+<p><strong>avida.condor</strong></p>
+<div class="highlight"><pre><span></span><code>#
+# <span class="nv">avida</span>.<span class="nv">condor</span>
+# <span class="nv">Example</span> <span class="nv">avida</span> <span class="nv">condor</span> <span class="nv">submission</span> <span class="nv">script</span>
+#
+
+# <span class="nv">Specify</span> <span class="nv">your</span> <span class="nv">TeraGrid</span> <span class="nv">allocation</span> <span class="nv">project</span> <span class="nv">here</span>.
+<span class="o">+</span><span class="nv">TGProject</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">YOUR PROJECT NUMBER HERE</span><span class="s2">&quot;</span>
+
+<span class="nv">universe</span> <span class="o">=</span> <span class="nv">vanilla</span>
+
+#<span class="nv">PATH</span> <span class="nv">TO</span> <span class="nv">CONDOR_COMPILE</span> <span class="nv">BUILD</span> <span class="nv">OF</span> <span class="nv">AVIDA</span>
+# <span class="nv">The</span> <span class="nv">executable</span> <span class="nv">to</span> <span class="nv">run</span>. <span class="nv">Need</span> <span class="nv">the</span> <span class="nv">full</span> <span class="nv">path</span>. <span class="o">~/</span> <span class="nv">does</span> <span class="nv">not</span> <span class="nv">work</span>.
+<span class="nv">executable</span> <span class="o">=</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">ba01</span><span class="o">/</span><span class="nv">u124</span><span class="o">/</span><span class="nv">dcolbry</span><span class="o">/</span><span class="nv">avida_condor</span><span class="o">/</span><span class="nv">work</span><span class="o">/</span><span class="nv">avida</span>
+
+#<span class="nv">Sets</span> <span class="nv">the</span> <span class="nv">process</span> <span class="nv">id</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">avida</span> <span class="nv">seed</span>
+<span class="nv">arguments</span> <span class="o">=</span> <span class="o">-</span><span class="nv">s</span> $<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
+
+# <span class="nv">false</span>: <span class="nv">The</span> <span class="nv">executable</span> <span class="nv">is</span> <span class="nv">already</span> <span class="nv">on</span> <span class="nv">remote</span> <span class="nv">machine</span>.
+# <span class="nv">true</span>: <span class="nv">Copy</span> <span class="nv">the</span> <span class="nv">executable</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">local</span> <span class="nv">machine</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">remote</span>.
+<span class="nv">transfer_executable</span> <span class="o">=</span> <span class="nv">false</span>
+
+# <span class="nv">Filenames</span> <span class="k">for</span> <span class="nv">standard</span> <span class="nv">output</span>, <span class="nv">standard</span> <span class="nv">error</span>, <span class="nv">and</span> <span class="nv">Condor</span> <span class="nv">log</span>.
+<span class="nv">output</span> <span class="o">=</span> <span class="nv">output</span><span class="o">/</span><span class="nv">out</span>.$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
+<span class="nv">error</span> <span class="o">=</span> <span class="nv">output</span><span class="o">/</span><span class="nv">err</span>.$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
+<span class="nv">log</span> <span class="o">=</span> <span class="nv">output</span><span class="o">/</span><span class="nv">condor</span>.<span class="nv">log</span>
+
+# <span class="nv">PATH</span> <span class="nv">TO</span> <span class="nv">WORK</span> <span class="nv">DIRECTORY</span>
+<span class="nv">initialdir</span> <span class="o">=</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">ba01</span><span class="o">/</span><span class="nv">u124</span><span class="o">/</span><span class="nv">dcolbry</span><span class="o">/</span><span class="nv">avida_condor</span><span class="o">/</span><span class="nv">work</span><span class="o">/</span>
+
+# <span class="nv">The</span> <span class="nv">following</span> <span class="nv">line</span> <span class="nv">is</span> <span class="nv">always</span> <span class="nv">required</span>. <span class="nv">It</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">command</span> <span class="nv">to</span> <span class="nv">submit</span> <span class="nv">the</span> <span class="nv">above</span>.
+# <span class="nv">The</span> <span class="nv">number</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">jobs</span> <span class="nv">that</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">run</span>
+<span class="nv">queue</span> <span class="mi">5</span>
+</code></pre></div>
+
+<p>Make an output directory and submit the job to the condor scheduler using the
+following commands:</p>
+<div class="highlight"><pre><span></span><code>&gt; mkdir /home/ba01/u124/dcolbry/avida_condor/work/output
+&gt; condor_submit avida.condor
+</code></pre></div>
+
+<p>That did it for me.</p>
+<ul>
+<li>Dirk</li>
+</ul>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/03/11/Condor+compile+of+Avida">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/03/11/Condor+compile+of+Avida">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Condor compile of Avida';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

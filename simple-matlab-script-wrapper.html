@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Simple Matlab Script Wrapper</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Simple Matlab Script Wrapper</h1>
+Mon 30 August 2010
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>Sometimes you have four or five variations on the same MATLAB script. You
+could write a different submissions script for each variation, or you can
+constantly edit the submission script every time you need to change to a
+different variation. However, I find that this can be confusing so I made the
+following script to make my life easier:</p>
+<p><strong>runMatlab.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="c1">#PBS -l walltime=01:00:00,nodes=1:ppn=1</span>
+<span class="c1">#PBS -l software=MATLAB</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+module load matlab
+matlab -nodisplay -r <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>This is a qsub wrapper script that allows you to specify the name of the
+MATLAB script as the name of the job. To run the script just type:</p>
+<div class="highlight"><pre><span></span><code>qsub -N myScriptName runMatlab.qsub
+</code></pre></div>
+
+<p>Then when you want to run a different script you can type:</p>
+<div class="highlight"><pre><span></span><code>qsub -N myDifferentScript runMatlab.qsub
+</code></pre></div>
+
+<p>Make sure you do not include the ".m" in the script name. Since command line
+resource request override requests in the script, it is possible to also
+change the resources from the command line. For example, if you have a really
+short test you need to run you can do the following:</p>
+<div class="highlight"><pre><span></span><code>qsub -N myquicktest -l walltime=00:05:00 runMatlab.qsub
+</code></pre></div>
+
+<p><strong>NOTE:</strong> This above only works for MATLAB scripts (i.e. no input arguments)
+and not functions.</p>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2010/08/30/Simple+Matlab+Script+Wrapper">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2010/08/30/Simple+Matlab+Script+Wrapper">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Simple Matlab Script Wrapper';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

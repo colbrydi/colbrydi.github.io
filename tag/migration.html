@@ -85,161 +85,125 @@ dependent on what the job is doing. However, in some cases a simple resubmit
 of the job gets it working. The following scripts check to see if the program
 is running and automatically re-submits the job if their seems to be a
 problem.</p>
-<p><strong>file_flag_example.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
-<span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
-<span class="c1">#PBS -m a</span>
-<span class="c1">#PBS -j oe</span>
+<h2><strong>file_flag_example.qsub</strong></h2>
+<div class="highlight"><pre><span></span><code>    #!/bin/bash -l
+    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+    #PBS -m a
+    #PBS -j oe
 
-<span class="c1"># This method checks to see if a file is created at the beginning of a run. If the file is not created then the job is killed and restarted.</span>
-<span class="c1"># This method assumes that the program stalls before it has a chance to generate a file. This method is useful if the code does self checkpointing and the failure state is a busy wait.</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
- 
-<span class="c1">#Run the main program</span>
-<span class="o">(</span> 
-    mpirun mycommand
-</code></pre></div>
-</td></tr></table>
-<p>) &amp;
-    PID=$!</p>
-<div class="highlight"><pre><span></span><code># Sleep for enough time to see if the job is running
-sleep 300
-if [ ! -f testfile.flag ]
-then
-         echo &quot;Job Seems to have stalled. Killing and restarting&quot;
-         kill <span class="nv">$PID</span>
-         qsub $0
-         echo &quot;Job stats for debugging&quot;
-         qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
-         exit 1
-fi
+    # This method checks to see if a file is created at the beginning of a run. If the file is not created then the job is killed and restarted.
+    # This method assumes that the program stalls before it has a chance to generate a file. This method is useful if the code does self checkpointing and the failure state is a busy wait.
+    cd <span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
+     
+    #Run the main program
+    ( 
+        mpirun mycommand 
+   ) <span class="err">&amp;</span>
+    PID=$!
 
-wait <span class="nv">$PID</span>
-RET=$?
-qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+    # Sleep for enough time to see if the job is running
+    sleep 300
+    if [ ! -f testfile.flag ]
+    then
+             echo &quot;Job Seems to have stalled. Killing and restarting&quot;
+             kill <span class="nv">$PID</span>
+             qsub $0
+             echo &quot;Job stats for debugging&quot;
+             qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+             exit 1
+    fi
+
+    wait <span class="nv">$PID</span>
+    RET=$?
+    qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
 
 
-#return the output of the main program
-exit <span class="nv">$RET</span>
+    #return the output of the main program
+    exit <span class="nv">$RET</span>
 </code></pre></div>
 
 <p><strong>output_monitor_example.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
-<span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
-<span class="c1">#PBS -m a</span>
-<span class="c1">#PBS -j oe</span>
-<span class="c1"># This method monitors job output and stops if the output doesn&#39;t change. </span>
-<span class="c1"># This method assumes that the program continuously generates output at regular intervals. </span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<div class="highlight"><pre><span></span><code>    #!/bin/bash -l
+    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+    #PBS -m a
+    #PBS -j oe
+    # This method monitors job output and stops if the output doesn&#39;t change. 
+    # This method assumes that the program continuously generates output at regular intervals. 
+    cd <span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
 
-<span class="nv">testfile</span><span class="o">=</span><span class="sb">`</span>testfile.flag<span class="sb">`</span>
- 
-<span class="c1">#Run the main program</span>
-<span class="o">(</span> 
-    mpirun mycommand &gt; <span class="nv">$testfile</span>
-</code></pre></div>
-</td></tr></table>
-<p>) &amp;
-    PID=$!</p>
-<div class="highlight"><pre><span></span><code># Sleep for enough time to start generating output
-sleep 300
-linecount1=`cat <span class="nv">$testfile</span> | wc -l`
- 
-# Sleep enough for more output
-sleep 100
-linecount2=`cat <span class="nv">$testfile</span> | wc -l`
-if [ &quot;<span class="nv">$linecount1</span>&quot; == &quot;<span class="nv">$linecount2</span>&quot; ]
-then
-         echo &quot;Job Seems to have stalled. Killing and restarting&quot;
-         kill <span class="nv">$PID</span>
-         qsub $0
-         echo &quot;Job stats for debugging&quot;
-         qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
-         exit 1
-fi
+    testfile=`testfile.flag`
+     
+    #Run the main program
+    ( 
+        mpirun mycommand &gt; <span class="nv">$testfile</span>
+   ) <span class="err">&amp;</span>
+    PID=$!
 
-wait <span class="nv">$PID</span>
-RET=$?
-qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+    # Sleep for enough time to start generating output
+    sleep 300
+    linecount1=`cat <span class="nv">$testfile</span> | wc -l`
+     
+    # Sleep enough for more output
+    sleep 100
+    linecount2=`cat <span class="nv">$testfile</span> | wc -l`
+    if [ &quot;<span class="nv">$linecount1</span>&quot; == &quot;<span class="nv">$linecount2</span>&quot; ]
+    then
+             echo &quot;Job Seems to have stalled. Killing and restarting&quot;
+             kill <span class="nv">$PID</span>
+             qsub $0
+             echo &quot;Job stats for debugging&quot;
+             qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+             exit 1
+    fi
+
+    wait <span class="nv">$PID</span>
+    RET=$?
+    qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
 
 
-#return the output of the main program
-exit <span class="nv">$RET</span>
+    #return the output of the main program
+    exit <span class="nv">$RET</span>
 </code></pre></div>
 
-<p><strong>qstat_monitor_example.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
-<span class="c1">#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59</span>
-<span class="c1">#PBS -m a</span>
-<span class="c1">#PBS -j oe</span>
-<span class="c1"># This method uses the same idea as the previous but instead of relying on output it uses the cput stat generated by qstat.</span>
-<span class="c1"># This solution will not work if the job is in a busy wait state. </span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<h2><strong>qstat_monitor_example.qsub</strong></h2>
+<div class="highlight"><pre><span></span><code>    #!/bin/bash -l
+    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+    #PBS -m a
+    #PBS -j oe
+    # This method uses the same idea as the previous but instead of relying on output it uses the cput stat generated by qstat.
+    # This solution will not work if the job is in a busy wait state. 
+    cd <span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
 
-<span class="c1">#Run the main program</span>
-<span class="o">(</span> 
-    mpirun mycommand
-</code></pre></div>
-</td></tr></table>
-<p>) &amp;
-    PID=$!</p>
-<div class="highlight"><pre><span></span><code># Sleep for enough time to start generating output
-sleep 300
-cpu1=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
- 
-# Sleep enough for more output
-sleep 100
-cpu2=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
-if [ &quot;<span class="nv">$cpu1</span>&quot; == &quot;<span class="nv">$cpu2</span>&quot; ]
-then
-         echo &quot;Job Seems to have stalled. Killing and restarting&quot;
-         kill <span class="nv">$PID</span>
-         qsub $0
-         echo &quot;Job stats for debugging&quot;
-         qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
-         exit 1
-fi
+    #Run the main program
+    ( 
+        mpirun mycommand 
+   ) <span class="err">&amp;</span>
+    PID=$!
 
-wait <span class="nv">$PID</span>
-RET=$?
-qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+    # Sleep for enough time to start generating output
+    sleep 300
+    cpu1=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
+     
+    # Sleep enough for more output
+    sleep 100
+    cpu2=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
+    if [ &quot;<span class="nv">$cpu1</span>&quot; == &quot;<span class="nv">$cpu2</span>&quot; ]
+    then
+             echo &quot;Job Seems to have stalled. Killing and restarting&quot;
+             kill <span class="nv">$PID</span>
+             qsub $0
+             echo &quot;Job stats for debugging&quot;
+             qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+             exit 1
+    fi
+
+    wait <span class="nv">$PID</span>
+    RET=$?
+    qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
 
 
-#return the output of the main program
-exit <span class="nv">$RET</span>
+    #return the output of the main program
+    exit <span class="nv">$RET</span>
 </code></pre></div>
 
 <p>These solutions are nice work arounds because, if it works, the scripts just
@@ -257,8 +221,6 @@ track down the problem.</p>
 <ul>
 <li>Dirk</li>
 </ul>
-<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2015/01/16/Hack+to+automatically+restart+programs+that+stall+during+inicialization">View
-Online</a></p>
 <p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2015/01/16/Hack+to+automatically+restart+programs+that+stall+during+inicialization">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
         <hr />
     </div>

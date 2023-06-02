@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - keepalive script - solution to work around automounter problems</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>keepalive script - solution to work around automounter problems</h1>
+Wed 23 May 2012
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>Sometimes the automounter does not properly mount the home directories on our
+hpcc system. This is not a problem when the job first starts because there is
+a epilogue script that runs before each job that verifies the home directory
+is mounted before the job starts.</p>
+<p>The problem comes when a job is running for a long time with no activity in
+the home directory. This may cause the automounter to automatically unmount
+the drive unintentionally. Then when the drive is used again sometimes the
+mount fails and then the job fails. I wrote the following script that keeps
+the directory alive thought the computation and it seems to work.</p>
+<p>This script is a part of our Powertools distribution</p>
+<ul>
+<li>
+<p>Dirk</p>
+<h1>!/bin/bash</h1>
+<h1>DESCRIPTION Script to keep alive directory mounts</h1>
+<h1>LABEL PowerJobs</h1>
+<h1>Script to keep alive directory mounts</h1>
+<h1>Written by Dirk Colbry</h1>
+<h1></h1>
+<h1>USAGE:</h1>
+<h1>source keepalive PATH</h1>
+<h1>... Do Something ...</h1>
+<h1>kill -9 ${KEEPALIVE}</h1>
+<h1></h1>
+<h1>USAGE 2:</h1>
+<h1>alias keepalive="source keepalive"</h1>
+<h1>keepalive PATH</h1>
+<h1>... Do Something ...</h1>
+<h1>kill -9 ${KEEPALIVE}</h1>
+<h1></h1>
+<h1>USAGE 1 ON THE MSU HPCC:</h1>
+<h1>module load powertools</h1>
+<h1>source /opt/software/powertools/doc/keepalive</h1>
+<h1>... Do Something ...</h1>
+<h1>kill -9 ${KEEPALIVE}</h1>
+<h1></h1>
+<h1>USAGE 2 ON THE MSU HPCC:</h1>
+<h1>shopt -s expand_aliases</h1>
+<h1>module load powertools</h1>
+<h1>keepalive PATH</h1>
+<h1>... Do Something ...</h1>
+<h1>kill -9 ${KEEPALIVE}</h1>
+<h1></h1>
+<h1>NOTE: Users are Responsible for Killing the KEEPALIVE Process when their script finishes.</h1>
+<h1></h1>
+<h1>Set default PATH to current PATH</h1>
+<p>dir=$1
+if [ "${dir}" == "" ]
+then
+     dir="."
+fi</p>
+<h1>This is a two step program. The first step checks to make sure the directory can be</h1>
+<h1>mounted for each node. If the directory can not be mounted then the command returns with</h1>
+<h1>an error.</h1>
+<p>pbsdsh -u ${PTOOLS_ROOT}/share/KeepAlive/waitformount $dir
+ret=$?
+echo "pbsdsh exited with ${ret}"
+if [ "${ret}" -ne "0" ]
+then
+     echo "ERROR- Unable to mount Directory"
+     exit 1
+fi</p>
+<h1>The second step puts a process on each node that cds to the directory and goes to sleep.</h1>
+<h1>This extra process is designed to ensure that the node stays mounted.</h1>
+<p>pbsdsh -u ${PTOOLS_ROOT}/KeepAlive/dirsleep $dir &amp;
+KEEPALIVE="${KEEPALIVE} $!" </p>
+</li>
+</ul>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/05/23/keepalive+script+-+solution+to+work+around+automounter+problems">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/05/23/keepalive+script+-+solution+to+work+around+automounter+problems">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'keepalive script - solution to work around automounter problems';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

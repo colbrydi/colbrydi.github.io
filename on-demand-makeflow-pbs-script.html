@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - On Demand MakeFlow PBS script</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>On Demand MakeFlow PBS script</h1>
+Fri 11 November 2011
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>We just installed <a href="http://nd.edu/~ccl/software/makeflow/">MakeFlow</a> on our
+system as an easy to use workflow manager that uses the familiar "makefile"
+syntax. MakeFlow uses a master node and schedules all of the work off to
+worker nodes. To get this working on our system I wanted to have an easy way
+for the master node to communicate it's location and port to the worker nodes.
+With the help of one of our students we came up with three basic ways for this
+to work:</p>
+<ul>
+<li>Option 1: Schedule a master job and have it schedule worker jobs.</li>
+<li>Option 2: Schedule a large job and use pbsdsh to call the worker nodes.</li>
+<li>Option 3: Combine Options 1 &amp; 2</li>
+</ul>
+<p>Which option you use depends a lot on how PBS is set up on your system and
+there are different pros and cons to each setup. The following is a
+description of how I set it up on our HPCC:</p>
+<h1>Option 1: Schedule a master job and have it schedule worker jobs.</h1>
+<p>In this option, the system needs to be able to schedule jobs from all of the
+compute nodes. If this is the case, then it is easy to pass the host
+information to the worker nodes though a system variable. The job array can
+have as many single node jobs as it needs and the jobs will get scheduled as
+resources become available. The downside to this approach is that the job has
+to wait for the workers to be scheduled before any work can get done. Here is
+an example script:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
+<span class="c1">#PBS -l nodes=1:ppn=1,walltime=04:00:00</span>
+<span class="c1">#PBS -j oe</span>
+
+<span class="c1">#Set up running environment for all workers</span>
+module load ImageMagick
+module load cctools
+
+<span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
+<span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
+
+<span class="c1"># Check to see if MAINHOST is set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+       <span class="c1">#Run Main process</span>
+       <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
+       <span class="nv">jobid</span><span class="o">=</span><span class="sb">`</span>qsub -t <span class="m">1</span>-10 -v MAINHOST -N <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span> <span class="nv">$0</span><span class="sb">`</span>
+       makeflow -T wq example.makeflow
+
+       <span class="c1">#clean up spawned jobs</span>
+       qdel <span class="nv">$jobid</span>
+<span class="k">else</span>
+       <span class="c1">#Run Worker process</span>
+       work_queue_worker <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span>
+<span class="k">fi</span>
+</code></pre></div>
+</td></tr></table>
+<h1>Option 2: Schedule a large job and use pbsdsh to call the worker nodes.</h1>
+<p>This option can be used if the system is not set up to schedule jobs from the
+compute nodes. It has the added benefit of starting immediately. However, the
+downside to this approach is that the scheduler needs to be able to schedule a
+large block of nodes together which may cause longer queue times. Here is the
+example script:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="c1">#PBS -l nodes=4:ppn=1,walltime=04:00:00</span>
+<span class="c1">#PBS -j oe</span>
+
+<span class="c1"># Set up running environment for all workers</span>
+module load ImageMagick
+module load cctools
+
+<span class="c1"># If no input argument is given then script is running from qsub</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+        <span class="c1">#Script called from qsub</span>
+        <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
+        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
+<span class="k">else</span>
+        <span class="c1">#Script called manually from pbsdsh</span>
+        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># Check to see if MAINHOST is set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
+
+        <span class="c1">#Run Main process</span>
+        makeflow -T wq example.makeflow <span class="p">&amp;</span>
+        <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+
+        <span class="nv">tempfile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>.sh
+        cp <span class="nv">$0</span> <span class="nv">$tempfile</span>
+        chmod <span class="m">755</span> <span class="nv">$tempfile</span>
+        pbsdsh <span class="nv">$tempfile</span> <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span> <span class="p">&amp;</span>
+
+        <span class="c1">#Wait for main makeflow process to finish       </span>
+        <span class="nb">wait</span> <span class="nv">$PID</span>
+
+        <span class="c1">#Clean up jobs  </span>
+        rm <span class="nv">$tempfile</span>
+<span class="k">else</span>
+        <span class="c1">#Run Worker process</span>
+        work_queue_worker <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span>
+<span class="k">fi</span>
+</code></pre></div>
+</td></tr></table>
+<h1>Option 3: Combine Options 1 &amp; 2</h1>
+<p>The third option is to combine Options 1 &amp; 2 together. This way the job can
+get started right away and grow as additional workers get added to the queue.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="c1">#PBS -l nodes=4:ppn=1,walltime=04:00:00</span>
+<span class="c1">#PBS -j oe</span>
+
+<span class="c1"># Set up running environment for all workers</span>
+module load ImageMagick
+module load cctools
+
+<span class="c1"># If no input argument is given then script is running from qsub</span>
+<span class="c1"># Note: The else statement is only needed for Option 2</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+        <span class="c1">#Script called from qsub</span>
+        <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
+        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
+<span class="k">else</span>
+        <span class="c1">#Script called manually from pbsdsh</span>
+        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;MAINHOST=</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2"> PORT=</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># Check to see if MAINHOST is set</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
+
+        <span class="c1">#Run Main process</span>
+        makeflow -T wq example.makeflow <span class="p">&amp;</span>
+        <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+
+        <span class="c1">#Option 1: Spawn workers as independent PBS jobs</span>
+        <span class="nv">jobid</span><span class="o">=</span><span class="sb">`</span>qsub -l <span class="nv">nodes</span><span class="o">=</span><span class="m">1</span>:ppn<span class="o">=</span><span class="m">1</span> -t <span class="m">1</span>-10 -v MAINHOST -N <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span> <span class="nv">$0</span><span class="sb">`</span>
+        <span class="nb">echo</span> <span class="nv">$jobid</span>
+
+        <span class="c1">#Option 2: run workers inside current job</span>
+        <span class="nv">tempfile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>.sh
+        cp <span class="nv">$0</span> <span class="nv">$tempfile</span>
+        chmod <span class="m">755</span> <span class="nv">$tempfile</span>
+        pbsdsh <span class="nv">$tempfile</span> <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span> <span class="p">&amp;</span>
+
+        <span class="c1">#Wait for main makeflow process to finish       </span>
+        <span class="nb">wait</span> <span class="nv">$PID</span>
+
+        <span class="c1">#Clean up jobs  </span>
+        <span class="nb">echo</span> <span class="s2">&quot;Cleaning up </span><span class="nv">$jobid</span><span class="s2"> and </span><span class="nv">$tempfile</span><span class="s2">&quot;</span>
+        qdel <span class="nv">$jobid</span>
+        rm <span class="nv">$tempfile</span>
+<span class="k">else</span>
+        <span class="c1">#Run Worker process</span>
+        <span class="nb">echo</span> <span class="s2">&quot;RUNNING WORKER PROCESS&quot;</span>
+        work_queue_worker <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span>
+<span class="k">fi</span>
+</code></pre></div>
+</td></tr></table>
+<p>Future Work</p>
+<p>I need to be careful with this script because I have not tested the behavior
+when two master jobs end up getting scheduled on the same node and use the
+same port. I will need to put in a test to make sure this doesn't happen. I
+also am planning on wrapping everything into a simple command that will hide
+all of the details from the user.</p>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/11/11/On+Demand+MakeFlow+PBS+script">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/11/11/On+Demand+MakeFlow+PBS+script">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'On Demand MakeFlow PBS script';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

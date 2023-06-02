@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Files as semaphores</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Files as semaphores</h1>
+Sun 15 April 2012
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>The following is a script that is designed to make it really easy to run a
+large number of embarrassingly parallel jobs on our scheduling system. The
+trick to getting this to work is to use files as <a href="http://en.wikipedia.org/wiki/Semaphore_(programming)">semaphores
+</a>. The program
+compares a directory of input files with a directory of flag files. If a file
+is found in the input directory and not in the flag directory, then this is a
+job that still needs to run and the program will create a file in the flag
+directory and do the computation. The flag files are used to keep track of
+what is running and what is complete.</p>
+<p>Strictly speaking, many file systems are not guaranteed to be atomic so this
+method is risky but in my experience it works quite well especially if you do
+not care if two processes run the same job.</p>
+<p><strong>"FilesAsSemaphores.qsub"</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
+<span class="c1">#PBS -l nodes=1:ppn=1,walltime=00:30:00,feature=gbe,mem=1gb</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -m a</span>
+
+<span class="c1">#Files as semifors  </span>
+<span class="c1"># Script written by Dirk Colbry</span>
+
+<span class="c1">#CHANGE the following to filter files that need to be processed</span>
+<span class="nv">filefilter</span><span class="o">=</span><span class="s2">&quot;*.do&quot;</span>
+
+<span class="c1">#Create a flags directory if one is not already created</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+mkdir -p flags
+
+<span class="c1">#Check to see if job being run from an array. Space jobs so they do not run on</span>
+<span class="c1">#top of each other. This is probably unessary</span>
+<span class="k">if</span> <span class="o">[</span> ! <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    sleep <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>
+<span class="k">fi</span>
+
+<span class="c1"># Find the most recent file not in the flags directory</span>
+<span class="c1"># This indicates that the file has not been proceesed</span>
+<span class="k">for</span> file <span class="k">in</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$filefilter</span><span class="sb">`</span>  
+<span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> ! -f ./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag <span class="o">]</span>
+    <span class="k">then</span>
+        <span class="c1">#Create the file so other jobs will not run the same program</span>
+        touch ./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag
+        <span class="nv">dofile</span><span class="o">=</span><span class="nv">$file</span>
+        <span class="nb">break</span>
+    <span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="c1">#Check to see if dofile is empty</span>
+<span class="c1">#This indicates all files have been processed</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$dofile</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;All jobs completed!&quot;</span>
+    <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">fi</span>
+
+<span class="c1">#CHANGE the following to run the program of interest using the dofile as an input</span>
+module load stata
+stata-se -b <span class="si">${</span><span class="nv">dofile</span><span class="si">}</span>
+
+<span class="c1">#Save the return value of the last command</span>
+<span class="nv">RET</span><span class="o">=</span><span class="nv">$?</span>
+
+<span class="c1">#Put the job statistics on the flag file as a record and to indicate</span>
+<span class="c1"># the program execited successfully.</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$RET</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span> &gt; ./flags/<span class="si">${</span><span class="nv">dofile</span><span class="si">}</span>.flag
+<span class="k">else</span>
+    qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+    <span class="nb">echo</span> <span class="s2">&quot;job with dofile=</span><span class="si">${</span><span class="nv">dofile</span><span class="si">}</span><span class="s2"> completed with error </span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">exit</span> <span class="nv">$RET</span>
+<span class="k">fi</span>
+
+<span class="c1">#Check to see if anything is left that needs to be done</span>
+<span class="k">for</span> file <span class="k">in</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$filefilter</span><span class="sb">`</span>  
+<span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> ! -f ./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag <span class="o">]</span>
+    <span class="k">then</span>
+        <span class="c1">#flag missing...start another job</span>
+        qsub mainrun.qsub
+        <span class="nb">exit</span> <span class="nv">$RET</span>  
+    <span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="c1">#Nothing is left to be done... Exit</span>
+<span class="c1">#Note, return value (RET) should be zero</span>
+<span class="nb">echo</span> <span class="s2">&quot;ALL JOBS COMPLETED!&quot;</span>
+<span class="nb">exit</span> <span class="nv">$RET</span>
+</code></pre></div>
+</td></tr></table>
+<p>Obviously a user needs to modify the script to fit their need (this one was
+designed to work with stata). To start the script you can just issue the
+following command:</p>
+<div class="highlight"><pre><span></span><code>qsub -t 1-149 FilesAsSemaphores.qsub
+</code></pre></div>
+
+<p>This will start 149 jobs working. When each job is done it will start another
+job until all of the input files have been processed. This script could easily
+be modified to work with a list of jobs in a text file or some other method
+for listing what needs to be done. One nice feature of this program is that
+you can look at the size of the flag files to determine if a job has completed
+successfully. If you want, you can delete all of the jobs in your queue and
+then delete all files of size zero and restart the entire process.</p>
+<p>I do not recommend walltimes of less than 5 minutes as this will unnecessarily
+flood the scheduler, please use this script at your own risk.</p>
+<ul>
+<li>Dirk</li>
+</ul>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/04/15/Files+as+semaphores">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/04/15/Files+as+semaphores">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Files as semaphores';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

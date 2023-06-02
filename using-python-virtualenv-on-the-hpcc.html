@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Using Python virtualenv on the HPCC</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Using Python virtualenv on the HPCC</h1>
+Wed 06 March 2013
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>Python has a lot of packages, modules and libraries that researchers may want
+to use. However, it is difficult for iCER and the HPCC to keep up with and
+install all of the different libraries, versions, and conflicts between them.
+Users who need Python software packages installed on the HPCC have the
+following choices:</p>
+<ul>
+<li>Try to install their own copy of Python and the modules in their home directories. (gives researchers full control but can be difficult and time consuming).</li>
+<li>Ask HPCC staff to install the software in the base Python installation (This option could easily be rejected due to software conflicts)</li>
+<li>Ask HPCC staff to install the software in a separate system module (This option is more forgiving of different versions but still requires the user to wait on HPCC staff to complete and test the install)</li>
+<li>Use virtualenv (this works best if the software uses easy_install or pip and has the advantage of putting control in the hands of the researcher, This option also give the researcher the ability to explore which is integral to the research process)</li>
+</ul>
+<p>The remainder of this post will explain how to use virtualenv on the HPCC.
+Documentation for virtualenv can be found at the following website:</p>
+<p><a href="http://pypi.python.org/pypi/virtualenv">http://pypi.python.org/pypi/virtualenv</a></p>
+<p><strong>Step 1:</strong> make sure you are on a developer node and use system modules to
+load the Python version you want to use. You can see the default version of
+Python by typing the following:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">list</span>
+</code></pre></div>
+
+<p>As of writing this post, my default was set to Python/2.7.2. If you need
+another vision you can see what is available by typing the following:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">spider</span> <span class="n">Python</span>
+</code></pre></div>
+
+<p>To load a different version of python use the "module unload" and "module
+load" commands. For example the following will switch from the default version
+of Python to 2.6.7:</p>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="n">unload</span><span class="w"> </span><span class="n">Python</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">Python</span><span class="o">/</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">7</span><span class="w"></span>
+</code></pre></div>
+
+<p><strong>Step 2:</strong> use system modules to load existing Python related software. Many
+Python packages are already installed and can be loaded using the module
+system. Use the following command to list all available modules:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">avail</span>
+</code></pre></div>
+
+<p>Since most of the Python modules have the word "py" in them so you can use the
+spider command to see what is installed:</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span> <span class="n">spider</span> <span class="n">py</span>
+</code></pre></div>
+
+<p>Once you know what is available, you can load the modules using "module load"
+command. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">NumPy</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">SciPy</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">PIL</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">matplotlib</span><span class="w"></span>
+</code></pre></div>
+
+<p><strong>Step 3:</strong> at this point you can make your own virtual Python environment.
+This environment lets you install packages using easy_install and pip in your
+how directory. You can also have multiple different virtual Python
+environments, each one with a different name. For this example, I am going to
+call my virtual Python environment "myPy". Use the following commands to
+create and activate a virtual environment:</p>
+<div class="highlight"><pre><span></span><code>virtualenv myPy
+source myPy/bin/activate
+</code></pre></div>
+
+<p>After running the source command, you should see your normal command prompt
+with a (myPy) in front of it. This tells you, that you are running in the myPy
+virtual environment.</p>
+<p><strong>Step 4:</strong> Now that you are running in your virtual environment you can run
+easy_install or pip commands to install almost all Python modules. For
+example, the following command installed a redditanalysis package:</p>
+<div class="highlight"><pre><span></span><code>easy_install redditanalysis
+</code></pre></div>
+
+<p><strong>Step 5:</strong> Once you have everything installed test out your program. If you
+need to leave the Python virtual environment just type the following command:</p>
+<div class="highlight"><pre><span></span><code>deactivate
+</code></pre></div>
+
+<p>If you log out of the system and log back in, you can reactivate the virtual
+environment as before. Just make sure you load the modules you need:</p>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">NumPy</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">SciPy</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">PIL</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">matplotlib</span><span class="w"></span>
+<span class="n">source</span><span class="w"> </span><span class="n">myPy</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span><span class="w"></span>
+</code></pre></div>
+
+<p><strong>Submission Scripts</strong><br>
+Now that you have your own version of Python running, you will want to use it
+in your submission scripts. The following job submission script can be used as
+a template for running virtualenv Python jobs (note this job assumes that your
+myPy folder is in your home directory):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -l walltime=03:00:00,mem=2gb,nodes=1:ppn=1</span>
+
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+module load NumPy
+module load SciPy
+module load PIL
+module load matplotlib
+<span class="nb">source</span> ~/myPy/bin/activate
+
+python mypythonscript.py
+
+qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Using Python virtualenv on the HPCC';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

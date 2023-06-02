@@ -1,17 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2022-05-16T00:00:00-04:00</updated><entry><title>Invited Talk: Communicity Enganged Learning Converence</title><link href="https://colbrydi.github.io/invited-talk-communicity-enganged-learning-converence.html" rel="alternate"></link><published>2022-05-16T00:00:00-04:00</published><updated>2022-05-16T00:00:00-04:00</updated><author><name>Dirk Colbry</name></author><id>tag:colbrydi.github.io,2022-05-16:/invited-talk-communicity-enganged-learning-converence.html</id><summary type="html">&lt;p&gt;&lt;img alt="Community Engaged Learning header" src="//colbrydi.github.io/images/CCEL.png"&gt;&lt;/p&gt;
-&lt;p&gt;I was asked to give a talk about my CMSE495 capstone course and how I integrated Community Engagement in my Syllabus as part of the &lt;a href="//communityengagedlearning.msu.edu/upload/documents/2022%20Mini%20Conference%20Schedule%20At-a-Glance-2.pdf"&gt;mini Conference in Community Engaged Learning&lt;/a&gt;.  this was a panel talk with Estrella Torrez and Ellie Louson.  I thought it went very well and I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Community Engaged Learning header" src="//colbrydi.github.io/images/CCEL.png"&gt;&lt;/p&gt;
-&lt;p&gt;I was asked to give a talk about my CMSE495 capstone course and how I integrated Community Engagement in my Syllabus as part of the &lt;a href="//communityengagedlearning.msu.edu/upload/documents/2022%20Mini%20Conference%20Schedule%20At-a-Glance-2.pdf"&gt;mini Conference in Community Engaged Learning&lt;/a&gt;.  this was a panel talk with Estrella Torrez and Ellie Louson.  I thought it went very well and I learned a lot from the other presenters.  here is a link to my slides:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dirk's Home Page - Professional</title><link href="https://colbrydi.github.io/" rel="alternate"></link><link href="https://colbrydi.github.io/feeds/professional.atom.xml" rel="self"></link><id>https://colbrydi.github.io/</id><updated>2022-07-15T00:00:00-04:00</updated><entry><title>Singularity Overview</title><link href="https://colbrydi.github.io/singularity-overview.html" rel="alternate"></link><published>2022-07-15T00:00:00-04:00</published><updated>2022-07-15T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2022-07-15:/singularity-overview.html</id><summary type="html">&lt;p&gt;&lt;img alt="Picture of a black hole to represent a singularity" src="https://www.nasa.gov/sites/default/files/thumbnails/image/simulated_bh.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Singularity is a versitle tool to give researchers more flexibility installing software and running their workflows on the HPC.  I am figuring out singularity for my own research, to better use the Open Science Grid and hopefully to help other people on the HPCC.&lt;/p&gt;
+&lt;p&gt;Most workflows don't need singilarity but …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Picture of a black hole to represent a singularity" src="https://www.nasa.gov/sites/default/files/thumbnails/image/simulated_bh.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Singularity is a versitle tool to give researchers more flexibility installing software and running their workflows on the HPC.  I am figuring out singularity for my own research, to better use the Open Science Grid and hopefully to help other people on the HPCC.&lt;/p&gt;
+&lt;p&gt;Most workflows don't need singilarity but it can be extreamly helpful to solve certain weridly difficult problems.  Some common examples for researchers using singularity on the HPC include:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="//colbrydi.github.io/images/20220516-CCEL.pdf"&gt;Link to slides&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Professional"></category><category term="Presentation"></category></entry><entry><title>Tableau Tutorial</title><link href="https://colbrydi.github.io/tableau-tutorial.html" rel="alternate"></link><published>2022-05-04T00:00:00-04:00</published><updated>2022-05-04T00:00:00-04:00</updated><author><name>Carlie Couzens</name></author><id>tag:colbrydi.github.io,2022-05-04:/tableau-tutorial.html</id><summary type="html">&lt;p&gt;&lt;img alt="Starter Guilde for Tableau" src="//colbrydi.github.io/images/Starter_Guilde_Tableau.png"&gt;&lt;/p&gt;
-&lt;p&gt;Written by Carlie Couzens&lt;/p&gt;
-&lt;p&gt;As part of my honors project for CMSE495, I created a Tableau walkthrough which includes information on how to set up and get started with Tableau. Additionally, I created a full tutorial on how to load a geographical dataset and create a map with additional optional …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Starter Guilde for Tableau" src="//colbrydi.github.io/images/Starter_Guilde_Tableau.png"&gt;&lt;/p&gt;
-&lt;p&gt;Written by Carlie Couzens&lt;/p&gt;
-&lt;p&gt;As part of my honors project for CMSE495, I created a Tableau walkthrough which includes information on how to set up and get started with Tableau. Additionally, I created a full tutorial on how to load a geographical dataset and create a map with additional optional personalizations. This tutorial serves as a prime example of the Tableau workflow (clean data inputted → graphical configuration → personalization). While it is possible to clean data within the Tableau platform and even create new calculated fields, this process is streamlined by using Python beforehand to clean data. My hope is this tutorial will provide a launching point for future students who are interested in Tableau but might not know where to begin. &lt;/p&gt;
+&lt;li&gt;Installing software that needs a special/different base operating system.&lt;/li&gt;
+&lt;li&gt;Installing software that requires adminstrator privliges (aka root, su and/or sudo). &lt;/li&gt;
+&lt;li&gt;Installing complex dependancy trees (like python and R)&lt;/li&gt;
+&lt;li&gt;Using existing software inside a pre-built vitural machine.&lt;/li&gt;
+&lt;li&gt;Working with lots of tiny files on the HPC filesystems which are better designed for smaller numbers of big files. &lt;/li&gt;
+&lt;li&gt;Building workflows that can easily move between different resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE&lt;/em&gt;&lt;/strong&gt; This overview is specific to the High Performace Computing Center (HPCC) at Michigan State University (MSU).  For a complete tutorial see the &lt;a href="https://docs.sylabs.io/guides/3.2/user-guide/index.html"&gt;Singularity documentation&lt;/a&gt;.  This overview assumes that you have an HPCC account and know how to navigate to and use a development node. &lt;/p&gt;
+&lt;h2&gt;Step 1: Get a singularity image&lt;/h2&gt;
+&lt;p&gt;As a starting point we need a singularity image, also known as a container or virtual machine.  You can think of a singularity image as a "software hard drive" that contains an entire opperating system in a file. There are three main ways to get these images:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use one of the Singularity images already on the HPCC. &lt;/li&gt;
+&lt;li&gt;Download an image form one of the many online libraries.&lt;/li&gt;
+&lt;li&gt;Build your own image.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you don't know which one of the above to use, I recommend that you pick number 1 and just use the singularity image we already have on the system.&lt;/p&gt;
+&lt;h3&gt;1. Use one of the Singularity images already on the HPCC.&lt;/h3&gt;
+&lt;p&gt;For this introduction, we can keep things simple and just use one of the singilarity images already on the HPCC. This image runs CentOS 7 linux and is a good starting point.  Use the following command to start singularity in a "shell" using the provided image:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;singularity shell --env TERM=vt100 /opt/software/CentOS.container/7.4/bin/centos&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Once you run this command you should see the "Singularity" prompt which will look something like the following:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Singularity&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You did it!  You are running a different operating system (OS) than the base opporating system.  All of the main HPCC folders are still accessable from this "container" (ex. /mnt/home, /mnt/research, /mnt/scratch/, etc) so it shouldn't look much different than before (except for the different prompt and you no longer have access to some of the base HPCC software). &lt;/p&gt;
+&lt;p&gt;At this point, if you know what you need, you should be able to install your software  and it will compile/run using the singularity OS instead of the base OS.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE&lt;/em&gt;&lt;/strong&gt;: You can just install software in your &lt;code&gt;/mnt/home/$USER&lt;/code&gt; and/or &lt;code&gt;/mnt/research&lt;/code&gt; folders. The software you install will probably only work from "inside" this singularity image. However, you will also be able to see and minipulate the files from within your standard HPC account.  This is fine for many researchers but I recommend you jump down to "Step 2: Overlays" to make Singularity even more flexible. &lt;/p&gt;
+&lt;h3&gt;2. Download an image form one of the many online libraries&lt;/h3&gt;
+&lt;p&gt;Many people publish singularity images and post them on public "libraries" for easy install.  Here is a list of online libraries you can brouse:&lt;/p&gt;
+&lt;h4&gt;Sylabs Library&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://cloud.sylabs.io/library"&gt;Link to Browse Sylabs&lt;/a&gt;&lt;br&gt;
+example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;singularity pull alpine.sif library://alpine:latest
+
+singularity shell alpine.sif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;Dockerhub&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://hub.docker.com/search?q=&amp;amp;type=image"&gt;Link to Browse Dockerhub&lt;/a&gt;&lt;br&gt;
+example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;singularity pull tensorflow.sif docker://tensorflow/tensorflow:latest
+
+singularity shell tensorflow.sif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;Singularity Hub (aka shub)&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://singularityhub.github.io/singularity-catalog/"&gt;Link to Browse Singularity Hub&lt;/a&gt;&lt;br&gt;
+example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;singularity pull shub_image.sif shub://vsoch/singularity-images
+
+singularity shell shub_image.sif
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;3. build your own image&lt;/h3&gt;
+&lt;p&gt;This one is more complex and outside the scope of the overview. However, if you are intersted I recommend you try using the build command with a Docker image since it is fairly easy to install on your personal computer. Here is a link to how to use docker to make a singularity image:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="//colbrydi.github.io/images/Starter_guild_to_Tableau_Desktop.pdf"&gt;Link to tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Professional"></category><category term="Presentation"></category></entry><entry><title>Matrix Algebra with Computaional Applications</title><link href="https://colbrydi.github.io/matrix-algebra-with-computaional-applications.html" rel="alternate"></link><published>2021-09-30T00:00:00-04:00</published><updated>2021-09-30T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2021-09-30:/matrix-algebra-with-computaional-applications.html</id><summary type="html">&lt;p&gt;&lt;img alt="Printout of my textbook on a table of MSU publications" src="//colbrydi.github.io/images/MTH314.jpg"&gt; &lt;/p&gt;
+&lt;li&gt;&lt;a href="https://docs.sylabs.io/guides/3.2/user-guide/build_a_container.html?highlight=docker"&gt;Link to singularity build command&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Step 2: Overlays&lt;/h2&gt;
+&lt;p&gt;One problem we often encounter on the HPCC is "lots-of-small-files" (hundreds of files where each one is &amp;lt; 50MB).  The filesystem is optmized for large files.  Lots of small files end up "clogging" things up which can slow things down for everyone.  One useful trick of singularity is you can make a single large file called an "Overlay" which can be attached to a singularity session. You can use an Overlay as a "filesystem inside a single file" where you can store lots of the small files inside the single overlay file. From the user point of view you can have as many small files as you want accessable from the singularity image (within reasonable limits). However, these small files act as a single file from the HPCC point of view and dosn't clog things up.&lt;/p&gt;
+&lt;p&gt;This technique is really helpful if you are using complex software installs such as lots of Python, R or Conda installs.  It can also be helpful if your research data is lots of small files. &lt;/p&gt;
+&lt;h3&gt;Make your overlay file&lt;/h3&gt;
+&lt;p&gt;Making an overlay is not hard but takes multiple steps. For details on how to make an overlay we recommend viewing the &lt;a href="https://docs.sylabs.io/guides/3.2/user-guide/persistent_overlays.html?highlight=overlay"&gt;singularity overlay documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Fortunatly the HPCC has a "powertool" that can make a basic overlay for you.  All you need to do is run the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mk_overlay
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To inspect and learn about what this command is doing type the following (note the tick charicter is not the single quote and is typically found about the tab key on a standard keyboard):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat `which mk_overlay`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This overlay can be applied to an image using the &lt;code&gt;--overlay&lt;/code&gt; option as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;singularity shell --overlay overlay.img --env TERM=vt100 /opt/software
+/CentOS.container/7.4/bin/centos
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you are in the singularity shell you can now write to the overlay as if you were adding files to the "root" directory.  For example, run the following commands from the singularity prompt (with the overlay enabled).  This will download a copy of miniconda and install it in the /miniconda3/ directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh 
+
+./Miniconda3-py39_4.12.0-Linux-x86_64.sh -b -p /miniconda3/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To use this miniconda you will need to add the folder &lt;code&gt;/miniconda3/&lt;/code&gt; to the path with the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;miniconda3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point you can use &lt;code&gt;pip&lt;/code&gt; and &lt;code&gt;conda&lt;/code&gt; installs as much as you like.  These generate hundreds of small files but it dosn't matter because everything will be stored in the overlay.img file as one big file.  &lt;/p&gt;
+&lt;p&gt;I recommend creating a file called &lt;code&gt;start-conda.sh&lt;/code&gt; which contains the following.  This will enable easy startup of your singularity enviornment with the overlay and conda path already set up:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+singularity shell --env &lt;span class="nv"&gt;TERM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;vt100 &lt;span class="se"&gt;\&lt;/span&gt;
+                  --env &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ &lt;span class="se"&gt;\&lt;/span&gt;
+                  --overlay overlay.img &lt;span class="se"&gt;\&lt;/span&gt;
+                  /opt/software/CentOS.container/7.4/bin/centos 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Step 3: Submitting Jobs&lt;/h2&gt;
+&lt;p&gt;Once we have our image and our overlay working in a development node we can execute a script inside of the singularity image using the &lt;code&gt;exec&lt;/code&gt;. For example, this script uses our miniconda installed overlay and runs the python3 script called "mypython.py" which is stored in my home directory on the HPCC.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;singularity&lt;/span&gt; &lt;span class="k"&gt;exec&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;overlay&lt;/span&gt; &lt;span class="nv"&gt;overlay&lt;/span&gt;.&lt;span class="nv"&gt;img&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;software&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;CentOS&lt;/span&gt;.&lt;span class="nv"&gt;container&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;.&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;centos&lt;/span&gt; &lt;span class="nv"&gt;python3&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;$&lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;mypython&lt;/span&gt;.&lt;span class="nv"&gt;py&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once the above is running on a development node we can just submit this as a job to the HPCC using the following submissions script:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --walltime=04:00:00&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --mem=5gb&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -c 1&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -N 1&lt;/span&gt;
+
+singularity &lt;span class="nb"&gt;exec&lt;/span&gt; --overlay overlay.img /opt/software/CentOS.container/7.4/bin/centos python3 /mnt/home/&lt;span class="nv"&gt;$USER&lt;/span&gt;/mypython.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you need to have multiple jobs running the same software (such as for a job array). You can't have them all writting to the same overlay file.  The following script still allows the overlay to work but all of the changes will be discared after the run so make sure you copy your results back to your home drive:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --walltime=04:00:00&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH --mem=5gb&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCh --array 1-10&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -c 1&lt;/span&gt;
+&lt;span class="c1"&gt;#SBATCH -N 1&lt;/span&gt;
+
+singularity &lt;span class="nb"&gt;exec&lt;/span&gt; --write-tmp --overlay overlay.img /opt/software/CentOS.container/7.4/bin/centos python3 /mnt/home/&lt;span class="nv"&gt;$USER&lt;/span&gt;/mypython.py &lt;span class="nv"&gt;$SLURM_ARRAY_ID&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This overview of singularity was inicially written by Dirk Colbry.  Please contact the ICER User Support Team if you need any help getting your workflow up and running.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://contact.icer.msu.edu/contact"&gt;link to ICER User Support Team online contact form&lt;/a&gt;&lt;/p&gt;</content><category term="Professional"></category><category term="HPCC"></category></entry><entry><title>Matrix Algebra with Computaional Applications</title><link href="https://colbrydi.github.io/matrix-algebra-with-computaional-applications.html" rel="alternate"></link><published>2021-09-30T00:00:00-04:00</published><updated>2021-09-30T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2021-09-30:/matrix-algebra-with-computaional-applications.html</id><summary type="html">&lt;p&gt;&lt;img alt="Printout of my textbook on a table of MSU publications" src="//colbrydi.github.io/images/MTH314.jpg"&gt; &lt;/p&gt;
 &lt;p&gt;Matrix Algebra with Computational Applications is a collection of Open Educational Resource (OER) materials designed to introduce students to the use of Linear Algebra to solve real-world problems. These materials were developed specifically for students and instructors working in a "flipped classroom" model that emphasizes hands-on problem-solving activities during class …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Printout of my textbook on a table of MSU publications" src="//colbrydi.github.io/images/MTH314.jpg"&gt; &lt;/p&gt;
 &lt;p&gt;Matrix Algebra with Computational Applications is a collection of Open Educational Resource (OER) materials designed to introduce students to the use of Linear Algebra to solve real-world problems. These materials were developed specifically for students and instructors working in a "flipped classroom" model that emphasizes hands-on problem-solving activities during class meetings, with students watching lectures and completing readings and assignments outside of the classroom. &lt;/p&gt;
 &lt;p&gt;&lt;a href="https://openbooks.lib.msu.edu/cmse314/"&gt;&lt;img alt="MTH314 Cover" src="https://openbooks.lib.msu.edu/app/uploads/sites/18/2021/03/9781626101074_Cover-350x525.jpg"&gt;&lt;/a&gt; &lt;/p&gt;</content><category term="Professional"></category><category term="Publication"></category></entry><entry><title>IEEE HPEC 2021 Presentation</title><link href="https://colbrydi.github.io/ieee-hpec-2021-presentation.html" rel="alternate"></link><published>2021-09-21T00:00:00-04:00</published><updated>2021-09-21T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2021-09-21:/ieee-hpec-2021-presentation.html</id><summary type="html">&lt;p&gt;&lt;img alt="IEEE HPEC ICON" src="https://ieee-hpec.org/index_htm_files/15909.jpg"&gt; &lt;/p&gt;
@@ -478,13 +593,13 @@ The use of technology in research is becoming ubiquitous as low cost programmabl
 &lt;p&gt;&lt;code&gt;Part 1 - Software Evaluation Download Mar 23, 2019 609 AM.zip&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;HW1 - Matrix Transpose Download Feb 2, 2019 1001 AM.zip&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;If this folder is unzipped files similar to the following will appear:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mf"&gt;323771&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Sam&lt;/span&gt; &lt;span class="n"&gt;Smith&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;652&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;submission&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;
-&lt;span class="mf"&gt;325034&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Nan&lt;/span&gt; &lt;span class="n"&gt;Carpenter&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;330&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;wave&lt;/span&gt; &lt;span class="n"&gt;eqn&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
-&lt;span class="mf"&gt;325034&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Nan&lt;/span&gt; &lt;span class="n"&gt;Carpenter&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;330&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;wave1d&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
-&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Joe&lt;/span&gt; &lt;span class="n"&gt;Taylor&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;315&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;HW1&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipynb&lt;/span&gt;
-&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Joe&lt;/span&gt; &lt;span class="n"&gt;Taylor&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;315&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;HW1_report&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pdf&lt;/span&gt;
-&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Joe&lt;/span&gt; &lt;span class="n"&gt;Taylor&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;315&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;short&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mp4&lt;/span&gt;
-&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Joe&lt;/span&gt; &lt;span class="n"&gt;Taylor&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2019&lt;/span&gt; &lt;span class="mf"&gt;320&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;HW1&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mf"&gt;323771&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sam&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Smith&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;652&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;submission&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;325034&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Nan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Carpenter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;330&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wave&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eqn&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;325034&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Nan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Carpenter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;330&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;wave1d&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Joe&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Taylor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;315&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HW1&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipynb&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Joe&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Taylor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;315&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HW1_report&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pdf&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Joe&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Taylor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;315&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;short&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mp4&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;331582&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;372818&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Joe&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Taylor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2019&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;320&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HW1&lt;/span&gt;&lt;span class="mf"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For many of the topics we cover (mostly programming) these filenames are not easy to use.  In my classes student often submit files that need to work together with given file names (everything after the final dash).  I wrote the following program to convert the directory of complex filenames into folders. A separate folder for each student with the files in the folder:&lt;/p&gt;
@@ -601,10 +716,10 @@ rm -rf ~/seaborn-data
 &lt;p&gt;&lt;a href="//colbrydi.github.io/images//Makefile"&gt;Example Makefile&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A former student recently emailed me asking for a good reference about makefiles.  To be honest, I teach a lot about makefiles but I am not sure I have a go-to source.  I could have googled something but instead I just tapped out this quick description. I thought it makes for a fairly quick introduction to Makefiles.  Feel free to leave your favorite resource in the comments.&lt;/p&gt;
 &lt;p&gt;Makefiles are fairly simple in concept but are an entire programming language so can get very advanced. Basically a makefile consists of rules in the following format:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;prerequisite_file1&lt;/span&gt; &lt;span class="n"&gt;prerequisite_file2&lt;/span&gt; &lt;span class="n"&gt;prequiste_file3&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-  &lt;span class="n"&gt;Recipe&lt;/span&gt; &lt;span class="n"&gt;step&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-  &lt;span class="n"&gt;Recipe&lt;/span&gt; &lt;span class="n"&gt;step&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-  &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;prerequisite_file1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;prerequisite_file2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;prequiste_file3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;Recipe&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;step&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;Recipe&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;step&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;When you type “make Target” on the command line you active the rule.  Then the Make program recursively activates rules to make each of the prerequisites.  If there is no rule to make a prerequisite it looks to see if the prerequisite file exists. If there is no rule and there is no file you will get an error.  However, assuming you have all the prerequisite files you need  for a rule, the Make program then runs the Recipe commands (things like gcc or whatever you want).  It is assumed that the commands will take the prerequisites as inputs and generate the target file (this is not always the case).
@@ -633,14 +748,14 @@ That is basically it.  Some more things to note:
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the &lt;code&gt;-&amp;gt;&lt;/code&gt; to indicate a directed link and a &lt;code&gt;--&lt;/code&gt; to indicate a bi-directional link:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;digraph&lt;/span&gt; &lt;span class="n"&gt;G&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
- &lt;span class="n"&gt;Linux&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Normal&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;vim&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt;
- &lt;span class="n"&gt;Normal&lt;/span&gt;  &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Insert&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;i/I/a/A/o/O&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt;
- &lt;span class="n"&gt;Insert&lt;/span&gt;  &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Normal&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Esc&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
- &lt;span class="n"&gt;Normal&lt;/span&gt;  &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Command&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;: (colon)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
- &lt;span class="n"&gt;Command&lt;/span&gt;  &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Normal&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
- &lt;span class="n"&gt;Command&lt;/span&gt;  &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Linux&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;q/q!/wq/x&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;digraph&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;G&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Normal&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;vim&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Normal&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Insert&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;i/I/a/A/o/O&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Insert&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Normal&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Esc&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Normal&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Command&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;: (colon)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Command&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Normal&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Command&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Linux&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;q/q!/wq/x&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Once you have the file you can make an image using the following &lt;code&gt;dot&lt;/code&gt; command (dot is one of the commands installed by Graphviz)&lt;/p&gt;
@@ -953,161 +1068,125 @@ dependent on what the job is doing. However, in some cases a simple resubmit
 of the job gets it working. The following scripts check to see if the program
 is running and automatically re-submits the job if their seems to be a
 problem.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;file_flag_example.qsub&lt;/strong&gt;&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt; 1&lt;/span&gt;
-&lt;span class="normal"&gt; 2&lt;/span&gt;
-&lt;span class="normal"&gt; 3&lt;/span&gt;
-&lt;span class="normal"&gt; 4&lt;/span&gt;
-&lt;span class="normal"&gt; 5&lt;/span&gt;
-&lt;span class="normal"&gt; 6&lt;/span&gt;
-&lt;span class="normal"&gt; 7&lt;/span&gt;
-&lt;span class="normal"&gt; 8&lt;/span&gt;
-&lt;span class="normal"&gt; 9&lt;/span&gt;
-&lt;span class="normal"&gt;10&lt;/span&gt;
-&lt;span class="normal"&gt;11&lt;/span&gt;
-&lt;span class="normal"&gt;12&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash -l&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -m a&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -j oe&lt;/span&gt;
+&lt;h2&gt;&lt;strong&gt;file_flag_example.qsub&lt;/strong&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    #!/bin/bash -l
+    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+    #PBS -m a
+    #PBS -j oe
 
-&lt;span class="c1"&gt;# This method checks to see if a file is created at the beginning of a run. If the file is not created then the job is killed and restarted.&lt;/span&gt;
-&lt;span class="c1"&gt;# This method assumes that the program stalls before it has a chance to generate a file. This method is useful if the code does self checkpointing and the failure state is a busy wait.&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
- 
-&lt;span class="c1"&gt;#Run the main program&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt; 
-    mpirun mycommand
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;) &amp;amp;
-    PID=$!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to see if the job is running
-sleep 300
-if [ ! -f testfile.flag ]
-then
-         echo &amp;quot;Job Seems to have stalled. Killing and restarting&amp;quot;
-         kill &lt;span class="nv"&gt;$PID&lt;/span&gt;
-         qsub $0
-         echo &amp;quot;Job stats for debugging&amp;quot;
-         qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
-         exit 1
-fi
+    # This method checks to see if a file is created at the beginning of a run. If the file is not created then the job is killed and restarted.
+    # This method assumes that the program stalls before it has a chance to generate a file. This method is useful if the code does self checkpointing and the failure state is a busy wait.
+    cd &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+     
+    #Run the main program
+    ( 
+        mpirun mycommand 
+   ) &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;
+    PID=$!
 
-wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
-RET=$?
-qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+    # Sleep for enough time to see if the job is running
+    sleep 300
+    if [ ! -f testfile.flag ]
+    then
+             echo &amp;quot;Job Seems to have stalled. Killing and restarting&amp;quot;
+             kill &lt;span class="nv"&gt;$PID&lt;/span&gt;
+             qsub $0
+             echo &amp;quot;Job stats for debugging&amp;quot;
+             qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+             exit 1
+    fi
+
+    wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
+    RET=$?
+    qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 
 
-#return the output of the main program
-exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
+    #return the output of the main program
+    exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;output_monitor_example.qsub&lt;/strong&gt;&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt; 1&lt;/span&gt;
-&lt;span class="normal"&gt; 2&lt;/span&gt;
-&lt;span class="normal"&gt; 3&lt;/span&gt;
-&lt;span class="normal"&gt; 4&lt;/span&gt;
-&lt;span class="normal"&gt; 5&lt;/span&gt;
-&lt;span class="normal"&gt; 6&lt;/span&gt;
-&lt;span class="normal"&gt; 7&lt;/span&gt;
-&lt;span class="normal"&gt; 8&lt;/span&gt;
-&lt;span class="normal"&gt; 9&lt;/span&gt;
-&lt;span class="normal"&gt;10&lt;/span&gt;
-&lt;span class="normal"&gt;11&lt;/span&gt;
-&lt;span class="normal"&gt;12&lt;/span&gt;
-&lt;span class="normal"&gt;13&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash -l&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -m a&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -j oe&lt;/span&gt;
-&lt;span class="c1"&gt;# This method monitors job output and stops if the output doesn&amp;#39;t change. &lt;/span&gt;
-&lt;span class="c1"&gt;# This method assumes that the program continuously generates output at regular intervals. &lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    #!/bin/bash -l
+    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+    #PBS -m a
+    #PBS -j oe
+    # This method monitors job output and stops if the output doesn&amp;#39;t change. 
+    # This method assumes that the program continuously generates output at regular intervals. 
+    cd &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 
-&lt;span class="nv"&gt;testfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;testfile.flag&lt;span class="sb"&gt;`&lt;/span&gt;
- 
-&lt;span class="c1"&gt;#Run the main program&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt; 
-    mpirun mycommand &amp;gt; &lt;span class="nv"&gt;$testfile&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;) &amp;amp;
-    PID=$!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to start generating output
-sleep 300
-linecount1=`cat &lt;span class="nv"&gt;$testfile&lt;/span&gt; | wc -l`
- 
-# Sleep enough for more output
-sleep 100
-linecount2=`cat &lt;span class="nv"&gt;$testfile&lt;/span&gt; | wc -l`
-if [ &amp;quot;&lt;span class="nv"&gt;$linecount1&lt;/span&gt;&amp;quot; == &amp;quot;&lt;span class="nv"&gt;$linecount2&lt;/span&gt;&amp;quot; ]
-then
-         echo &amp;quot;Job Seems to have stalled. Killing and restarting&amp;quot;
-         kill &lt;span class="nv"&gt;$PID&lt;/span&gt;
-         qsub $0
-         echo &amp;quot;Job stats for debugging&amp;quot;
-         qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
-         exit 1
-fi
+    testfile=`testfile.flag`
+     
+    #Run the main program
+    ( 
+        mpirun mycommand &amp;gt; &lt;span class="nv"&gt;$testfile&lt;/span&gt;
+   ) &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;
+    PID=$!
 
-wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
-RET=$?
-qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+    # Sleep for enough time to start generating output
+    sleep 300
+    linecount1=`cat &lt;span class="nv"&gt;$testfile&lt;/span&gt; | wc -l`
+     
+    # Sleep enough for more output
+    sleep 100
+    linecount2=`cat &lt;span class="nv"&gt;$testfile&lt;/span&gt; | wc -l`
+    if [ &amp;quot;&lt;span class="nv"&gt;$linecount1&lt;/span&gt;&amp;quot; == &amp;quot;&lt;span class="nv"&gt;$linecount2&lt;/span&gt;&amp;quot; ]
+    then
+             echo &amp;quot;Job Seems to have stalled. Killing and restarting&amp;quot;
+             kill &lt;span class="nv"&gt;$PID&lt;/span&gt;
+             qsub $0
+             echo &amp;quot;Job stats for debugging&amp;quot;
+             qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+             exit 1
+    fi
+
+    wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
+    RET=$?
+    qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 
 
-#return the output of the main program
-exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
+    #return the output of the main program
+    exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;qstat_monitor_example.qsub&lt;/strong&gt;&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt; 1&lt;/span&gt;
-&lt;span class="normal"&gt; 2&lt;/span&gt;
-&lt;span class="normal"&gt; 3&lt;/span&gt;
-&lt;span class="normal"&gt; 4&lt;/span&gt;
-&lt;span class="normal"&gt; 5&lt;/span&gt;
-&lt;span class="normal"&gt; 6&lt;/span&gt;
-&lt;span class="normal"&gt; 7&lt;/span&gt;
-&lt;span class="normal"&gt; 8&lt;/span&gt;
-&lt;span class="normal"&gt; 9&lt;/span&gt;
-&lt;span class="normal"&gt;10&lt;/span&gt;
-&lt;span class="normal"&gt;11&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash -l&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -m a&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -j oe&lt;/span&gt;
-&lt;span class="c1"&gt;# This method uses the same idea as the previous but instead of relying on output it uses the cput stat generated by qstat.&lt;/span&gt;
-&lt;span class="c1"&gt;# This solution will not work if the job is in a busy wait state. &lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;h2&gt;&lt;strong&gt;qstat_monitor_example.qsub&lt;/strong&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    #!/bin/bash -l
+    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+    #PBS -m a
+    #PBS -j oe
+    # This method uses the same idea as the previous but instead of relying on output it uses the cput stat generated by qstat.
+    # This solution will not work if the job is in a busy wait state. 
+    cd &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;#Run the main program&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt; 
-    mpirun mycommand
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;) &amp;amp;
-    PID=$!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Sleep for enough time to start generating output
-sleep 300
-cpu1=`qstat -f &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt; | grep resources_used.cput`
- 
-# Sleep enough for more output
-sleep 100
-cpu2=`qstat -f &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt; | grep resources_used.cput`
-if [ &amp;quot;&lt;span class="nv"&gt;$cpu1&lt;/span&gt;&amp;quot; == &amp;quot;&lt;span class="nv"&gt;$cpu2&lt;/span&gt;&amp;quot; ]
-then
-         echo &amp;quot;Job Seems to have stalled. Killing and restarting&amp;quot;
-         kill &lt;span class="nv"&gt;$PID&lt;/span&gt;
-         qsub $0
-         echo &amp;quot;Job stats for debugging&amp;quot;
-         qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
-         exit 1
-fi
+    #Run the main program
+    ( 
+        mpirun mycommand 
+   ) &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;
+    PID=$!
 
-wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
-RET=$?
-qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+    # Sleep for enough time to start generating output
+    sleep 300
+    cpu1=`qstat -f &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt; | grep resources_used.cput`
+     
+    # Sleep enough for more output
+    sleep 100
+    cpu2=`qstat -f &lt;span class="nv"&gt;$PBS_JOBID&lt;/span&gt; | grep resources_used.cput`
+    if [ &amp;quot;&lt;span class="nv"&gt;$cpu1&lt;/span&gt;&amp;quot; == &amp;quot;&lt;span class="nv"&gt;$cpu2&lt;/span&gt;&amp;quot; ]
+    then
+             echo &amp;quot;Job Seems to have stalled. Killing and restarting&amp;quot;
+             kill &lt;span class="nv"&gt;$PID&lt;/span&gt;
+             qsub $0
+             echo &amp;quot;Job stats for debugging&amp;quot;
+             qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+             exit 1
+    fi
+
+    wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
+    RET=$?
+    qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 
 
-#return the output of the main program
-exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
+    #return the output of the main program
+    exit &lt;span class="nv"&gt;$RET&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;These solutions are nice work arounds because, if it works, the scripts just
@@ -1125,8 +1204,6 @@ track down the problem.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Dirk&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2015/01/16/Hack+to+automatically+restart+programs+that+stall+during+inicialization"&gt;View
-Online&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2015/01/16/Hack+to+automatically+restart+programs+that+stall+during+inicialization"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="Migration"></category></entry><entry><title>2014-12-16 HPCC workshop slides and handouts</title><link href="https://colbrydi.github.io/2014-12-16-hpcc-workshop-slides-and-handouts.html" rel="alternate"></link><published>2014-12-15T00:00:00-05:00</published><updated>2014-12-15T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2014-12-15:/2014-12-16-hpcc-workshop-slides-and-handouts.html</id><summary type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous&lt;/p&gt;
 &lt;p&gt;I will be teaching my bi-annual Introductory and Advanced HPCC workshops
 tomorrow. Below are links to my updated slides and handouts. Registration
@@ -1683,7 +1760,9 @@ will use as an example in the class:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://wiki.hpcc.msu.edu/download/attachments/5411670/imagecrop.m?version=1&amp;amp;modificationDate=1390832201000&amp;amp;api=v2"&gt;imagecrop.m&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Here …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous&lt;/p&gt;
+&lt;p&gt;Here are the slides:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://wiki.hpcc.msu.edu/download/attachments/5411670/2014-01-31%20Introduction%20to%20Matlab.pdf?version=1&amp;amp;modificationDate=1390832462000&amp;amp;api=v2"&gt;2014-01-31 Introduction to Matlab.pdf …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous&lt;/p&gt;
 &lt;p&gt;I am trying something new this time. The following are links to a dataset we
 will use as an example in the class:&lt;/p&gt;
 &lt;ul&gt;
@@ -1805,7 +1884,7 @@ Form&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/10/24/2013-10-23+CI-
 Days+Crash+Course"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/10/24/2013-10-23+CI-Days+Crash+Course"&gt;ICER Wiki&lt;/a&gt; using …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/10/24/2013-10-23+CI-Days+Crash+Course"&gt;ICER Wiki&lt;/a&gt; using custom python …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous&lt;/p&gt;
 &lt;p&gt;Welcome to CI-Days Crash Course workshop on High Performance Computing at
 Michigan State University. The following are slides and a link to the feedback
 form so you can follow along:&lt;/p&gt;
@@ -1930,11 +2009,11 @@ line in the second script&lt;/p&gt;
 &lt;p&gt;An working example of this script can be downloaded on the HPCC using the
 getexample command. Type the following on any development node to run the
 example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;powertools&lt;/span&gt;
-&lt;span class="n"&gt;getexample&lt;/span&gt;
-&lt;span class="n"&gt;getexample&lt;/span&gt; &lt;span class="n"&gt;MATLAB_movie&lt;/span&gt;
-&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;MATLAB_movie&lt;/span&gt;
-&lt;span class="n"&gt;qsub&lt;/span&gt; &lt;span class="n"&gt;makeAVI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qsub&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;getexample&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;getexample&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MATLAB_movie&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MATLAB_movie&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;qsub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;makeAVI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qsub&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -1948,7 +2027,11 @@ students seemed interested in either fluid dynamics or molecular dynamics
 problems. I presented some new background slides which talked about the
 pillars of science.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/download/attachments/5411654/2013-10-03%20ChE_MSE%20802.pdf?version=1&amp;amp;modificationDate=1380979652000&amp;amp;api=v2"&gt;2013-10-03 ChE_MSE
-802.pdf …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;added&lt;/strong&gt; by Anonymous&lt;/p&gt;
+802.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dirk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/10/05/2013-10-03+Making+your+research+go+faster+-+ChE_MSE+802+Presentation"&gt;View …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;added&lt;/strong&gt; by Anonymous&lt;/p&gt;
 &lt;p&gt;Below are the slides I gave at a presentation for ChE_MSE 802. Most of the
 students seemed interested in either fluid dynamics or molecular dynamics
 problems. I presented some new background slides which talked about the
@@ -2077,17 +2160,17 @@ installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;Step 1:&lt;br&gt;
 Download these examples buy loading the power tools module and using the get
 example command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;powertools&lt;/span&gt;
-&lt;span class="n"&gt;getexample&lt;/span&gt;
-&lt;span class="n"&gt;getexample&lt;/span&gt; &lt;span class="n"&gt;XSEDE …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;getexample&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;getexample&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;XSEDE_MPI_WORKSHOP …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;Differences in examples to get them to run on the HPCC.&lt;/p&gt;
 &lt;p&gt;Step 1:&lt;br&gt;
 Download these examples buy loading the power tools module and using the get
 example command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;powertools&lt;/span&gt;
-&lt;span class="n"&gt;getexample&lt;/span&gt;
-&lt;span class="n"&gt;getexample&lt;/span&gt; &lt;span class="n"&gt;XSEDE_MPI_WORKSHOP&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;getexample&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;getexample&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;XSEDE_MPI_WORKSHOP&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Step 2:&lt;br&gt;
@@ -2164,16 +2247,16 @@ installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;One of the iCER users has had problems getting ImageJ - ImageViewer scripts
 and plugins working on the HPCC. The ImageViewer classes, plugins, and scripts
 are in a directory called MyMacro. When I execute RunJavaOnly.sh I get:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;MyMacro&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;Java&lt;/span&gt;
-&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;RunJavaOnly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MyMacro&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Java&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;RunJavaOnly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Open&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="n"&gt;_1_DE2_C2crop&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mask0001&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tif&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Open&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="n"&gt;_1_DE2_C2crop&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mask0001&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;an&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="n"&gt;Plugins&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Analyze&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Particle&lt;/span&gt; &lt;span class="n"&gt;Analyser&lt;/span&gt;
+&lt;span class="n"&gt;Plugins&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Analyze&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Particle&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Analyser&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="n"&gt;Plugin&lt;/span&gt; &lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;double&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bonej&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ParticleCounter&lt;/span&gt; &lt;span class="n"&gt;did&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;javax&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;j3d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Shape3D&lt;/span&gt;
+&lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Plugin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;double&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bonej&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ParticleCounter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;did&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;javax&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;j3d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Shape3D&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And when I execute ./runmacro.sh I get:&lt;/p&gt;
@@ -2189,9 +2272,9 @@ Unrecognized command: 3D Fast Filters
 ImageJ (v1.46r) and adding class paths and a shared object path:&lt;/p&gt;
 &lt;p&gt;1. Download the latest version of ImageJ. This will create a directory called
 ImageJ in you home directory.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;
-&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;rsb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nih&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gov&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ij&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ij146&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;
-&lt;span class="n"&gt;tar&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zxf&lt;/span&gt; &lt;span class="n"&gt;ij146&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;wget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;rsb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nih&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gov&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ij&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;linux&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ij146&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;zxf&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ij146&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;linux64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;2. Delete the old version of ImageJ and copy the new version to your MyMacro
@@ -2298,8 +2381,8 @@ another vision you can see what is available by typing the following:&lt;/p&gt;
 &lt;p&gt;To load a different version of python use the "module unload" and "module
 load" commands. For example the following will switch from the default version
 of Python to 2.6.7:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;unload&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.6&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;unload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.6&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; use system modules to load existing Python related software. Many
@@ -2315,10 +2398,10 @@ spider command to see what is installed:&lt;/p&gt;
 
 &lt;p&gt;Once you know what is available, you can load the modules using "module load"
 command. For example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;NumPy&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;SciPy&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;PIL&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;NumPy&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;SciPy&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PIL&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt; at this point you can make your own virtual Python environment.
@@ -2347,11 +2430,11 @@ need to leave the Python virtual environment just type the following command:&lt
 
 &lt;p&gt;If you log out of the system and log back in, you can reactivate the virtual
 environment as before. Just make sure you load the modules you need:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;NumPy&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;SciPy&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;PIL&lt;/span&gt;
-&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt;
-&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;myPy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;NumPy&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;SciPy&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PIL&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;myPy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Submission Scripts&lt;/strong&gt;&lt;br&gt;
@@ -3721,9 +3804,9 @@ it annoying to log into gateway and then have to immediately log into one of
 the dev nodes. Although I have not tested it thoughouly, you can add the
 following script to the beginning of your .bash_profile file and it will
 automaticlly log you into a random dev node. Give it a try:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$HOSTNAME&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;gateway-01&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
-        &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;software&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
-&lt;span class="n"&gt;fi&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;$HOSTNAME&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;gateway-01&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;software&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -3823,13 +3906,13 @@ chmod command yet it seemed to work. Upon further testing I discovered that
 Make will automatically convert a shell script to an executable. For example,
 consider the following makefile&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;"Makefile"&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;    &lt;span class="n"&gt;demo&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;demo&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="n"&gt;demo&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   &lt;span class="n"&gt;test&lt;/span&gt;
-    &lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;
+&lt;span class="n"&gt;demo&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="n"&gt;clean&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;rm&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+&lt;span class="n"&gt;clean&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This code seems streatforward but there is no rule to build test and my clean
@@ -3854,7 +3937,7 @@ This is a test!!!!, Hello world
 &lt;p&gt;This is a really neat feature but it threw me for a loop.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/05/Makefile+Mystery"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/05/Makefile+Mystery"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="example"></category><category term="Migration"></category></entry><entry><title>Tips and Tricks for GPGPU programming on the HPCC</title><link href="https://colbrydi.github.io/tips-and-tricks-for-gpgpu-programming-on-the-hpcc.html" rel="alternate"></link><published>2012-02-17T00:00:00-05:00</published><updated>2012-02-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2012-02-17:/tips-and-tricks-for-gpgpu-programming-on-the-hpcc.html</id><summary type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/03/05/Makefile+Mystery"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="example"></category><category term="Migration"></category></entry><entry><title>Tips and Tricks for GPGPU programming on the HPCC</title><link href="https://colbrydi.github.io/tips-and-tricks-for-gpgpu-programming-on-the-hpcc.html" rel="alternate"></link><published>2012-02-17T00:00:00-05:00</published><updated>2012-02-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2012-02-17:/tips-and-tricks-for-gpgpu-programming-on-the-hpcc.html</id><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
 &lt;p&gt;This weeks HPCC Mid-Morning Break talk was about developing and running code
 on the GPGPU. Attached are my slides.&lt;/p&gt;
 &lt;ul&gt;
@@ -3863,25 +3946,7 @@ on the GPGPU. Attached are my slides.&lt;/p&gt;
 &lt;p&gt;&lt;a href="./images/2011-03-04_-_GPU_on_HPCC.pdf"&gt;2011-03-04 - GPU_on_HPCC.pdf&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+GPGPU+programming+on+the+HPCC"&gt;View
 Online&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+GPGPU+programming+on+the+HPCC"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
-&lt;p&gt;This weeks HPCC Mid-Morning Break talk was about developing and running code
-on the GPGPU. Attached are my slides.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Dirk&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="./images/2011-03-04_-_GPU_on_HPCC.pdf"&gt;2011-03-04 - GPU_on_HPCC.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+GPGPU+programming+on+the+HPCC"&gt;View
-Online&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+GPGPU+programming+on+the+HPCC"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="slides"></category><category term="Migration"></category></entry><entry><title>Tips and Tricks for Shared Network (MPI) Parallel jobs</title><link href="https://colbrydi.github.io/tips-and-tricks-for-shared-network-mpi-parallel-jobs.html" rel="alternate"></link><published>2012-02-17T00:00:00-05:00</published><updated>2012-02-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2012-02-17:/tips-and-tricks-for-shared-network-mpi-parallel-jobs.html</id><summary type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
-&lt;p&gt;Attached are slides from last weeks Mid-Morning Break talk. We had a
-discussion on running MPI jobs on the HPCC.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Dirk&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="./images/2012-02-10_MPI_ON_HPCC.pdf"&gt;2012-02-10_MPI_ON_HPCC.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+Shared+Network+%28MPI%29+Parallel+jobs"&gt;View
-Online&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+Shared+Network+%28MPI%29+Parallel+jobs"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
+&lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2012/02/17/Tips+and+Tricks+for+GPGPU+programming+on+the+HPCC"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="slides"></category><category term="Migration"></category></entry><entry><title>Tips and Tricks for Shared Network (MPI) Parallel jobs</title><link href="https://colbrydi.github.io/tips-and-tricks-for-shared-network-mpi-parallel-jobs.html" rel="alternate"></link><published>2012-02-17T00:00:00-05:00</published><updated>2012-02-17T00:00:00-05:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2012-02-17:/tips-and-tricks-for-shared-network-mpi-parallel-jobs.html</id><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migrated to Confluence 4.0"&lt;/p&gt;
 &lt;p&gt;Attached are slides from last weeks Mid-Morning Break talk. We had a
 discussion on running MPI jobs on the HPCC.&lt;/p&gt;
 &lt;ul&gt;
@@ -3934,7 +3999,7 @@ come back to the master version and discard any temporary changes just run the
 &lt;h1&gt;pulling in changes made by a collaborator.&lt;/h1&gt;
 &lt;p&gt;To pull in changes made by another user in a different directory (For example
 from a tar.gz file). Use the following command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;pull&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;colbrydi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;UserCode&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;greerjos&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt; &lt;span class="k"&gt;master&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pull&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;colbrydi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;UserCode&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;greerjos&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;master&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Check the changes and then upload them to the external repository:&lt;/p&gt;
@@ -4591,24 +4656,24 @@ and start hfss. When you run for the firs time, it will create a configuration
 setup for you. This may take a bit, and appear to be stalled, but please be
 patient if the system is busy.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Start HFSS in the Terminal&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;rdpgw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;intel14&lt;/span&gt;
-&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;intel14&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;hfss&lt;/span&gt;
-&lt;span class="n"&gt;Lmod&lt;/span&gt; &lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hfss&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;loading&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;HFSS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;15.0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;rdpgw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;intel14&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;intel14&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hfss&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Lmod&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hfss&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;found&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;loading&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;HFSS&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;15.0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k40&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;hfss&lt;/span&gt;
-&lt;span class="n"&gt;ANSYS&lt;/span&gt; &lt;span class="n"&gt;Electromagnetics&lt;/span&gt; &lt;span class="mf"&gt;15.0&lt;/span&gt; &lt;span class="n"&gt;Configuration&lt;/span&gt;
-&lt;span class="o"&gt;=========================================&lt;/span&gt;
-&lt;span class="n"&gt;Hostname&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k40&lt;/span&gt;
-&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;     &lt;span class="n"&gt;billspat&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Running&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="o"&gt;***&lt;/span&gt; &lt;span class="n"&gt;Skipping&lt;/span&gt; &lt;span class="n"&gt;dependency&lt;/span&gt; &lt;span class="n"&gt;verification&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;***&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Retrieving&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;Done&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Applying&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;Done&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Configuring&lt;/span&gt; &lt;span class="n"&gt;OCX&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;Done&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Retrieving&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;Done&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Applying&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;Done&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Configuring&lt;/span&gt; &lt;span class="n"&gt;binaries&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;Done&lt;/span&gt;
-&lt;span class="n"&gt;First&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;configuration&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;successfully&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k40&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hfss&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ANSYS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Electromagnetics&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;15.0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Configuration&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;=========================================&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Hostname&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;eval&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;k40&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="n"&gt;billspat&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;***&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Skipping&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dependency&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;verification&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;***&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Retrieving&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Applying&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Configuring&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OCX&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Retrieving&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Applying&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Configuring&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;binaries&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;First&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;configuration&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;completed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;successfully&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;At which point the GUI/ Window will start. It will ask you a question about
@@ -4692,98 +4757,58 @@ ended up using all the cpus on the node. I needing to run a lot of tests to
 see what exactly was causing the problem. Since I didn't want my tests to
 over-utilize the nodes (too much), I wrote the following job script that will
 run a monitor and kill the job if it goes to high over the cpu utilization:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;overutilize.qsub&lt;/strong&gt;&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt; 1&lt;/span&gt;
-&lt;span class="normal"&gt; 2&lt;/span&gt;
-&lt;span class="normal"&gt; 3&lt;/span&gt;
-&lt;span class="normal"&gt; 4&lt;/span&gt;
-&lt;span class="normal"&gt; 5&lt;/span&gt;
-&lt;span class="normal"&gt; 6&lt;/span&gt;
-&lt;span class="normal"&gt; 7&lt;/span&gt;
-&lt;span class="normal"&gt; 8&lt;/span&gt;
-&lt;span class="normal"&gt; 9&lt;/span&gt;
-&lt;span class="normal"&gt;10&lt;/span&gt;
-&lt;span class="normal"&gt;11&lt;/span&gt;
-&lt;span class="normal"&gt;12&lt;/span&gt;
-&lt;span class="normal"&gt;13&lt;/span&gt;
-&lt;span class="normal"&gt;14&lt;/span&gt;
-&lt;span class="normal"&gt;15&lt;/span&gt;
-&lt;span class="normal"&gt;16&lt;/span&gt;
-&lt;span class="normal"&gt;17&lt;/span&gt;
-&lt;span class="normal"&gt;18&lt;/span&gt;
-&lt;span class="normal"&gt;19&lt;/span&gt;
-&lt;span class="normal"&gt;20&lt;/span&gt;
-&lt;span class="normal"&gt;21&lt;/span&gt;
-&lt;span class="normal"&gt;22&lt;/span&gt;
-&lt;span class="normal"&gt;23&lt;/span&gt;
-&lt;span class="normal"&gt;24&lt;/span&gt;
-&lt;span class="normal"&gt;25&lt;/span&gt;
-&lt;span class="normal"&gt;26&lt;/span&gt;
-&lt;span class="normal"&gt;27&lt;/span&gt;
-&lt;span class="normal"&gt;28&lt;/span&gt;
-&lt;span class="normal"&gt;29&lt;/span&gt;
-&lt;span class="normal"&gt;30&lt;/span&gt;
-&lt;span class="normal"&gt;31&lt;/span&gt;
-&lt;span class="normal"&gt;32&lt;/span&gt;
-&lt;span class="normal"&gt;33&lt;/span&gt;
-&lt;span class="normal"&gt;34&lt;/span&gt;
-&lt;span class="normal"&gt;35&lt;/span&gt;
-&lt;span class="normal"&gt;36&lt;/span&gt;
-&lt;span class="normal"&gt;37&lt;/span&gt;
-&lt;span class="normal"&gt;38&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -l nodes=1:ppn=1,walltime=168:00:00,mem=2gb,feature=gbe&lt;/span&gt;
-&lt;span class="c1"&gt;#PBS -j oe&lt;/span&gt;
+&lt;h2&gt;&lt;strong&gt;overutilize.qsub&lt;/strong&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="c1"&gt;#!/bin/bash&lt;/span&gt;
+    &lt;span class="c1"&gt;#PBS -l nodes=1:ppn=1,walltime=168:00:00,mem=2gb,feature=gbe&lt;/span&gt;
+    &lt;span class="c1"&gt;#PBS -j oe&lt;/span&gt;
 
-&lt;span class="c1"&gt;#Change to current working directory&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;#Change to current working directory&lt;/span&gt;
+    &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_O_WORKDIR&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;#Copy the entire testing directory into its own folder&lt;/span&gt;
-mkdir -p &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
-cp -r ./testdir/* ./&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;#Copy the entire testing directory into its own folder&lt;/span&gt;
+    mkdir -p &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+    cp -r ./testdir/* ./&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+    &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;#Make the name of the executable unique so that more than one test can run on the same node&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ex+&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-ln -s testprogram &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;#Make the name of the executable unique so that more than one test can run on the same node&lt;/span&gt;
+    &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ex+&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d &lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+    ln -s testprogram &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 
-&lt;span class="c1"&gt;#run the testprogram using the new name (including input arguments)&lt;/span&gt;
-./&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.5 -15 -7.5 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$!&lt;/span&gt;
+    &lt;span class="c1"&gt;#run the testprogram using the new name (including input arguments)&lt;/span&gt;
+    ./&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.5 -15 -7.5 &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+    &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$!&lt;/span&gt;
 
-&lt;span class="c1"&gt;#Wait for job to get going&lt;/span&gt;
-sleep &lt;span class="m"&gt;60&lt;/span&gt;
+    &lt;span class="c1"&gt;#Wait for job to get going&lt;/span&gt;
+    sleep &lt;span class="m"&gt;60&lt;/span&gt;
 
-&lt;span class="c1"&gt;# Start job monitor&lt;/span&gt;
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;per&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt;
-     &lt;span class="c1"&gt;#Ensure job does not go over the 120% limit&lt;/span&gt;
-     &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$per&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -lt &lt;span class="s2"&gt;&amp;quot;120&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
-     &lt;span class="k"&gt;do&lt;/span&gt;
-        &lt;span class="c1"&gt;#pause between checking&lt;/span&gt;
-    sleep &lt;span class="m"&gt;22&lt;/span&gt;
-        &lt;span class="c1"&gt;#Run top in batch mode but with only one iteration&lt;/span&gt;
-        &lt;span class="c1"&gt;# Pick out job with the unique executable name and grab the CPU utilization (9th item)&lt;/span&gt;
-    &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;per&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;top -b -n &lt;span class="m"&gt;1&lt;/span&gt; -u &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;print $9&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;per=&lt;/span&gt;&lt;span class="nv"&gt;$per&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-     &lt;span class="k"&gt;done&lt;/span&gt;
-     &lt;span class="nb"&gt;kill&lt;/span&gt; &lt;span class="nv"&gt;$PID&lt;/span&gt;
-     &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Killed &lt;/span&gt;&lt;span class="nv"&gt;$PID&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;) &amp;amp;
-    wpid=$!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;#Wait for job to complete
-wait &lt;span class="nv"&gt;$PID&lt;/span&gt;
+    &lt;span class="c1"&gt;# Start job monitor&lt;/span&gt;
+    &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;per&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;(&lt;/span&gt;
+         &lt;span class="c1"&gt;#Ensure job does not go over the 120% limit&lt;/span&gt;
+         &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$per&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -lt &lt;span class="s2"&gt;&amp;quot;120&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+         &lt;span class="k"&gt;do&lt;/span&gt;
+            &lt;span class="c1"&gt;#pause between checking&lt;/span&gt;
+        sleep &lt;span class="m"&gt;22&lt;/span&gt;
+            &lt;span class="c1"&gt;#Run top in batch mode but with only one iteration&lt;/span&gt;
+            &lt;span class="c1"&gt;# Pick out job with the unique executable name and grab the CPU utilization (9th item)&lt;/span&gt;
+        &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;per&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;top -b -n &lt;span class="m"&gt;1&lt;/span&gt; -u &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;print $9&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;per=&lt;/span&gt;&lt;span class="nv"&gt;$per&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+         &lt;span class="k"&gt;done&lt;/span&gt;
+         &lt;span class="nb"&gt;kill&lt;/span&gt; &lt;span class="nv"&gt;$PID&lt;/span&gt;
+         &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Killed &lt;/span&gt;&lt;span class="nv"&gt;$PID&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+   &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+    &lt;span class="nv"&gt;wpid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$!&lt;/span&gt;
 
-#Kill off wait command if it is still running
-kill &lt;span class="nv"&gt;$wpid&lt;/span&gt;
+    &lt;span class="c1"&gt;#Wait for job to complete&lt;/span&gt;
+    &lt;span class="nb"&gt;wait&lt;/span&gt; &lt;span class="nv"&gt;$PID&lt;/span&gt;
 
-#Display all the stats for the job
-qstat -f &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;#Kill off wait command if it is still running&lt;/span&gt;
+    &lt;span class="nb"&gt;kill&lt;/span&gt; &lt;span class="nv"&gt;$wpid&lt;/span&gt;
+
+    &lt;span class="c1"&gt;#Display all the stats for the job&lt;/span&gt;
+    qstat -f &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;PBS_JOBID&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/04/28/Monitoring+Job+overutilization"&gt;View
-Online&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost migrated from &lt;a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/04/28/Monitoring+Job+overutilization"&gt;ICER Wiki&lt;/a&gt; using custom python script. Comment on errors below.&lt;/p&gt;</content><category term="Professional"></category><category term="HPC"></category><category term="example"></category><category term="Migration"></category></entry><entry><title>Running jobs longer than one week using BLCR</title><link href="https://colbrydi.github.io/running-jobs-longer-than-one-week-using-blcr.html" rel="alternate"></link><published>2011-04-21T00:00:00-04:00</published><updated>2011-04-21T00:00:00-04:00</updated><author><name>Dr. Dirk Colbry</name></author><id>tag:colbrydi.github.io,2011-04-21:/running-jobs-longer-than-one-week-using-blcr.html</id><summary type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;Our submission system is set up with a maximum walltime of one week. This
@@ -5018,7 +5043,7 @@ account:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt; svn checkout https://avida.devosoft.org/svn/stable
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Then I modified the build …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
+&lt;p&gt;Then I modified the build_avida script …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;Today I figured got a condor_compile version of
 &lt;a href="http://avida.devosoft.org/"&gt;Avida&lt;/a&gt; working on
@@ -5045,9 +5070,9 @@ make install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;p&gt;Then I run the build script using the following commands:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;cmake&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;build_avida&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;run_tests&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cmake&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;build_avida&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;./&lt;/span&gt;&lt;span class="n"&gt;run_tests&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Once Avida builds and tests successfully I write a condor script&lt;/p&gt;
@@ -5147,7 +5172,7 @@ Online&lt;/a&gt;&lt;/p&gt;
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;The mpiexec (mvapich) pernode option will run a single process for on every
 machine with the same host name. For example, if you run a job with
-nodes=16:ppn=2, the job's PBS …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
+nodes=16:ppn=2, the job's PBS_NODEFILE …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Blog post &lt;strong&gt;edited&lt;/strong&gt; by Anonymous - "Migration of unmigrated content due to
 installation of a new plugin"&lt;/p&gt;
 &lt;p&gt;The mpiexec (mvapich) pernode option will run a single process for on every
 machine with the same host name. For example, if you run a job with
@@ -5440,9 +5465,9 @@ showjobs
 
 &lt;p&gt;I put copies of these scripts in the powertools module. To use them just type
 the following in one of the developer nodes:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;powertools&lt;/span&gt;
-&lt;span class="n"&gt;move2top&lt;/span&gt; &lt;span class="n"&gt;JOBID&lt;/span&gt;
-&lt;span class="n"&gt;move2bot&lt;/span&gt; &lt;span class="n"&gt;JOBID&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;powertools&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;move2top&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;JOBID&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;move2bot&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;JOBID&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Hope you find this useful,&lt;/p&gt;

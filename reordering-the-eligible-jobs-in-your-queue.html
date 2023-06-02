@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Reordering the Eligible Jobs in Your Queue</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Reordering the Eligible Jobs in Your Queue</h1>
+Tue 17 August 2010
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by <a href="https://wiki.hpcc.msu.edu/display/~changc81@msu.edu">Chun-Min Chang</a> - "Migration of unmigrated content due to installation of a new plugin"</p>
+<p>I run a lot of different types of jobs with many different resource
+requirements. Back when we could have up to 144 eligible jobs in the queue
+this was not a problem. However, now to make the queuing system more fair,
+users can only have 15 eligible jobs in the queue (at any one time) and the
+rest of the jobs are set as idle. If all of your jobs require the same types
+of resources, this is not really a problem.</p>
+<p>However, sometimes I get five jobs in the queue that are waiting on resources
+and I want to run a different type of simpler job that should be able to run
+immediately but can't because it is in the idle queue instead of the eligible
+queue. The problem is that the five, complex resource, jobs that are already
+in the eligble queue end up blocking the simpler job that could run.</p>
+<p>For example, lets say I have five jobs that need nodes=1:ppn=8 and I want to
+add a job that only requires nodes=1:ppn=1 (no memory or significant
+walltimes). If there are no 8-core nodes available then the five 8-core jobs
+end up blocking my single core job which will not be eligible to run unless
+one of the 8-core jobs gets out of the way. To fix this problem I reorder my
+queue by putting a temporary hold on the more complex jobs using the "qhold"
+command:</p>
+<div class="highlight"><pre><span></span><code>qhold JOBID#
+</code></pre></div>
+
+<p>Suspending the complex jobs allows my single core job to move to the eligible
+queue and be able to run. I can then immediately run the queue resume command
+(qrls) and the complex jobs move back into the queue, behind the single core
+job. To resume a suspended job in the queue:</p>
+<div class="highlight"><pre><span></span><code>qrls JOBID#
+</code></pre></div>
+
+<p>Just for fun, I quickly came up with the following scripts that can help move
+a job to either the top or the bottom of a users eligible queue:</p>
+<p><strong>move2top</strong></p>
+<div class="highlight"><pre><span></span><code>#/bin/bash --login
+#DESCRIPTION Move a job to the top of your eligble queue
+# This script suspends all of your jobs and then resumes only
+# the specified job so it moves to the top of the eligible queue
+# The remaining jobs are then resumed (after a wait period).
+#
+# This script allows users to move a job up if they are being
+# blocked by other jobs.
+#
+# Written by Dirk Colbry August 17, 2010
+# © 2010 Michigan State University Board of Trustees.
+
+jobid=$1
+if [ &quot;$1&quot; == &quot;&quot; ]
+then
+        echo &quot;job id required&quot;
+        exit 1
+fi
+qhold `qselect -s Q -u <span class="cp">${</span><span class="n">USER</span><span class="cp">}</span>`
+qrls $1
+echo &quot;Waiting 30 seconds for queue to settle...&quot;
+sleep 30
+qrls `qselect -s H -u <span class="cp">${</span><span class="n">USER</span><span class="cp">}</span>`
+showjobs
+</code></pre></div>
+
+<p><strong>move2bot</strong></p>
+<div class="highlight"><pre><span></span><code>#<span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">bash</span> <span class="o">--</span><span class="nv">login</span>
+#<span class="nv">DESCRIPTION</span> <span class="nv">Move</span> <span class="nv">a</span> <span class="nv">job</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">bottom</span> <span class="nv">of</span> <span class="nv">your</span> <span class="nv">eligble</span> <span class="nv">queue</span>
+# <span class="nv">This</span> <span class="nv">script</span> <span class="nv">teporarily</span> <span class="nv">suspends</span> <span class="nv">a</span> <span class="nv">jobs</span> <span class="nv">to</span> <span class="nv">allow</span> <span class="nv">other</span> <span class="nv">jobs</span> <span class="nv">to</span>
+# <span class="nv">move</span> <span class="nv">up</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">eligible</span> <span class="nv">queue</span>.  <span class="nv">The</span> <span class="nv">job</span> <span class="nv">is</span> <span class="k">then</span> <span class="nv">resumed</span> <span class="ss">(</span><span class="nv">after</span>
+# <span class="mi">30</span> <span class="nv">second</span> <span class="k">wait</span> <span class="nv">period</span>.
+#
+# <span class="nv">Written</span> <span class="nv">by</span> <span class="nv">Dirk</span> <span class="nv">Colbry</span> <span class="nv">August</span> <span class="mi">17</span>, <span class="mi">2010</span>
+# © <span class="mi">2010</span> <span class="nv">Michigan</span> <span class="nv">State</span> <span class="nv">University</span> <span class="nv">Board</span> <span class="nv">of</span> <span class="nv">Trustees</span>.
+
+<span class="nv">jobid</span><span class="o">=</span><span class="mh">$1</span>
+<span class="k">if</span> [ <span class="s2">&quot;</span><span class="s">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> ]
+<span class="k">then</span>
+    <span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">job id required</span><span class="s2">&quot;</span>
+    <span class="k">exit</span> <span class="mi">1</span>
+<span class="nv">fi</span>
+
+<span class="nv">qhold</span> <span class="mh">$1</span>
+<span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">Waiting 30 seconds for queue to settle...</span><span class="s2">&quot;</span>
+<span class="nv">sleep</span> <span class="mi">30</span>
+<span class="nv">qrls</span> <span class="mh">$1</span>
+<span class="nv">showjobs</span>
+</code></pre></div>
+
+<p>I put copies of these scripts in the powertools module. To use them just type
+the following in one of the developer nodes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">powertools</span><span class="w"></span>
+<span class="n">move2top</span><span class="w"> </span><span class="n">JOBID</span><span class="w"></span>
+<span class="n">move2bot</span><span class="w"> </span><span class="n">JOBID</span><span class="w"></span>
+</code></pre></div>
+
+<p>Hope you find this useful,</p>
+<ul>
+<li>Dirk</li>
+</ul>
+<hr>
+<p>Dr. Dirk Joel Luchini Colbry<br>
+Research Specialist<br>
+Institute for Cyber-Enabled Research (iCER)<br>
+Michigan State University<br>
+1445 Biomedical and Physical Sciences Building (BPS),<br>
+East Lansing, MI 48824-1226<br>
+email: dirk (at) colbry.com<br>
+web: <a href="http://www.dirk.colbry.com">http://www.dirk.colbry.com</a><br>
+phone: (517) 355-0730</p>
+<p>To ask an HPC or iCER related technical question or to schedule a consulting
+appointment, please visit: <a href="http://hpcc.msu.edu/contact">http://hpcc.msu.edu/contact</a></p>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2010/08/17/Reordering+the+Eligible+Jobs+in+Your+Queue">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2010/08/17/Reordering+the+Eligible+Jobs+in+Your+Queue">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Reordering the Eligible Jobs in Your Queue';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

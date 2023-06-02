@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Using mpi pernode option</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Using mpi pernode option</h1>
+Wed 25 August 2010
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by Anonymous - "Migration of unmigrated content due to
+installation of a new plugin"</p>
+<p>The mpiexec (mvapich) pernode option will run a single process for on every
+machine with the same host name. For example, if you run a job with
+nodes=16:ppn=2, the job's PBS_NODEFILE could look like the following:</p>
+<div class="highlight"><pre><span></span><code>afn-000
+afn-000
+afn-000
+afn-000
+afn-002
+afn-002
+afn-002
+afn-002
+afn-002
+afn-002
+afn-002
+afn-002
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+scw-049
+scw-049
+scw-118
+scw-118
+scw-094
+scw-094
+scw-006
+scw-006
+</code></pre></div>
+
+<p>If you run using the -pernode option, the job will run on the following nodes:</p>
+<div class="highlight"><pre><span></span><code>afn-000
+afn-002
+afn-001
+scw-049
+scw-118
+scw-094
+scw-006
+</code></pre></div>
+
+<p>However, this may be a problem depending on the type of job you are running.
+The pernode option may not run the number of nodes asked for by the job script
+(in the above example I asked for 16 nodes, however, since some of these 16
+are the same node, the pernode option only runs on 7 nodes). Sometimes it is
+more desirable to have the mpi job run on the same number of nodes as was
+originally requested in the submission script. To do this, I have made the
+following script which will generate a config file that can be used to run the
+job:</p>
+<p><strong>pernodecofig</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/perl</span>
+<span class="c1"># Written by Dirk Colbry - iCERi - August 26, 2009</span>
+<span class="c1"># (c) 2010 Michigan State University Board of Trustees.</span>
+<span class="c1">#</span>
+<span class="c1"># Program to generate a mpiexec config file to run an mpi job with one job per node.</span>
+<span class="c1"># This fixes the problem with the -pernode mpiexec option which does not work when</span>
+<span class="c1"># two of the nodes are allocated on the same machine.  </span>
+<span class="c1">#</span>
+<span class="c1"># This function will run the same number of processes as allocated in the nodes= section of</span>
+<span class="c1"># the PBS resource request.</span>
+<span class="c1">#</span>
+<span class="c1"># pernodeconfig ppn nodefile executable arguments</span>
+<span class="c1">#   ppn - process per node for the current submission script.</span>
+<span class="c1">#   nodefile - nodefile for the current submission script (typically PBS_NODEFILE).</span>
+<span class="c1">#   exectuable - name of the executable to be run on each node.</span>
+<span class="c1">#   arguments - arguments used for the executable.</span>
+
+<span class="nv">$ppn</span><span class="o">=</span><span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nv">$nodefile</span><span class="o">=</span><span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="c1">#Parse the nodefile to find the names of each of the allocated nodes.</span>
+<span class="k">if</span><span class="p">(</span><span class="o">-</span><span class="n">T</span> <span class="nv">$nodefile</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">open</span> <span class="p">(</span><span class="n">FILE</span><span class="p">,</span> <span class="s">&quot;$nodefile&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="k">print</span> <span class="s">&quot;Can&#39;t open &#39;$nodefile&#39;: $! \n\n&quot;</span><span class="p">;</span>
+        <span class="nv">@testfile</span> <span class="o">=</span> <span class="sr">&lt;FILE&gt;</span><span class="p">;</span>
+    <span class="nb">close</span><span class="p">(</span><span class="n">FILE</span><span class="p">);</span>
+    <span class="nv">$count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">@testfile</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">chomp</span><span class="p">;</span>
+        <span class="nv">$count</span><span class="o">=</span><span class="nv">$count</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nv">$count</span> <span class="o">==</span> <span class="nv">$ppn</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+            <span class="k">print</span> <span class="s">&quot;$_\t&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">print</span> <span class="bp">STDERR</span> <span class="s">&quot;INPUT NOT A TEXT FILE\n&quot;</span><span class="p">;</span>
+    <span class="nb">die</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># Add the executable to the config file</span>
+<span class="nv">$numArgs</span> <span class="o">=</span> <span class="nv">$#ARGV</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">print</span> <span class="s">&quot; \: &quot;</span><span class="p">;</span>
+
+<span class="k">foreach</span> <span class="nv">$argnum</span> <span class="p">(</span><span class="mi">2</span> <span class="o">..</span> <span class="nv">$#ARGV</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">print</span> <span class="s">&quot;$ARGV[$argnum] &quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="s">&quot;\n&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>To use this command you can add the following to your submission script:</p>
+<p><strong>pernodetest.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="c1">#PBS -l nodes=16:ppn=2,walltime=00:01:00</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+./pernodeconfig <span class="m">2</span> <span class="si">${</span><span class="nv">PBS_NODEFILE</span><span class="si">}</span> hostname &gt; <span class="nv">$PBS_JOBID</span>.cfg
+mpiexec -comm none -conf <span class="nv">$PBS_JOBID</span>.cfg
+</code></pre></div>
+</td></tr></table>
+<p>This script will output the following nodes which is may be more correct
+depending on your job:</p>
+<div class="highlight"><pre><span></span><code>afn-000
+afn-000
+afn-002
+afn-002
+afn-002
+afn-002
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+afn-001
+scw-049
+scw-118
+scw-094
+scw-006
+</code></pre></div>
+
+<p>Email me if you find this helpful,</p>
+<ul>
+<li>Dirk</li>
+</ul>
+<p>-----------------------------------------------<br>
+Dr. Dirk Joel Luchini Colbry<br>
+Research Specialist<br>
+Institute for Cyber-Enabled Research (iCER)<br>
+Michigan State University<br>
+1445 Biomedical and Physical Sciences Building (BPS),<br>
+East Lansing, MI 48824-1226<br>
+email: dirk (at) colbry.com<br>
+web: <a href="http://www.dirk.colbry.com">http://www.dirk.colbry.com</a><br>
+phone: (517) 355-0730</p>
+<p>To ask an HPC or iCER related technical question or to schedule a consulting
+appointment, please visit: <a href="http://hpcc.msu.edu/contact">http://hpcc.msu.edu/contact</a></p>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2010/08/25/Using+mpi+pernode+option">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2010/08/25/Using+mpi+pernode+option">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Using mpi pernode option';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>

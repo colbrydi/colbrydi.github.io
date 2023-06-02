@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dirk's Home Page - Using X11 Virtual Frame Buffer (Xvfb) in a submission script</title>
+    <meta name="description" content="">
+    <meta name="author" content="Dr. Dirk Colbry">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate" title="Dirk's Home Page" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+   <img src="./images/2017Dirk.jpg" align="left" width=100 hspace="20">
+
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">Dirk's Home Page</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            <li><a href="/pages/teaching.html">Teaching</a></li>
+            <li><a href="/category/professional.html">Blog</a></li>
+            <li><a href="/pages/publications.html">Publications</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Using X11 Virtual Frame Buffer (Xvfb) in a submission script</h1>
+Tue 08 October 2013
+
+by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+        </div>
+	
+        <div><p>Blog post <strong>edited</strong> by <a href="https://wiki.hpcc.msu.edu/display/~rahmenic@msu.edu">Nicholas Anthony Rahme</a></p>
+<p>Some programs require access to a display in order to run properly. For
+example, MATLAB will provide an error if you try to create an AVI file from a
+image frame in -nodisplay mode. This can be an annoying problem on the HPCC
+because all of our batch compute nodes do not have displays attached.
+Fortunately, the X virtual Frame Buffer (Xvfb) is a program that simulates an
+attached display and can allow programs that require Graphical User Interfaces
+(X11) displays to run.</p>
+<p>The following is a typical submission script for running a MATLAB program :</p>
+<p><strong>makeAVI.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#PBS -l nodes=1:ppn=1,mem=2gb,feature=gbe</span>
+<span class="c1">#PBS -l walltime=01:00:00</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -W x=gres:MATLAB</span>
+
+<span class="c1">#Change directory to the qsub submission directory</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+<span class="c1">#Run matlab script (replace this with your X11 code)</span>
+matlab -nodisplay -r <span class="s2">&quot;makeAVI&quot;</span>
+
+<span class="c1">#Print out job usage</span>
+qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Running this script will give me an error that says "Display not found." The
+following script is modified to start Xvfb at the beginning, run the same
+basic command and then terminate Xvfb at the end:</p>
+<p><strong>makeAVI.qsub</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#PBS -l nodes=1:ppn=1,mem=2gb,feature=gbe</span>
+<span class="c1">#PBS -l walltime=01:00:00</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -W x=gres:MATLAB</span>
+
+<span class="c1">#Change directory to the qsub submission directory</span>
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+
+<span class="c1">##### Specify the display, start the Xvfb server, and save the process ID.</span>
+<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&quot;:1&quot;</span>
+rm -f /tmp/.X11-unix
+rm -f /tmp/.X11-lock
+Xvfb <span class="nv">$DISPLAY</span> -auth /dev/null/ <span class="p">&amp;</span>
+<span class="nv">XVFB_PID</span><span class="o">=</span><span class="nv">$!</span>
+
+<span class="c1">#Give system time to spin up X11 display (Probably not needed)</span>
+sleep <span class="m">5</span>
+<span class="c1">####</span>
+
+<span class="c1">#Run matlab script</span>
+matlab -r <span class="s2">&quot;makeAVI&quot;</span>
+
+<span class="c1">##### Stop the Xvfb server and remove the files it created.</span>
+<span class="nb">kill</span> -9 <span class="nv">$XVFB_PID</span>
+rm -rf /tmp/.X11-unix
+rm -f  /tmp/.X11-lock
+<span class="c1">####</span>
+
+<span class="c1">#Print out job usage</span>
+qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Please note that the -nodisplay option was removed from the MATLAB command
+line in the second script</p>
+<p>An working example of this script can be downloaded on the HPCC using the
+getexample command. Type the following on any development node to run the
+example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">powertools</span><span class="w"></span>
+<span class="n">getexample</span><span class="w"></span>
+<span class="n">getexample</span><span class="w"> </span><span class="n">MATLAB_movie</span><span class="w"></span>
+<span class="n">cd</span><span class="w"> </span><span class="n">MATLAB_movie</span><span class="w"></span>
+<span class="n">qsub</span><span class="w"> </span><span class="n">makeAVI</span><span class="o">.</span><span class="n">qsub</span><span class="w"></span>
+</code></pre></div>
+
+<ul>
+<li>Dirk</li>
+</ul>
+<p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/10/08/Using+X11+Virtual+Frame+Buffer+%28Xvfb%29+in+a+submission+script">View
+Online</a></p>
+<p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/10/08/Using+X11+Virtual+Frame+Buffer+%28Xvfb%29+in+a+submission+script">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'DirkColbry'; 
+    var disqus_title = 'Using X11 Virtual Frame Buffer (Xvfb) in a submission script';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://colbrydi.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/fun.html">Fun</a></li>
+                <li><a href="./category/professional.html">Professional</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="//colbrydi.github.io/cyberambassadors/">CyberAmbassadors</a></li>
+                <li><a href="//see-insight.github.io/">SEE-Insight</a></li>
+                <li><a href="//colbrydi.github.io/msupelican/">Pelican / Github.io Tutorial</a></li>
+                <li><a href="//cmse.msu.edu">CMSE</a></li>
+                <li><a href="//www.msu.edu/">MSU</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-121560886-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+ 
+</body>
+</html>
