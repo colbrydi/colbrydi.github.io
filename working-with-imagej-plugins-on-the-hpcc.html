@@ -76,16 +76,16 @@ installation of a new plugin"</p>
 <p>One of the iCER users has had problems getting ImageJ - ImageViewer scripts
 and plugins working on the HPCC. The ImageViewer classes, plugins, and scripts
 are in a directory called MyMacro. When I execute RunJavaOnly.sh I get:</p>
-<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">MyMacro</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">Java</span><span class="w"></span>
-<span class="o">./</span><span class="n">RunJavaOnly</span><span class="o">.</span><span class="n">sh</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">MyMacro</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">Java</span>
+<span class="o">./</span><span class="n">RunJavaOnly</span><span class="o">.</span><span class="n">sh</span>
 
-<span class="n">File</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Open</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span><span class="n">_1_DE2_C2crop</span><span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">mask0001</span><span class="o">.</span><span class="n">tif</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">image</span><span class="p">)</span><span class="w"></span>
+<span class="n">File</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Open</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span><span class="n">_1_DE2_C2crop</span><span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">mask0001</span><span class="o">.</span><span class="n">tif</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">image</span><span class="p">)</span>
 
-<span class="n">Plugins</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Analyze</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Particle</span><span class="w"> </span><span class="n">Analyser</span><span class="w"></span>
+<span class="n">Plugins</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Analyze</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Particle</span><span class="w"> </span><span class="n">Analyser</span>
 
-<span class="n">Error</span><span class="p">:</span><span class="w"></span>
-<span class="n">Plugin</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">double</span><span class="o">.</span><span class="n">bonej</span><span class="o">.</span><span class="n">ParticleCounter</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">class</span><span class="p">:</span><span class="w"> </span><span class="n">javax</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">j3d</span><span class="o">/</span><span class="n">Shape3D</span><span class="w"></span>
+<span class="n">Error</span><span class="p">:</span>
+<span class="n">Plugin</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">double</span><span class="o">.</span><span class="n">bonej</span><span class="o">.</span><span class="n">ParticleCounter</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">class</span><span class="p">:</span><span class="w"> </span><span class="n">javax</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">j3d</span><span class="o">/</span><span class="n">Shape3D</span>
 </code></pre></div>
 
 <p>And when I execute ./runmacro.sh I get:</p>
@@ -101,9 +101,9 @@ Unrecognized command: 3D Fast Filters
 ImageJ (v1.46r) and adding class paths and a shared object path:</p>
 <p>1. Download the latest version of ImageJ. This will create a directory called
 ImageJ in you home directory.</p>
-<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="o">~</span><span class="w"></span>
-<span class="n">wget</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">rsb</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">nih</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">ij</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ij146</span><span class="o">-</span><span class="n">linux64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span><span class="w"></span>
-<span class="n">tar</span><span class="w"> </span><span class="o">-</span><span class="n">zxf</span><span class="w"> </span><span class="n">ij146</span><span class="o">-</span><span class="n">linux64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="o">~</span>
+<span class="n">wget</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">rsb</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">nih</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">ij</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ij146</span><span class="o">-</span><span class="n">linux64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span><span class="w"> </span><span class="o">-</span><span class="n">zxf</span><span class="w"> </span><span class="n">ij146</span><span class="o">-</span><span class="n">linux64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 </code></pre></div>
 
 <p>2. Delete the old version of ImageJ and copy the new version to your MyMacro
@@ -118,11 +118,11 @@ libj3dcore-ogl.so shared object file (it's in the
 script to use the new version of ImageJ you just installed. The script should
 look like:</p>
 <p>Post created by Daniel Perez (ICER Student Intern):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-java -Xmx8000m -Dplugins.dir<span class="o">=</span>./plugins/ -Djava.library.path<span class="o">=</span>/opt/software/Java3D/lib/amd64 -jar ./ij.jar <span class="p">&amp;</span>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+java<span class="w"> </span>-Xmx8000m<span class="w"> </span>-Dplugins.dir<span class="o">=</span>./plugins/<span class="w"> </span>-Djava.library.path<span class="o">=</span>/opt/software/Java3D/lib/amd64<span class="w"> </span>-jar<span class="w"> </span>./ij.jar<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div></td></tr></table></div>
+
 <p>4. Edit the MyMacro/ij.jar/META-INF/MANIFEST.MF file. Java needs to know
 where to find Java3D classes. Add the following line to the end of the file:</p>
 <div class="highlight"><pre><span></span><code>Class-Path: /opt/software/Java3D/lib/ext/j3dcore.jar /opt/software/Java3D/lib/ext/j3dutils.jar
@@ -134,11 +134,11 @@ think RunJavaOnly.sh works. However, I don't know what this program is
 supposed to do, so Dirk should test this.</p>
 <h5>runmacro.sh</h5>
 <p>Works better using the plugins directory (instead of plugins2):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
-java -Xmx8000m -Dplugins.dir<span class="o">=</span>./plugins/ -jar ./ij.jar -macro ./SplitLargePiece.txt
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+java<span class="w"> </span>-Xmx8000m<span class="w"> </span>-Dplugins.dir<span class="o">=</span>./plugins/<span class="w"> </span>-jar<span class="w"> </span>./ij.jar<span class="w"> </span>-macro<span class="w"> </span>./SplitLargePiece.txt
+</code></pre></div></td></tr></table></div>
+
 <p>Runs for awhile. Don't get the 3D Fast Filters error. Get the following errors
 instead:</p>
 <div class="highlight"><pre><span></span><code>No window with the title &quot;particleID_parts&quot; found.
@@ -219,7 +219,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

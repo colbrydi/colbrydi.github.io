@@ -82,26 +82,26 @@ chmod command yet it seemed to work. Upon further testing I discovered that
 Make will automatically convert a shell script to an executable. For example,
 consider the following makefile</p>
 <p><strong>"Makefile"</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">all</span><span class="o">:</span><span class="w">    </span><span class="n">demo</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">all</span><span class="o">:</span><span class="w">    </span><span class="n">demo</span>
 
-<span class="n">demo</span><span class="o">:</span><span class="w">   </span><span class="n">test</span><span class="w"></span>
-<span class="w">    </span><span class="o">./</span><span class="n">test</span><span class="w"></span>
+<span class="n">demo</span><span class="o">:</span><span class="w">   </span><span class="n">test</span>
+<span class="w">    </span><span class="o">./</span><span class="n">test</span>
 
-<span class="n">clean</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">rm</span><span class="w"> </span><span class="n">test</span><span class="w"></span>
+<span class="n">clean</span><span class="o">:</span>
+<span class="w">    </span><span class="n">rm</span><span class="w"> </span><span class="n">test</span>
 </code></pre></div>
 
 <p>This code seems streatforward but there is no rule to build test and my clean
 removes test. However, the script works fine if I include the following in the
 same directory:</p>
 <p><strong>"test.sh"</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#</span>
-<span class="nb">echo</span> <span class="s2">&quot;This is a test!!!!, Hello world&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is a test!!!!, Hello world&quot;</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Now when I run make, I get the following output:</p>
 <div class="highlight"><pre><span></span><code>&gt;make
 cat test.sh &gt;test
@@ -185,7 +185,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

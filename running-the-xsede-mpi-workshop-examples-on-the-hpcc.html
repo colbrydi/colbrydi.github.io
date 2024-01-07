@@ -75,9 +75,9 @@ installation of a new plugin"</p>
 <p>Step 1:<br>
 Download these examples buy loading the power tools module and using the get
 example command:</p>
-<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">powertools</span><span class="w"></span>
-<span class="n">getexample</span><span class="w"></span>
-<span class="n">getexample</span><span class="w"> </span><span class="n">XSEDE_MPI_WORKSHOP</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">powertools</span>
+<span class="n">getexample</span>
+<span class="n">getexample</span><span class="w"> </span><span class="n">XSEDE_MPI_WORKSHOP</span>
 </code></pre></div>
 
 <p>Step 2:<br>
@@ -93,7 +93,7 @@ Run the code in the command line using same command:</p>
 
 <p>Step 4:<br>
 Write a submission script and run the job on the cluster:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -101,17 +101,17 @@ Write a submission script and run the job on the cluster:</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -l walltime=05:00,nodes=8:ppn=1</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
-mpirun ./a.out
+mpirun<span class="w"> </span>./a.out
 
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Step 5:<br>
 Submit the job using the following command:</p>
 <div class="highlight"><pre><span></span><code>qsub myjob.qsub
@@ -191,7 +191,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

@@ -77,19 +77,19 @@ constantly edit the submission script every time you need to change to a
 different variation. However, I find that this can be confusing so I made the
 following script to make my life easier:</p>
 <p><strong>runMatlab.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l walltime=01:00:00,nodes=1:ppn=1</span>
 <span class="c1">#PBS -l software=MATLAB</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
-module load matlab
-matlab -nodisplay -r <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span><span class="s2">&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+module<span class="w"> </span>load<span class="w"> </span>matlab
+matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div></td></tr></table></div>
+
 <p>This is a qsub wrapper script that allows you to specify the name of the
 MATLAB script as the name of the job. To run the script just type:</p>
 <div class="highlight"><pre><span></span><code>qsub -N myScriptName runMatlab.qsub
@@ -182,7 +182,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

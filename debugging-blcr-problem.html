@@ -87,7 +87,7 @@ a problem. I did a check using md5sum and we had two different versions of the
 file installed on the system. I wrote the following submission script designed
 to force a job to only start on a node with the same file. If the md5sum is
 different the job just resubmitts itself:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -124,46 +124,46 @@ different the job just resubmitts itself:</p>
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l nodes=1:ppn=1:intel10,walltime=00:10:00,mem=2gb,feature=gbe</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -N short_test</span>
 <span class="c1">#PBS -t 1</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
-module load powertools
-<span class="nb">shopt</span> -s expand_aliases
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+module<span class="w"> </span>load<span class="w"> </span>powertools
+<span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>expand_aliases
 
-<span class="nb">echo</span> <span class="s2">&quot;### </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2"> running on </span><span class="nv">$HOSTNAME</span><span class="s2"> with </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;### </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2"> running on </span><span class="nv">$HOSTNAME</span><span class="s2"> with </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="c1"># 4 hours * 60 minutes * 6 seconds - 60 seconds * 5 minutes</span>
 <span class="c1">#export BLCR_WAIT_SEC=$(( 4 * 60 * 60 - 60 * 5))</span>
-<span class="nb">export</span> <span class="nv">PBS_JOBNAME</span><span class="o">=</span><span class="s2">&quot;short_test&quot;</span>
-<span class="nb">export</span> <span class="nv">BLCR_WAIT_SEC</span><span class="o">=</span><span class="m">30</span>
-<span class="nb">export</span> <span class="nv">PBS_JOBSCRIPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span>
-<span class="nb">export</span> <span class="nv">BLCR_EMAIL</span><span class="o">=</span><span class="s2">&quot;FALSE&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;Waiting </span><span class="si">${</span><span class="nv">BLCR_WAIT_SEC</span><span class="si">}</span><span class="s2"> seconds to run </span><span class="si">${</span><span class="nv">PBS_JOBSCRIPT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PBS_JOBNAME</span><span class="o">=</span><span class="s2">&quot;short_test&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLCR_WAIT_SEC</span><span class="o">=</span><span class="m">30</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PBS_JOBSCRIPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLCR_EMAIL</span><span class="o">=</span><span class="s2">&quot;FALSE&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Waiting </span><span class="si">${</span><span class="nv">BLCR_WAIT_SEC</span><span class="si">}</span><span class="s2"> seconds to run </span><span class="si">${</span><span class="nv">PBS_JOBSCRIPT</span><span class="si">}</span><span class="s2">&quot;</span>
 
-md5sum /usr/lib/locale/locale-archive &gt; <span class="nv">$PBS_ARRAYID</span>.md5sum
-cat <span class="nv">$PBS_ARRAYID</span>.md5sum
-<span class="k">if</span> <span class="o">[</span> -f <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>.orig <span class="o">]</span>
+md5sum<span class="w"> </span>/usr/lib/locale/locale-archive<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$PBS_ARRAYID</span>.md5sum
+cat<span class="w"> </span><span class="nv">$PBS_ARRAYID</span>.md5sum
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>.orig<span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-        diff <span class="nv">$PBS_ARRAYID</span>.md5sum <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>.orig
-        <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span>
-        <span class="k">then</span>
-                <span class="nb">echo</span> <span class="s2">&quot;Not the same nd3sum restarting&quot;</span>
-                qsub -t <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span> -N <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span> <span class="si">${</span><span class="nv">PBS_JOBSCRIPT</span><span class="si">}</span>
-                sleep <span class="m">120</span>
-                <span class="nb">exit</span>
-        <span class="k">fi</span>
+<span class="w">        </span>diff<span class="w"> </span><span class="nv">$PBS_ARRAYID</span>.md5sum<span class="w"> </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>.orig
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
+<span class="w">        </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Not the same nd3sum restarting&quot;</span>
+<span class="w">                </span>qsub<span class="w"> </span>-t<span class="w"> </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="w"> </span>-N<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBSCRIPT</span><span class="si">}</span>
+<span class="w">                </span>sleep<span class="w"> </span><span class="m">120</span>
+<span class="w">                </span><span class="nb">exit</span>
+<span class="w">        </span><span class="k">fi</span>
 <span class="k">else</span>
-        <span class="nb">echo</span> <span class="s2">&quot;Running for the first time&quot;</span>
-        cp <span class="nv">$PBS_ARRAYID</span>.md5sum <span class="nv">$PBS_ARRAYID</span>.orig
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running for the first time&quot;</span>
+<span class="w">        </span>cp<span class="w"> </span><span class="nv">$PBS_ARRAYID</span>.md5sum<span class="w"> </span><span class="nv">$PBS_ARRAYID</span>.orig
 <span class="k">fi</span>
 
-longjob ./NKprob.sh <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
+longjob<span class="w"> </span>./NKprob.sh<span class="w"> </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Unfortunately, all this test showed me was that the difference in the
 /usr/lib/locale/locale-archive files was not the problem I am debugging
 (although it could be another problem).</p>
@@ -241,7 +241,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

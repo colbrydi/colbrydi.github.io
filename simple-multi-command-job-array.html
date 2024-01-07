@@ -78,8 +78,8 @@ run over all possible combinations of two variables by flattening a 2D array
 into a 1D array (see <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/05/19/Massively+Nested+Loops">Massively Nested
 Loops</a>
 for an example) using syntax such as the following:</p>
-<div class="highlight"><pre><span></span><code>v1=`echo &quot;<span class="cp">${</span><span class="n">PBS_ARRAYID</span><span class="cp">}</span> % <span class="cp">${</span><span class="n">cols</span><span class="cp">}</span>&quot; | bc`
-v2=`echo &quot;<span class="cp">${</span><span class="n">PBS_ARRAYID</span><span class="cp">}</span> / <span class="cp">${</span><span class="n">cols</span><span class="cp">}</span>&quot; | bc`
+<div class="highlight"><pre><span></span><code>v1=`echo<span class="w"> </span>&quot;<span class="cp">${</span><span class="n">PBS_ARRAYID</span><span class="cp">}</span><span class="w"> </span>%<span class="w"> </span><span class="cp">${</span><span class="n">cols</span><span class="cp">}</span>&quot;<span class="w"> </span>|<span class="w"> </span>bc`
+v2=`echo<span class="w"> </span>&quot;<span class="cp">${</span><span class="n">PBS_ARRAYID</span><span class="cp">}</span><span class="w"> </span>/<span class="w"> </span><span class="cp">${</span><span class="n">cols</span><span class="cp">}</span>&quot;<span class="w"> </span>|<span class="w"> </span>bc`
 </code></pre></div>
 
 <p>However, this code can quickly get out of hand as you get bigger sets. One
@@ -106,7 +106,7 @@ all of these commands take the same number of resources, you can use the
 folloing following job submission script to run them all in the same job
 array:</p>
 <p><strong>jobarray.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -118,21 +118,21 @@ array:</p>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l walltime=00:05:00</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,feature=gbe</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -t 1-100</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
-<span class="nv">cmd</span><span class="o">=</span><span class="sb">`</span>tail -n <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span> commands.txt <span class="p">|</span> head -n <span class="m">1</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">cmd</span><span class="si">}</span>
+<span class="nv">cmd</span><span class="o">=</span><span class="sb">`</span>tail<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="w"> </span>commands.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="sb">`</span>
+<span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">cmd</span><span class="si">}</span>
 <span class="si">${</span><span class="nv">cmd</span><span class="si">}</span>
 
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div></td></tr></table></div>
+
 <p>You should make sure that the array length is the same size as the number of
 lines in your commands.txt file. One way to do this is to submit the job as
 follows:</p>
@@ -218,7 +218,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

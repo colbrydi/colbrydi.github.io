@@ -84,7 +84,7 @@ what is running and what is complete.</p>
 method is risky but in my experience it works quite well especially if you do
 not care if two processes run the same job.</p>
 <p><strong>"FilesAsSemaphores.qsub"</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -159,7 +159,7 @@ not care if two processes run the same job.</p>
 <span class="normal">73</span>
 <span class="normal">74</span>
 <span class="normal">75</span>
-<span class="normal">76</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,walltime=00:30:00,feature=gbe,mem=1gb</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -m a</span>
@@ -171,72 +171,72 @@ not care if two processes run the same job.</p>
 <span class="nv">filefilter</span><span class="o">=</span><span class="s2">&quot;*.do&quot;</span>
 
 <span class="c1">#Create a flags directory if one is not already created</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
-mkdir -p flags
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>flags
 
 <span class="c1">#Check to see if job being run from an array. Space jobs so they do not run on</span>
 <span class="c1">#top of each other. This is probably unessary</span>
-<span class="k">if</span> <span class="o">[</span> ! <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-    sleep <span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span>
 <span class="k">fi</span>
 
 <span class="c1"># Find the most recent file not in the flags directory</span>
 <span class="c1"># This indicates that the file has not been proceesed</span>
-<span class="k">for</span> file <span class="k">in</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$filefilter</span><span class="sb">`</span>  
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$filefilter</span><span class="sb">`</span><span class="w">  </span>
 <span class="k">do</span>
-    <span class="k">if</span> <span class="o">[</span> ! -f ./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag <span class="o">]</span>
-    <span class="k">then</span>
-        <span class="c1">#Create the file so other jobs will not run the same program</span>
-        touch ./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag
-        <span class="nv">dofile</span><span class="o">=</span><span class="nv">$file</span>
-        <span class="nb">break</span>
-    <span class="k">fi</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span>./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag<span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">then</span>
+<span class="w">        </span><span class="c1">#Create the file so other jobs will not run the same program</span>
+<span class="w">        </span>touch<span class="w"> </span>./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag
+<span class="w">        </span><span class="nv">dofile</span><span class="o">=</span><span class="nv">$file</span>
+<span class="w">        </span><span class="k">break</span>
+<span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
 
 <span class="c1">#Check to see if dofile is empty</span>
 <span class="c1">#This indicates all files have been processed</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$dofile</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$dofile</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;All jobs completed!&quot;</span>
-    <span class="nb">exit</span> <span class="m">0</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;All jobs completed!&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 <span class="k">fi</span>
 
 <span class="c1">#CHANGE the following to run the program of interest using the dofile as an input</span>
-module load stata
-stata-se -b <span class="si">${</span><span class="nv">dofile</span><span class="si">}</span>
+module<span class="w"> </span>load<span class="w"> </span>stata
+stata-se<span class="w"> </span>-b<span class="w"> </span><span class="si">${</span><span class="nv">dofile</span><span class="si">}</span>
 
 <span class="c1">#Save the return value of the last command</span>
 <span class="nv">RET</span><span class="o">=</span><span class="nv">$?</span>
 
 <span class="c1">#Put the job statistics on the flag file as a record and to indicate</span>
 <span class="c1"># the program execited successfully.</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$RET</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RET</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-    qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span> &gt; ./flags/<span class="si">${</span><span class="nv">dofile</span><span class="si">}</span>.flag
+<span class="w">    </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span><span class="w"> </span>&gt;<span class="w"> </span>./flags/<span class="si">${</span><span class="nv">dofile</span><span class="si">}</span>.flag
 <span class="k">else</span>
-    qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-    <span class="nb">echo</span> <span class="s2">&quot;job with dofile=</span><span class="si">${</span><span class="nv">dofile</span><span class="si">}</span><span class="s2"> completed with error </span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="nb">exit</span> <span class="nv">$RET</span>
+<span class="w">    </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;job with dofile=</span><span class="si">${</span><span class="nv">dofile</span><span class="si">}</span><span class="s2"> completed with error </span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="nv">$RET</span>
 <span class="k">fi</span>
 
 <span class="c1">#Check to see if anything is left that needs to be done</span>
-<span class="k">for</span> file <span class="k">in</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$filefilter</span><span class="sb">`</span>  
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$filefilter</span><span class="sb">`</span><span class="w">  </span>
 <span class="k">do</span>
-    <span class="k">if</span> <span class="o">[</span> ! -f ./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag <span class="o">]</span>
-    <span class="k">then</span>
-        <span class="c1">#flag missing...start another job</span>
-        qsub mainrun.qsub
-        <span class="nb">exit</span> <span class="nv">$RET</span>  
-    <span class="k">fi</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span>./flags/<span class="si">${</span><span class="nv">file</span><span class="si">}</span>.flag<span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">then</span>
+<span class="w">        </span><span class="c1">#flag missing...start another job</span>
+<span class="w">        </span>qsub<span class="w"> </span>mainrun.qsub
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="nv">$RET</span><span class="w">  </span>
+<span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
 
 <span class="c1">#Nothing is left to be done... Exit</span>
 <span class="c1">#Note, return value (RET) should be zero</span>
-<span class="nb">echo</span> <span class="s2">&quot;ALL JOBS COMPLETED!&quot;</span>
-<span class="nb">exit</span> <span class="nv">$RET</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ALL JOBS COMPLETED!&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="nv">$RET</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Obviously a user needs to modify the script to fit their need (this one was
 designed to work with stata). To start the script you can just issue the
 following command:</p>
@@ -329,7 +329,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

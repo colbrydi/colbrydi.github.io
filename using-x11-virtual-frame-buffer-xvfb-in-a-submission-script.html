@@ -79,7 +79,7 @@ attached display and can allow programs that require Graphical User Interfaces
 (X11) displays to run.</p>
 <p>The following is a typical submission script for running a MATLAB program :</p>
 <p><strong>makeAVI.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -92,27 +92,27 @@ attached display and can allow programs that require Graphical User Interfaces
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,mem=2gb,feature=gbe</span>
 <span class="c1">#PBS -l walltime=01:00:00</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -W x=gres:MATLAB</span>
 
 <span class="c1">#Change directory to the qsub submission directory</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
 <span class="c1">#Run matlab script (replace this with your X11 code)</span>
-matlab -nodisplay -r <span class="s2">&quot;makeAVI&quot;</span>
+matlab<span class="w"> </span>-nodisplay<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;makeAVI&quot;</span>
 
 <span class="c1">#Print out job usage</span>
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Running this script will give me an error that says "Display not found." The
 following script is modified to start Xvfb at the beginning, run the same
 basic command and then terminate Xvfb at the end:</p>
 <p><strong>makeAVI.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -142,49 +142,49 @@ basic command and then terminate Xvfb at the end:</p>
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,mem=2gb,feature=gbe</span>
 <span class="c1">#PBS -l walltime=01:00:00</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -W x=gres:MATLAB</span>
 
 <span class="c1">#Change directory to the qsub submission directory</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
 <span class="c1">##### Specify the display, start the Xvfb server, and save the process ID.</span>
-<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&quot;:1&quot;</span>
-rm -f /tmp/.X11-unix
-rm -f /tmp/.X11-lock
-Xvfb <span class="nv">$DISPLAY</span> -auth /dev/null/ <span class="p">&amp;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="s2">&quot;:1&quot;</span>
+rm<span class="w"> </span>-f<span class="w"> </span>/tmp/.X11-unix
+rm<span class="w"> </span>-f<span class="w"> </span>/tmp/.X11-lock
+Xvfb<span class="w"> </span><span class="nv">$DISPLAY</span><span class="w"> </span>-auth<span class="w"> </span>/dev/null/<span class="w"> </span><span class="p">&amp;</span>
 <span class="nv">XVFB_PID</span><span class="o">=</span><span class="nv">$!</span>
 
 <span class="c1">#Give system time to spin up X11 display (Probably not needed)</span>
-sleep <span class="m">5</span>
+sleep<span class="w"> </span><span class="m">5</span>
 <span class="c1">####</span>
 
 <span class="c1">#Run matlab script</span>
-matlab -r <span class="s2">&quot;makeAVI&quot;</span>
+matlab<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;makeAVI&quot;</span>
 
 <span class="c1">##### Stop the Xvfb server and remove the files it created.</span>
-<span class="nb">kill</span> -9 <span class="nv">$XVFB_PID</span>
-rm -rf /tmp/.X11-unix
-rm -f  /tmp/.X11-lock
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span><span class="nv">$XVFB_PID</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/.X11-unix
+rm<span class="w"> </span>-f<span class="w">  </span>/tmp/.X11-lock
 <span class="c1">####</span>
 
 <span class="c1">#Print out job usage</span>
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Please note that the -nodisplay option was removed from the MATLAB command
 line in the second script</p>
 <p>An working example of this script can be downloaded on the HPCC using the
 getexample command. Type the following on any development node to run the
 example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">powertools</span><span class="w"></span>
-<span class="n">getexample</span><span class="w"></span>
-<span class="n">getexample</span><span class="w"> </span><span class="n">MATLAB_movie</span><span class="w"></span>
-<span class="n">cd</span><span class="w"> </span><span class="n">MATLAB_movie</span><span class="w"></span>
-<span class="n">qsub</span><span class="w"> </span><span class="n">makeAVI</span><span class="o">.</span><span class="n">qsub</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">powertools</span>
+<span class="n">getexample</span>
+<span class="n">getexample</span><span class="w"> </span><span class="n">MATLAB_movie</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">MATLAB_movie</span>
+<span class="n">qsub</span><span class="w"> </span><span class="n">makeAVI</span><span class="o">.</span><span class="n">qsub</span>
 </code></pre></div>
 
 <ul>
@@ -264,7 +264,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

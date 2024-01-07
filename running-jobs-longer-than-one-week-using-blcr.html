@@ -78,7 +78,7 @@ even longer. The following script uses <a href="https://ftg.lbl.gov/CheckpointRe
 automatically save the current state of a job and submit it back to the
 scheduler.</p>
 <p><strong>long_job.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -167,98 +167,98 @@ scheduler.</p>
 <span class="normal">87</span>
 <span class="normal">88</span>
 <span class="normal">89</span>
-<span class="normal">90</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,walltime=24:10:00,mem=2gb</span>
 <span class="c1">#PBS -m a</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
 <span class="c1">#Berkly Lab Checkpoint Restart script to run a job continuously</span>
 <span class="c1">#Written by Dirk Colbry</span>
 
 <span class="c1">#Job restarts itself every 24 hours or 86400 seconds</span>
-<span class="nb">export</span> <span class="nv">walltime</span><span class="o">=</span><span class="s2">&quot;86400&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">walltime</span><span class="o">=</span><span class="s2">&quot;86400&quot;</span>
 
-<span class="nb">export</span> <span class="nv">output</span><span class="o">=</span><span class="s2">&quot;output.txt&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">output</span><span class="o">=</span><span class="s2">&quot;output.txt&quot;</span>
 
 <span class="c1"># Name if main checkpoint file</span>
-<span class="nb">export</span> <span class="nv">checkpoint</span><span class="o">=</span><span class="s2">&quot;checkfile.blcr&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">checkpoint</span><span class="o">=</span><span class="s2">&quot;checkfile.blcr&quot;</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Running for the first time&quot;</span>
-    <span class="c1">#### SET UP JOB,</span>
-        <span class="c1">#Runs once.  Include any job setup commands inside this if block before the cr_run command.</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running for the first time&quot;</span>
+<span class="w">    </span><span class="c1">#### SET UP JOB,</span>
+<span class="w">        </span><span class="c1">#Runs once.  Include any job setup commands inside this if block before the cr_run command.</span>
 
-        <span class="c1">#Replace the program &quot;supernova 1000&quot; with your program and input arguments</span>
-    cr_run ./supernova <span class="m">100</span> <span class="m">1</span>&gt; <span class="si">${</span><span class="nv">output</span><span class="si">}</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-    <span class="nb">export</span> <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
-    <span class="nb">export</span> <span class="nv">next</span><span class="o">=</span><span class="m">1</span>
+<span class="w">        </span><span class="c1">#Replace the program &quot;supernova 1000&quot; with your program and input arguments</span>
+<span class="w">    </span>cr_run<span class="w"> </span>./supernova<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="m">1</span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">output</span><span class="si">}</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">next</span><span class="o">=</span><span class="m">1</span>
 <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Restarting </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="c1">#Job running as a restart job</span>
-    cr_restart --no-restore-pid <span class="si">${</span><span class="nv">checkpoint</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">output</span><span class="si">}</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
-    <span class="nb">export</span> <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
-    <span class="nb">export</span> <span class="nv">next</span><span class="o">=</span><span class="k">$((</span><span class="nv">$PBS_ARRAYID</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Restarting </span><span class="si">${</span><span class="nv">PBS_ARRAYID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="c1">#Job running as a restart job</span>
+<span class="w">    </span>cr_restart<span class="w"> </span>--no-restore-pid<span class="w"> </span><span class="si">${</span><span class="nv">checkpoint</span><span class="si">}</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">output</span><span class="si">}</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">next</span><span class="o">=</span><span class="k">$((</span><span class="nv">$PBS_ARRAYID</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
 <span class="k">fi</span>
 
 <span class="c1">#function to run if the program times out</span>
-checkpoint_timeout<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Timeout. Checkpointing Job&quot;</span>
+checkpoint_timeout<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Timeout. Checkpointing Job&quot;</span>
 
-  <span class="nb">time</span> cr_checkpoint --term <span class="si">${</span><span class="nv">PID</span><span class="si">}</span>
-  <span class="nb">echo</span> <span class="s2">&quot;**********&quot;</span>
-  tail <span class="si">${</span><span class="nv">output</span><span class="si">}</span>
-  <span class="nb">echo</span> <span class="s2">&quot;&quot;</span>
-  <span class="nb">echo</span> <span class="s2">&quot;**********&quot;</span>
+<span class="w">  </span><span class="nb">time</span><span class="w"> </span>cr_checkpoint<span class="w"> </span>--term<span class="w"> </span><span class="si">${</span><span class="nv">PID</span><span class="si">}</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;**********&quot;</span>
+<span class="w">  </span>tail<span class="w"> </span><span class="si">${</span><span class="nv">output</span><span class="si">}</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;**********&quot;</span>
 
-  <span class="k">if</span> <span class="o">[</span> ! <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="o">]</span>
-  <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;Failed to checkpoint&quot;</span>
-        <span class="nb">exit</span> <span class="m">2</span>
-  <span class="k">fi</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="w">  </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Failed to checkpoint&quot;</span>
+<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+<span class="w">  </span><span class="k">fi</span>
 
-  <span class="nb">echo</span> <span class="s2">&quot;Queueing Next Job&quot;</span>
-  chmod <span class="m">644</span> context.<span class="si">${</span><span class="nv">PID</span><span class="si">}</span>
-  mv context.<span class="si">${</span><span class="nv">PID</span><span class="si">}</span> <span class="si">${</span><span class="nv">checkpoint</span><span class="si">}</span>
-  qsub -t <span class="si">${</span><span class="nv">next</span><span class="si">}</span> long_job.qsub
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Queueing Next Job&quot;</span>
+<span class="w">  </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>context.<span class="si">${</span><span class="nv">PID</span><span class="si">}</span>
+<span class="w">  </span>mv<span class="w"> </span>context.<span class="si">${</span><span class="nv">PID</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">checkpoint</span><span class="si">}</span>
+<span class="w">  </span>qsub<span class="w"> </span>-t<span class="w"> </span><span class="si">${</span><span class="nv">next</span><span class="si">}</span><span class="w"> </span>long_job.qsub
 
-  <span class="nb">exit</span> <span class="m">0</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 <span class="o">}</span>
 
 <span class="c1">#set checkpoint timeout</span>
-<span class="o">(</span>sleep <span class="si">${</span><span class="nv">walltime</span><span class="si">}</span><span class="p">;</span> <span class="nb">echo</span> <span class="s1">&#39;Timer Done&#39;</span><span class="p">;</span> checkpoint_timeout<span class="p">;</span><span class="o">)</span> <span class="p">&amp;</span>
+<span class="o">(</span>sleep<span class="w"> </span><span class="si">${</span><span class="nv">walltime</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Timer Done&#39;</span><span class="p">;</span><span class="w"> </span>checkpoint_timeout<span class="p">;</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="nv">timeout</span><span class="o">=</span><span class="nv">$!</span>
-<span class="nb">echo</span> <span class="s2">&quot;starting timer (</span><span class="si">${</span><span class="nv">timeout</span><span class="si">}</span><span class="s2">) for </span><span class="si">${</span><span class="nv">walltime</span><span class="si">}</span><span class="s2"> seconds&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;starting timer (</span><span class="si">${</span><span class="nv">timeout</span><span class="si">}</span><span class="s2">) for </span><span class="si">${</span><span class="nv">walltime</span><span class="si">}</span><span class="s2"> seconds&quot;</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;Waiting on </span><span class="nv">$PID</span><span class="s2">&quot;</span>
-<span class="nb">wait</span> <span class="si">${</span><span class="nv">PID</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Waiting on </span><span class="nv">$PID</span><span class="s2">&quot;</span>
+<span class="nb">wait</span><span class="w"> </span><span class="si">${</span><span class="nv">PID</span><span class="si">}</span>
 <span class="nv">RET</span><span class="o">=</span><span class="nv">$?</span>
 
 <span class="c1">#Check to see if job checkpointed</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;143&quot;</span> <span class="o">]</span> <span class="c1">#Job terminated due to cr_checkpoint</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;143&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="c1">#Job terminated due to cr_checkpoint</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Job seems to have been checkpointed, waiting for checkpoint to complete.&quot;</span>
-    <span class="nb">wait</span> <span class="si">${</span><span class="nv">timeout</span><span class="si">}</span>
-    qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-    <span class="nb">exit</span> <span class="m">0</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Job seems to have been checkpointed, waiting for checkpoint to complete.&quot;</span>
+<span class="w">    </span><span class="nb">wait</span><span class="w"> </span><span class="si">${</span><span class="nv">timeout</span><span class="si">}</span>
+<span class="w">    </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 <span class="k">fi</span>
 
 <span class="c1">## JOB completed</span>
 
 <span class="c1">#Kill timeout timer</span>
-<span class="nb">kill</span> <span class="si">${</span><span class="nv">timeout</span><span class="si">}</span>
+<span class="nb">kill</span><span class="w"> </span><span class="si">${</span><span class="nv">timeout</span><span class="si">}</span>
 
 <span class="c1">#Output the job statistics</span>
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 
 <span class="c1">#Email the user that the job has completed</span>
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span> <span class="p">|</span> mail -s <span class="s2">&quot;JOB COMPLETE&quot;</span> <span class="nv">$USER</span>@msu.edu
-<span class="nb">echo</span> <span class="s2">&quot;Job completed with exit status </span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="nb">exit</span> <span class="m">254</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>mail<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;JOB COMPLETE&quot;</span><span class="w"> </span><span class="nv">$USER</span>@msu.edu
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Job completed with exit status </span><span class="si">${</span><span class="nv">RET</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">254</span>
+</code></pre></div></td></tr></table></div>
+
 <p>The job will keep submitting itself until the code exits successfully.</p>
 <p>Some limitations of this script include:</p>
 <ul>
@@ -345,7 +345,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

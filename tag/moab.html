@@ -97,19 +97,19 @@ scheduler:</p>
 <p>This worked great and propagated all changes to the resource manager. I wrote
 a quick script to change all nodes currently pending in the queue to accept
 add this change:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
-<span class="k">for</span> job <span class="k">in</span> <span class="sb">`</span>qselect -s Q -u <span class="nv">$USER</span><span class="sb">`</span><span class="p">;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -l</span>
+<span class="k">for</span><span class="w"> </span>job<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>qselect<span class="w"> </span>-s<span class="w"> </span>Q<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="sb">`</span><span class="p">;</span>
 <span class="k">do</span>
-     <span class="nb">echo</span> mjobctl -m <span class="nv">feature</span><span class="o">=</span>gbe <span class="nv">$job</span>
-     mjobctl -m <span class="nv">feature</span><span class="o">=</span>gbe <span class="nv">$job</span>
+<span class="w">     </span><span class="nb">echo</span><span class="w"> </span>mjobctl<span class="w"> </span>-m<span class="w"> </span><span class="nv">feature</span><span class="o">=</span>gbe<span class="w"> </span><span class="nv">$job</span>
+<span class="w">     </span>mjobctl<span class="w"> </span>-m<span class="w"> </span><span class="nv">feature</span><span class="o">=</span>gbe<span class="w"> </span><span class="nv">$job</span>
 <span class="k">done</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
+
 <p>I added a qalter_all_gbe command to powertools to help users do the same thing
 on the hpcc.</p>
 <ul>

@@ -99,8 +99,8 @@ another vision you can see what is available by typing the following:</p>
 <p>To load a different version of python use the "module unload" and "module
 load" commands. For example the following will switch from the default version
 of Python to 2.6.7:</p>
-<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="n">unload</span><span class="w"> </span><span class="n">Python</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">Python</span><span class="o">/</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">7</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="n">unload</span><span class="w"> </span><span class="n">Python</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">Python</span><span class="o">/</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">7</span>
 </code></pre></div>
 
 <p><strong>Step 2:</strong> use system modules to load existing Python related software. Many
@@ -116,10 +116,10 @@ spider command to see what is installed:</p>
 
 <p>Once you know what is available, you can load the modules using "module load"
 command. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">NumPy</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">SciPy</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">PIL</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">matplotlib</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">NumPy</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">SciPy</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">PIL</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">matplotlib</span>
 </code></pre></div>
 
 <p><strong>Step 3:</strong> at this point you can make your own virtual Python environment.
@@ -148,11 +148,11 @@ need to leave the Python virtual environment just type the following command:</p
 
 <p>If you log out of the system and log back in, you can reactivate the virtual
 environment as before. Just make sure you load the modules you need:</p>
-<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">NumPy</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">SciPy</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">PIL</span><span class="w"></span>
-<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">matplotlib</span><span class="w"></span>
-<span class="n">source</span><span class="w"> </span><span class="n">myPy</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">NumPy</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">SciPy</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">PIL</span>
+<span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">matplotlib</span>
+<span class="n">source</span><span class="w"> </span><span class="n">myPy</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
 </code></pre></div>
 
 <p><strong>Submission Scripts</strong><br>
@@ -160,7 +160,7 @@ Now that you have your own version of Python running, you will want to use it
 in your submission scripts. The following job submission script can be used as
 a template for running virtualenv Python jobs (note this job assumes that your
 myPy folder is in your home directory):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -174,23 +174,23 @@ myPy folder is in your home directory):</p>
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -l walltime=03:00:00,mem=2gb,nodes=1:ppn=1</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
-module load NumPy
-module load SciPy
-module load PIL
-module load matplotlib
-<span class="nb">source</span> ~/myPy/bin/activate
+module<span class="w"> </span>load<span class="w"> </span>NumPy
+module<span class="w"> </span>load<span class="w"> </span>SciPy
+module<span class="w"> </span>load<span class="w"> </span>PIL
+module<span class="w"> </span>load<span class="w"> </span>matplotlib
+<span class="nb">source</span><span class="w"> </span>~/myPy/bin/activate
 
-python mypythonscript.py
+python<span class="w"> </span>mypythonscript.py
 
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+</code></pre></div></td></tr></table></div>
+
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC">View
 Online</a></p>
 <p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/03/06/Using+Python+virtualenv+on+the+HPCC">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
@@ -265,7 +265,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

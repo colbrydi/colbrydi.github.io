@@ -74,7 +74,7 @@ installation of a new plugin"</p>
 <p>The following job submission script should get a parallel MPI solve of the
 cfx5solver working. In order for this to work on our system I needed to change
 the ANSYS module file to include setting CFX5RSH to /usr/bin/ssh</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -88,23 +88,23 @@ the ANSYS module file to include setting CFX5RSH to /usr/bin/ssh</p>
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -l walltime=00:10:00,nodes=8:ppn=1,mem=4gb</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
-module load ANSYS
+module<span class="w"> </span>load<span class="w"> </span>ANSYS
 
 <span class="c1">#Hack to create comma seperated list of hosts for this job</span>
-<span class="nb">echo</span> <span class="sb">`</span>cat <span class="nv">$PBS_NODEFILE</span><span class="sb">`</span> <span class="p">|</span> sed <span class="s2">&quot;s/ /,/g&quot;</span> &gt; Hosts.file
-<span class="nb">read</span> HOSTS &lt; Hosts.file
+<span class="nb">echo</span><span class="w"> </span><span class="sb">`</span>cat<span class="w"> </span><span class="nv">$PBS_NODEFILE</span><span class="sb">`</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s/ /,/g&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>Hosts.file
+<span class="nb">read</span><span class="w"> </span>HOSTS<span class="w"> </span>&lt;<span class="w"> </span>Hosts.file
 
-cfx5solve -def mymodel.def -start-method <span class="s1">&#39;Platform MPI Distributed Parallel&#39;</span> -par-dist <span class="nv">$HOSTS</span>
+cfx5solve<span class="w"> </span>-def<span class="w"> </span>mymodel.def<span class="w"> </span>-start-method<span class="w"> </span><span class="s1">&#39;Platform MPI Distributed Parallel&#39;</span><span class="w"> </span>-par-dist<span class="w"> </span><span class="nv">$HOSTS</span>
 
-qstat -f <span class="nv">$PBS_JOBID</span>
-</code></pre></div>
-</td></tr></table>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBS_JOBID</span>
+</code></pre></div></td></tr></table></div>
+
 <p>Users should consider changing the <strong>walltime</strong> , <strong>nodes</strong> and <strong>def file</strong>
 to get this to work for their program.</p>
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2013/07/30/Running+ANSYS+CFX5+solver+on+the+HPCC">View
@@ -181,7 +181,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

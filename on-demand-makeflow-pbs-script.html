@@ -94,7 +94,7 @@ have as many single node jobs as it needs and the jobs will get scheduled as
 resources become available. The downside to this approach is that the job has
 to wait for the workers to be scheduled before any work can get done. Here is
 an example script:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -118,40 +118,40 @@ an example script:</p>
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh -login</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,walltime=04:00:00</span>
 <span class="c1">#PBS -j oe</span>
 
 <span class="c1">#Set up running environment for all workers</span>
-module load ImageMagick
-module load cctools
+module<span class="w"> </span>load<span class="w"> </span>ImageMagick
+module<span class="w"> </span>load<span class="w"> </span>cctools
 
-<span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
-<span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
 
 <span class="c1"># Check to see if MAINHOST is set</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-       <span class="c1">#Run Main process</span>
-       <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
-       <span class="nv">jobid</span><span class="o">=</span><span class="sb">`</span>qsub -t <span class="m">1</span>-10 -v MAINHOST -N <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span> <span class="nv">$0</span><span class="sb">`</span>
-       makeflow -T wq example.makeflow
+<span class="w">       </span><span class="c1">#Run Main process</span>
+<span class="w">       </span><span class="nb">export</span><span class="w"> </span><span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
+<span class="w">       </span><span class="nv">jobid</span><span class="o">=</span><span class="sb">`</span>qsub<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>-10<span class="w"> </span>-v<span class="w"> </span>MAINHOST<span class="w"> </span>-N<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span><span class="w"> </span><span class="nv">$0</span><span class="sb">`</span>
+<span class="w">       </span>makeflow<span class="w"> </span>-T<span class="w"> </span>wq<span class="w"> </span>example.makeflow
 
-       <span class="c1">#clean up spawned jobs</span>
-       qdel <span class="nv">$jobid</span>
+<span class="w">       </span><span class="c1">#clean up spawned jobs</span>
+<span class="w">       </span>qdel<span class="w"> </span><span class="nv">$jobid</span>
 <span class="k">else</span>
-       <span class="c1">#Run Worker process</span>
-       work_queue_worker <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span>
+<span class="w">       </span><span class="c1">#Run Worker process</span>
+<span class="w">       </span>work_queue_worker<span class="w"> </span><span class="nv">$MAINHOST</span><span class="w"> </span><span class="nv">$PORT</span>
 <span class="k">fi</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
+
 <h1>Option 2: Schedule a large job and use pbsdsh to call the worker nodes.</h1>
 <p>This option can be used if the system is not set up to schedule jobs from the
 compute nodes. It has the added benefit of starting immediately. However, the
 downside to this approach is that the scheduler needs to be able to schedule a
 large block of nodes together which may cause longer queue times. Here is the
 example script:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -193,55 +193,55 @@ example script:</p>
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l nodes=4:ppn=1,walltime=04:00:00</span>
 <span class="c1">#PBS -j oe</span>
 
 <span class="c1"># Set up running environment for all workers</span>
-module load ImageMagick
-module load cctools
+module<span class="w"> </span>load<span class="w"> </span>ImageMagick
+module<span class="w"> </span>load<span class="w"> </span>cctools
 
 <span class="c1"># If no input argument is given then script is running from qsub</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-        <span class="c1">#Script called from qsub</span>
-        <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
-        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
+<span class="w">        </span><span class="c1">#Script called from qsub</span>
+<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
 <span class="k">else</span>
-        <span class="c1">#Script called manually from pbsdsh</span>
-        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="c1">#Script called manually from pbsdsh</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">MAINHOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1"># Check to see if MAINHOST is set</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
 
-        <span class="c1">#Run Main process</span>
-        makeflow -T wq example.makeflow <span class="p">&amp;</span>
-        <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+<span class="w">        </span><span class="c1">#Run Main process</span>
+<span class="w">        </span>makeflow<span class="w"> </span>-T<span class="w"> </span>wq<span class="w"> </span>example.makeflow<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
 
-        <span class="nv">tempfile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>.sh
-        cp <span class="nv">$0</span> <span class="nv">$tempfile</span>
-        chmod <span class="m">755</span> <span class="nv">$tempfile</span>
-        pbsdsh <span class="nv">$tempfile</span> <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span> <span class="p">&amp;</span>
+<span class="w">        </span><span class="nv">tempfile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>.sh
+<span class="w">        </span>cp<span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="nv">$tempfile</span>
+<span class="w">        </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="nv">$tempfile</span>
+<span class="w">        </span>pbsdsh<span class="w"> </span><span class="nv">$tempfile</span><span class="w"> </span><span class="nv">$MAINHOST</span><span class="w"> </span><span class="nv">$PORT</span><span class="w"> </span><span class="p">&amp;</span>
 
-        <span class="c1">#Wait for main makeflow process to finish       </span>
-        <span class="nb">wait</span> <span class="nv">$PID</span>
+<span class="w">        </span><span class="c1">#Wait for main makeflow process to finish       </span>
+<span class="w">        </span><span class="nb">wait</span><span class="w"> </span><span class="nv">$PID</span>
 
-        <span class="c1">#Clean up jobs  </span>
-        rm <span class="nv">$tempfile</span>
+<span class="w">        </span><span class="c1">#Clean up jobs  </span>
+<span class="w">        </span>rm<span class="w"> </span><span class="nv">$tempfile</span>
 <span class="k">else</span>
-        <span class="c1">#Run Worker process</span>
-        work_queue_worker <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span>
+<span class="w">        </span><span class="c1">#Run Worker process</span>
+<span class="w">        </span>work_queue_worker<span class="w"> </span><span class="nv">$MAINHOST</span><span class="w"> </span><span class="nv">$PORT</span>
 <span class="k">fi</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
+
 <h1>Option 3: Combine Options 1 &amp; 2</h1>
 <p>The third option is to combine Options 1 &amp; 2 together. This way the job can
 get started right away and grow as additional workers get added to the queue.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -293,61 +293,61 @@ get started right away and grow as additional workers get added to the queue.</p
 <span class="normal">50</span>
 <span class="normal">51</span>
 <span class="normal">52</span>
-<span class="normal">53</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l nodes=4:ppn=1,walltime=04:00:00</span>
 <span class="c1">#PBS -j oe</span>
 
 <span class="c1"># Set up running environment for all workers</span>
-module load ImageMagick
-module load cctools
+module<span class="w"> </span>load<span class="w"> </span>ImageMagick
+module<span class="w"> </span>load<span class="w"> </span>cctools
 
 <span class="c1"># If no input argument is given then script is running from qsub</span>
 <span class="c1"># Note: The else statement is only needed for Option 2</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-        <span class="c1">#Script called from qsub</span>
-        <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
-        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
+<span class="w">        </span><span class="c1">#Script called from qsub</span>
+<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="m">9123</span>
 <span class="k">else</span>
-        <span class="c1">#Script called manually from pbsdsh</span>
-        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-        <span class="nb">export</span> <span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
-        <span class="nb">echo</span> <span class="s2">&quot;MAINHOST=</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2"> PORT=</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="c1">#Script called manually from pbsdsh</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">MAINHOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MAINHOST=</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2"> PORT=</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 
 <span class="c1"># Check to see if MAINHOST is set</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">MAINHOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-        <span class="nb">export</span> <span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
+<span class="w">        </span><span class="nb">export</span><span class="w"> </span><span class="nv">MAINHOST</span><span class="o">=</span><span class="nv">$HOST</span>
 
-        <span class="c1">#Run Main process</span>
-        makeflow -T wq example.makeflow <span class="p">&amp;</span>
-        <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+<span class="w">        </span><span class="c1">#Run Main process</span>
+<span class="w">        </span>makeflow<span class="w"> </span>-T<span class="w"> </span>wq<span class="w"> </span>example.makeflow<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
 
-        <span class="c1">#Option 1: Spawn workers as independent PBS jobs</span>
-        <span class="nv">jobid</span><span class="o">=</span><span class="sb">`</span>qsub -l <span class="nv">nodes</span><span class="o">=</span><span class="m">1</span>:ppn<span class="o">=</span><span class="m">1</span> -t <span class="m">1</span>-10 -v MAINHOST -N <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span> <span class="nv">$0</span><span class="sb">`</span>
-        <span class="nb">echo</span> <span class="nv">$jobid</span>
+<span class="w">        </span><span class="c1">#Option 1: Spawn workers as independent PBS jobs</span>
+<span class="w">        </span><span class="nv">jobid</span><span class="o">=</span><span class="sb">`</span>qsub<span class="w"> </span>-l<span class="w"> </span><span class="nv">nodes</span><span class="o">=</span><span class="m">1</span>:ppn<span class="o">=</span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>-10<span class="w"> </span>-v<span class="w"> </span>MAINHOST<span class="w"> </span>-N<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span><span class="w"> </span><span class="nv">$0</span><span class="sb">`</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$jobid</span>
 
-        <span class="c1">#Option 2: run workers inside current job</span>
-        <span class="nv">tempfile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>.sh
-        cp <span class="nv">$0</span> <span class="nv">$tempfile</span>
-        chmod <span class="m">755</span> <span class="nv">$tempfile</span>
-        pbsdsh <span class="nv">$tempfile</span> <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span> <span class="p">&amp;</span>
+<span class="w">        </span><span class="c1">#Option 2: run workers inside current job</span>
+<span class="w">        </span><span class="nv">tempfile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>.sh
+<span class="w">        </span>cp<span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="nv">$tempfile</span>
+<span class="w">        </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="nv">$tempfile</span>
+<span class="w">        </span>pbsdsh<span class="w"> </span><span class="nv">$tempfile</span><span class="w"> </span><span class="nv">$MAINHOST</span><span class="w"> </span><span class="nv">$PORT</span><span class="w"> </span><span class="p">&amp;</span>
 
-        <span class="c1">#Wait for main makeflow process to finish       </span>
-        <span class="nb">wait</span> <span class="nv">$PID</span>
+<span class="w">        </span><span class="c1">#Wait for main makeflow process to finish       </span>
+<span class="w">        </span><span class="nb">wait</span><span class="w"> </span><span class="nv">$PID</span>
 
-        <span class="c1">#Clean up jobs  </span>
-        <span class="nb">echo</span> <span class="s2">&quot;Cleaning up </span><span class="nv">$jobid</span><span class="s2"> and </span><span class="nv">$tempfile</span><span class="s2">&quot;</span>
-        qdel <span class="nv">$jobid</span>
-        rm <span class="nv">$tempfile</span>
+<span class="w">        </span><span class="c1">#Clean up jobs  </span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Cleaning up </span><span class="nv">$jobid</span><span class="s2"> and </span><span class="nv">$tempfile</span><span class="s2">&quot;</span>
+<span class="w">        </span>qdel<span class="w"> </span><span class="nv">$jobid</span>
+<span class="w">        </span>rm<span class="w"> </span><span class="nv">$tempfile</span>
 <span class="k">else</span>
-        <span class="c1">#Run Worker process</span>
-        <span class="nb">echo</span> <span class="s2">&quot;RUNNING WORKER PROCESS&quot;</span>
-        work_queue_worker <span class="nv">$MAINHOST</span> <span class="nv">$PORT</span>
+<span class="w">        </span><span class="c1">#Run Worker process</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;RUNNING WORKER PROCESS&quot;</span>
+<span class="w">        </span>work_queue_worker<span class="w"> </span><span class="nv">$MAINHOST</span><span class="w"> </span><span class="nv">$PORT</span>
 <span class="k">fi</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
+
 <p>Future Work</p>
 <p>I need to be careful with this script because I have not tested the behavior
 when two master jobs end up getting scheduled on the same node and use the
@@ -428,7 +428,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

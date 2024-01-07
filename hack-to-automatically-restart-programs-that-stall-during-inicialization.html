@@ -80,124 +80,124 @@ of the job gets it working. The following scripts check to see if the program
 is running and automatically re-submits the job if their seems to be a
 problem.</p>
 <h2><strong>file_flag_example.qsub</strong></h2>
-<div class="highlight"><pre><span></span><code>    #!/bin/bash -l
-    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
-    #PBS -m a
-    #PBS -j oe
+<div class="highlight"><pre><span></span><code><span class="w">    </span>#!/bin/bash<span class="w"> </span>-l
+<span class="w">    </span>#PBS<span class="w"> </span>-l<span class="w"> </span>mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+<span class="w">    </span>#PBS<span class="w"> </span>-m<span class="w"> </span>a
+<span class="w">    </span>#PBS<span class="w"> </span>-j<span class="w"> </span>oe
 
-    # This method checks to see if a file is created at the beginning of a run. If the file is not created then the job is killed and restarted.
-    # This method assumes that the program stalls before it has a chance to generate a file. This method is useful if the code does self checkpointing and the failure state is a busy wait.
-    cd <span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
-     
-    #Run the main program
-    ( 
-        mpirun mycommand 
-   ) <span class="err">&amp;</span>
-    PID=$!
+<span class="w">    </span>#<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>checks<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>if<span class="w"> </span>a<span class="w"> </span>file<span class="w"> </span>is<span class="w"> </span>created<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>beginning<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>run.<span class="w"> </span>If<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>created<span class="w"> </span>then<span class="w"> </span>the<span class="w"> </span>job<span class="w"> </span>is<span class="w"> </span>killed<span class="w"> </span>and<span class="w"> </span>restarted.
+<span class="w">    </span>#<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>assumes<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>program<span class="w"> </span>stalls<span class="w"> </span>before<span class="w"> </span>it<span class="w"> </span>has<span class="w"> </span>a<span class="w"> </span>chance<span class="w"> </span>to<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>file.<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>is<span class="w"> </span>useful<span class="w"> </span>if<span class="w"> </span>the<span class="w"> </span>code<span class="w"> </span>does<span class="w"> </span>self<span class="w"> </span>checkpointing<span class="w"> </span>and<span class="w"> </span>the<span class="w"> </span>failure<span class="w"> </span>state<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>busy<span class="w"> </span>wait.
+<span class="w">    </span>cd<span class="w"> </span><span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
+<span class="w">     </span>
+<span class="w">    </span>#Run<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>program
+<span class="w">    </span>(<span class="w"> </span>
+<span class="w">        </span>mpirun<span class="w"> </span>mycommand<span class="w"> </span>
+<span class="w">   </span>)<span class="w"> </span><span class="err">&amp;</span>
+<span class="w">    </span>PID=$!
 
-    # Sleep for enough time to see if the job is running
-    sleep 300
-    if [ ! -f testfile.flag ]
-    then
-             echo &quot;Job Seems to have stalled. Killing and restarting&quot;
-             kill <span class="nv">$PID</span>
-             qsub $0
-             echo &quot;Job stats for debugging&quot;
-             qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
-             exit 1
-    fi
+<span class="w">    </span>#<span class="w"> </span>Sleep<span class="w"> </span>for<span class="w"> </span>enough<span class="w"> </span>time<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>if<span class="w"> </span>the<span class="w"> </span>job<span class="w"> </span>is<span class="w"> </span>running
+<span class="w">    </span>sleep<span class="w"> </span>300
+<span class="w">    </span>if<span class="w"> </span>[<span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span>testfile.flag<span class="w"> </span>]
+<span class="w">    </span>then
+<span class="w">             </span>echo<span class="w"> </span>&quot;Job<span class="w"> </span>Seems<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>stalled.<span class="w"> </span>Killing<span class="w"> </span>and<span class="w"> </span>restarting&quot;
+<span class="w">             </span>kill<span class="w"> </span><span class="nv">$PID</span>
+<span class="w">             </span>qsub<span class="w"> </span>$0
+<span class="w">             </span>echo<span class="w"> </span>&quot;Job<span class="w"> </span>stats<span class="w"> </span>for<span class="w"> </span>debugging&quot;
+<span class="w">             </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+<span class="w">             </span>exit<span class="w"> </span>1
+<span class="w">    </span>fi
 
-    wait <span class="nv">$PID</span>
-    RET=$?
-    qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+<span class="w">    </span>wait<span class="w"> </span><span class="nv">$PID</span>
+<span class="w">    </span>RET=$?
+<span class="w">    </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
 
 
-    #return the output of the main program
-    exit <span class="nv">$RET</span>
+<span class="w">    </span>#return<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>program
+<span class="w">    </span>exit<span class="w"> </span><span class="nv">$RET</span>
 </code></pre></div>
 
 <p><strong>output_monitor_example.qsub</strong></p>
-<div class="highlight"><pre><span></span><code>    #!/bin/bash -l
-    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
-    #PBS -m a
-    #PBS -j oe
-    # This method monitors job output and stops if the output doesn&#39;t change. 
-    # This method assumes that the program continuously generates output at regular intervals. 
-    cd <span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>#!/bin/bash<span class="w"> </span>-l
+<span class="w">    </span>#PBS<span class="w"> </span>-l<span class="w"> </span>mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+<span class="w">    </span>#PBS<span class="w"> </span>-m<span class="w"> </span>a
+<span class="w">    </span>#PBS<span class="w"> </span>-j<span class="w"> </span>oe
+<span class="w">    </span>#<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>monitors<span class="w"> </span>job<span class="w"> </span>output<span class="w"> </span>and<span class="w"> </span>stops<span class="w"> </span>if<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>doesn&#39;t<span class="w"> </span>change.<span class="w"> </span>
+<span class="w">    </span>#<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>assumes<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>program<span class="w"> </span>continuously<span class="w"> </span>generates<span class="w"> </span>output<span class="w"> </span>at<span class="w"> </span>regular<span class="w"> </span>intervals.<span class="w"> </span>
+<span class="w">    </span>cd<span class="w"> </span><span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
 
-    testfile=`testfile.flag`
-     
-    #Run the main program
-    ( 
-        mpirun mycommand &gt; <span class="nv">$testfile</span>
-   ) <span class="err">&amp;</span>
-    PID=$!
+<span class="w">    </span>testfile=`testfile.flag`
+<span class="w">     </span>
+<span class="w">    </span>#Run<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>program
+<span class="w">    </span>(<span class="w"> </span>
+<span class="w">        </span>mpirun<span class="w"> </span>mycommand<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$testfile</span>
+<span class="w">   </span>)<span class="w"> </span><span class="err">&amp;</span>
+<span class="w">    </span>PID=$!
 
-    # Sleep for enough time to start generating output
-    sleep 300
-    linecount1=`cat <span class="nv">$testfile</span> | wc -l`
-     
-    # Sleep enough for more output
-    sleep 100
-    linecount2=`cat <span class="nv">$testfile</span> | wc -l`
-    if [ &quot;<span class="nv">$linecount1</span>&quot; == &quot;<span class="nv">$linecount2</span>&quot; ]
-    then
-             echo &quot;Job Seems to have stalled. Killing and restarting&quot;
-             kill <span class="nv">$PID</span>
-             qsub $0
-             echo &quot;Job stats for debugging&quot;
-             qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
-             exit 1
-    fi
+<span class="w">    </span>#<span class="w"> </span>Sleep<span class="w"> </span>for<span class="w"> </span>enough<span class="w"> </span>time<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>generating<span class="w"> </span>output
+<span class="w">    </span>sleep<span class="w"> </span>300
+<span class="w">    </span>linecount1=`cat<span class="w"> </span><span class="nv">$testfile</span><span class="w"> </span>|<span class="w"> </span>wc<span class="w"> </span>-l`
+<span class="w">     </span>
+<span class="w">    </span>#<span class="w"> </span>Sleep<span class="w"> </span>enough<span class="w"> </span>for<span class="w"> </span>more<span class="w"> </span>output
+<span class="w">    </span>sleep<span class="w"> </span>100
+<span class="w">    </span>linecount2=`cat<span class="w"> </span><span class="nv">$testfile</span><span class="w"> </span>|<span class="w"> </span>wc<span class="w"> </span>-l`
+<span class="w">    </span>if<span class="w"> </span>[<span class="w"> </span>&quot;<span class="nv">$linecount1</span>&quot;<span class="w"> </span>==<span class="w"> </span>&quot;<span class="nv">$linecount2</span>&quot;<span class="w"> </span>]
+<span class="w">    </span>then
+<span class="w">             </span>echo<span class="w"> </span>&quot;Job<span class="w"> </span>Seems<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>stalled.<span class="w"> </span>Killing<span class="w"> </span>and<span class="w"> </span>restarting&quot;
+<span class="w">             </span>kill<span class="w"> </span><span class="nv">$PID</span>
+<span class="w">             </span>qsub<span class="w"> </span>$0
+<span class="w">             </span>echo<span class="w"> </span>&quot;Job<span class="w"> </span>stats<span class="w"> </span>for<span class="w"> </span>debugging&quot;
+<span class="w">             </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+<span class="w">             </span>exit<span class="w"> </span>1
+<span class="w">    </span>fi
 
-    wait <span class="nv">$PID</span>
-    RET=$?
-    qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+<span class="w">    </span>wait<span class="w"> </span><span class="nv">$PID</span>
+<span class="w">    </span>RET=$?
+<span class="w">    </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
 
 
-    #return the output of the main program
-    exit <span class="nv">$RET</span>
+<span class="w">    </span>#return<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>program
+<span class="w">    </span>exit<span class="w"> </span><span class="nv">$RET</span>
 </code></pre></div>
 
 <h2><strong>qstat_monitor_example.qsub</strong></h2>
-<div class="highlight"><pre><span></span><code>    #!/bin/bash -l
-    #PBS -l mem=100gb,nodes=100:ppn=1,walltime=03:59:59
-    #PBS -m a
-    #PBS -j oe
-    # This method uses the same idea as the previous but instead of relying on output it uses the cput stat generated by qstat.
-    # This solution will not work if the job is in a busy wait state. 
-    cd <span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>#!/bin/bash<span class="w"> </span>-l
+<span class="w">    </span>#PBS<span class="w"> </span>-l<span class="w"> </span>mem=100gb,nodes=100:ppn=1,walltime=03:59:59
+<span class="w">    </span>#PBS<span class="w"> </span>-m<span class="w"> </span>a
+<span class="w">    </span>#PBS<span class="w"> </span>-j<span class="w"> </span>oe
+<span class="w">    </span>#<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>uses<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span>idea<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>previous<span class="w"> </span>but<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>relying<span class="w"> </span>on<span class="w"> </span>output<span class="w"> </span>it<span class="w"> </span>uses<span class="w"> </span>the<span class="w"> </span>cput<span class="w"> </span>stat<span class="w"> </span>generated<span class="w"> </span>by<span class="w"> </span>qstat.
+<span class="w">    </span>#<span class="w"> </span>This<span class="w"> </span>solution<span class="w"> </span>will<span class="w"> </span>not<span class="w"> </span>work<span class="w"> </span>if<span class="w"> </span>the<span class="w"> </span>job<span class="w"> </span>is<span class="w"> </span>in<span class="w"> </span>a<span class="w"> </span>busy<span class="w"> </span>wait<span class="w"> </span>state.<span class="w"> </span>
+<span class="w">    </span>cd<span class="w"> </span><span class="cp">${</span><span class="n">PBS_O_WORKDIR</span><span class="cp">}</span>
 
-    #Run the main program
-    ( 
-        mpirun mycommand 
-   ) <span class="err">&amp;</span>
-    PID=$!
+<span class="w">    </span>#Run<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>program
+<span class="w">    </span>(<span class="w"> </span>
+<span class="w">        </span>mpirun<span class="w"> </span>mycommand<span class="w"> </span>
+<span class="w">   </span>)<span class="w"> </span><span class="err">&amp;</span>
+<span class="w">    </span>PID=$!
 
-    # Sleep for enough time to start generating output
-    sleep 300
-    cpu1=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
-     
-    # Sleep enough for more output
-    sleep 100
-    cpu2=`qstat -f <span class="nv">$PBS_JOBID</span> | grep resources_used.cput`
-    if [ &quot;<span class="nv">$cpu1</span>&quot; == &quot;<span class="nv">$cpu2</span>&quot; ]
-    then
-             echo &quot;Job Seems to have stalled. Killing and restarting&quot;
-             kill <span class="nv">$PID</span>
-             qsub $0
-             echo &quot;Job stats for debugging&quot;
-             qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
-             exit 1
-    fi
+<span class="w">    </span>#<span class="w"> </span>Sleep<span class="w"> </span>for<span class="w"> </span>enough<span class="w"> </span>time<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>generating<span class="w"> </span>output
+<span class="w">    </span>sleep<span class="w"> </span>300
+<span class="w">    </span>cpu1=`qstat<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBS_JOBID</span><span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span>resources_used.cput`
+<span class="w">     </span>
+<span class="w">    </span>#<span class="w"> </span>Sleep<span class="w"> </span>enough<span class="w"> </span>for<span class="w"> </span>more<span class="w"> </span>output
+<span class="w">    </span>sleep<span class="w"> </span>100
+<span class="w">    </span>cpu2=`qstat<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBS_JOBID</span><span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span>resources_used.cput`
+<span class="w">    </span>if<span class="w"> </span>[<span class="w"> </span>&quot;<span class="nv">$cpu1</span>&quot;<span class="w"> </span>==<span class="w"> </span>&quot;<span class="nv">$cpu2</span>&quot;<span class="w"> </span>]
+<span class="w">    </span>then
+<span class="w">             </span>echo<span class="w"> </span>&quot;Job<span class="w"> </span>Seems<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>stalled.<span class="w"> </span>Killing<span class="w"> </span>and<span class="w"> </span>restarting&quot;
+<span class="w">             </span>kill<span class="w"> </span><span class="nv">$PID</span>
+<span class="w">             </span>qsub<span class="w"> </span>$0
+<span class="w">             </span>echo<span class="w"> </span>&quot;Job<span class="w"> </span>stats<span class="w"> </span>for<span class="w"> </span>debugging&quot;
+<span class="w">             </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+<span class="w">             </span>exit<span class="w"> </span>1
+<span class="w">    </span>fi
 
-    wait <span class="nv">$PID</span>
-    RET=$?
-    qstat -f <span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
+<span class="w">    </span>wait<span class="w"> </span><span class="nv">$PID</span>
+<span class="w">    </span>RET=$?
+<span class="w">    </span>qstat<span class="w"> </span>-f<span class="w"> </span><span class="cp">${</span><span class="n">PBS_JOBID</span><span class="cp">}</span>
 
 
-    #return the output of the main program
-    exit <span class="nv">$RET</span>
+<span class="w">    </span>#return<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>program
+<span class="w">    </span>exit<span class="w"> </span><span class="nv">$RET</span>
 </code></pre></div>
 
 <p>These solutions are nice work arounds because, if it works, the scripts just
@@ -287,7 +287,7 @@ track down the problem.</p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

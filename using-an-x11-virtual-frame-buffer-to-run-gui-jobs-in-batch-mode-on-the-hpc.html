@@ -80,32 +80,32 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <span class="c1">#SBATCH --mem=10G</span>
 <span class="c1">#SBATCH --job-name Pandemic-OpenMP</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
 
 <span class="c1"># Have X11 find an open display number and communicate the number</span>
 <span class="c1"># though a temporary file to set the environment variable.</span>
 <span class="nv">display_file</span><span class="o">=</span>.tmp_display.txt
-Xvfb -displayfd <span class="m">1</span> -auth /dev/null  <span class="m">1</span>&gt;<span class="nv">$display_file</span> <span class="m">2</span>&gt; /dev/null <span class="p">&amp;</span>
-sleep <span class="m">5</span>
-<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat <span class="nv">$display_file</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
-rm <span class="nv">$display_file</span>
+Xvfb<span class="w"> </span>-displayfd<span class="w"> </span><span class="m">1</span><span class="w"> </span>-auth<span class="w"> </span>/dev/null<span class="w">  </span><span class="m">1</span>&gt;<span class="nv">$display_file</span><span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
+sleep<span class="w"> </span><span class="m">5</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat<span class="w"> </span><span class="nv">$display_file</span><span class="sb">`</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
+rm<span class="w"> </span><span class="nv">$display_file</span>
 
 <span class="c1"># Benchmark program with different numbers of processes</span>
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">16</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">2</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">time</span> ./Pandemic.c-openmp
-<span class="nb">echo</span> <span class="k">done</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">16</span>
+<span class="nb">time</span><span class="w"> </span>./Pandemic.c-openmp
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span>
+<span class="nb">time</span><span class="w"> </span>./Pandemic.c-openmp
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
+<span class="nb">time</span><span class="w"> </span>./Pandemic.c-openmp
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">2</span>
+<span class="nb">time</span><span class="w"> </span>./Pandemic.c-openmp
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">time</span><span class="w"> </span>./Pandemic.c-openmp
+<span class="nb">echo</span><span class="w"> </span><span class="k">done</span>
 
 <span class="c1"># Report job statistics</span>
-scontrol show job <span class="nv">$SLURM_JOB_ID</span>
+scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div>
 
 <p>And here is the job I got working with MPI. Notice it is basically the same but I need to pass the DISPLAY variable though MPI for it to work.  </p>
@@ -116,28 +116,28 @@ scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 <span class="c1">#SBATCH --mem=10G</span>
 <span class="c1">#SBATCH --job-name Pandemic-MPI</span>
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
-module swap GNU Intel
-module load OpenMPI
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">SLURM_SUBMIT_DIR</span><span class="si">}</span>
+module<span class="w"> </span>swap<span class="w"> </span>GNU<span class="w"> </span>Intel
+module<span class="w"> </span>load<span class="w"> </span>OpenMPI
 
 <span class="c1"># Have X11 find an open display number and communicate the number</span>
 <span class="c1"># though a temporary file to set the environment variable.</span>
 <span class="nv">display_file</span><span class="o">=</span>.tmp_display.txt
-Xvfb -displayfd <span class="m">1</span> -auth /dev/null  <span class="m">1</span>&gt;<span class="nv">$display_file</span> <span class="m">2</span>&gt; /dev/null <span class="p">&amp;</span>
-sleep <span class="m">5</span>
-<span class="nb">export</span> <span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat <span class="nv">$display_file</span><span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
-rm <span class="nv">$display_file</span>
+Xvfb<span class="w"> </span>-displayfd<span class="w"> </span><span class="m">1</span><span class="w"> </span>-auth<span class="w"> </span>/dev/null<span class="w">  </span><span class="m">1</span>&gt;<span class="nv">$display_file</span><span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">&amp;</span>
+sleep<span class="w"> </span><span class="m">5</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span>:<span class="sb">`</span>cat<span class="w"> </span><span class="nv">$display_file</span><span class="sb">`</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;DISPLAY set to </span><span class="nv">$DISPLAY</span><span class="s2">&quot;</span>
+rm<span class="w"> </span><span class="nv">$display_file</span>
 
 <span class="c1"># Benchmark program with different numbers of processes</span>
-<span class="nb">time</span> mpirun -n <span class="m">16</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">8</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">4</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">2</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
-<span class="nb">time</span> mpirun -n <span class="m">1</span> -x <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span> ./Pandemic.c-mpi
+<span class="nb">time</span><span class="w"> </span>mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME</span>:<span class="nv">$DISPLAY</span><span class="w"> </span>./Pandemic.c-mpi
+<span class="nb">time</span><span class="w"> </span>mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">8</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span><span class="w"> </span>./Pandemic.c-mpi
+<span class="nb">time</span><span class="w"> </span>mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span><span class="w"> </span>./Pandemic.c-mpi
+<span class="nb">time</span><span class="w"> </span>mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span><span class="w"> </span>./Pandemic.c-mpi
+<span class="nb">time</span><span class="w"> </span>mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$HOSTNAME$DISPLAY</span><span class="w"> </span>./Pandemic.c-mpi
 
 <span class="c1"># Report job statistics</span>
-scontrol show job <span class="nv">$SLURM_JOB_ID</span>
+scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div>
 
 <p>Hope you find this useful.</p></div>
@@ -212,7 +212,7 @@ scontrol show job <span class="nv">$SLURM_JOB_ID</span>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

@@ -77,14 +77,14 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 </code></pre></div>
 
 <p>Once graphviz is installed you need to create a text file with the connections.  This file is called a dot file.  There are a lot of tutorials about the dot syntax but the basics is to make a list of nodes and their connections. For example, the following file (called test.dot) makes the figure above.  Use the <code>-&gt;</code> to indicate a directed link and a <code>--</code> to indicate a bi-directional link:</p>
-<div class="highlight"><pre><span></span><code><span class="n">digraph</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;vim&quot;</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Insert</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;i/I/a/A/o/O&quot;</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span><span class="n">Insert</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Normal</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;Esc&quot;</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Command</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;: (colon)&quot;</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span><span class="n">Command</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;w&quot;</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span><span class="n">Command</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;q/q!/wq/x&quot;</span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">digraph</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;vim&quot;</span><span class="w"> </span><span class="p">];</span>
+<span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Insert</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;i/I/a/A/o/O&quot;</span><span class="w"> </span><span class="p">];</span>
+<span class="w"> </span><span class="n">Insert</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Normal</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;Esc&quot;</span><span class="p">];</span>
+<span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Command</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;: (colon)&quot;</span><span class="p">];</span>
+<span class="w"> </span><span class="n">Command</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Normal</span><span class="w">  </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;w&quot;</span><span class="p">];</span>
+<span class="w"> </span><span class="n">Command</span><span class="w">  </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Linux</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;q/q!/wq/x&quot;</span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Once you have the file you can make an image using the following <code>dot</code> command (dot is one of the commands installed by Graphviz)</p>
@@ -171,7 +171,7 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

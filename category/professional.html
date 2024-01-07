@@ -65,8 +65,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../singularity-overview.html"><h1>Singularity Overview</h1></a>
-Fri 15 July 2022
+            <a href="../asee-hall-of-fame.html"><h1>ASEE Hall of Fame</h1></a>
+Wed 18 October 2023
 
 by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
@@ -75,135 +75,71 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
  
         </div>
         
-        <div><p><img alt="Picture of a black hole to represent a singularity" src="https://www.nasa.gov/sites/default/files/thumbnails/image/simulated_bh.jpg"></p>
-<p>Singularity is a versitle tool to give researchers more flexibility installing software and running their workflows on the HPC.  I am figuring out singularity for my own research, to better use the Open Science Grid and hopefully to help other people on the HPCC.</p>
-<p>Most workflows don't need singilarity but it can be extreamly helpful to solve certain weridly difficult problems.  Some common examples for researchers using singularity on the HPC include:</p>
-<ul>
-<li>Installing software that needs a special/different base operating system.</li>
-<li>Installing software that requires adminstrator privliges (aka root, su and/or sudo). </li>
-<li>Installing complex dependancy trees (like python and R)</li>
-<li>Using existing software inside a pre-built vitural machine.</li>
-<li>Working with lots of tiny files on the HPC filesystems which are better designed for smaller numbers of big files. </li>
-<li>Building workflows that can easily move between different resources.</li>
-</ul>
-<p><strong><em>NOTE</em></strong> This overview is specific to the High Performace Computing Center (HPCC) at Michigan State University (MSU).  For a complete tutorial see the <a href="https://docs.sylabs.io/guides/3.2/user-guide/index.html">Singularity documentation</a>.  This overview assumes that you have an HPCC account and know how to navigate to and use a development node. </p>
-<h2>Step 1: Get a singularity image</h2>
-<p>As a starting point we need a singularity image, also known as a container or virtual machine.  You can think of a singularity image as a "software hard drive" that contains an entire opperating system in a file. There are three main ways to get these images:</p>
-<ol>
-<li>Use one of the Singularity images already on the HPCC. </li>
-<li>Download an image form one of the many online libraries.</li>
-<li>Build your own image.</li>
-</ol>
-<p>If you don't know which one of the above to use, I recommend that you pick number 1 and just use the singularity image we already have on the system.</p>
-<h3>1. Use one of the Singularity images already on the HPCC.</h3>
-<p>For this introduction, we can keep things simple and just use one of the singilarity images already on the HPCC. This image runs CentOS 7 linux and is a good starting point.  Use the following command to start singularity in a "shell" using the provided image:</p>
-<p><code>singularity shell --env TERM=vt100 /opt/software/CentOS.container/7.4/bin/centos</code></p>
-<p>Once you run this command you should see the "Singularity" prompt which will look something like the following:</p>
-<p><code>Singularity&gt;</code></p>
-<p>You did it!  You are running a different operating system (OS) than the base opporating system.  All of the main HPCC folders are still accessable from this "container" (ex. /mnt/home, /mnt/research, /mnt/scratch/, etc) so it shouldn't look much different than before (except for the different prompt and you no longer have access to some of the base HPCC software). </p>
-<p>At this point, if you know what you need, you should be able to install your software  and it will compile/run using the singularity OS instead of the base OS.  </p>
-<p><strong><em>NOTE</em></strong>: You can just install software in your <code>/mnt/home/$USER</code> and/or <code>/mnt/research</code> folders. The software you install will probably only work from "inside" this singularity image. However, you will also be able to see and minipulate the files from within your standard HPC account.  This is fine for many researchers but I recommend you jump down to "Step 2: Overlays" to make Singularity even more flexible. </p>
-<h3>2. Download an image form one of the many online libraries</h3>
-<p>Many people publish singularity images and post them on public "libraries" for easy install.  Here is a list of online libraries you can brouse:</p>
-<h4>Sylabs Library</h4>
-<p><a href="https://cloud.sylabs.io/library">Link to Browse Sylabs</a><br>
-example:</p>
-<div class="highlight"><pre><span></span><code>singularity pull alpine.sif library://alpine:latest
-
-singularity shell alpine.sif
-</code></pre></div>
-
-<h4>Dockerhub</h4>
-<p><a href="https://hub.docker.com/search?q=&amp;type=image">Link to Browse Dockerhub</a><br>
-example:</p>
-<div class="highlight"><pre><span></span><code>singularity pull tensorflow.sif docker://tensorflow/tensorflow:latest
-
-singularity shell tensorflow.sif
-</code></pre></div>
-
-<h4>Singularity Hub (aka shub)</h4>
-<p><a href="https://singularityhub.github.io/singularity-catalog/">Link to Browse Singularity Hub</a><br>
-example:</p>
-<div class="highlight"><pre><span></span><code>singularity pull shub_image.sif shub://vsoch/singularity-images
-
-singularity shell shub_image.sif
-</code></pre></div>
-
-<h3>3. build your own image</h3>
-<p>This one is more complex and outside the scope of the overview. However, if you are intersted I recommend you try using the build command with a Docker image since it is fairly easy to install on your personal computer. Here is a link to how to use docker to make a singularity image:</p>
-<ul>
-<li><a href="https://docs.sylabs.io/guides/3.2/user-guide/build_a_container.html?highlight=docker">Link to singularity build command</a></li>
-</ul>
-<h2>Step 2: Overlays</h2>
-<p>One problem we often encounter on the HPCC is "lots-of-small-files" (hundreds of files where each one is &lt; 50MB).  The filesystem is optmized for large files.  Lots of small files end up "clogging" things up which can slow things down for everyone.  One useful trick of singularity is you can make a single large file called an "Overlay" which can be attached to a singularity session. You can use an Overlay as a "filesystem inside a single file" where you can store lots of the small files inside the single overlay file. From the user point of view you can have as many small files as you want accessable from the singularity image (within reasonable limits). However, these small files act as a single file from the HPCC point of view and dosn't clog things up.</p>
-<p>This technique is really helpful if you are using complex software installs such as lots of Python, R or Conda installs.  It can also be helpful if your research data is lots of small files. </p>
-<h3>Make your overlay file</h3>
-<p>Making an overlay is not hard but takes multiple steps. For details on how to make an overlay we recommend viewing the <a href="https://docs.sylabs.io/guides/3.2/user-guide/persistent_overlays.html?highlight=overlay">singularity overlay documentation</a>.</p>
-<p>Fortunatly the HPCC has a "powertool" that can make a basic overlay for you.  All you need to do is run the following command:</p>
-<div class="highlight"><pre><span></span><code>mk_overlay
-</code></pre></div>
-
-<p>To inspect and learn about what this command is doing type the following (note the tick charicter is not the single quote and is typically found about the tab key on a standard keyboard):</p>
-<div class="highlight"><pre><span></span><code>cat `which mk_overlay`
-</code></pre></div>
-
-<p>This overlay can be applied to an image using the <code>--overlay</code> option as follows:</p>
-<div class="highlight"><pre><span></span><code>singularity shell --overlay overlay.img --env TERM=vt100 /opt/software
-/CentOS.container/7.4/bin/centos
-</code></pre></div>
-
-<p>Once you are in the singularity shell you can now write to the overlay as if you were adding files to the "root" directory.  For example, run the following commands from the singularity prompt (with the overlay enabled).  This will download a copy of miniconda and install it in the /miniconda3/ directory:</p>
-<div class="highlight"><pre><span></span><code>wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh 
-
-./Miniconda3-py39_4.12.0-Linux-x86_64.sh -b -p /miniconda3/
-</code></pre></div>
-
-<p>To use this miniconda you will need to add the folder <code>/miniconda3/</code> to the path with the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span><span class="w"></span>
-
-<span class="n">conda</span><span class="w"> </span><span class="o">--</span><span class="n">init</span><span class="w"></span>
-</code></pre></div>
-
-<p>At this point you can use <code>pip</code> and <code>conda</code> installs as much as you like.  These generate hundreds of small files but it dosn't matter because everything will be stored in the overlay.img file as one big file.  </p>
-<p>I recommend creating a file called <code>start-conda.sh</code> which contains the following.  This will enable easy startup of your singularity enviornment with the overlay and conda path already set up:</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-singularity shell --env <span class="nv">TERM</span><span class="o">=</span>vt100 <span class="se">\</span>
-                  --env <span class="nv">PATH</span><span class="o">=</span>/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sysbin/ <span class="se">\</span>
-                  --overlay overlay.img <span class="se">\</span>
-                  /opt/software/CentOS.container/7.4/bin/centos 
-</code></pre></div>
-
-<h2>Step 3: Submitting Jobs</h2>
-<p>Once we have our image and our overlay working in a development node we can execute a script inside of the singularity image using the <code>exec</code>. For example, this script uses our miniconda installed overlay and runs the python3 script called "mypython.py" which is stored in my home directory on the HPCC.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">singularity</span> <span class="k">exec</span> <span class="o">--</span><span class="nv">overlay</span> <span class="nv">overlay</span>.<span class="nv">img</span> <span class="o">/</span><span class="nv">opt</span><span class="o">/</span><span class="nv">software</span><span class="o">/</span><span class="nv">CentOS</span>.<span class="nv">container</span><span class="o">/</span><span class="mi">7</span>.<span class="mi">4</span><span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">centos</span> <span class="nv">python3</span> <span class="o">/</span><span class="nv">mnt</span><span class="o">/</span><span class="nv">home</span><span class="o">/</span>$<span class="nv">USER</span><span class="o">/</span><span class="nv">mypython</span>.<span class="nv">py</span>
-</code></pre></div>
-
-<p>Once the above is running on a development node we can just submit this as a job to the HPCC using the following submissions script:</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --walltime=04:00:00</span>
-<span class="c1">#SBATCH --mem=5gb</span>
-<span class="c1">#SBATCH -c 1</span>
-<span class="c1">#SBATCH -N 1</span>
-
-singularity <span class="nb">exec</span> --overlay overlay.img /opt/software/CentOS.container/7.4/bin/centos python3 /mnt/home/<span class="nv">$USER</span>/mypython.py
-</code></pre></div>
-
-<p>If you need to have multiple jobs running the same software (such as for a job array). You can't have them all writting to the same overlay file.  The following script still allows the overlay to work but all of the changes will be discared after the run so make sure you copy your results back to your home drive:</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --walltime=04:00:00</span>
-<span class="c1">#SBATCH --mem=5gb</span>
-<span class="c1">#SBATCh --array 1-10</span>
-<span class="c1">#SBATCH -c 1</span>
-<span class="c1">#SBATCH -N 1</span>
-
-singularity <span class="nb">exec</span> --write-tmp --overlay overlay.img /opt/software/CentOS.container/7.4/bin/centos python3 /mnt/home/<span class="nv">$USER</span>/mypython.py <span class="nv">$SLURM_ARRAY_ID</span>
-</code></pre></div>
-
-<p>This overview of singularity was inicially written by Dirk Colbry.  Please contact the ICER User Support Team if you need any help getting your workflow up and running.</p>
-<p><a href="https://contact.icer.msu.edu/contact">link to ICER User Support Team online contact form</a></p></div>
+        <div><p><img alt="ASEE Gala" src="https://www.asee.org/getattachment/0ceb21c6-cbdf-4d52-8140-1ba0720d8e85/Gala_Square.jpg"></p>
+<p>I am horned to be a part of the CyberAmbassador Team's induction into the Amarican Society for Engineering Education's (ASEE) Hall of fame.</p>
+<p><a href="https://www.asee.org/membership-and-communities/AWARDS-HONORS/Hall-of-Fame">Link to Hall of Fame Annocement</a></p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../python-mailmerge-library.html"><h2>Python Mailmerge Library</h2></a>
+        <div class= "well small"> Fri 02 June 2023
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Picture of a black hole to represent a singularity" src="https://www.nasa.gov/sites/default/files/thumbnails/image/simulated_bh.jpg"></p>
+<p>I just posted a library in my gitlab repository which runs a mailmerge program on our jupyterhub server here at MSU.  I use this every week to improve a lot of my email workflows from sending feedback to students to emailing different groups weekly reports.  I like that it just …</p> <a class="btn btn-info xsmall" href="../python-mailmerge-library.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../director-of-user-support-video.html"><h2>Director of User Support Video</h2></a>
+        <div class= "well small"> Fri 02 September 2022
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Image from ICER User support video" src="//colbrydi.github.io/images/UserSupportVideo.jpg"></p>
+<p>I am excited to say that I got to rejoin ICER and am now helping lead the User Support Team. </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QSyZnuZfKs0?si=X7EQ0v0KdBvoifJd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <a class="btn btn-info xsmall" href="../director-of-user-support-video.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../singularity-overview.html"><h2>Singularity Overview</h2></a>
+        <div class= "well small"> Fri 15 July 2022
+
+by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><img alt="Picture of a black hole to represent a singularity" src="https://www.nasa.gov/sites/default/files/thumbnails/image/simulated_bh.jpg"></p>
+<p>Singularity is a versitle tool to give researchers more flexibility installing software and running their workflows on the HPC.  I am figuring out singularity for my own research, to better use the Open Science Grid and hopefully to help other people on the HPCC.</p>
+<p>Most workflows don't need singilarity but …</p> <a class="btn btn-info xsmall" href="../singularity-overview.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -325,64 +261,6 @@ by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p>Here …</p> <a class="btn btn-info xsmall" href="../making-an-effective-video-presentation.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../camtasia-studio-tutorial.html"><h2>Camtasia Studio tutorial</h2></a>
-        <div class= "well small"> Wed 09 June 2021
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Camtasia Logo" src="//techdows.com/wp-content/uploads/2014/05/TechSmith-Camtasia-Studio-8.4.png"></p>
-<p>I was asked to give an "effective presentation" tutorial to a group of REU students at Texas A&amp;M.  As I talked with the organizers we thought it would be helpful to do a two part tutorial.  The first is more of a technical, hands-on workshop on how to use …</p> <a class="btn btn-info xsmall" href="../camtasia-studio-tutorial.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../see-insight-research-group.html"><h2>SEE-Insight Research Group</h2></a>
-        <div class= "well small"> Tue 25 May 2021
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Title Slide for the SEE-Insight Overview Video" src="//colbrydi.github.io/images/SEE-Insight.png"></p>
-<p>This week we had a bunch of new students join the SEE-Insight research group.  I put together a quick introductory presentation for them. I thought it came out fairly well so I decided to post in here in case anyone is interested in learning more about what our group is …</p> <a class="btn btn-info xsmall" href="../see-insight-research-group.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../design-of-mth314-matrix-algebra-with-applications.html"><h2>Design of MTH314 - Matrix Algebra with Applications</h2></a>
-        <div class= "well small"> Tue 09 February 2021
-
-by <a class="url fn" href="../author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
- 
-
-
- </div>
-        <div class="summary"><p><img alt="Example" src="https://lh5.googleusercontent.com/T7SNdiXctkIi2iWHjjdAZCRBASzRjysFkmivxtD8cZ80QlKFPjOeYa--uiDoHEUdb7daadZQ-fW-l0SVBQJDj90vPFaCKke9JSf6jf8Rk71zpy62TP_hmBpdFONBoA=w740">
-I was honored to be invited to give a presentation to the Math department about the redesign of MTH314 to focus more on applications in python.  Here is my presentation:</p>
-<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/811482/sp/81148200/embedIframeJs/uiconf_id/27551951/partner_id/811482?iframeembed=true&playerId=kaltura_player&entry_id=1_i92323bd&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_xoqag17c" width="640" height="396" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe> <a class="btn btn-info xsmall" href="../design-of-mth314-matrix-algebra-with-applications.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -464,7 +342,7 @@ I was honored to be invited to give a presentation to the Math department about 
     </div>     </div> 
 <footer>
 <br />
-<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href="..">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

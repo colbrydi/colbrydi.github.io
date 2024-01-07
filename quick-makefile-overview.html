@@ -73,10 +73,10 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <p><a href="//colbrydi.github.io/images//Makefile">Example Makefile</a></p>
 <p>A former student recently emailed me asking for a good reference about makefiles.  To be honest, I teach a lot about makefiles but I am not sure I have a go-to source.  I could have googled something but instead I just tapped out this quick description. I thought it makes for a fairly quick introduction to Makefiles.  Feel free to leave your favorite resource in the comments.</p>
 <p>Makefiles are fairly simple in concept but are an entire programming language so can get very advanced. Basically a makefile consists of rules in the following format:</p>
-<div class="highlight"><pre><span></span><code><span class="n">target</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prerequisite_file1</span><span class="w"> </span><span class="n">prerequisite_file2</span><span class="w"> </span><span class="n">prequiste_file3</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
-<span class="w">  </span><span class="n">Recipe</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="n">Recipe</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">  </span><span class="o">...</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">target</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prerequisite_file1</span><span class="w"> </span><span class="n">prerequisite_file2</span><span class="w"> </span><span class="n">prequiste_file3</span><span class="w"> </span><span class="o">...</span>
+<span class="w">  </span><span class="n">Recipe</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="n">Recipe</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="o">...</span>
 </code></pre></div>
 
 <p>When you type “make Target” on the command line you active the rule.  Then the Make program recursively activates rules to make each of the prerequisites.  If there is no rule to make a prerequisite it looks to see if the prerequisite file exists. If there is no rule and there is no file you will get an error.  However, assuming you have all the prerequisite files you need  for a rule, the Make program then runs the Recipe commands (things like gcc or whatever you want).  It is assumed that the commands will take the prerequisites as inputs and generate the target file (this is not always the case).
@@ -162,7 +162,7 @@ That is basically it.  Some more things to note:
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

@@ -80,61 +80,61 @@ account:</p>
 
 <p>Then I modified the build_avida script as follows:</p>
 <p><strong>build_avida</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span><span class="s2">&quot;condor_compile gcc&quot;</span>
-mkdir -p cbuild
-<span class="nb">cd</span> cbuild
-cmake <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span> ../
-make -j <span class="m">10</span>
-make install
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="s2">&quot;condor_compile gcc&quot;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>cbuild
+<span class="nb">cd</span><span class="w"> </span>cbuild
+cmake<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span>../
+make<span class="w"> </span>-j<span class="w"> </span><span class="m">10</span>
+make<span class="w"> </span>install
+</code></pre></div></td></tr></table></div>
+
 <p>Then I run the build script using the following commands:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">cmake</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="o">./</span><span class="n">build_avida</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="o">./</span><span class="n">run_tests</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">cmake</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="o">./</span><span class="n">build_avida</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="o">./</span><span class="n">run_tests</span>
 </code></pre></div>
 
 <p>Once Avida builds and tests successfully I write a condor script</p>
 <p><strong>avida.condor</strong></p>
 <div class="highlight"><pre><span></span><code>#
-# <span class="nv">avida</span>.<span class="nv">condor</span>
-# <span class="nv">Example</span> <span class="nv">avida</span> <span class="nv">condor</span> <span class="nv">submission</span> <span class="nv">script</span>
+#<span class="w"> </span><span class="nv">avida</span>.<span class="nv">condor</span>
+#<span class="w"> </span><span class="nv">Example</span><span class="w"> </span><span class="nv">avida</span><span class="w"> </span><span class="nv">condor</span><span class="w"> </span><span class="nv">submission</span><span class="w"> </span><span class="nv">script</span>
 #
 
-# <span class="nv">Specify</span> <span class="nv">your</span> <span class="nv">TeraGrid</span> <span class="nv">allocation</span> <span class="nv">project</span> <span class="nv">here</span>.
-<span class="o">+</span><span class="nv">TGProject</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">YOUR PROJECT NUMBER HERE</span><span class="s2">&quot;</span>
+#<span class="w"> </span><span class="nv">Specify</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">TeraGrid</span><span class="w"> </span><span class="nv">allocation</span><span class="w"> </span><span class="nv">project</span><span class="w"> </span><span class="nv">here</span>.
+<span class="o">+</span><span class="nv">TGProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;YOUR PROJECT NUMBER HERE&quot;</span>
 
-<span class="nv">universe</span> <span class="o">=</span> <span class="nv">vanilla</span>
+<span class="nv">universe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vanilla</span>
 
-#<span class="nv">PATH</span> <span class="nv">TO</span> <span class="nv">CONDOR_COMPILE</span> <span class="nv">BUILD</span> <span class="nv">OF</span> <span class="nv">AVIDA</span>
-# <span class="nv">The</span> <span class="nv">executable</span> <span class="nv">to</span> <span class="nv">run</span>. <span class="nv">Need</span> <span class="nv">the</span> <span class="nv">full</span> <span class="nv">path</span>. <span class="o">~/</span> <span class="nv">does</span> <span class="nv">not</span> <span class="nv">work</span>.
-<span class="nv">executable</span> <span class="o">=</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">ba01</span><span class="o">/</span><span class="nv">u124</span><span class="o">/</span><span class="nv">dcolbry</span><span class="o">/</span><span class="nv">avida_condor</span><span class="o">/</span><span class="nv">work</span><span class="o">/</span><span class="nv">avida</span>
+#<span class="nv">PATH</span><span class="w"> </span><span class="nv">TO</span><span class="w"> </span><span class="nv">CONDOR_COMPILE</span><span class="w"> </span><span class="nv">BUILD</span><span class="w"> </span><span class="nv">OF</span><span class="w"> </span><span class="nv">AVIDA</span>
+#<span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="nv">executable</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">run</span>.<span class="w"> </span><span class="nv">Need</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">full</span><span class="w"> </span><span class="nv">path</span>.<span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="nv">does</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">work</span>.
+<span class="nv">executable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">ba01</span><span class="o">/</span><span class="nv">u124</span><span class="o">/</span><span class="nv">dcolbry</span><span class="o">/</span><span class="nv">avida_condor</span><span class="o">/</span><span class="nv">work</span><span class="o">/</span><span class="nv">avida</span>
 
-#<span class="nv">Sets</span> <span class="nv">the</span> <span class="nv">process</span> <span class="nv">id</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">avida</span> <span class="nv">seed</span>
-<span class="nv">arguments</span> <span class="o">=</span> <span class="o">-</span><span class="nv">s</span> $<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
+#<span class="nv">Sets</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">process</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">avida</span><span class="w"> </span><span class="nv">seed</span>
+<span class="nv">arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nv">s</span><span class="w"> </span>$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
 
-# <span class="nv">false</span>: <span class="nv">The</span> <span class="nv">executable</span> <span class="nv">is</span> <span class="nv">already</span> <span class="nv">on</span> <span class="nv">remote</span> <span class="nv">machine</span>.
-# <span class="nv">true</span>: <span class="nv">Copy</span> <span class="nv">the</span> <span class="nv">executable</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">local</span> <span class="nv">machine</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">remote</span>.
-<span class="nv">transfer_executable</span> <span class="o">=</span> <span class="nv">false</span>
+#<span class="w"> </span><span class="nv">false</span>:<span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="nv">executable</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">already</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">remote</span><span class="w"> </span><span class="nv">machine</span>.
+#<span class="w"> </span><span class="nv">true</span>:<span class="w"> </span><span class="nv">Copy</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">executable</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">local</span><span class="w"> </span><span class="nv">machine</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">remote</span>.
+<span class="nv">transfer_executable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">false</span>
 
-# <span class="nv">Filenames</span> <span class="k">for</span> <span class="nv">standard</span> <span class="nv">output</span>, <span class="nv">standard</span> <span class="nv">error</span>, <span class="nv">and</span> <span class="nv">Condor</span> <span class="nv">log</span>.
-<span class="nv">output</span> <span class="o">=</span> <span class="nv">output</span><span class="o">/</span><span class="nv">out</span>.$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
-<span class="nv">error</span> <span class="o">=</span> <span class="nv">output</span><span class="o">/</span><span class="nv">err</span>.$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
-<span class="nv">log</span> <span class="o">=</span> <span class="nv">output</span><span class="o">/</span><span class="nv">condor</span>.<span class="nv">log</span>
+#<span class="w"> </span><span class="nv">Filenames</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">standard</span><span class="w"> </span><span class="nv">output</span>,<span class="w"> </span><span class="nv">standard</span><span class="w"> </span><span class="nv">error</span>,<span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">Condor</span><span class="w"> </span><span class="nv">log</span>.
+<span class="nv">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">output</span><span class="o">/</span><span class="nv">out</span>.$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
+<span class="nv">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">output</span><span class="o">/</span><span class="nv">err</span>.$<span class="ss">(</span><span class="nv">Process</span><span class="ss">)</span>
+<span class="nv">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">output</span><span class="o">/</span><span class="nv">condor</span>.<span class="nv">log</span>
 
-# <span class="nv">PATH</span> <span class="nv">TO</span> <span class="nv">WORK</span> <span class="nv">DIRECTORY</span>
-<span class="nv">initialdir</span> <span class="o">=</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">ba01</span><span class="o">/</span><span class="nv">u124</span><span class="o">/</span><span class="nv">dcolbry</span><span class="o">/</span><span class="nv">avida_condor</span><span class="o">/</span><span class="nv">work</span><span class="o">/</span>
+#<span class="w"> </span><span class="nv">PATH</span><span class="w"> </span><span class="nv">TO</span><span class="w"> </span><span class="nv">WORK</span><span class="w"> </span><span class="nv">DIRECTORY</span>
+<span class="nv">initialdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">ba01</span><span class="o">/</span><span class="nv">u124</span><span class="o">/</span><span class="nv">dcolbry</span><span class="o">/</span><span class="nv">avida_condor</span><span class="o">/</span><span class="nv">work</span><span class="o">/</span>
 
-# <span class="nv">The</span> <span class="nv">following</span> <span class="nv">line</span> <span class="nv">is</span> <span class="nv">always</span> <span class="nv">required</span>. <span class="nv">It</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">command</span> <span class="nv">to</span> <span class="nv">submit</span> <span class="nv">the</span> <span class="nv">above</span>.
-# <span class="nv">The</span> <span class="nv">number</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">jobs</span> <span class="nv">that</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">run</span>
-<span class="nv">queue</span> <span class="mi">5</span>
+#<span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="nv">following</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">always</span><span class="w"> </span><span class="nv">required</span>.<span class="w"> </span><span class="nv">It</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">command</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">submit</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">above</span>.
+#<span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">jobs</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">want</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">run</span>
+<span class="nv">queue</span><span class="w"> </span><span class="mi">5</span>
 </code></pre></div>
 
 <p>Make an output directory and submit the job to the condor scheduler using the
@@ -221,7 +221,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

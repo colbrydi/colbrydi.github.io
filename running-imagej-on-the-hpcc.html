@@ -82,11 +82,11 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <h3>Step 2: Install ImageJ</h3>
 <p>For this step I recommend installing <a href="https://fiji.sc/">Fiji</a> (Fiji is just ImageJ) which a little easier to use than ImageJ proper.  For one thing it makes installing a few plug-ins much easier.</p>
 <p>Download the 64-bit installer into your home directory on the HPCC.  Go to the <a href="//imagej.net/Fiji/Downloads">Fiji</a> website to get a URL link to the latest version.  Once you have the URL you can run the following command on an HPC Development node:</p>
-<div class="highlight"><pre><span></span><code>wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 </code></pre></div>
 
 <p>After the file has downloaded you just need to unzip the file using the following command:</p>
-<div class="highlight"><pre><span></span><code>unzip fiji-linux64.zip
+<div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>fiji-linux64.zip
 </code></pre></div>
 
 <p>Test ImageJ using the following command:</p>
@@ -111,16 +111,16 @@ by <a class="url fn" href="./author/dr-dirk-colbry.html">Dr. Dirk Colbry</a>
 <span class="c1">#SBATCH -n 1</span>
 <span class="c1">#SBATCH -c 1</span>
 
-module load java
-module load powertools
+module<span class="w"> </span>load<span class="w"> </span>java
+module<span class="w"> </span>load<span class="w"> </span>powertools
 
-srun ~/Fiji.app/ImageJ-linux64 --headless --memory<span class="o">=</span>4000M -macro myMacro.ijm
+srun<span class="w"> </span>~/Fiji.app/ImageJ-linux64<span class="w"> </span>--headless<span class="w"> </span>--memory<span class="o">=</span>4000M<span class="w"> </span>-macro<span class="w"> </span>myMacro.ijm
 
-js <span class="nv">$SLURM_JOB_ID</span>
+js<span class="w"> </span><span class="nv">$SLURM_JOB_ID</span>
 </code></pre></div>
 
 <p>If we call the above script <code>runFiji.sb</code> then you can submit the job to the SLURM scheduler using the following command:</p>
-<div class="highlight"><pre><span></span><code>sbatch runFiji.sb
+<div class="highlight"><pre><span></span><code>sbatch<span class="w"> </span>runFiji.sb
 </code></pre></div>
 
 <p>That should be it. You can change the required memory or the amount of time it takes to run.  </p></div>
@@ -195,7 +195,7 @@ js <span class="nv">$SLURM_JOB_ID</span>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

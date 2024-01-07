@@ -85,31 +85,31 @@ and start hfss. When you run for the firs time, it will create a configuration
 setup for you. This may take a bit, and appear to be stalled, but please be
 patient if the system is busy.</p>
 <p><strong>Start HFSS in the Terminal</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">billspat</span><span class="err">@</span><span class="n">rdpgw</span><span class="o">-</span><span class="mi">00</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">$</span><span class="w"> </span><span class="n">ssh</span><span class="w"> </span><span class="n">dev</span><span class="o">-</span><span class="n">intel14</span><span class="w"></span>
-<span class="p">[</span><span class="n">billspat</span><span class="err">@</span><span class="n">dev</span><span class="o">-</span><span class="n">intel14</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">$</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">hfss</span><span class="w"></span>
-<span class="n">Lmod</span><span class="w"> </span><span class="n">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">hfss</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">found</span><span class="p">,</span><span class="w"> </span><span class="n">loading</span><span class="p">:</span><span class="w"> </span><span class="n">HFSS</span><span class="o">/</span><span class="mf">15.0</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">billspat</span><span class="err">@</span><span class="n">rdpgw</span><span class="o">-</span><span class="mi">00</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">$</span><span class="w"> </span><span class="n">ssh</span><span class="w"> </span><span class="n">dev</span><span class="o">-</span><span class="n">intel14</span>
+<span class="p">[</span><span class="n">billspat</span><span class="err">@</span><span class="n">dev</span><span class="o">-</span><span class="n">intel14</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">$</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">hfss</span>
+<span class="n">Lmod</span><span class="w"> </span><span class="n">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">hfss</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">found</span><span class="p">,</span><span class="w"> </span><span class="n">loading</span><span class="p">:</span><span class="w"> </span><span class="n">HFSS</span><span class="o">/</span><span class="mf">15.0</span>
 
-<span class="p">[</span><span class="n">billspat</span><span class="err">@</span><span class="n">eval</span><span class="o">-</span><span class="n">k40</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">$</span><span class="w"> </span><span class="n">hfss</span><span class="w"></span>
-<span class="n">ANSYS</span><span class="w"> </span><span class="n">Electromagnetics</span><span class="w"> </span><span class="mf">15.0</span><span class="w"> </span><span class="n">Configuration</span><span class="w"></span>
-<span class="o">=========================================</span><span class="w"></span>
-<span class="n">Hostname</span><span class="p">:</span><span class="w"> </span><span class="n">eval</span><span class="o">-</span><span class="n">k40</span><span class="w"></span>
-<span class="n">User</span><span class="p">:</span><span class="w">     </span><span class="n">billspat</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Running</span><span class="w"> </span><span class="n">first</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">configuration</span><span class="o">...</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="o">***</span><span class="w"> </span><span class="n">Skipping</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">***</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Retrieving</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Configuring</span><span class="w"> </span><span class="n">OCX</span><span class="w"> </span><span class="n">files</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Retrieving</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span><span class="w"></span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Configuring</span><span class="w"> </span><span class="n">binaries</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span><span class="w"></span>
-<span class="n">First</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="n">successfully</span><span class="o">.</span><span class="w"></span>
+<span class="p">[</span><span class="n">billspat</span><span class="err">@</span><span class="n">eval</span><span class="o">-</span><span class="n">k40</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="o">$</span><span class="w"> </span><span class="n">hfss</span>
+<span class="n">ANSYS</span><span class="w"> </span><span class="n">Electromagnetics</span><span class="w"> </span><span class="mf">15.0</span><span class="w"> </span><span class="n">Configuration</span>
+<span class="o">=========================================</span>
+<span class="n">Hostname</span><span class="p">:</span><span class="w"> </span><span class="n">eval</span><span class="o">-</span><span class="n">k40</span>
+<span class="n">User</span><span class="p">:</span><span class="w">     </span><span class="n">billspat</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Running</span><span class="w"> </span><span class="n">first</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">configuration</span><span class="o">...</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="o">***</span><span class="w"> </span><span class="n">Skipping</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">***</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Retrieving</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Configuring</span><span class="w"> </span><span class="n">OCX</span><span class="w"> </span><span class="n">files</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Retrieving</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">settings</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">Configuring</span><span class="w"> </span><span class="n">binaries</span><span class="o">...</span><span class="w"> </span><span class="n">Done</span>
+<span class="n">First</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="n">successfully</span><span class="o">.</span>
 </code></pre></div>
 
 <p>At which point the GUI/ Window will start. It will ask you a question about
 which directories you'd like to use. Please change the scratch folder:</p>
 <p><img alt="" src="https://wiki.hpcc.msu.edu/download/attachments/5411556/hfss-folderchoice.png?version=1&amp;modificationDate=1441138478000&amp;api=v2">The default scratch directory is simply /mnt/scratch. We suggest you createyour own folder on scratch, and enter that folder here. You have to firstcheck the "override" box and then type in your scratch folder.You may also use Batch mode to run HFSS jobs on the cluster. Here is anexample HFSS 15.0 submission script written by Andrew Temme that sets up theHFSS job options. For more detail see his excellent <a href="http://nbviewer.ipython.org/urls/bitbucket.org/temmeand/example-ipython-notebooks/raw/master/MSU-supercomputer-HFSS-and-IPython.ipynb">Python Notebook onHFSS</a></p>
 <p><strong>hfssrun.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -139,39 +139,39 @@ which directories you'd like to use. Please change the scratch folder:</p>
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l walltime=03:59:00,mem=50gb,nodes=19:ppn=1</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -m abe</span>
 <span class="c1">#PBS -W x=gres:hfss_solve</span>
 
-module load HFSS/15.0
-<span class="nb">export</span> <span class="nv">OptFile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/Options.txt
-<span class="nb">export</span> <span class="nv">ANSYSEM_JOB_ID</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">ANSYSEM_HOST_FILE</span><span class="o">=</span><span class="nv">$PBS_NODEFILE</span>
-<span class="nb">export</span> <span class="nv">LINUX_SSH_BINARY_PATH</span><span class="o">=</span>/usr/bin
-<span class="nb">export</span> <span class="nv">ANSYSEM_LINUX_HPC_UTILS</span><span class="o">=</span>/opt/software/AnsysEM/15.0/AnsysEM15.0/Linux64/schedulers/utils
+module<span class="w"> </span>load<span class="w"> </span>HFSS/15.0
+<span class="nb">export</span><span class="w"> </span><span class="nv">OptFile</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/Options.txt
+<span class="nb">export</span><span class="w"> </span><span class="nv">ANSYSEM_JOB_ID</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ANSYSEM_HOST_FILE</span><span class="o">=</span><span class="nv">$PBS_NODEFILE</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LINUX_SSH_BINARY_PATH</span><span class="o">=</span>/usr/bin
+<span class="nb">export</span><span class="w"> </span><span class="nv">ANSYSEM_LINUX_HPC_UTILS</span><span class="o">=</span>/opt/software/AnsysEM/15.0/AnsysEM15.0/Linux64/schedulers/utils
 
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 <span class="c1"># mkdir -p ${PBS_O_WORKDIR}/scratch</span>
 
-<span class="nb">echo</span> creating batch options list
-<span class="nb">echo</span> <span class="se">\$</span>begin <span class="se">\&#39;</span>Config<span class="se">\&#39;</span> &gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS/NumCoresPerDistributedTask<span class="se">\&#39;</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_PPN</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS/HPCLicenseType<span class="se">\&#39;</span><span class="o">=</span><span class="se">\&#39;</span>Pool<span class="se">\&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS/SolveAdaptiveOnly<span class="se">\&#39;</span><span class="o">=</span><span class="m">0</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS/MPIVendor<span class="se">\&#39;</span><span class="o">=</span> <span class="se">\&#39;</span>Intel<span class="se">\&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS-IE/NumCoresPerDistributedTask<span class="se">\&#39;</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_PPN</span><span class="si">}</span>  &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS-IE/HPCLicenseType<span class="se">\&#39;</span><span class="o">=</span><span class="se">\&#39;</span>Pool<span class="se">\&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS-IE/SolveAdaptiveOnly<span class="se">\&#39;</span><span class="o">=</span><span class="m">0</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-<span class="nb">echo</span> <span class="se">\&#39;</span>HFSS-IE/MPIVendor<span class="se">\&#39;</span><span class="o">=</span><span class="se">\&#39;</span>Intel<span class="se">\&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span>creating<span class="w"> </span>batch<span class="w"> </span>options<span class="w"> </span>list
+<span class="nb">echo</span><span class="w"> </span><span class="se">\$</span>begin<span class="w"> </span><span class="se">\&#39;</span>Config<span class="se">\&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS/NumCoresPerDistributedTask<span class="se">\&#39;</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_PPN</span><span class="si">}</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS/HPCLicenseType<span class="se">\&#39;</span><span class="o">=</span><span class="se">\&#39;</span>Pool<span class="se">\&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS/SolveAdaptiveOnly<span class="se">\&#39;</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS/MPIVendor<span class="se">\&#39;</span><span class="o">=</span><span class="w"> </span><span class="se">\&#39;</span>Intel<span class="se">\&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS-IE/NumCoresPerDistributedTask<span class="se">\&#39;</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_PPN</span><span class="si">}</span><span class="w">  </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS-IE/HPCLicenseType<span class="se">\&#39;</span><span class="o">=</span><span class="se">\&#39;</span>Pool<span class="se">\&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS-IE/SolveAdaptiveOnly<span class="se">\&#39;</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\&#39;</span>HFSS-IE/MPIVendor<span class="se">\&#39;</span><span class="o">=</span><span class="se">\&#39;</span>Intel<span class="se">\&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
 <span class="c1"># echo \&#39;tempdirectory\&#39;=\&#39;${PBS_O_WORKDIR}/scratch\&#39; &gt;&gt; ${OptFile}</span>
-<span class="nb">echo</span> <span class="se">\$</span>end <span class="se">\&#39;</span>Config<span class="se">\&#39;</span> &gt;&gt; <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
-chmod <span class="m">777</span> <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="se">\$</span>end<span class="w"> </span><span class="se">\&#39;</span>Config<span class="se">\&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
+chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span>
 
-hfss -ng -monitor -distributed -machinelist <span class="nv">num</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_NODES</span><span class="si">}</span> -batchoptions <span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span> -BatchSolve <span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span>.hfss
-</code></pre></div>
-</td></tr></table>
+hfss<span class="w"> </span>-ng<span class="w"> </span>-monitor<span class="w"> </span>-distributed<span class="w"> </span>-machinelist<span class="w"> </span><span class="nv">num</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_NUM_NODES</span><span class="si">}</span><span class="w"> </span>-batchoptions<span class="w"> </span><span class="si">${</span><span class="nv">OptFile</span><span class="si">}</span><span class="w"> </span>-BatchSolve<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBNAME</span><span class="si">}</span>.hfss
+</code></pre></div></td></tr></table></div>
+
 <p><a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/06/08/HFSS+script">View
 Online</a></p>
 <p>Blogpost migrated from <a href="https://wiki.hpcc.msu.edu/display/~colbrydi@msu.edu/2011/06/08/HFSS+script">ICER Wiki</a> using custom python script. Comment on errors below.</p></div>
@@ -246,7 +246,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

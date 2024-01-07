@@ -86,7 +86,7 @@ using longjob with a four hour walltime has the following advantages:</p>
 <p>The following are instructions for trying out longjob on our system. First,
 you start with a a basic submission script. For example, consider the
 following simple submission script:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -109,32 +109,32 @@ following simple submission script:</p>
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,walltime=200:00:00,mem=2gb,feature=gbe</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -m ae</span>
 
-<span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
 
 <span class="nv">srcdir</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/bin/
 <span class="nv">WORK</span><span class="o">=</span>/mnt/scratch/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/KineticSN/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-mkdir -p <span class="si">${</span><span class="nv">WORK</span><span class="si">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">WORK</span><span class="si">}</span>
 
 <span class="c1"># Copy files to work directory</span>
-cp -r <span class="nv">$srcdir</span>/* <span class="nv">$WORK</span>/
+cp<span class="w"> </span>-r<span class="w"> </span><span class="nv">$srcdir</span>/*<span class="w"> </span><span class="nv">$WORK</span>/
 
 <span class="c1">#Move to the working directory</span>
-<span class="nb">cd</span> <span class="nv">$WORK</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$WORK</span>
 
 <span class="c1">#Run my program</span>
-./SimulationTest -scattering_flag <span class="m">0</span> -weak_reaction_flag <span class="m">0</span> -outputVisData <span class="m">100</span>
+./SimulationTest<span class="w"> </span>-scattering_flag<span class="w"> </span><span class="m">0</span><span class="w"> </span>-weak_reaction_flag<span class="w"> </span><span class="m">0</span><span class="w"> </span>-outputVisData<span class="w"> </span><span class="m">100</span>
 <span class="nv">ret</span><span class="o">=</span><span class="nv">$?</span>
 
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 
-<span class="nb">exit</span> <span class="nv">$ret</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">exit</span><span class="w"> </span><span class="nv">$ret</span>
+</code></pre></div></td></tr></table></div>
+
 <p>To get longjob to work, the following modificaitons need to be made:</p>
 <ol>
 <li>Adjust the walltime to be shorter (I suggest 4 hours or less).</li>
@@ -155,7 +155,7 @@ qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class=
 </li>
 </ol>
 <p>The following is a modified example script with the changes:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -187,41 +187,41 @@ qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class=
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash -login</span>
 <span class="c1">#PBS -l nodes=1:ppn=1,walltime=04:00:00,mem=2gb,feature=gbe</span>
 <span class="c1">#PBS -j oe</span>
 <span class="c1">#PBS -m ae</span>
 
-<span class="nb">shopt</span> -s expand_aliases
-<span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
-module load powertools
+<span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>expand_aliases
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$PBS_O_WORKDIR</span>
+module<span class="w"> </span>load<span class="w"> </span>powertools
 
 <span class="c1"># 4 hours * 60 minutes * 6 seconds - 60 seconds * 5 minutes</span>
-<span class="nb">export</span> <span class="nv">BLCR_WAIT_SEC</span><span class="o">=</span><span class="k">$((</span> <span class="m">4</span> <span class="o">*</span> <span class="m">60</span> <span class="o">*</span> <span class="m">60</span> <span class="o">-</span> <span class="m">60</span> <span class="o">*</span> <span class="m">5</span><span class="k">))</span>
-<span class="nb">export</span> <span class="nv">PBS_JOBSCRIPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;Waiting </span><span class="si">${</span><span class="nv">BLCR_WAIT_SEC</span><span class="si">}</span><span class="s2"> seconds to run </span><span class="si">${</span><span class="nv">PBS_JOBSCRIPT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BLCR_WAIT_SEC</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">5</span><span class="k">))</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PBS_JOBSCRIPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Waiting </span><span class="si">${</span><span class="nv">BLCR_WAIT_SEC</span><span class="si">}</span><span class="s2"> seconds to run </span><span class="si">${</span><span class="nv">PBS_JOBSCRIPT</span><span class="si">}</span><span class="s2">&quot;</span>
 
-<span class="k">if</span> <span class="o">[</span> ! -f checkfile.blcr <span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span>checkfile.blcr<span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-    <span class="nv">srcdir</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/bin/
-    <span class="nv">WORK</span><span class="o">=</span>/mnt/scratch/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/KineticSN/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
-    mkdir -p <span class="si">${</span><span class="nv">WORK</span><span class="si">}</span>
+<span class="w">    </span><span class="nv">srcdir</span><span class="o">=</span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>/bin/
+<span class="w">    </span><span class="nv">WORK</span><span class="o">=</span>/mnt/scratch/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/KineticSN/<span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">WORK</span><span class="si">}</span>
 
-    <span class="c1"># Copy files to work directory</span>
-    cp -r <span class="nv">$srcdir</span>/* <span class="nv">$WORK</span>/
+<span class="w">    </span><span class="c1"># Copy files to work directory</span>
+<span class="w">    </span>cp<span class="w"> </span>-r<span class="w"> </span><span class="nv">$srcdir</span>/*<span class="w"> </span><span class="nv">$WORK</span>/
 
-    <span class="c1">#Run main simulation program</span>
-    <span class="nb">cd</span> <span class="nv">$WORK</span>
+<span class="w">    </span><span class="c1">#Run main simulation program</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$WORK</span>
 
 <span class="k">fi</span>
-longjob ./SimulationTest -scattering_flag <span class="m">0</span> -weak_reaction_flag <span class="m">0</span> -outputVisData <span class="m">100</span>
+longjob<span class="w"> </span>./SimulationTest<span class="w"> </span>-scattering_flag<span class="w"> </span><span class="m">0</span><span class="w"> </span>-weak_reaction_flag<span class="w"> </span><span class="m">0</span><span class="w"> </span>-outputVisData<span class="w"> </span><span class="m">100</span>
 <span class="nv">ret</span><span class="o">=</span><span class="nv">$?</span>
 
-qstat -f <span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
+qstat<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PBS_JOBID</span><span class="si">}</span>
 
-<span class="nb">exit</span> <span class="nv">$ret</span>
-</code></pre></div>
-</td></tr></table>
+<span class="nb">exit</span><span class="w"> </span><span class="nv">$ret</span>
+</code></pre></div></td></tr></table></div>
+
 <p>If everything works as expected, you should be able to qsub the above file and
 it will resubmit itself every four hours until the job completes. Note, this
 is a work in progress and I have not tested all cases. For example, one case
@@ -306,7 +306,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->

@@ -127,7 +127,7 @@ originally requested in the submission script. To do this, I have made the
 following script which will generate a config file that can be used to run the
 job:</p>
 <p><strong>pernodecofig</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -173,7 +173,7 @@ job:</p>
 <span class="normal">44</span>
 <span class="normal">45</span>
 <span class="normal">46</span>
-<span class="normal">47</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/perl</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/usr/bin/perl</span>
 <span class="c1"># Written by Dirk Colbry - iCERi - August 26, 2009</span>
 <span class="c1"># (c) 2010 Michigan State University Board of Trustees.</span>
 <span class="c1">#</span>
@@ -194,49 +194,49 @@ job:</p>
 <span class="nv">$nodefile</span><span class="o">=</span><span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 
 <span class="c1">#Parse the nodefile to find the names of each of the allocated nodes.</span>
-<span class="k">if</span><span class="p">(</span><span class="o">-</span><span class="n">T</span> <span class="nv">$nodefile</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">open</span> <span class="p">(</span><span class="n">FILE</span><span class="p">,</span> <span class="s">&quot;$nodefile&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="k">print</span> <span class="s">&quot;Can&#39;t open &#39;$nodefile&#39;: $! \n\n&quot;</span><span class="p">;</span>
-        <span class="nv">@testfile</span> <span class="o">=</span> <span class="sr">&lt;FILE&gt;</span><span class="p">;</span>
-    <span class="nb">close</span><span class="p">(</span><span class="n">FILE</span><span class="p">);</span>
-    <span class="nv">$count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-    <span class="k">foreach</span> <span class="p">(</span><span class="nv">@testfile</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">chomp</span><span class="p">;</span>
-        <span class="nv">$count</span><span class="o">=</span><span class="nv">$count</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="nv">$count</span> <span class="o">==</span> <span class="nv">$ppn</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-            <span class="k">print</span> <span class="s">&quot;$_\t&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">print</span> <span class="bp">STDERR</span> <span class="s">&quot;INPUT NOT A TEXT FILE\n&quot;</span><span class="p">;</span>
-    <span class="nb">die</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="o">-</span><span class="n">T</span><span class="w"> </span><span class="nv">$nodefile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">open</span><span class="w"> </span><span class="p">(</span><span class="n">FILE</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;$nodefile&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;Can&#39;t open &#39;$nodefile&#39;: $! \n\n&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nv">@testfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">&lt;FILE&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">close</span><span class="p">(</span><span class="n">FILE</span><span class="p">);</span>
+<span class="w">    </span><span class="nv">$count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">@testfile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">chomp</span><span class="p">;</span>
+<span class="w">        </span><span class="nv">$count</span><span class="o">=</span><span class="nv">$count</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="nv">$count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">$ppn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nv">$count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;$_\t&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="bp">STDERR</span><span class="w"> </span><span class="s">&quot;INPUT NOT A TEXT FILE\n&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">die</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1"># Add the executable to the config file</span>
-<span class="nv">$numArgs</span> <span class="o">=</span> <span class="nv">$#ARGV</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">print</span> <span class="s">&quot; \: &quot;</span><span class="p">;</span>
+<span class="nv">$numArgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$#ARGV</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">print</span><span class="w"> </span><span class="s">&quot; \: &quot;</span><span class="p">;</span>
 
-<span class="k">foreach</span> <span class="nv">$argnum</span> <span class="p">(</span><span class="mi">2</span> <span class="o">..</span> <span class="nv">$#ARGV</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">print</span> <span class="s">&quot;$ARGV[$argnum] &quot;</span><span class="p">;</span>
+<span class="k">foreach</span><span class="w"> </span><span class="nv">$argnum</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">$#ARGV</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;$ARGV[$argnum] &quot;</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">print</span> <span class="s">&quot;\n&quot;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="k">print</span><span class="w"> </span><span class="s">&quot;\n&quot;</span>
+</code></pre></div></td></tr></table></div>
+
 <p>To use this command you can add the following to your submission script:</p>
 <p><strong>pernodetest.qsub</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="c1">#PBS -l nodes=16:ppn=2,walltime=00:01:00</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_O_WORKDIR</span><span class="si">}</span>
 
-./pernodeconfig <span class="m">2</span> <span class="si">${</span><span class="nv">PBS_NODEFILE</span><span class="si">}</span> hostname &gt; <span class="nv">$PBS_JOBID</span>.cfg
-mpiexec -comm none -conf <span class="nv">$PBS_JOBID</span>.cfg
-</code></pre></div>
-</td></tr></table>
+./pernodeconfig<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="si">${</span><span class="nv">PBS_NODEFILE</span><span class="si">}</span><span class="w"> </span>hostname<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$PBS_JOBID</span>.cfg
+mpiexec<span class="w"> </span>-comm<span class="w"> </span>none<span class="w"> </span>-conf<span class="w"> </span><span class="nv">$PBS_JOBID</span>.cfg
+</code></pre></div></td></tr></table></div>
+
 <p>This script will output the following nodes which is may be more correct
 depending on your job:</p>
 <div class="highlight"><pre><span></span><code>afn-000
@@ -347,7 +347,7 @@ Online</a></p>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2022</p>
+<p><a href=".">Dirk's Home Page</a> &copy; Dr. Dirk Colbry 2023</p>
 </footer>
 
 </div> <!-- /container -->
