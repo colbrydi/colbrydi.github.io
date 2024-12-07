@@ -1,7 +1,32 @@
-<html>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive YouTube Embed</title>
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
     <h1>Merry Christmas BEN!!!!</h1>
-  
-    <iframe width="100%" src="https://www.youtube.com/embed/Xjz7zzE0WiQ?si=MWaON_PgIg6qlGuL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </body>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Xjz7zzE0WiQ?si=MWaON_PgIg6qlGuL" frameborder="0" allowfullscreen></iframe>
+    </div>
+</body>
 </html>
