@@ -1,7 +1,27 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>Merry Christmas BEN!!!!</h1>
-  
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Xjz7zzE0WiQ?si=MWaON_PgIg6qlGuL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </body>
+<head>
+    <title>Python Function in Webpage</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h1>Check String</h1>
+    <input type="text" id="inputString">
+    <button onclick="checkString()">Check</button>
+    <p id="result"></p>
+
+    <script type="text/python">
+        from browser import document, alert
+
+        def check_string(input_string):
+            return input_string == "example"
+
+        def checkString(event):
+            input_string = document["inputString"].value
+            result = check_string(input_string)
+            document["result"].text = str(result)
+
+        document["inputString"].bind("change", checkString)
+    </script>
+</body>
 </html>
