@@ -59,14 +59,14 @@
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                clockText = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                clockText = `-${days}d ${hours}h ${minutes}m ${seconds}s`;
             } else {
                 const elapsed = now - targetDate;
                 const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
-                clockText = `Countup: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                clockText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }
 
             document.getElementById('clock').innerText = clockText;
