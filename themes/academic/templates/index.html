@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-image-container">
+            <img src="{{ SITEURL }}/images/hero-profile.svg" alt="Profile" class="hero-profile-image">
+            <!-- Replace hero-profile.svg with your image (jpg, png, svg) in content/images/ -->
+        </div>
+        <p class="subtitle">{{ SITESUBTITLE }}</p>
+    </div>
+</section>
+
+<section class="intro">
+    <div class="intro-content">
+        <h2><a href="{{ SITEURL }}/about/" style="color: var(--color-primary); text-decoration: none;">About Me</a></h2>
+        {% for page in pages if page.slug == 'about' and page.summary %}
+        {{ page.summary }}
+        {% endfor %}
+        <div class="quick-links">
+            {% for page in pages if page.slug == 'research' %}
+            <a href="{{ SITEURL }}/research/" class="card">
+                <h3>Research</h3>
+                {% if page.summary %}{{ page.summary }}{% endif %}
+            </a>
+            {% endfor %}
+            {% for page in pages if page.slug == 'teaching' %}
+            <a href="{{ SITEURL }}/teaching/" class="card">
+                <h3>Teaching</h3>
+                {% if page.summary %}{{ page.summary }}{% endif %}
+            </a>
+            {% endfor %}
+            {% for page in pages if page.slug == 'outreach' %}
+            <a href="{{ SITEURL }}/outreach/" class="card">
+                <h3>Outreach</h3>
+                {% if page.summary %}{{ page.summary }}{% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% if articles %}
+<section class="recent-posts">
+    <h2>Recent Updates</h2>
+    <div class="articles-list">
+        {% for article in articles[:3] %}
+        <article class="article-preview">
+            <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+            <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%B %d, %Y') }}</time>
+            <p>{{ article.summary }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endblock %}

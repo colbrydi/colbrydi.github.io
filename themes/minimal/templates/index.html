@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Home{% endblock %}
+{% block content %}
+<section class="hero minimal-hero">
+    <h1 class="hero-title">{{ SITENAME }}</h1>
+    {% if SITESUBTITLE %}<p class="subtitle">{{ SITESUBTITLE }}</p>{% endif %}
+</section>
+<section class="intro minimal-intro">
+    <h2><a href="{{ SITEURL }}/about/" class="inline-link">About Me</a></h2>
+    {% for page in pages if page.slug == 'about' and page.summary %}
+    {{ page.summary }}
+    {% endfor %}
+    <div class="quick-links minimal-links">
+        {% for page in pages if page.slug == 'research' %}
+        <a href="{{ SITEURL }}/research/" class="card"><h3>Research</h3>{% if page.summary %}{{ page.summary }}{% endif %}</a>
+        {% endfor %}
+        {% for page in pages if page.slug == 'teaching' %}
+        <a href="{{ SITEURL }}/teaching/" class="card"><h3>Teaching</h3>{% if page.summary %}{{ page.summary }}{% endif %}</a>
+        {% endfor %}
+        {% for page in pages if page.slug == 'outreach' %}
+        <a href="{{ SITEURL }}/outreach/" class="card"><h3>Outreach</h3>{% if page.summary %}{{ page.summary }}{% endif %}</a>
+        {% endfor %}
+    </div>
+</section>
+{% if articles %}
+<section class="recent-posts">
+    <h2>Recent Updates</h2>
+    <ul class="post-list">
+        {% for article in articles[:5] %}
+        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> <small>{{ article.date.strftime('%Y-%m-%d') }}</small></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endblock %}

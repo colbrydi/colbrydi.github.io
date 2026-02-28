@@ -1,0 +1,10 @@
+[project]
+name = "python-website-prototype"
+version = "0.1.0"
+description = "A multi-page professional website built using Python and Pelican, managed with uv"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "markdown>=3.10",
+    "pelican>=4.11.0.post0",
+]

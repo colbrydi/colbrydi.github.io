@@ -1,0 +1,75 @@
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f7f9;
+  --color-border: #e0e4e8;
+  --color-text: #222;
+  --color-text-light: #555;
+  --color-primary: #0d4d92; /* Accessible deep blue */
+  --color-primary-hover: #0a3a70;
+  --color-accent: #ffb347; /* Soft accent */
+  --radius: 6px;
+  --spacing: 1rem;
+  --font-stack: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin:0; font-family: var(--font-stack); background: var(--color-bg); color: var(--color-text); line-height:1.5; }
+
+.container { width: min(100%, 960px); margin: 0 auto; padding: 0 var(--spacing); }
+
+.site-header { border-bottom: 1px solid var(--color-border); background: var(--color-bg); }
+.site-title { font-weight:600; font-size:1.1rem; color: var(--color-primary); text-decoration:none; }
+.main-nav { display:flex; align-items:center; gap: var(--spacing); padding: .75rem 0; }
+.nav-links { list-style:none; display:flex; gap: .75rem; margin:0; padding:0; }
+.nav-links a { padding:.35rem .6rem; border-radius: var(--radius); text-decoration:none; color: var(--color-text); }
+.nav-links a:hover { background: var(--color-surface); color: var(--color-primary); }
+.nav-toggle { display:none; }
+
+.site-footer { border-top:1px solid var(--color-border); padding:1.25rem 0; font-size:.875rem; color: var(--color-text-light); }
+.site-footer a { color: var(--color-primary); text-decoration:none; }
+.site-footer a:hover { text-decoration:underline; }
+
+.hero { padding: 2.5rem 0 1.5rem; text-align:center; }
+.hero-title { margin:0; font-size: clamp(1.9rem, 4.5vw, 2.75rem); font-weight:600; }
+.subtitle { color: var(--color-text-light); max-width:640px; margin:.75rem auto 0; font-size:1rem; }
+
+.intro { padding: 1.5rem 0 0.5rem; border-top:1px solid var(--color-border); }
+.intro h2 { margin:0 0 .5rem; font-size:1.4rem; }
+.inline-link { color: var(--color-primary); text-decoration:none; }
+.inline-link:hover { text-decoration:underline; }
+
+.quick-links { display:flex; gap:.75rem; flex-wrap:wrap; margin:1rem 0; }
+.card { flex:1 1 160px; min-width:160px; background: var(--color-surface); padding:.9rem .9rem .8rem; border:1px solid var(--color-border); border-radius: var(--radius); text-decoration:none; color: var(--color-text); transition:.15s; }
+.card:hover { border-color: var(--color-primary); box-shadow:0 2px 6px rgba(0,0,0,.05); }
+.card h3 { margin:.2rem 0 .4rem; font-size:1rem; }
+
+.post-list { list-style:none; margin:0; padding:0; }
+.post-list li { padding:.4rem 0; border-bottom:1px solid var(--color-border); font-size:.95rem; }
+.post-list a { text-decoration:none; color: var(--color-primary); }
+.post-list a:hover { text-decoration:underline; }
+
+.page-content, .article-content { max-width:760px; margin:0 auto; }
+.page-content h1, .article-content h1 { font-size:2rem; margin-top:0; }
+.article-meta { font-size:.8rem; color: var(--color-text-light); margin-bottom:1rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+.category { background: var(--color-primary); color:#fff; padding:.15rem .5rem; border-radius: var(--radius); font-size:.7rem; }
+
+pre, code { font-family: SFMono-Regular, Menlo, Consolas, monospace; font-size:.85rem; background: #272b33; color:#f8f8f2; }
+pre { padding:.85rem 1rem; border-radius: var(--radius); overflow:auto; }
+code { padding:.15rem .35rem; border-radius: var(--radius); }
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { color: var(--color-primary-hover); }
+.page-content a, .article-content a, .intro > p a { text-decoration: underline; }
+
+img { max-width:100%; height:auto; display:block; }
+
+@media (max-width: 680px) {
+  .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background: var(--color-bg); flex-direction:column; padding:.75rem; border-bottom:1px solid var(--color-border); }
+  .nav-links li { padding:.25rem 0; }
+  .nav-links a { padding:.5rem .6rem; }
+  .nav-links.active { display:flex; }
+  .nav-toggle { display:block; background:none; border:1px solid var(--color-border); padding:.4rem .6rem; border-radius: var(--radius); cursor:pointer; }
+  .hero { padding: 2rem 0 1rem; }
+  .intro { padding: 1.25rem 0 .25rem; }
+  .quick-links { flex-direction:column; }
+}

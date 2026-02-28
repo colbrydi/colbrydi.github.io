@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ SITESUBTITLE }}{% endblock %}">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="{{ SITEURL }}/" class="site-title">{{ SITENAME }}</a>
+                <ul class="nav-links">
+                    {% for title, link in MENUITEMS %}
+                    <li><a href="{{ SITEURL }}{{ link }}">{{ title }}</a></li>
+                    {% endfor %}
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        {% for name, link in SOCIAL %}
+                        <li><a href="{{ link }}" target="_blank" rel="noopener">{{ name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <p>&copy; {{ CURRENT_YEAR }} {{ AUTHOR }}. All rights reserved.</p>
+                    <p>Powered by <a href="https://getpelican.com/" target="_blank" rel="noopener">Pelican</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ SITEURL }}/theme/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

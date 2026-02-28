@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+{% block description %}{{ article.summary if article.summary else SITESUBTITLE }}{% endblock %}
+{% block content %}
+<article class="article-content minimal-article">
+    <h1>{{ article.title }}</h1>
+    <div class="article-meta">
+        <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%Y-%m-%d') }}</time>
+        {% if article.category %}<span class="category">{{ article.category }}</span>{% endif %}
+    </div>
+    {{ article.content }}
+</article>
+{% endblock %}
